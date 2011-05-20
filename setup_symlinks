@@ -1,0 +1,132 @@
+#!/usr/bin/env python
+"""
+=================
+Config Symlinkier
+=================
+
+:Author: QueezyTheGreat
+:Version: 0.1.2
+
+Description
+-----------
+
+Creates symlinks to the files and directories that reside in the 
+directory where this script is, excluding this script and any hidden
+files/directories.
+
+The destination location of of the symlinks is the home directory of
+the user running the script. The file name is prefixed with a
+dot('.'). For example::
+
+    file_name  ->   ~/.file_name
+
+All files/directories that are to be symlinked need to have the dot
+prefix removed from their name.
+
+
+Usage
+-----
+
+setup_symlinks [-v | -h]
+    -v      verbose output
+    -h      displays this message
+
+"""
+
+from os.path import dirname, basename, join, exists, islink, lexists, expanduser, abspath
+import os, sys
+
+def cleanup_symlinks(logfile):
+    """
+    Removes all symlinks located in the log file .
+    Location of the log file is ~/.setup_symlinks.log
+
+    Only symlinks are removed!
+    """
+    
+    if exists(logfile):
+        removed = []
+        try:
+            log = open(logfile,'r')
+            symlinks = [ symlink.rstrip() for symlink in log ]
+            for symlink in symlinks:
+                if lexists(symlink) and islink(symlink):
+                    try:
+                        os.remove(symlink)
+                        removed.append(symlink)
+                        if verbose :
+                            print 'Removing symlink %s' % symlink
+                    except OSError, err:
+                        print 'An error occured removing %s symlink.' % symlink
+                elif verbose:
+                    print 'Not removing %s' % symlink
+            log.close()
+            log = open(logfile,'w')
+            for symlink in symlinks:
+                if symlink not in removed and lexists(symlink):
+                    log.write(symlink+'\n')
+        except OSError, err:
+            print 'An error occured while trying to read %s log file' % logfile
+            print err
+        else:
+            log.close()
+
+def log_symlinks(logfile, symlinks):
+    """
+    Logs the supplied symlinks to ~/.setup_symlinks.log log file.
+
+    symlinks - list of symlinks to log
+    """
+
+    try:
+        log = open(logfile,'a')
+        for symlink in symlinks:
+            log.write(symlink+'\n')
+    except:
+        print 'An error occured while writing log file(%s)' % logfile
+    else:
+        log.close()
+
+def create_symlinks(src_dir, configs, dest_dir, prefix):
+    """
+    Creates symlinks.
+    """
+    
+    symlinks = []
+    for config in configs:
+        if config != basename(__file__) and not config.startswith('.'):
+            try:
+                sym_src = join(src_dir, config)
+                sym_dst = expanduser(join(dest_dir, prefix+config))
+                os.symlink(sym_src, sym_dst)
+                symlinks.append(sym_dst)
+                if verbose:
+                    print 'Created symlink %s to %s' % (sym_dst, sym_src)
+            except OSError, err:
+                if err.errno == 17:
+                    print '\nFailed to create symlink %s to %s\n' % (sym_dst, sym_src)
+            except:
+                    print '\nAn unknown error occured during the creation of symlinks. Exiting...'
+    return symlinks
+
+if __name__ == '__main__':
+
+    verbose = False
+
+    if len(sys.argv) == 2 and sys.argv[-1] in ['-v', '-h']:
+        if sys.argv[-1] == '-v':
+            verbose = True
+        elif sys.argv[-1] == '-h':
+            print __doc__
+            sys.exit(0)
+
+    fdir = abspath(dirname(__file__))
+    fname = basename(__file__)
+
+    configs = os.listdir(fdir)
+    logfile = expanduser(join('~', '.%s.log' % fname))
+
+    cleanup_symlinks(logfile)
+    symlinks = create_symlinks(fdir, configs, '~', '.')
+    log_symlinks(logfile, symlinks)
+

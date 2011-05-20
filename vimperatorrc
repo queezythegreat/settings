@@ -1,0 +1,5 @@
+map H <ESC>:tabprevious<CR>
+map L <ESC>:tabnext<CR>
+map h <ESC>:back<CR>
+map l <ESC>:forward<CR>
+set noautocomplete

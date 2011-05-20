@@ -1,0 +1,75 @@
+startup_message off
+vbell off
+escape ``
+
+defscrollback 10000 
+
+deflogin off
+# Default shell
+shell zsh
+# Defaul shell title - dynamic
+shelltitle "]|bash"
+
+screen 0
+screen 1
+screen 2
+screen 3
+screen 4
+
+# Swiching to first screen
+next
+
+#backtick 9 0 0 hostname
+
+autodetach on
+
+
+hardstatus alwayslastline
+#hardstatus string '%{= bW} %5<%-Lw %>%{=b WB}[ %n%f %t ]%{= bW}%+Lw%> %{= BW}%-= %{+ .c}-| %9` |-| %D %d %M %Y %c:%s |- %{-}'
+#hardstatus string '%0>%{= rW} %-Lw %50>%{=b WR}[ %n%f %t ]%{= rW}%+Lw %{= RW}%-57< %-= %{+ .c}-| %H |-| %D %d %M %Y %c:%s |- %{-}'
+#hardstatus string '%02=%0>%{= kw}%-Lw%50>%{=b bw} %n  %t %{= kw}%+Lw%{= kw}%-1<%{-}%{=dd}'
+hardstatus string '%02=%0>%{= dd}%-Lw%50>%{=b bw} %n  %t %{= dd}%+Lw%{= dd}%-1<%{-}%{=dd}'
+
+#caption always "%?%F%{=u .W}%:%{=ub .W}%? %h%f% %t %-024=%{+b} %C %A, %D %d %M %Y%{= .b}"
+caption always "%?%F%{=b bW}%:%{= bW}%? [%f%] %t - %h %-050=%H%-027= %D %d %M %Y, %C %A %{= .b}%{-}%{=dd}"
+
+windowlist title "Num %10=Title %=Flags%"
+windowlist string "  %n - %10= %t %f"
+
+#Timeout for displaying messages
+msgwait 5
+activity "         Activity has appeared in window      %n - %t"
+
+
+#Key bindings
+bind s split      # Split window
+bind - resize -5  # Decrease region by 5
+bind = resize +5  # Increase region by 5
+
+bind q only
+bind Q quit
+
+bind t title     # Window title
+bind T title     # Window title
+
+bind w windowlist -b
+
+bind j focus down
+bind k focus up
+
+bind K kill
+
+#terminfo and termcap for nice 256 color terminal
+# allow bold colors - necessary for some reason
+attrcolor b ".I" 
+# tell screen how to set colors. AB = background, AF=foreground 
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm' 
+
+#Page Up and Down keybindings
+bindkey ^[[5~ eval "copy" "stuff \"^u\"" # alt-page-up goes to copy mode
+bindkey ^[[6~ eval "copy"   # alt-page-down goes to copy mode
+bindkey -m ^[[5~ stuff "^u" # alt-page-up sends page-up in copy mode
+bindkey -m ^[[6~ stuff "^d" # alt-page-down sends page-down in copy mode
+bindkey -m u stuff "^u"
+bindkey -m d stuff "^d"
+

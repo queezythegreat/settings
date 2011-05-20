@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/qtzlabs/!svn/ver/214/tools/settings/etc/vim/syntax
+END
+CVSAnnotate.vim
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/qtzlabs/!svn/ver/20/tools/settings/etc/vim/syntax/CVSAnnotate.vim
+END
+doctest.vim
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/qtzlabs/!svn/ver/155/tools/settings/etc/vim/syntax/doctest.vim
+END
+SVKAnnotate.vim
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/qtzlabs/!svn/ver/20/tools/settings/etc/vim/syntax/SVKAnnotate.vim
+END
+rest.vim
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/qtzlabs/!svn/ver/10/tools/settings/etc/vim/syntax/rest.vim
+END
+SVNAnnotate.vim
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/qtzlabs/!svn/ver/20/tools/settings/etc/vim/syntax/SVNAnnotate.vim
+END
+python.vim
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/qtzlabs/!svn/ver/10/tools/settings/etc/vim/syntax/python.vim
+END
+snippet.vim
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/qtzlabs/!svn/ver/214/tools/settings/etc/vim/syntax/snippet.vim
+END
+vcscommit.vim
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/qtzlabs/!svn/ver/20/tools/settings/etc/vim/syntax/vcscommit.vim
+END
