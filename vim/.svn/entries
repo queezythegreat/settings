@@ -1,92 +1,0 @@
-10
-
-dir
-214
-http://svn.qtzlabs.com/qtzlabs/tools/settings/etc/vim
-http://svn.qtzlabs.com/qtzlabs
-
-
-
-2009-12-27T01:30:27.053151Z
-214
-queezy
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-e0253db6-b3bb-4c56-aaf6-73de7cb0cda8
-
-after
-dir
-
-colors
-dir
-
-extra
-dir
-
-.VimballRecord
-file
-
-
-
-
-2010-05-29T20:02:53.088926Z
-b6679e95eb4d8348102268aa84d680fe
-2009-02-19T04:19:09.117088Z
-10
-queezy
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-4992
-
-doc
-dir
-
-snippets
-dir
-
-syntax
-dir
-
-autoload
-dir
-
-ftplugin
-dir
-
-compiler
-dir
-
-plugin
-dir
-
