@@ -94,8 +94,9 @@
     let g:ConqueTerm_Color = 1           " 0 - no terminal colors
                                          " 1 - limited terminal colors
                                          " 2 - full color
-    let g:ConqueTerm_TERM =  'xterm'     " TERM setting
+    "let g:ConqueTerm_TERM =  'xterm'     " TERM setting
     let g:ConqueTerm_ReadUnfocused = 1   " Read terminal even if unfocused
+    let g:ConqueTerm_CWInsert = 1
 
 " ----------------------------- "
 "     PyLint Options            "
