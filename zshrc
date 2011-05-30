@@ -63,10 +63,15 @@ CPATH="$HOME/bin:/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/sbin:/u
 echo ${PATH} | grep -q "${CPATH}" || export PATH="$CPATH:$PATH"
 
 
-LANGUAGE=
-LC_ALL=en_US.UTF-8
-LANG=en_US.UTF-8
-LC_CTYPE=C
+#LANGUAGE=
+#LC_ALL=en_US.UTF-8
+#LANG=en_US.UTF-8
+#LC_CTYPE=C
+
+export LANG=en_US.utf8
+export LC_ALL=
+export LC_COLLATE="C"
+
 
 unsetopt ALL_EXPORT
 # --------------------------------------------------------------------
