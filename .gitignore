@@ -1,0 +1,4 @@
+ipython/*.pyc
+ipython/*.pyo
+ipython/db
+ipython/history
