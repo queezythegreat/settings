@@ -2202,7 +2202,8 @@ function! s:initNerdTreeMirror()
     elseif len(keys(options)) ==# 1
         let bufferName = values(options)[0]
     else
-        call s:echo("No trees to mirror")
+        call s:initNerdTree('')
+        "call s:echo("No trees to mirror")
         return
     endif
 
@@ -3007,7 +3008,8 @@ function! s:toggle(dir)
             call s:closeTree()
         endif
     else
-        call s:initNerdTree(a:dir)
+        "call s:initNerdTree(a:dir)
+        call s:initNerdTreeMirror()
     endif
 endfunction
 "SECTION: Interface bindings {{{1
@@ -3558,7 +3560,10 @@ function! s:openInNewTab(stayCurrentTab)
             tabnew
             call s:initNerdTree(treenode.path.strForOS(0))
         else
-            exec "tabedit " . treenode.path.strForEditCmd()
+            tabnew
+            exec "edit " . treenode.path.strForEditCmd()
+            call s:initNerdTreeMirror()
+            exec "wincmd l"
         endif
     else
         let bookmark = s:getSelectedBookmark()
