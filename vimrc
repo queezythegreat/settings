@@ -6,7 +6,7 @@
     set backspace=2   " Enable backspace do delete previous characters 
     set shortmess=Imnrwx
     set noswf
-    set guifont=Lucida\ Console\ Semi-Condensed\ 12
+    "set guifont=Lucida\ Console\ Semi-Condensed\ 12
     set guioptions=
 
 
