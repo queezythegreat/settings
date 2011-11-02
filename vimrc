@@ -235,46 +235,95 @@ if exists("+tabline")
     set showtabline=2
 
 
+    function GetTabPrefix(tabNum)
+        return a:tabNum . '  '
+    endfunction
+
+    function GetTabName(tabNum)
+        " filename for current window in tab, without path
+        let bufferName = fnamemodify( bufname(tabpagebuflist(a:tabNum )[tabpagewinnr(a:tabNum ) - 1]), ':t')
+        " if empty, display [No Name]
+        if bufferName == ''
+            let bufferName = '[No Name]'
+        endif
+        return bufferName
+    endfunction
+
+    function RawTabName(tabNum)
+        let tabName  = ' '
+        let tabName .= GetTabPrefix(a:tabNum)
+        let tabName .= GetTabName(a:tabNum)
+        let tabName .= ' |'
+
+        return tabName
+    endfunction
+
+    function GetTabPrefixHighlight(tabNum)
+        if a:tabNum == tabpagenr()
+            " Highlight active tab number with User2
+            return '%2*'
+        else
+            " Highlight inactive tab number with User1
+            return '%1*'
+        endif
+    endfunction
+
+    function GetTabNameHighlight(tabNum)
+        if a:tabNum == tabpagenr()
+            " Highlight active tab name with TabLineSel
+            return '%#TabLineSel#'
+        else
+            " Highlight inactive tab name with TabLine
+            return '%#TabLine#'
+        endif
+    endfunction
+
+    function ConstructTabName(tabNum)
+        " Tab start marker
+        let tabName = '%' . a:tabNum . 'T'
+
+        let tabName .= GetTabPrefixHighlight(a:tabNum)
+        let tabName .= ' ' . GetTabPrefix(a:tabNum)
+
+        let tabName .= GetTabNameHighlight(a:tabNum)
+        let tabName .= GetTabName(a:tabNum)
+
+        " Tab end marker
+        let tabName .= ' %#TabLine#|'
+        return tabName
+    endfunction
+
     function MyTabLine()
-        let s = '   '
-        let i = 1
-        " loop over all tab pages
-        while i <= tabpagenr('$')
-            " start of i-th tab
-            let s .= '%' . i . 'T'
-            " highlight numbers in User1 in inactive tabs, User2 in active tab
-            if i == tabpagenr()
-                let s .= '%2*'
-            else
-                let s .= '%1*'
+        let tabLinePrefix = ' '. tabpagenr('$')
+        while len(tabLinePrefix) < &numberwidth
+            let tabLinePrefix .= ' '
+        endwhile
+        
+        let tabLine = tabLinePrefix
+        let rawTabLine = tabLinePrefix
+
+        let index = 1
+        while index <= tabpagenr('$')
+            let tabName = ConstructTabName(index)
+            let rawTabName = RawTabName(index)
+
+            if (len(rawTabName) + len(rawTabLine) + 1) > &columns
+                if index > tabpagenr()
+                    break
+                else
+                    let tabLine = tabLinePrefix
+                    let rawTabLine = tabLinePrefix
+                endif
             endif
-            " a(b/c), where
-            " a = tab number
-            " b = current window number in tab
-            " c = total number of windows in tab
-            "let s .= ' ' . i . ' (' . tabpagewinnr(i ) . '/' . tabpagewinnr(i,'$') . ') '
-            let s .= ' ' . i . '  '
-            " highlight current tab in TabLineSel, others in TabLine
-            if i == tabpagenr()
-                let s .= '%#TabLineSel#'
-            else
-                let s .= '%#TabLine#'
-            endif
-            " filename for current window in tab, without path
-            let b = fnamemodify( bufname(tabpagebuflist(i )[tabpagewinnr(i ) - 1]), ':t')
-            " if empty, display [No Name]
-            if b == ''
-                let b = '[No Name]'
-            endif
-            let s .= b
-            " end of tab
-            let s .= ' %#TabLine#|'
-            let i = i + 1
+            let tabLine .= tabName
+            let rawTabLine .= rawTabName
+
+            let index += 1
         endwhile
         " highlight 'elastic' part in TabLineFill,
         " then X (close current tab) in TabLine
-        let s .= '%#TabLineFill#%=%#TabLine#%999XX'
-        return s
+        let tabLine .= '%#TabLineFill#%=%#TabLine#%999XX'
+        return tabLine
     endfunction
 endif
 
