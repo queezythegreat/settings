@@ -173,10 +173,10 @@
 
     map <leader>tc :TClose<CR>
 
-    map <leader>ws :TWServer QTZ<CR>
-    map <leader>wo :TWOpen<CR>
-    map <leader>wa :TWAddAttachment
-    map <leader>wc :TWCreate
+    "map <leader>ws :TWServer QTZ<CR>
+    "map <leader>wo :TWOpen<CR>
+    "map <leader>wa :TWAddAttachment
+    "map <leader>wc :TWCreate
 
 
 " ------------------------------ "
