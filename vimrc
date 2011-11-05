@@ -322,3 +322,27 @@ function! TabMoveRight()
     execute "tabmove ".tabpagenr()
 endfunction
 
+
+au! BufEnter *.cpp let b:fswitchdst = 'hpp,hxx,h' | let b:fswitchlocs = './'
+au! BufEnter *.hpp let b:fswitchdst = 'cpp,cxx,c' | let b:fswitchlocs = './'
+au! BufEnter *.c   let b:fswitchdst = 'h,hpp,hxx' | let b:fswitchlocs = './'
+au! BufEnter *.h   let b:fswitchdst = 'c,cpp,cxx' | let b:fswitchlocs = './'
+" Switch to the file and load it into the current window >
+nmap <silent> <Leader>of :FSHere<cr>
+" Switch to the file and load it into the window on the right >
+nmap <silent> <Leader>oL :FSRight<cr>
+" Switch to the file and load it into a new window split on the right >
+nmap <silent> <Leader>ol :FSSplitRight<cr>
+" Switch to the file and load it into the window on the left >
+nmap <silent> <Leader>oH :FSLeft<cr>
+" Switch to the file and load it into a new window split on the left >
+nmap <silent> <Leader>oh :FSSplitLeft<cr>
+" Switch to the file and load it into the window above >
+nmap <silent> <Leader>oK :FSAbove<cr>
+" Switch to the file and load it into a new window split above >
+nmap <silent> <Leader>ok :FSSplitAbove<cr>
+" Switch to the file and load it into the window below >
+nmap <silent> <Leader>oJ :FSBelow<cr>
+" Switch to the file and load it into a new window split below >
+nmap <silent> <Leader>oj :FSSplitBelow<cr>
+
