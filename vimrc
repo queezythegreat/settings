@@ -20,6 +20,7 @@
     set shiftwidth=4   " Indentation width for autoindent
     set softtabstop=4  " Treat multiple spaces as a tab
     filetype indent on " Enable indentation based on file type
+    set switchbuf+=usetab,newtab  " User existing tab if exist, otherwise new tab
 
 " ---------------------- "
 "     Search Options     "

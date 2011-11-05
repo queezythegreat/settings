@@ -1,0 +1,29 @@
+[global_config]
+  tab_position = bottom
+  handle_size = 0
+  borderless = True
+[keybindings]
+  go_up = <Alt>k
+  split_horiz = <Alt>s
+  next_tab = <Alt>n
+  new_terminator = <Alt>t
+  prev_tab = <Alt>p
+  go_down = <Alt>j
+  split_vert = <Alt>v
+  go_right = <Alt>l
+  new_tab = <Alt>t
+  go_left = <Alt>h
+[profiles]
+  [[default]]
+    scroll_on_output = False
+    scrollback_infinite = True
+    show_titlebar = False
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]
