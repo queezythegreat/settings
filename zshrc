@@ -46,7 +46,7 @@ SAVEHIST=10000
 HOSTNAME="`hostname`"
 NNTPSERVER=wonka.hampshire.edu
 #NNTPSERVER=netnews.attbi.com
-PAGER=most
+PAGER=less
 EDITOR='vim'
 #EMAIL='mako@bork.hampshire.edu'
 #DEBFULLNAME="Benjamin Hill (Mako)" 
@@ -409,4 +409,5 @@ function replace_sed {
 }
 
 
-alias flash_vids="file /proc/$(ps aux | grep conta | grep flash  | tr -s ' ' | cut -d ' ' -f 2)/fd/*  | grep deleted | cut -d ':' -f 1"
+alias flash_vids="file /proc/\$(ps aux | grep conta | grep flash  | tr -s ' ' | cut -d ' ' -f 2)/fd/*  | grep deleted | cut -d ':' -f 1"
+alias flash_kill="kill \$(ps aux | grep conta | grep flash | tr -s ' ' | cut -d ' ' -f '2')"

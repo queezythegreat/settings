@@ -1,0 +1,15 @@
+ipython/*.pyc
+ipython/*.pyo
+ipython/db
+ipython/history
+
+/ipython/profile_default/*.pyc
+/ipython/profile_default/*.pyo
+/ipython/profile_default/security
+/ipython/profile_default/db
+/ipython/profile_default/log
+/ipython/profile_default/pid
+/ipython/profile_default/history.sqlite
+/ipython/profile_default/history.sqlite-journal
+
+vim/.netrwhist
