@@ -396,3 +396,7 @@ nmap <silent> <Leader>oJ :FSBelow<cr>
 " Switch to the file and load it into a new window split below >
 nmap <silent> <Leader>oj :FSSplitBelow<cr>
 
+
+map <silent> <F2> <ESC>:make!<CR>
+
+nmap <silent> <Leader>t :TagbarToggle<CR>
