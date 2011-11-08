@@ -399,7 +399,13 @@ nmap <silent> <Leader>oj :FSSplitBelow<cr>
 
 map <silent> <F2> <ESC>:make!<CR>
 
+
+
+" ------------------------------ "
+"        TagBar                  "
+" ------------------------------ "
 nmap <silent> <Leader>t :TagbarToggle<CR>
+
 
 
 " ------------------------------ "
@@ -419,9 +425,19 @@ function! QFixToggle(forced)
   endif
 endfunction
 
+
 " used to track the quickfix window
 augroup QFixToggle
  autocmd!
  autocmd BufWinEnter quickfix let g:qfix_win = bufnr("$")
  autocmd BufWinLeave * if exists("g:qfix_win") && expand("<abuf>") == g:qfix_win | unlet! g:qfix_win | endif
 augroup END
+
+autocmd! FileType qf wincmd J " Automatically move quickfix to bottom of Tab
+
+
+
+" ------------------------------ "
+"     PathoGen Loader            "
+" ------------------------------ "
+call pathogen#infect() 
