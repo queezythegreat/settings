@@ -327,6 +327,11 @@
         else
             echo 'Build successfull.'
         endif
+        doautoall QuickFixCmdPost make
+        "if exists(g:loaded_errormarker)
+            " Call ErrorMarkers plugin
+            "call SetErrorMarkers()
+        "endif
         unlet g:ConqueTerm_Terminals[a:i].callback
     endfunction
 
@@ -336,8 +341,10 @@
         else
             let build_command = &makeprg
         endif
-        silent let sp = conque_term#subprocess(build_command)
-        silent call sp.set_callback('ConqueQuickfixOutput')
+        let p = getpos('.')
+        let sp = conque_term#subprocess(build_command)
+        call sp.set_callback('ConqueQuickfixOutput')
+        call setpos('.', p)
         echo 'Executed: ' . build_command
     endfunction
 
