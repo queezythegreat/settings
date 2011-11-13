@@ -124,6 +124,11 @@
     noremap <space> za
 
 " ------------------------------ "
+"     SuperTab Plugin            "
+" ------------------------------ "
+    let g:SuperTabDefaultCompletionType = "context"
+
+" ------------------------------ "
 "     Session Saving             "
 " ------------------------------ "
 "set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
