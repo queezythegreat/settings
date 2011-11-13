@@ -299,6 +299,15 @@
     endfunction
 
 
+" ------------------------------ "
+"     Python  Settings           "
+" ------------------------------ "
+    " Python completion function
+    autocmd FileType python set omnifunc=pythoncomplete#Complete
+
+    " See colorscheme desert256 for highlight settings
+
+
 
 " ================================================= "
 "            Plugin Settings                        "
@@ -328,15 +337,7 @@
 "     SuperTab Plugin            "
 " ------------------------------ "
     let g:SuperTabDefaultCompletionType = "context"
-
-
-" ------------------------------ "
-"  Python Development Settings   "
-" ------------------------------ "
-    " Python completion function
-    autocmd FileType python set omnifunc=pythoncomplete#Complete
-
-    " See colorscheme desert256 for highlight settings
+    let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
 
 " ------------------------------ "
@@ -392,15 +393,17 @@ hi clear SignColumn
 
 
 " ------------------------------ "
-"     PathoGen Loader            "
-" ------------------------------ "
-    call pathogen#infect() 
-
-
-" ------------------------------ "
 "     Error Marker Plugin        "
 " ------------------------------ "
     let g:errormarker_errorgroup        = "ColorColumn"  " Text line color
     let g:errormarker_sign_errorgroup   = "ColorColumn"  " Margin sign color
     let g:errormarker_warninggroup      = "ModeMsg"      " Text line color
     let g:errormarker_sign_warninggroup = "ModeMsg"      " Margin sign color
+
+
+" ------------------------------ "
+"     PathoGen Loader            "
+" ------------------------------ "
+    call pathogen#infect() 
+
+
