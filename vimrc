@@ -327,11 +327,9 @@
         else
             echo 'Build successfull.'
         endif
+        " Send out make autocmd event
         doautoall QuickFixCmdPost make
-        "if exists(g:loaded_errormarker)
-            " Call ErrorMarkers plugin
-            "call SetErrorMarkers()
-        "endif
+        " Remove callback
         unlet g:ConqueTerm_Terminals[a:i].callback
     endfunction
 
