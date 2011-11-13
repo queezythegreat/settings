@@ -446,3 +446,12 @@ autocmd! FileType qf wincmd J " Automatically move quickfix to bottom of Tab
 "     PathoGen Loader            "
 " ------------------------------ "
 call pathogen#infect() 
+
+
+" ------------------------------ "
+"     Error Marker Plugin        "
+" ------------------------------ "
+let g:errormarker_errorgroup        = "ColorColumn"  " Text line color
+let g:errormarker_sign_errorgroup   = "ColorColumn"  " Margin sign color
+let g:errormarker_warninggroup      = "ModeMsg"      " Text line color
+let g:errormarker_sign_warninggroup = "ModeMsg"      " Margin sign color

@@ -352,6 +352,8 @@ else
     hi Error         cterm=bold ctermfg=7 ctermbg=1
 endif
 
+hi ColorColumn  term=reverse cterm=bold ctermbg=1 guibg=DarkRed
+
 
 " ------------------------------ "
 "     MiniBufferExplorer         "

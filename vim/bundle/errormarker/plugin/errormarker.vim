@@ -71,8 +71,13 @@ call s:DefineVariable("g:errormarker_warningtext", "WW")
 " Defines the highlighting group to use for errors in the gui
 call s:DefineVariable("g:errormarker_errorgroup", "Todo")
 
+call s:DefineVariable("g:errormarker_sign_errorgroup", "Todo")
+
 " Defines the highlighting group to use for warnings in the gui
 call s:DefineVariable("g:errormarker_warninggroup", "Todo")
+
+
+call s:DefineVariable("g:errormarker_sign_warninggroup", "Todo")
 
 " Defines the error types that should be treated as warning
 call s:DefineVariable("g:errormarker_warningtypes", "wW")
@@ -90,9 +95,11 @@ if filereadable(g:errormarker_warningicon)
 endif
 execute "sign define errormarker_error text=" . g:errormarker_errortext .
             \ " linehl=" . g:errormarker_errorgroup . s:erroricon
+            \ " texthl=" . g:errormarker_sign_errorgroup
 
 execute "sign define errormarker_warning text=" . g:errormarker_warningtext .
             \ " linehl=" . g:errormarker_warninggroup . s:warningicon
+            \ " texthl=" . g:errormarker_sign_warninggroup
 
 " Setup the autocommands that handle the MRUList and other stuff.
 augroup errormarker
