@@ -926,7 +926,7 @@ function! conque_term#read_all(insert_mode) "{{{
             let output = g:ConqueTerm_Terminals[i].read(1)
 
             if !g:ConqueTerm_Terminals[i].is_buffer && exists('*g:ConqueTerm_Terminals[i].callback')
-                call g:ConqueTerm_Terminals[i].callback(output)
+                call g:ConqueTerm_Terminals[i].callback(i, output)
             endif
         catch
             " probably a deleted buffer

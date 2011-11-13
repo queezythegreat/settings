@@ -239,27 +239,35 @@
 " ------------------------------ "
 "     QuickFix Window            "
 " ------------------------------ "
-    let g:QFix_Win_Height = 10
+    function! GetBufferList()
+      redir =>buflist
+      silent! ls
+      redir END
+      return buflist
+    endfunction
 
-    nmap <silent> <Leader>q :QFix<CR>
-
-    " toggles the quickfix window.
-    command -bang -nargs=? QFix call QFixToggle(<bang>0)
-    function! QFixToggle(forced)
-      if exists("g:qfix_win") && a:forced == 0
-        cclose
-      else
-        execute "copen " . g:QFix_Win_Height
+    function! ToggleList(bufname, pfx)
+      let buflist = GetBufferList()
+      for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
+        if bufwinnr(bufnum) != -1
+          exec(a:pfx.'close')
+          return
+        endif
+      endfor
+      if a:pfx == 'l' && len(getloclist(0)) == 0
+          echohl ErrorMsg
+          echo "Location List is Empty."
+          return
+      endif
+      let winnr = winnr()
+      exec(a:pfx.'open')
+      if winnr() != winnr
+        wincmd p
       endif
     endfunction
 
-
-    " used to track the quickfix window
-    augroup QFixToggle
-     autocmd!
-     autocmd BufWinEnter quickfix let g:qfix_win = bufnr("$")
-     autocmd BufWinLeave * if exists("g:qfix_win") && expand("<abuf>") == g:qfix_win | unlet! g:qfix_win | endif
-    augroup END
+    nmap <silent> <leader>l :call ToggleList("Location List", 'l')<CR>
+    nmap <silent> <leader>q :call ToggleList("Quickfix List", 'c')<CR>
 
     autocmd! FileType qf wincmd J " Automatically move quickfix to bottom of Tab
 
@@ -307,6 +315,35 @@
 
     " See colorscheme desert256 for highlight settings
 
+
+" ------------------------------ "
+"     Build in Background        "
+" ------------------------------ "
+    function! ConqueQuickfixOutput(i, output)
+        "echo a:output
+        cgete substitute(a:output, '','', 'g')
+        if len(getqflist()) > 0
+            echo 'Compiler errors and warnings: 'len(getqflist())
+        else
+            echo 'Build successfull.'
+        endif
+        unlet g:ConqueTerm_Terminals[a:i].callback
+    endfunction
+
+    function! ConqueMake(...)
+        if a:0 > 0
+            let build_command = a:1
+        else
+            let build_command = &makeprg
+        endif
+        silent let sp = conque_term#subprocess(build_command)
+        silent call sp.set_callback('ConqueQuickfixOutput')
+        echo 'Executed: ' . build_command
+    endfunction
+
+    set makeprg=make\ -e\ TERM=
+
+    map <F12> <ESC>:<C-U>call ConqueMake()<CR>
 
 
 " ================================================= "
@@ -405,5 +442,4 @@ hi clear SignColumn
 "     PathoGen Loader            "
 " ------------------------------ "
     call pathogen#infect() 
-
 
