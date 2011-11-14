@@ -49,7 +49,7 @@
     set showmode                            " Show current mode which VIM is in
 
     set wildmode=longest:full,list          " Tab completion command mode
-    set completeopt=longest,menu,preview    " Tab completion insert mode
+    set completeopt=longest,preview         " Tab completion insert mode
 
     set nostartofline                       " Don't jump to begining of the line
 
@@ -462,6 +462,17 @@ hi clear SignColumn
     let g:errormarker_sign_errorgroup   = "ColorColumn"  " Margin sign color
     let g:errormarker_warninggroup      = "ModeMsg"      " Text line color
     let g:errormarker_sign_warninggroup = "ModeMsg"      " Margin sign color
+
+
+" ------------------------------ "
+"     OmniCppComplete            "
+" ------------------------------ "
+    let OmniCpp_MayCompleteDot   = 1    " autocomplete with .
+    let OmniCpp_MayCompleteArrow = 1    " autocomplete with ->
+    let OmniCpp_MayCompleteScope = 1    " autocomplete with ::
+    let OmniCpp_SelectFirstItem  = 2    " select first item (but don't insert)
+    let OmniCpp_NamespaceSearch  = 2    " search namespaces in this and included files
+    let OmniCpp_ShowPrototypeInAbbr = 1 " show function prototype (i.e. parameters) in popup 
 
 
 " ------------------------------ "
