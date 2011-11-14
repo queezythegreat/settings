@@ -86,7 +86,7 @@
     imap <C-C> <Esc>vb~wa
     noremap <space> za
     
-    map <silent> <F2> <ESC>:make!<CR>
+    "map <silent> <F2> <ESC>:make!<CR>
 
 " ------------------------------ "
 "     Window Navigation       "
@@ -320,8 +320,12 @@
 "     Build in Background        "
 " ------------------------------ "
     function! ConqueQuickfixOutput(i, output)
-        "echo a:output
-        cgete substitute(a:output, '','', 'g')
+        if len(a:output) > 0
+            echo a:output
+            let g:ConqueMakeOutput .= substitute(a:output, '','', 'g')
+            cgete g:ConqueMakeOutput
+        endif
+
         if len(getqflist()) > 0
             echo 'Compiler errors and warnings: 'len(getqflist())
         else
@@ -330,10 +334,13 @@
         " Send out make autocmd event
         doautoall QuickFixCmdPost make
         " Remove callback
-        unlet g:ConqueTerm_Terminals[a:i].callback
+        "unlet g:ConqueTerm_Terminals[a:i].callback
+        "echo  g:ConqueTerm_Terminals[a:i].read(15)
+        echo 'Is active' . g:ConqueTerm_Terminals[a:i].active
     endfunction
 
     function! ConqueMake(...)
+        let g:ConqueMakeOutput = ''
         if a:0 > 0
             let build_command = a:1
         else
@@ -341,14 +348,28 @@
         endif
         let p = getpos('.')
         let sp = conque_term#subprocess(build_command)
-        call sp.set_callback('ConqueQuickfixOutput')
+        "call sp.set_callback('ConqueQuickfixOutput')
         call setpos('.', p)
         echo 'Executed: ' . build_command
     endfunction
 
-    set makeprg=make\ -e\ TERM=
+    function! LoadQuickfix(...)
+        if a:0 > 0
+            let build_output = a:1
+        else
+            let build_output = g:QuickfixFile
+        endif
+        execute 'cgetfile '. build_output
+        doautoall QuickFixCmdPost make
+    endfunction
+    set makeprg=./build_cmd
 
-    map <F12> <ESC>:<C-U>call ConqueMake()<CR>
+    let g:QuickfixFile = 'build_out' " Quifix Error file to load
+
+    compiler! cmake_gcc  " Set default compiler
+
+    map <F2> <ESC>:<C-U>call ConqueMake()<CR>
+    map <F3> <ESC>:<C-U>call LoadQuickfix()<CR>
 
 
 " ================================================= "
