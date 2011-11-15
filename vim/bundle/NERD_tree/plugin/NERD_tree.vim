@@ -1228,7 +1228,11 @@ function! s:TreeFileNode.openInNewTab(options)
         call s:closeTreeIfQuitOnOpen()
     endif
 
-    exec "tabedit " . self.path.str({'format': 'Edit'})
+    "exec "tabedit " . self.path.str({'format': 'Edit'})
+    tabnew
+    exec "edit " . self.path.str({'format': 'Edit'})
+    call s:initNerdTreeMirror()
+    exec "wincmd l"
 
     if has_key(a:options, 'stayInCurrentTab') && a:options['stayInCurrentTab']
         exec "tabnext " . currentTab
@@ -2701,7 +2705,8 @@ function! s:initNerdTreeMirror()
     elseif len(keys(options)) ==# 1
         let bufferName = values(options)[0]
     else
-        call s:echo("No trees to mirror")
+        call s:initNerdTree('')
+        "call s:echo("No trees to mirror")
         return
     endif
 
@@ -3493,7 +3498,8 @@ function! s:toggle(dir)
             call s:closeTree()
         endif
     else
-        call s:initNerdTree(a:dir)
+        "call s:initNerdTree(a:dir)
+        call s:initNerdTreeMirror()
     endif
 endfunction
 "SECTION: Interface bindings {{{1
