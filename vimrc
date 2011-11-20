@@ -137,11 +137,11 @@
         set showtabline=2
 
 
-        function GetTabPrefix(tabNum)
+        function! GetTabPrefix(tabNum)
             return a:tabNum . '  '
         endfunction
 
-        function GetTabName(tabNum)
+        function! GetTabName(tabNum)
             " filename for current window in tab, without path
             let bufferName = fnamemodify( bufname(tabpagebuflist(a:tabNum )[tabpagewinnr(a:tabNum ) - 1]), ':t')
             " if empty, display [No Name]
@@ -151,7 +151,7 @@
             return bufferName
         endfunction
 
-        function RawTabName(tabNum)
+        function! RawTabName(tabNum)
             let tabName  = ' '
             let tabName .= GetTabPrefix(a:tabNum)
             let tabName .= GetTabName(a:tabNum)
@@ -160,7 +160,7 @@
             return tabName
         endfunction
 
-        function GetTabPrefixHighlight(tabNum)
+        function! GetTabPrefixHighlight(tabNum)
             if a:tabNum == tabpagenr()
                 " Highlight active tab number with User2
                 return '%2*'
@@ -170,7 +170,7 @@
             endif
         endfunction
 
-        function GetTabNameHighlight(tabNum)
+        function! GetTabNameHighlight(tabNum)
             if a:tabNum == tabpagenr()
                 " Highlight active tab name with TabLineSel
                 return '%#TabLineSel#'
@@ -180,7 +180,7 @@
             endif
         endfunction
 
-        function ConstructTabName(tabNum)
+        function! ConstructTabName(tabNum)
             " Tab start marker
             let tabName = '%' . a:tabNum . 'T'
 
@@ -195,7 +195,7 @@
             return tabName
         endfunction
 
-        function MyTabLine()
+        function! MyTabLine()
             let tabLinePrefix = ' '. tabpagenr('$')
             while len(tabLinePrefix) < &numberwidth
                 let tabLinePrefix .= ' '
@@ -350,6 +350,12 @@
 
     map <F12> <ESC>:<C-U>call ConqueMake()<CR>
 
+
+" ------------------------------ "
+"     Custom Commands            "
+" ------------------------------ "
+    command! VimrcEdit tabnew ~/.vimrc
+    command! VimrcLoad source ~/.vimrc
 
 " ================================================= "
 "            Plugin Settings                        "
