@@ -8,6 +8,7 @@
     set noswf
     "set guifont=Lucida\ Console\ Semi-Condensed\ 12
     set guioptions=
+    set sessionoptions=blank,buffers,curdir,folds,globals,localoptions,options,resize,tabpages,winsize,winpos
 
 
 " ------------------- "
@@ -49,7 +50,7 @@
     set showmode                            " Show current mode which VIM is in
 
     set wildmode=longest:full,list          " Tab completion command mode
-    set completeopt=longest,menu,preview    " Tab completion insert mode
+    set completeopt=longest,preview         " Tab completion insert mode
 
     set nostartofline                       " Don't jump to begining of the line
 
@@ -86,7 +87,7 @@
     imap <C-C> <Esc>vb~wa
     noremap <space> za
     
-    map <silent> <F2> <ESC>:make!<CR>
+    "map <silent> <F2> <ESC>:make!<CR>
 
 " ------------------------------ "
 "     Window Navigation       "
@@ -320,8 +321,12 @@
 "     Build in Background        "
 " ------------------------------ "
     function! ConqueQuickfixOutput(i, output)
-        "echo a:output
-        cgete substitute(a:output, '','', 'g')
+        if len(a:output) > 0
+            echo a:output
+            let g:ConqueMakeOutput .= substitute(a:output, '','', 'g')
+            cgete g:ConqueMakeOutput
+        endif
+
         if len(getqflist()) > 0
             echo 'Compiler errors and warnings: 'len(getqflist())
         else
@@ -330,10 +335,13 @@
         " Send out make autocmd event
         doautoall QuickFixCmdPost make
         " Remove callback
-        unlet g:ConqueTerm_Terminals[a:i].callback
+        "unlet g:ConqueTerm_Terminals[a:i].callback
+        "echo  g:ConqueTerm_Terminals[a:i].read(15)
+        echo 'Is active' . g:ConqueTerm_Terminals[a:i].active
     endfunction
 
     function! ConqueMake(...)
+        let g:ConqueMakeOutput = ''
         if a:0 > 0
             let build_command = a:1
         else
@@ -341,14 +349,28 @@
         endif
         let p = getpos('.')
         let sp = conque_term#subprocess(build_command)
-        call sp.set_callback('ConqueQuickfixOutput')
+        "call sp.set_callback('ConqueQuickfixOutput')
         call setpos('.', p)
         echo 'Executed: ' . build_command
     endfunction
 
-    set makeprg=make\ -e\ TERM=
+    function! LoadQuickfix(...)
+        if a:0 > 0
+            let build_output = a:1
+        else
+            let build_output = g:QuickfixFile
+        endif
+        execute 'cgetfile '. build_output
+        doautoall QuickFixCmdPost make
+    endfunction
+    set makeprg=./build_cmd
 
-    map <F12> <ESC>:<C-U>call ConqueMake()<CR>
+    let g:QuickfixFile = 'build_out' " Quifix Error file to load
+
+    compiler! cmake_gcc  " Set default compiler
+
+    map <F2> <ESC>:<C-U>call ConqueMake()<CR>
+    map <F3> <ESC>:<C-U>call LoadQuickfix()<CR>
 
 
 " ------------------------------ "
@@ -447,6 +469,17 @@ hi clear SignColumn
     let g:errormarker_sign_errorgroup   = "ColorColumn"  " Margin sign color
     let g:errormarker_warninggroup      = "ModeMsg"      " Text line color
     let g:errormarker_sign_warninggroup = "ModeMsg"      " Margin sign color
+
+
+" ------------------------------ "
+"     OmniCppComplete            "
+" ------------------------------ "
+    let OmniCpp_MayCompleteDot   = 1    " autocomplete with .
+    let OmniCpp_MayCompleteArrow = 1    " autocomplete with ->
+    let OmniCpp_MayCompleteScope = 1    " autocomplete with ::
+    let OmniCpp_SelectFirstItem  = 2    " select first item (but don't insert)
+    let OmniCpp_NamespaceSearch  = 2    " search namespaces in this and included files
+    let OmniCpp_ShowPrototypeInAbbr = 1 " show function prototype (i.e. parameters) in popup 
 
 
 " ------------------------------ "
