@@ -44,6 +44,7 @@ function! s:Enable()
     augroup quickfixstatus
         au!
         au QuickFixCmdPost * call s:Cache_Quickfix()
+        au BufEnter * call s:Cache_Quickfix()
         au CursorMoved,CursorMovedI * call s:Show_Quickfix_In_Status()
     augroup END
     call s:Cache_Quickfix()
