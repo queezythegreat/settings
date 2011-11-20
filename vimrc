@@ -376,7 +376,7 @@
     endfunction
 
     " Save cursor and screen position
-    function CursorPosition(action)
+    function! CursorPosition(action)
         if a:action == "save"
             let b:saveve = &virtualedit
             let b:savesiso = &sidescrolloff
@@ -544,6 +544,11 @@ hi clear SignColumn
     let OmniCpp_SelectFirstItem  = 2    " select first item (but don't insert)
     let OmniCpp_NamespaceSearch  = 2    " search namespaces in this and included files
     let OmniCpp_ShowPrototypeInAbbr = 1 " show function prototype (i.e. parameters) in popup 
+    let OmniCpp_DefaultNamespaces   = ["std", "_GLIBCXX_STD"]
+
+    " Automatically close preview window on completion
+    autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+    autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 
 " ------------------------------ "
