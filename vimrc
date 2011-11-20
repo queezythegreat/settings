@@ -320,11 +320,18 @@
 " ------------------------------ "
 "     Build in Background        "
 " ------------------------------ "
-    function! ConqueQuickfixOutput(i, output)
+    let g:ConqueQuickfixOutput_showOutput = 0
+
+    function! ConqueQuickfixOutput(output)
         if len(a:output) > 0
-            echo a:output
+            if g:ConqueQuickfixOutput_showOutput
+                echo a:output
+            endif
             let g:ConqueMakeOutput .= substitute(a:output, '','', 'g')
             cgete g:ConqueMakeOutput
+
+            " Send out make autocmd event
+            doautoall QuickFixCmdPost make
         endif
 
         if len(getqflist()) > 0
@@ -332,26 +339,80 @@
         else
             echo 'Build successfull.'
         endif
-        " Send out make autocmd event
-        doautoall QuickFixCmdPost make
-        " Remove callback
-        "unlet g:ConqueTerm_Terminals[a:i].callback
-        "echo  g:ConqueTerm_Terminals[a:i].read(15)
-        echo 'Is active' . g:ConqueTerm_Terminals[a:i].active
+        "echo 'Is active count: ' . g:ConqueCallbackCount
+        "let g:ConqueCallbackCount += 1
     endfunction
 
+    " Set/display current make command (makeprg)
+    function! ConqueMakeCMD(...)
+        if a:0 > 0 && a:1 != ''
+            let cmd = a:1
+            let cmd = substitute(cmd, ' ','\\ ', 'g') " Escape space
+            let cmd = substitute(cmd, '"','\\"', 'g') " Escape quotes
+            execute 'set makeprg='. cmd
+        endif
+        echo 'Make CMD: '. &makeprg
+    endfunction
+
+    " Execute make command as subprocess using Conque
     function! ConqueMake(...)
         let g:ConqueMakeOutput = ''
+        "let g:ConqueCallbackCount = 0
         if a:0 > 0
-            let build_command = a:1
+            if a:1 != ''
+                let build_command = a:1
+            else
+                let build_command = &makeprg
+            endif
         else
             let build_command = &makeprg
         endif
-        let p = getpos('.')
+
+        call CursorPosition("save")
         let sp = conque_term#subprocess(build_command)
-        "call sp.set_callback('ConqueQuickfixOutput')
-        call setpos('.', p)
+        call sp.set_callback('ConqueQuickfixOutput')
+        call CursorPosition("restore")
         echo 'Executed: ' . build_command
+    endfunction
+
+    " Save cursor and screen position
+    function CursorPosition(action)
+        if a:action == "save"
+            let b:saveve = &virtualedit
+            let b:savesiso = &sidescrolloff
+            set virtualedit=all
+            set sidescrolloff=0
+            let b:curline = line(".")
+            let b:curvcol = virtcol(".")
+            let b:curwcol = wincol()
+            normal! g0
+            let b:algvcol = virtcol(".")
+            normal! M
+            let b:midline = line(".")
+            execute "normal! ".b:curline."G".b:curvcol."|"
+            let &virtualedit = b:saveve
+            let &sidescrolloff = b:savesiso
+        elseif a:action == "restore"
+            normal gg0
+            let b:saveve = &virtualedit
+            let b:savesiso = &sidescrolloff
+            set virtualedit=all
+            set sidescrolloff=0
+            execute "normal! ".b:midline."Gzz".b:curline."G0"
+            let nw = wincol() - 1
+            if b:curvcol != b:curwcol - nw
+                execute "normal! ".b:algvcol."|zs"
+                let s = wincol() - nw - 1
+                if s != 0
+                    execute "normal! ".s."zl"
+                endif
+            endif
+            execute "normal! ".b:curvcol."|"
+            let &virtualedit = b:saveve
+            let &sidescrolloff = b:savesiso
+            unlet b:saveve b:savesiso b:curline b:curvcol b:curwcol b:algvcol b:midline
+        endif
+        return ""
     endfunction
 
     function! LoadQuickfix(...)
@@ -363,14 +424,17 @@
         execute 'cgetfile '. build_output
         doautoall QuickFixCmdPost make
     endfunction
-    set makeprg=./build_cmd
+
+    command! -nargs=? -complete=shellcmd MakeCMD call ConqueMakeCMD('<args>')  " Set a makeprg command
+    command! -nargs=? -complete=shellcmd Make    call ConqueMake('<args>')     " ConqueMake command with completion
+
+    set makeprg=make\ -e\ TERM=\ -C\ build
+    compiler! cmake_gcc  " Set default compiler
 
     let g:QuickfixFile = 'build_out' " Quifix Error file to load
 
-    compiler! cmake_gcc  " Set default compiler
-
     map <F2> <ESC>:<C-U>call ConqueMake()<CR>
-    map <F3> <ESC>:<C-U>call LoadQuickfix()<CR>
+    "map <F3> <ESC>:<C-U>call LoadQuickfix()<CR>
 
 
 " ------------------------------ "
@@ -481,6 +545,25 @@ hi clear SignColumn
     let OmniCpp_NamespaceSearch  = 2    " search namespaces in this and included files
     let OmniCpp_ShowPrototypeInAbbr = 1 " show function prototype (i.e. parameters) in popup 
 
+
+" ------------------------------ "
+"     ShowMarks                  "
+" ------------------------------ "
+    let g:showmarks_enable       = 1      " Enable/Disable ShowMarks
+    let g:showmarks_textlower    = " "    " Margin format for lowercase marks
+    let g:showmarks_textupper    = " "    " Margin format for upperase marks
+    let g:showmarks_textother    = " "    " Margin format for other marks
+    let g:showmarks_ignore_type  = "hqm"  " Ignore mark types
+    let g:showmarks_ignore_name  = ""
+    let g:showmarks_hlline_lower = "0"    " Highlight line for lowercase marks
+    let g:showmarks_hlline_upper = "0"    " Highlight line for uppercase marks
+    let g:showmarks_hlline_other = "0"    " Highlight line for other marks
+    let g:showmarks_include      = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" " Which marks to show in margin
+
+    hi link ShowMarksHLl Comment
+    hi link ShowMarksHLu Comment
+    hi link ShowMarksHLo Comment
+    hi link ShowMarksHLm Comment
 
 " ------------------------------ "
 "     PathoGen Loader            "

@@ -235,6 +235,18 @@ class Conque:
         """
         output = ''
 
+        self.read_count += 1
+        if self.read_count % 32 == 0:
+            if not self.proc.is_alive():
+                vim.command('call conque_term#get_instance().close()')
+                return
+
+            if self.read_count > 512:
+                self.read_count = 0
+
+                # trim color history occasionally if desired
+                if self.enable_colors and self.color_pruning:
+                    self.prune_colors()
         # this may not actually work
         try:
 
