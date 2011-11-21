@@ -261,7 +261,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     "call <SID>X("NonText", "addbe7", "000000", "bold")
     call <SID>X("NonText", "3a3a3a", "000000", "bold")
     call <SID>X("Question", "00ff7f", "", "")
-    call <SID>X("Search", "f5deb3", "cd853f", "")
+    call <SID>X("Search", "3a3a3a", "cd853f", "bold")
     call <SID>X("SpecialKey", "9acd32", "", "")
 
     call <SID>X("StatusLine", "c2bfa5", "000000", "")
