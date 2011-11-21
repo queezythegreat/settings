@@ -253,6 +253,8 @@ class Conque:
             # read from subprocess and strip null characters
             output = self.proc.read(timeout)
 
+            vim.command("let outpuz = '%s'" % output) # Workaround, bug with vim where  output was not being sent back to vim
+
             if output == '':
                 return
 

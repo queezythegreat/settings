@@ -357,6 +357,7 @@
     " Execute make command as subprocess using Conque
     function! ConqueMake(...)
         let g:ConqueMakeOutput = ''
+        cgete ''
         "let g:ConqueCallbackCount = 0
         if a:0 > 0
             if a:1 != ''
@@ -442,6 +443,8 @@
 " ------------------------------ "
     command! VimrcEdit tabnew ~/.vimrc
     command! VimrcLoad source ~/.vimrc
+    map <F3> <ESC>:VimrcEdit<CR>
+    map <F4> <ESC>:VimrcLoad<CR>
 
 " ================================================= "
 "            Plugin Settings                        "
