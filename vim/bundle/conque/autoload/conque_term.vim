@@ -695,6 +695,9 @@ function! conque_term#set_mappings(action) "{{{
         inoremap <silent> <buffer>  <C-J> <Esc><C-W>j
         inoremap <silent> <buffer>  <C-K> <Esc><C-W>k
         inoremap <silent> <buffer>  <C-L> <Esc><C-W>l
+
+        inoremap <silent> <buffer>  <C-P> <Esc>:tabprevious<CR>
+        inoremap <silent> <buffer>  <C-N> <Esc>:tabnext<CR>
     endif
     " }}}
 
