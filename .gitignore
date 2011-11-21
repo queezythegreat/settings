@@ -13,3 +13,5 @@ ipython/history
 /ipython/profile_default/history.sqlite-journal
 
 vim/.netrwhist
+
+vim/sessions/
