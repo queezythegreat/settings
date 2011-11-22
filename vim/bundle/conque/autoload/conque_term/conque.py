@@ -261,7 +261,7 @@ class Conque:
             # for bufferless terminals
             if not update_buffer:
                 output = re.sub('\\', '\\\\', output)
-                output = re.sub('"', '\"', output)
+                output = re.sub('"', '\\"', output)
                 vim.command('let output = "' + output + '"')
                 return output
 
