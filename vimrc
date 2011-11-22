@@ -88,6 +88,7 @@
     noremap <space> za
     
     "map <silent> <F2> <ESC>:make!<CR>
+    map <C-\> :vert belowright split<CR> :exec("tselect ".expand("<cword>"))<CR>
 
 " ------------------------------ "
 "     Window Navigation       "
@@ -572,6 +573,17 @@ hi clear SignColumn
     hi link ShowMarksHLu Comment
     hi link ShowMarksHLo Comment
     hi link ShowMarksHLm Comment
+
+" ------------------------------ "
+"     CCTree                     "
+" ------------------------------ "
+    let g:CCTreeDisplayMode = 1          " Values: 1 -- Ultra-compact
+                                         "         2 -- Compact
+                                         "         3 -- Wide
+    let g:CCTreeCscopeDb = "cscope.out"  " Cscope database file
+    let g:CCTreeRecursiveDepth = 3       " Maximum call levels
+    let g:CCTreeMinVisibleDepth = 3      " Maximum visible(unfolded) level
+    let g:CCTreeOrientation = "botright" " Orientation of window
 
 " ------------------------------ "
 "     PathoGen Loader            "
