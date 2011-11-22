@@ -1384,7 +1384,10 @@ function! s:term_obj.read(...) dict " {{{
 
     " ftw!
     try
-        let pycode = "\nif conque_tmp:\n    conque_tmp = re.sub('\\\\\\\\', '\\\\\\\\\\\\\\\\', conque_tmp)\n    conque_tmp = re.sub('\"', '\\\\\\\\\"', conque_tmp)\n    vim.command('let output = \"' + conque_tmp + '\"')\n"
+        let pycode  = "\nif conque_tmp:\n"
+        let pycode .= "    conque_tmp = re.sub('\\\\\\\\', '\\\\\\\\\\\\\\\\', conque_tmp)\n"
+        let pycode .= "    conque_tmp = re.sub('\"', '\\\\\\\\\"', conque_tmp)\n"
+        let pycode .= "    vim.command('let output = \"' + conque_tmp + '\"')\n"
         sil exec s:py . pycode
     catch
         " d'oh
