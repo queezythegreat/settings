@@ -145,11 +145,12 @@ function precmd {
     
     local promptsize=${#${(%):---(%n@%m)---()--}}
     local pwdsize=${#${(%):-%~}}
+    local chrootsize=${#CHROOT}
     
     if [[ "$promptsize + $pwdsize" -gt $TERMWIDTH ]]; then
 	    ((PR_PWDLEN=$TERMWIDTH - $promptsize))
     else
-	PR_FILLBAR="\${(l.(($TERMWIDTH - ($promptsize + $pwdsize)))..${PR_HBAR}.)}"
+	PR_FILLBAR="\${(l.(($TERMWIDTH - ($promptsize + $pwdsize + $chrootsize)))..${PR_HBAR}.)}"
     fi
 
 
@@ -262,7 +263,12 @@ setprompt () {
     SET_TITLEBAR='$PR_SET_CHARSET$PR_STITLE${(e)PR_TITLEBAR}'
     JOBS='$(job_name)$(job_count)'
 
-    PROMPT="${SET_TITLEBAR}$UL_CORNER $USER_HOST ${SEPERATOR} $CURRENT_WD $FILLER$UR_CORNER\
+    CHROOT=""
+    [[ ! -z "${BUILD_ENVIRONMENT}" ]] && CHROOT="[${BUILD_ENVIRONMENT}] "
+    [[ ! -z "${CHROOT}" ]] && CHROOT_PRMPT="${PR_RED}${CHROOT}"
+
+
+    PROMPT="${SET_TITLEBAR}$UL_CORNER $USER_HOST ${SEPERATOR} ${CHROOT_PRMPT}$CURRENT_WD $FILLER$UR_CORNER\
 
 $LL_CORNER$PR_NO_COLOUR "
 
@@ -418,3 +424,6 @@ function teamcity_wget {
 
     wget --http-user=tomek --ask-password $(echo ${TEAMCITY_URL}| sed -r 's/(http:\/\/[a-zA-Z0-9]+)(\/.*)/\1\/httpAuth\2/')
 }
+
+
+alias u1004='chroot /srv/chroot/ubuntu-10.04 /bin/bash -c "cd;export BUILD_ENVIRONMENT=ubuntu-10.04;${SHELL}"'
