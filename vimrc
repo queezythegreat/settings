@@ -50,7 +50,7 @@
     set showmode                            " Show current mode which VIM is in
 
     set wildmode=longest:full,list          " Tab completion command mode
-    set completeopt=longest,preview         " Tab completion insert mode
+    set completeopt=longest,menuone         " Tab completion insert mode
 
     set nostartofline                       " Don't jump to begining of the line
 
@@ -430,6 +430,8 @@
     command! -nargs=? -complete=shellcmd MakeCMD call ConqueMakeCMD('<args>')  " Set a makeprg command
     command! -nargs=? -complete=shellcmd Make    call ConqueMake('<args>')     " ConqueMake command with completion
 
+    command! -nargs=? -complete=file LoadQuickfix call LoadQuickfix('<args>')     " Load quickfix from file
+
     set makeprg=make\ -e\ TERM=\ -C\ build
     compiler! cmake_gcc  " Set default compiler
 
@@ -446,6 +448,23 @@
     command! VimrcLoad source ~/.vimrc
     map <F3> <ESC>:VimrcEdit<CR>
     map <F4> <ESC>:VimrcLoad<CR>
+
+fun! ReadMan()
+    " Assign current word under cursor to a script variable:
+    let s:man_word = expand('<cword>')
+    " Open a new window:
+    :exe ":wincmd n"
+    " Read in the manpage for man_word (col -b is for formatting):
+    :exe ":r!man " . s:man_word . " | col -b"
+    " Goto first line...
+    :exe ":goto"
+    " and delete it:
+    :exe ":delete"
+    " finally set file type to 'man':
+    :exe ":set filetype=man"
+endfun
+" Map the K key to the ReadMan function:
+map K :call ReadMan()<CR>
 
 " ================================================= "
 "            Plugin Settings                        "
@@ -475,7 +494,7 @@
 "     SuperTab Plugin            "
 " ------------------------------ "
     let g:SuperTabDefaultCompletionType = "context"
-    let g:SuperTabContextDefaultCompletionType = "<c-n>"
+    let g:SuperTabContextDefaultCompletionType = "<c-p>"
 
 
 " ------------------------------ "
@@ -542,9 +561,9 @@ hi clear SignColumn
 " ------------------------------ "
 "     OmniCppComplete            "
 " ------------------------------ "
-    let OmniCpp_MayCompleteDot   = 1    " autocomplete with .
-    let OmniCpp_MayCompleteArrow = 1    " autocomplete with ->
-    let OmniCpp_MayCompleteScope = 1    " autocomplete with ::
+    let OmniCpp_MayCompleteDot   = 0    " autocomplete with .
+    let OmniCpp_MayCompleteArrow = 0    " autocomplete with ->
+    let OmniCpp_MayCompleteScope = 0    " autocomplete with ::
     let OmniCpp_SelectFirstItem  = 2    " select first item (but don't insert)
     let OmniCpp_NamespaceSearch  = 2    " search namespaces in this and included files
     let OmniCpp_ShowPrototypeInAbbr = 1 " show function prototype (i.e. parameters) in popup 
@@ -584,6 +603,27 @@ hi clear SignColumn
     let g:CCTreeRecursiveDepth = 3       " Maximum call levels
     let g:CCTreeMinVisibleDepth = 3      " Maximum visible(unfolded) level
     let g:CCTreeOrientation = "botright" " Orientation of window
+
+" ------------------------------ "
+"     EClim                      "
+" ------------------------------ "
+    let g:EclimDefaultFileOpenAction   = 'vert belowright split'
+    "let g:EclimCHierarchyDefaultAction = 'vert belowright split'
+    let g:EclimProjectTreeSharedInstance = 1
+
+    let g:TreeDirHighlight = 'WarningMsg'
+    "let g:TreeFileHighlight = ''
+    let g:TreeFileExecutableHighlight = 'SpecialKey'
+
+    map <leader>eg  <ESC>:CSearchContext<CR>
+    map <leader>et  <ESC>:ProjectTree<CR>
+    map <leader>eo  <ESC>:ProjectOpen 
+    map <leader>eO  <ESC>:ProjectClose<CR>
+    map <leader>eh  <ESC>:CCallHierarchy<CR>
+
+    autocmd! FileType cpp  nnoremap <silent>  <cr> :CSearchContext<cr>
+    autocmd! WinEnter \[Call\ Hierarchy\] wincmd L | vertical resize 40 " Automatically move quickfix to the right
+
 
 " ------------------------------ "
 "     PathoGen Loader            "

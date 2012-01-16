@@ -74,6 +74,13 @@ export LC_COLLATE="C"
 
 
 unsetopt ALL_EXPORT
+
+#
+# Plugins
+#
+source ~/.zsh/plugins/zsh-history-substring-search.plugin.zsh
+source ~/.zsh/plugins/zsh-history-substring-search.zsh
+
 # --------------------------------------------------------------------
 # aliases
 # --------------------------------------------------------------------
