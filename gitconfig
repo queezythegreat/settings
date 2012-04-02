@@ -1,6 +1,6 @@
 [user]
-    name = QueezyTheGreat
-    email = queezythegreat@gmail.com
+	name = QueezyTheGreat
+	email = queezythegreat@gmail.com
 [merge]
     tool = meld
 
@@ -27,3 +27,10 @@
     added = green bold
     changed = red bold
     untracked = white bold
+
+[giggle]
+	main-window-maximized = false
+	main-window-geometry = 1477x787+240+158
+	history-view-vpane-position = 443
+	main-window-view = FileView
+	file-view-vpane-position = 650
