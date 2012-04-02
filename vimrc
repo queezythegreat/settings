@@ -522,7 +522,7 @@ hi clear SignColumn
     au! BufEnter *.cpp let b:fswitchdst = 'hpp,hxx,h' | let b:fswitchlocs = './'
     au! BufEnter *.hpp let b:fswitchdst = 'cpp,cxx,c' | let b:fswitchlocs = './'
     au! BufEnter *.c   let b:fswitchdst = 'h,hpp,hxx' | let b:fswitchlocs = './'
-    au! BufEnter *.h   let b:fswitchdst = 'c,cpp,cxx' | let b:fswitchlocs = './'
+    au! BufEnter *.h   let b:fswitchdst = 'cpp,c,cxx' | let b:fswitchlocs = './'
     " Switch to file inplace
     nmap <silent> <Leader>of :FSHere<cr>
     " Switch to the file and load it into the window on the right >
@@ -630,3 +630,12 @@ hi clear SignColumn
 " ------------------------------ "
     call pathogen#infect() 
 
+" ------------------------------ "
+"     AutoTag                    "
+" ------------------------------ "
+   "let g:autotagDisabled = 0
+   "let g:autotagVerbosityLevel = 0
+   "let g:autotagExcludeSuffixes = "tml.xml.text.txt"
+   "let g:autotagCtagsCmd = "ctags"
+
+   let g:autotagTagsFile = "tags.prom"
