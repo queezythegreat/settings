@@ -143,6 +143,17 @@
             return a:tabNum . '  '
         endfunction
 
+        function! GetTabModified(tabNum)
+            let tab_buffers_modified = 0
+            for tab_buffer_id in tabpagebuflist(a:tabNum)
+                if getbufvar(tab_buffer_id, "&mod")
+                    let tab_buffers_modified = 1
+                    break
+                endif
+            endfor
+            return tab_buffers_modified
+        endfunction
+
         function! GetTabName(tabNum)
             " filename for current window in tab, without path
             let bufferName = fnamemodify( bufname(tabpagebuflist(a:tabNum )[tabpagewinnr(a:tabNum ) - 1]), ':t')
@@ -163,16 +174,30 @@
         endfunction
 
         function! GetTabPrefixHighlight(tabNum)
+            let modified = GetTabModified(a:tabNum)
             if a:tabNum == tabpagenr()
                 " Highlight active tab number with User2
-                return '%2*'
+                if modified
+                    return '%#TabLineSelModified#'
+                    "return '%4*'
+                else
+                    return '%#TabLineSel#'
+                    "return '%2*'
+                endif
             else
                 " Highlight inactive tab number with User1
-                return '%1*'
+                if modified
+                    return '%#TabLineModified#'
+                    "return '%3*'
+                else
+                    return '%#TabLine#'
+                    "return '%1*'
+                endif
             endif
         endfunction
 
         function! GetTabNameHighlight(tabNum)
+            return GetTabPrefixHighlight(a:tabNum)
             if a:tabNum == tabpagenr()
                 " Highlight active tab name with TabLineSel
                 return '%#TabLineSel#'
@@ -639,3 +664,16 @@ hi clear SignColumn
    "let g:autotagCtagsCmd = "ctags"
 
    let g:autotagTagsFile = "tags.prom"
+
+
+" ------------------------------ "
+"     UltiSnips                  "
+" ------------------------------ "
+   let g:UltiSnipsExpandTrigger="<tab>"
+   let g:UltiSnipsJumpForwardTrigger="<tab>"
+   let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+   let g:UltiSnipsEditSplit = "vertical"
+   let g:UltiSnipsSnippetsDir = "~/.vim/snippets"
+   let g:UltiSnipsSnippetDirectories = ["snippets", "UltiSnips"]
+
+   map <leader>s <ESC>:UltiSnipsEdit<CR>
