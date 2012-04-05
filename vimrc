@@ -179,19 +179,15 @@
                 " Highlight active tab number with User2
                 if modified
                     return '%#TabLineSelModified#'
-                    "return '%4*'
                 else
                     return '%#TabLineSel#'
-                    "return '%2*'
                 endif
             else
                 " Highlight inactive tab number with User1
                 if modified
                     return '%#TabLineModified#'
-                    "return '%3*'
                 else
                     return '%#TabLine#'
-                    "return '%1*'
                 endif
             endif
         endfunction
