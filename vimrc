@@ -483,6 +483,9 @@ fun! ReadMan()
     :exe ":delete"
     " finally set file type to 'man':
     :exe ":set filetype=man"
+    :exe ":setlocal buftype=nofile"
+    :exe ":setlocal bufhidden=hide"
+    :exe ":setlocal noswapfile"
 endfun
 " Map the K key to the ReadMan function:
 map K :call ReadMan()<CR>
