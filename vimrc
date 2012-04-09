@@ -73,6 +73,9 @@
     filetype on           " Enable file type detection
     filetype plugin on    " Loads plugins associated with file type 
 
+    au BufRead,BufNewFile *.pde set filetype=cpp
+    au BufRead,BufNewFile *.ino set filetype=cpp
+
 
 " ------------------------------ "
 "     Backup Files               "
@@ -303,6 +306,10 @@
     "map <c-q> :mksession! ~/.vim/.session <cr>
     "map <c-s> :source ~/.vim/.session <cr>
 
+    " Save/Restore buffer states
+    au BufEnter,BufWinLeave * silent! mkview
+    au BufRead,BufWinEnter * silent! loadview
+
 
 " ------------------------------ "
 "     Screen Title               "
@@ -490,12 +497,6 @@ fun! ReadMan()
 endfun
 " Map the K key to the ReadMan function:
 map K :call ReadMan()<CR>
-
-" ------------------------------ "
-"     File Type Settings         "
-" ------------------------------ "
-    au BufRead,BufNewFile *.pde set filetype=cpp
-    au BufRead,BufNewFile *.ino set filetype=cpp
 
 " ================================================= "
 "            Plugin Settings                        "
