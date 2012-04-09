@@ -9,6 +9,7 @@
     "set guifont=Lucida\ Console\ Semi-Condensed\ 12
     set guioptions=
     set sessionoptions=blank,buffers,curdir,folds,globals,localoptions,options,resize,tabpages,winsize,winpos
+    set clipboard=unnamed,unnamedplus,autoselect   " Yank/Paste globally
 
 
 " ------------------- "
@@ -489,6 +490,12 @@ fun! ReadMan()
 endfun
 " Map the K key to the ReadMan function:
 map K :call ReadMan()<CR>
+
+" ------------------------------ "
+"     File Type Settings         "
+" ------------------------------ "
+    au BufRead,BufNewFile *.pde set filetype=cpp
+    au BufRead,BufNewFile *.ino set filetype=cpp
 
 " ================================================= "
 "            Plugin Settings                        "
