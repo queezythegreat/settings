@@ -93,6 +93,9 @@ alias cl=clear
 alias cls=clear
 alias =clear
 
+
+alias tmux="tmux -2"
+
 #chpwd() {
 #     [[ -t 1 ]] || return
 #     case $TERM in
