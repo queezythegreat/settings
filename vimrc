@@ -9,6 +9,7 @@
     "set guifont=Lucida\ Console\ Semi-Condensed\ 12
     set guioptions=
     set sessionoptions=blank,buffers,curdir,folds,globals,localoptions,options,resize,tabpages,winsize,winpos
+    set clipboard=unnamed,unnamedplus,autoselect   " Yank/Paste globally
 
 
 " ------------------- "
@@ -71,6 +72,9 @@
 " ------------------------------ "
     filetype on           " Enable file type detection
     filetype plugin on    " Loads plugins associated with file type 
+
+    au BufRead,BufNewFile *.pde set filetype=cpp
+    au BufRead,BufNewFile *.ino set filetype=cpp
 
 
 " ------------------------------ "
@@ -301,6 +305,10 @@
     "set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
     "map <c-q> :mksession! ~/.vim/.session <cr>
     "map <c-s> :source ~/.vim/.session <cr>
+
+    " Save/Restore buffer states
+    au BufEnter,BufWinLeave * silent! mkview
+    au BufRead,BufWinEnter * silent! loadview
 
 
 " ------------------------------ "
