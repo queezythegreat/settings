@@ -52,6 +52,7 @@
 
     set wildmode=longest:full,list          " Tab completion command mode
     set completeopt=longest,menuone         " Tab completion insert mode
+    set infercase
 
     set nostartofline                       " Don't jump to begining of the line
 
@@ -307,9 +308,14 @@
     "map <c-s> :source ~/.vim/.session <cr>
 
     " Save/Restore buffer states
-    au BufEnter,BufWinLeave * silent! mkview
-    au BufRead,BufWinEnter * silent! loadview
+    au BufLeave,BufWinLeave * silent!  mkview
+    au BufEnter,BufWinEnter * silent!  loadview
 
+    " Don't screw up folds when inserting text that might affect them, until
+    " leaving insert mode. Foldmethod is local to the window.Protect against
+    " screwing up folding when switching between windows.
+    autocmd InsertEnter *          if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
+    autocmd InsertLeave,WinLeave * if  exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif 
 
 " ------------------------------ "
 "     Screen Title               "
