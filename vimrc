@@ -490,6 +490,11 @@ endfun
 " Map the K key to the ReadMan function:
 map K :call ReadMan()<CR>
 
+
+command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_
+    \ | diffthis | wincmd p | diffthis
+
+
 " ================================================= "
 "            Plugin Settings                        "
 " ================================================= "
