@@ -385,6 +385,20 @@ hi ColorColumn  term=reverse cterm=bold ctermbg=1 guibg=DarkRed
     hi link TabLineSel WarningMsg
     hi link User2 WarningMsg
 
+" ------------------------------ "
+"          Diff Settings         "
+" ------------------------------ "
+
+    hi clear DiffAdd
+    hi clear DiffChange
+    hi clear DiffDelete
+    hi clear DiffText
+
+    hi link DiffAdd Visual
+    hi link DiffChange Search
+    hi DiffDelete  cterm=NONE ctermfg=1 ctermbg=1
+    "hi link DiffDelete ErrorMsg
+    hi link DiffText ErrorMsg
 
 " ------------------------------ "
 "       NERDTree Settings        "
