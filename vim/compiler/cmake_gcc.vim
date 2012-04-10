@@ -16,6 +16,7 @@ CompilerSet errorformat=
       \%-GScanning\ dependencies\ of\ target\ %.%#,
       \%-GLinking\ CXX\ static\ library\ %.%#,
       \%-GLinking\ CXX\ executable\ %.%#,
+      \%-G--\ %.%#,
       \%-GIn\ file\ included\ from\ %f:%l:%c,
       \%-GIn\ file\ included\ from\ %f:%l:,
       \%-GIn\ file\ included\ from\ %f:%l\\,,

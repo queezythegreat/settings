@@ -1,0 +1,109 @@
+*ProjectTag.txt*
+
+File: doc/ProjectTag.txt
+Version: 0.1.10
+Author: H Xu(xuhdev AT gmail DOT com)
+Last Change: 3 February, 2011
+Description: This plugin aims at generating tags for a whole project. 
+License: You can redistribute this plugin and/or modify it under the terms 
+         of the GNU General Public License as published by the Free Software 
+         Foundation; either version 2, or any later version. 
+
+CONTENTS~
+                                            *ProjectTag-contents*
+----------------------------------------------------------------------------
+1. Overview                                 |ProjectTag-overview|
+2. Tutorial                                 |ProjectTag-tutorial|
+3. Commands                                 |ProjectTag-commands|
+4. Installation                             |PorjectTag-installation|
+
+
+OVERVIEW~
+                                            *ProjectTag-overview*
+----------------------------------------------------------------------------
+This plugin aims at generating tags for a whole project. 
+Python support is required for this plugin to run.
+
+For C/C++ projects, there's no need to generate a seperate tag file for the
+included header files any more! This plugin will also parses the header files
+cited in your source code, so a tag file providing information of all sources
+files in your project and header files included in your sources would be
+generated. 
+
+
+TUTORIAL~
+                                            *ProjectTag-tutorial*
+----------------------------------------------------------------------------
+First, enter your project root directory, for example /home/user/myproject.
+Then create a project file, the file name must be "project.prom". Edit this
+file. Copy the following content to this file:
+=========
+[general]
+sources=source1,source2,...
+include_dirs=include_dir1,include_dir2,...
+tagprog=ctags_command
+tagflag=--your-tag-flags
+=========
+
+Replace source1,source2,... with your source file, such as main.c,
+src/foo.cpp;
+
+replace include_dir1,include_dir2,... with your include directories, such as
+/usr/include, /usr/local/include (not required for non C/C++ project, in fact,
+even for C/C++ project, it is also optional);
+
+replace ctags_command with your ctags command, such as ctags, /usr/bin/ctags;
+
+replace --your-tag-flags with your tag flags, such as --extra=+q.
+
+
+For example, for the following source tree:
+
+- src/
+  main.cpp
+  foo.cpp
+  bar.cpp
+- include/
+  foo.h
+  bar.h
+
+The project file could be like the following:
+=========
+[general]
+sources=src/main.cpp, src/foo.cpp, src/bar.cpp
+include_dirs=./include,/usr/include
+tagprog=ctags
+tagflag=--extra=+q --c++-kinds=+p --fields=+iaS 
+=========
+              
+Then save the file.
+
+Use vim to open a source file, such as source1.cpp. Use the command
+":GenProTags" to generate the tag file(this might be some kind of slow). if
+you don't want to be blocked when generating the tag file, use ":GenProTagsBg"
+instead. This will generate the tag file in background.
+
+
+COMMANDS~
+                                            *ProjectTag-commands*
+----------------------------------------------------------------------------
+                                            *GenProTags*
+:GenProTags
+
+Generate tags for your project.
+                                            *GenProTagsBg*
+:GenProTagsBg
+
+Generate tags for your project in background. Userful if you want to edit
+files when tags are generated.
+
+INSTALLATION~
+                                            *ProjectTag-installation*
+----------------------------------------------------------------------------
+Download the ProjectTag.zip file and extract it to your vim runtime
+directory(~/.vim on linux and $VIM_INSTALLATION_FOLDER\vimfiles on
+windows), you'd better then use helptags command to generate the help
+tag(for example use ":helptags ~/.vim/doc" on Linux).
+
+
+vim:ts=4:ft=help:tw=78

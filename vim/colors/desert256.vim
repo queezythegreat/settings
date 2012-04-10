@@ -264,11 +264,16 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("Search", "3a3a3a", "cd853f", "bold")
     call <SID>X("SpecialKey", "9acd32", "", "")
 
+
     call <SID>X("StatusLine", "c2bfa5", "000000", "")
     call <SID>X("StatusLineNC", "c2bfa5", "7f7f7f", "")
 
     call <SID>X("Title", "cd5c5c", "", "")
     call <SID>X("Visual", "6b8e23", "f0e68c", "reverse")
+
+
+    call <SID>X("TabLineModified",    "ffd700", "4d4d4d", "bold")
+    call <SID>X("TabLineSelModified", "fa8072", "",       "bold")
 
     call <SID>X("StatusLine", "ffd700", "4d4d4d", "None")
     call <SID>X("StatusLineNC", "d2b48c", "4d4d4d", "None")
@@ -380,6 +385,20 @@ hi ColorColumn  term=reverse cterm=bold ctermbg=1 guibg=DarkRed
     hi link TabLineSel WarningMsg
     hi link User2 WarningMsg
 
+" ------------------------------ "
+"          Diff Settings         "
+" ------------------------------ "
+
+    hi clear DiffAdd
+    hi clear DiffChange
+    hi clear DiffDelete
+    hi clear DiffText
+
+    hi link DiffAdd Visual
+    hi link DiffChange Search
+    hi DiffDelete  cterm=NONE ctermfg=1 ctermbg=1
+    "hi link DiffDelete ErrorMsg
+    hi link DiffText ErrorMsg
 
 " ------------------------------ "
 "       NERDTree Settings        "
