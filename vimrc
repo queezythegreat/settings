@@ -304,19 +304,16 @@
 "     Session Saving             "
 " ------------------------------ "
     "set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
-    "map <c-q> :mksession! ~/.vim/.session <cr>
-    "map <c-s> :source ~/.vim/.session <cr>
+    set viewoptions=folds,cursor    " Save only folds and cursor position
 
     " Save/Restore buffer states
-    "au BufLeave,BufWinLeave * silent!  mkview
-    "au BufEnter,BufWinEnter * silent!  loadview
-    au BufLeave,BufWinLeave * if buffer_name("%") != "__Tagbar__" | silent! mkview | endif
-    au BufEnter,BufWinEnter * if buffer_name("%") != "__Tagbar__" | silent! loadview | endif
+    "au BufWinLeave         * if &buftype != "nofile" | silent! mkview   | endif
+    "au BufRead,BufWinEnter * if &buftype != "nofile" | silent! loadview | endif
 
     " Don't screw up folds when inserting text that might affect them, until
     " leaving insert mode. Foldmethod is local to the window.Protect against
     " screwing up folding when switching between windows.
-    autocmd InsertEnter *          if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
+    autocmd InsertEnter          * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
     autocmd InsertLeave,WinLeave * if  exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif 
 
 " ------------------------------ "
