@@ -308,8 +308,10 @@
     "map <c-s> :source ~/.vim/.session <cr>
 
     " Save/Restore buffer states
-    au BufLeave,BufWinLeave * silent!  mkview
-    au BufEnter,BufWinEnter * silent!  loadview
+    "au BufLeave,BufWinLeave * silent!  mkview
+    "au BufEnter,BufWinEnter * silent!  loadview
+    au BufLeave,BufWinLeave * if buffer_name("%") != "__Tagbar__" | silent! mkview | endif
+    au BufEnter,BufWinEnter * if buffer_name("%") != "__Tagbar__" | silent! loadview | endif
 
     " Don't screw up folds when inserting text that might affect them, until
     " leaving insert mode. Foldmethod is local to the window.Protect against
