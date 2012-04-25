@@ -291,7 +291,6 @@ job_name() {
     if [ "${JOB_LENGTH}" -lt "0" ];then
         JOB_LENGTH=0
     fi
-    echo $JOB_LENGTH > /tmp/test
     JOB_NAME=$(jobs|grep +|tr -s " "|cut -d " " -f 4-|cut -b 1-${JOB_LENGTH}|sed "s/\(.*\)/\1:/")
     echo "${PR_GREEN}${JOB_NAME}"
 }
