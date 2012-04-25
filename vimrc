@@ -686,6 +686,7 @@ hi clear SignColumn
 " ------------------------------ "
 "     UltiSnips                  "
 " ------------------------------ "
+   let g:UltiSnipsUsePythonVersion = 2
    let g:UltiSnipsExpandTrigger="<tab>"
    let g:UltiSnipsJumpForwardTrigger="<tab>"
    let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
