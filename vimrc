@@ -536,11 +536,10 @@ command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_
 "     SuperTab Plugin            "
 " ------------------------------ "
     let g:SuperTabDefaultCompletionType = "context"
-    let g:SuperTabContextDefaultCompletionType = "<c-p>"
+    let g:SuperTabContextDefaultCompletionType = "<c-n>"
     let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
     let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
-    let g:SuperTabContextDiscoverDiscovery =
-        \ ["&completefunc:<c-x><c-u>", "&omnifunc:<c-x><c-o>"]
+    let g:SuperTabContextDiscoverDiscovery  = ["&omnifunc:<c-x><c-o>", "&completefunc:<c-x><c-u>"]
 
 
 " ------------------------------ "
@@ -607,13 +606,14 @@ hi clear SignColumn
 " ------------------------------ "
 "     OmniCppComplete            "
 " ------------------------------ "
-    let OmniCpp_MayCompleteDot   = 0    " autocomplete with .
-    let OmniCpp_MayCompleteArrow = 0    " autocomplete with ->
-    let OmniCpp_MayCompleteScope = 0    " autocomplete with ::
+    let OmniCpp_MayCompleteDot   = 1    " autocomplete with .
+    let OmniCpp_MayCompleteArrow = 1    " autocomplete with ->
+    let OmniCpp_MayCompleteScope = 1    " autocomplete with ::
     let OmniCpp_SelectFirstItem  = 2    " select first item (but don't insert)
     let OmniCpp_NamespaceSearch  = 2    " search namespaces in this and included files
     let OmniCpp_ShowPrototypeInAbbr = 1 " show function prototype (i.e. parameters) in popup 
     let OmniCpp_DefaultNamespaces   = ["std", "_GLIBCXX_STD"]
+    let OmniCpp_DisplayMode = 1
 
     " Automatically close preview window on completion
     autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
