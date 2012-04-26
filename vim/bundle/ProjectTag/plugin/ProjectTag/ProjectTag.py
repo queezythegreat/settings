@@ -11,6 +11,7 @@ import sys
 import tempfile
 import threading
 import vim
+import glob2
 
 # varibles {{{1
 default_project_name = ''
@@ -262,7 +263,11 @@ class ProjectConfig( ConfigParser.ConfigParser ):#{{{1
         sources_full_path = [ self.project_dir + os.path.sep
                 + s for s in sources ]
 
-        sources_full_path = filter( os.path.isfile, sources_full_path )
+        all_sources = []
+        for path_glob in sources_full_path:
+            all_sources += glob2.glob(path_glob) or [path_glob]
+
+        sources_full_path = filter( os.path.isfile, all_sources )
 
         # first add the sources
         ret |= set( sources_full_path )
