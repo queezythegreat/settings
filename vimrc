@@ -699,3 +699,10 @@ hi clear SignColumn
    let g:UltiSnipsSnippetDirectories = ["snippets", "UltiSnips"]
 
    map <leader>s <ESC>:UltiSnipsEdit<CR>
+
+" ------------------------------ "
+"     ProjectTags                "
+" ------------------------------ "
+    command! ProjectTags GenProTags
+    command! ProjectTagsBg GenProTagsBg
+
