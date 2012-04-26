@@ -441,3 +441,9 @@ if [ ! -x "${BUILD_ENVIRONMENT}" -a -f "${BUILD_ENVIRONMENT}.sh" ]; then
     . "${BUILD_ENVIRONMENT}.sh"
 fi
 
+function quickfix {
+    ${*} 2>&1 | tee .quickfix
+    vim --servername VIM --remote-expr "LoadQuickfix(\"$(pwd)/.quickfix\")"
+}
+
+alias vim='vim --servername VIM -p'
