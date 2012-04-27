@@ -537,9 +537,9 @@ command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_
 " ------------------------------ "
     let g:SuperTabDefaultCompletionType = "context"
     let g:SuperTabContextDefaultCompletionType = "<c-n>"
-    let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
-    let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
-    let g:SuperTabContextDiscoverDiscovery  = ["&omnifunc:<c-x><c-o>", "&completefunc:<c-x><c-u>"]
+    "let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
+    "let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
+    "let g:SuperTabContextDiscoverDiscovery  = ["&omnifunc:<c-x><c-o>", "&completefunc:<c-x><c-u>"]
 
 
 " ------------------------------ "
