@@ -3,6 +3,7 @@
 	email = queezythegreat@gmail.com
 [merge]
     tool = meld
+    ff = false      # Always create a merge commit
 
 
 [color]
@@ -34,3 +35,9 @@
 	history-view-vpane-position = 443
 	main-window-view = FileView
 	file-view-vpane-position = 650
+
+[log]
+    decorate=short
+
+[push]
+    default = current    # push current branch to upstream matching branch
