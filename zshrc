@@ -135,12 +135,37 @@ zstyle ':completion:*' select-prompt '%SSelect:  lines: %L  matches: %M  [%p]'
 zstyle ':completion:*' keep-prefix changed
 
 autoload -U compinit
+autoload -U vcs_info
+autoload colors zsh/terminfo
 compinit
 
+zstyle ':vcs_info:*' stagedstr   '●'
+zstyle ':vcs_info:*' unstagedstr '●'
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%r'
+zstyle ':vcs_info:(svn|hg|hg-git)*' formats '%s: [%b]'
+zstyle ':vcs_info:*' enable git svn hg
+zstyle ':vcs_info:*+set-message:*' hooks vcsinfo
+zstyle ':vcs_info:*+no-vcs:*' hooks vcsinfo
+#zstyle ':vcs_info:git*' formats "%s  %r/%S %b %m%u%c% "
 
+function +vi-vcsinfo(){
+    #hook_com[branch]=${hook_com[branch]/#%master/M}
+    hook_com[vcs]=${hook_com[vcs]/#%git-svn/git}
+    for KEY in action branch base base-name subdir staged unstaged revision misc vcs; do
+        KEY_NAME="${KEY/-/_}"
+        KEY_NAME="${KEY_NAME:u}"
+        export "VCS_${KEY_NAME}=${hook_com[$KEY]}"
+    done
+}
+function +vi-novcsinfo() {
+    echo 'NNNNNO'
+}
 
 
 function precmd {
+
+    vcs_info
 
     local TERMWIDTH
     (( TERMWIDTH = ${COLUMNS} - 1 ))
@@ -155,11 +180,14 @@ function precmd {
     local promptsize=${#${(%):---(%n@%m)---()--}}
     local pwdsize=${#${(%):-%~}}
     local chrootsize=${#CHROOT}
+    #local vcs_type_size=$((${#VCS_VCS} +1))
+    #local vcs_info_size=$((${#VCS_VCS} + ${#VCS_STAGED} + ${#VCS_UNSTAGED} + ${#VCS_BRANCH} +1))
+    local vcs_info_size=$((${#vcs_info_msg_0_} +1))
     
     if [[ "$promptsize + $pwdsize" -gt $TERMWIDTH ]]; then
 	    ((PR_PWDLEN=$TERMWIDTH - $promptsize))
     else
-	PR_FILLBAR="\${(l.(($TERMWIDTH - ($promptsize + $pwdsize + $chrootsize)))..${PR_HBAR}.)}"
+	PR_FILLBAR="\${(l.(($TERMWIDTH - ($promptsize + $pwdsize + $chrootsize + $vcs_info_size )))..${PR_HBAR}.)}"
     fi
 
 
@@ -174,6 +202,25 @@ preexec () {
     fi
 }
 
+function setup_colors {
+    if [[ "$terminfo[colors]" -ge 8 ]]; then
+        colors
+    fi
+        for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
+        eval PR_$color='%{$terminfo[bold]$fg[${(L)color}]%}'
+        eval PR_LIGHT_$color='%{$fg[${(L)color}]%}'
+        (( count = $count + 1 ))
+    done
+    PR_NO_COLOUR="%{$terminfo[sgr0]%}"
+
+    for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
+        eval PR_BG_$color='%{$terminfo[bold]$bg[${(L)color}]%}'
+        eval PR__BG_LIGHT_$color='%{$bg[${(L)color}]%}'
+        (( count = $count + 1 ))
+    done
+}
+setup_colors
+zstyle ':vcs_info:git*' formats "%s:%u%c [%b]"
 
 setprompt () {
     ###
@@ -184,23 +231,6 @@ setprompt () {
 
     ###
     # See if we can use colors.
-
-    autoload colors zsh/terminfo
-    if [[ "$terminfo[colors]" -ge 8 ]]; then
-	colors
-    fi
-    for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
-	eval PR_$color='%{$terminfo[bold]$fg[${(L)color}]%}'
-	eval PR_LIGHT_$color='%{$fg[${(L)color}]%}'
-	(( count = $count + 1 ))
-    done
-    PR_NO_COLOUR="%{$terminfo[sgr0]%}"
-
-    for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
-	eval PR_BG_$color='%{$terminfo[bold]$bg[${(L)color}]%}'
-	eval PR__BG_LIGHT_$color='%{$bg[${(L)color}]%}'
-	(( count = $count + 1 ))
-    done
 
     ###
     # See if we can use extended characters to look nicer.
@@ -276,8 +306,10 @@ setprompt () {
     [[ ! -z "${BUILD_ENVIRONMENT}" ]] && CHROOT="[${BUILD_ENVIRONMENT}] "
     [[ ! -z "${CHROOT}" ]] && CHROOT_PRMPT="${PR_RED}${CHROOT}"
 
+    VCS_TYPE='${PR_RED}${VCS_VCS:+${VCS_VCS:u}:}${VCS_VCS:+ }'
+    VCS_BRANCH='${PR_GREEN}${VCS_STAGED}${PR_RED}${VCS_UNSTAGED}${PR_YELLOW}${VCS_BRANCH:+[}${VCS_BRANCH}${VCS_BRANCH:+]}'
 
-    PROMPT="${SET_TITLEBAR}$UL_CORNER $USER_HOST ${SEPERATOR} ${CHROOT_PRMPT}$CURRENT_WD $FILLER$UR_CORNER\
+    PROMPT="${SET_TITLEBAR}$UL_CORNER $USER_HOST ${SEPERATOR} ${CHROOT_PRMPT}${VCS_TYPE}$CURRENT_WD ${VCS_BRANCH} $FILLER$UR_CORNER\
 
 $LL_CORNER$PR_NO_COLOUR "
 
