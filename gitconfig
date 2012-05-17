@@ -44,6 +44,6 @@
 
 [alias]
     bmerge = merge --no-ff
-    incoming = !git log ..$(git branch -vvv | grep '^*' | sed -n 's/^.*\\[\\(.*\\):.*\\].*$/\\1/p')
-    outgoing = !git log   $(git branch -vvv | grep '^*' | sed -n 's/^.*\\[\\(.*\\):.*\\].*$/\\1/p')..
+    incoming = !git l ..$(git branch -vvv | grep '^*' | sed -n -r 's/^.*\\[([^:]*):?.*\\].*$/\\1/p')
+    outgoing = !git l   $(git branch -vvv | grep '^*' | sed -n -r 's/^.*\\[([^:]*):?.*\\].*$/\\1/p')..
     l = log --graph --stat
