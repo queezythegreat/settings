@@ -476,5 +476,8 @@ function quickfix {
     ${*} 2>&1 | tee .quickfix
     vim --servername VIM --remote-expr "LoadQuickfix(\"$(pwd)/.quickfix\")"
 }
-
-alias vim='vim --servername VIM -p'
+if vim --version | grep -q '\+X11'; then
+    alias vim='vim --servername VIM -p'
+else
+    alias vim='vim -p'
+fi
