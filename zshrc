@@ -25,7 +25,10 @@
     setopt HASH_CMDS           # turns on hashing
     setopt extended_glob
 
-    fpath=(~/.zsh/functions/VCS_Info ~/.zsh/functions $fpath)
+    fpath=(~/.zsh/functions/VCS_Info
+           ~/.zsh/functions/VCS_Info/Backends
+           ~/.zsh/functions
+           $fpath)
 
 
 
