@@ -11,6 +11,13 @@ if exists('did_UltiSnips_vim') || &cp || version < 700
     finish
 endif
 
+if !has("python3")
+    if !has("python")
+        echo  "UltiSnips requires py >= 2.6 or any py3"
+        finish
+    endif
+endif
+
 if !exists("g:UltiSnipsUsePythonVersion")
     let g:_uspy=":py3 "
     if !has("python3")
