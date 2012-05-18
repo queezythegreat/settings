@@ -145,7 +145,8 @@ zstyle ':vcs_info:*' stagedstr   '●'
 zstyle ':vcs_info:*' unstagedstr '●'
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%r'
-zstyle ':vcs_info:(svn|hg|hg-git)*' formats '%s: [%b]'
+zstyle ':vcs_info:(svn|hg|hg-git)*' formats '%s[%b] -- '
+zstyle ':vcs_info:git*' formats "%s[%b] -- "
 zstyle ':vcs_info:*' enable git svn hg
 zstyle ':vcs_info:*+set-message:*' hooks vcsinfo
 zstyle ':vcs_info:*+no-vcs:*' hooks vcsinfo
@@ -163,7 +164,6 @@ function +vi-vcsinfo() {
 
 
 function precmd {
-
     vcs_info
 
     local TERMWIDTH
@@ -179,17 +179,13 @@ function precmd {
     local promptsize=${#${(%):---(%n@%m)---()--}}
     local pwdsize=${#${(%):-%~}}
     local chrootsize=${#CHROOT}
-    #local vcs_type_size=$((${#VCS_VCS} +1))
-    #local vcs_info_size=$((${#VCS_VCS} + ${#VCS_STAGED} + ${#VCS_UNSTAGED} + ${#VCS_BRANCH} +1))
-    local vcs_info_size=$((${#vcs_info_msg_0_} +1))
+    local vcs_info_size=$((${#vcs_info_msg_0_}))
     
     if [[ "$promptsize + $pwdsize" -gt $TERMWIDTH ]]; then
 	    ((PR_PWDLEN=$TERMWIDTH - $promptsize))
     else
-	PR_FILLBAR="\${(l.(($TERMWIDTH - ($promptsize + $pwdsize + $chrootsize + $vcs_info_size )))..${PR_HBAR}.)}"
+	PR_FILLBAR="\${(l.(($TERMWIDTH - (1 + $promptsize + $pwdsize + $chrootsize + $vcs_info_size )))..${PR_HBAR}.)}"
     fi
-
-
 }
 
 
@@ -219,7 +215,6 @@ function setup_colors {
     done
 }
 setup_colors
-zstyle ':vcs_info:git*' formats "%s:%u%c [%b]"
 
 setprompt () {
     ###
@@ -282,9 +277,9 @@ setprompt () {
     CWD_COLOR="${PR_GREEN}"
     EXIT_CODE_COLOR="$PR_LIGHT_RED"
 
-    UL_CORNER='${LINE_COLOR}${PR_SHIFT_IN}${PR_ULCORNER}${PR_HBAR}${PR_SHIFT_OUT}'
+    UL_CORNER='${LINE_COLOR}${PR_SHIFT_IN}${PR_ULCORNER}${PR_HBAR}${PR_HBAR}${PR_SHIFT_OUT}'
     UR_CORNER='${LINE_COLOR}${PR_SHIFT_IN}${PR_HBAR}${PR_URCORNER}${PR_SHIFT_OUT}'
-    LL_CORNER='${LINE_COLOR}${PR_SHIFT_IN}${PR_LLCORNER}${PR_HBAR}${PR_SHIFT_OUT}'
+    LL_CORNER='${LINE_COLOR}${PR_SHIFT_IN}${PR_LLCORNER}${PR_SHIFT_OUT}'
     LR_CORNER='${LINE_COLOR}${PR_SHIFT_IN}${PR_HBAR}${PR_LRCORNER}${PR_SHIFT_OUT}'
     FILLER='${LINE_COLOR}${PR_SHIFT_IN}${(e)PR_FILLBAR}${PR_HBAR}${PR_SHIFT_OUT}'
 
@@ -300,17 +295,18 @@ setprompt () {
 
     SET_TITLEBAR='$PR_SET_CHARSET$PR_STITLE${(e)PR_TITLEBAR}'
     JOBS='$(job_name)$(job_count)'
+    SPACER='${LINE_COLOR}${PR_SHIFT_IN}${PR_HBAR}${PR_SHIFT_OUT}'
 
     CHROOT=""
     [[ ! -z "${BUILD_ENVIRONMENT}" ]] && CHROOT="[${BUILD_ENVIRONMENT}] "
     [[ ! -z "${CHROOT}" ]] && CHROOT_PRMPT="${PR_RED}${CHROOT}"
 
-    VCS_TYPE='${PR_RED}${VCS_VCS:+${VCS_VCS:u}:}${VCS_VCS:+ }'
-    VCS_REV='${PR_GREEN}${VCS_STAGED}${PR_RED}${VCS_UNSTAGED}${PR_YELLOW}${VCS_BRANCH:+[}${VCS_BRANCH}${VCS_BRANCH:+]}'
+    VCS_TYPE='${PR_RED}${VCS_VCS:+${VCS_VCS:u}${PR_YELLOW}${VCS_BRANCH:+[}${VCS_BRANCH}${VCS_BRANCH:+]} '${SEPERATOR}'}${VCS_VCS:+ }'
+    VCS_STAGE='${PR_RED}${VCS_UNSTAGED:-'${SPACER}'}${PR_GREEN}${VCS_STAGED:-'${SPACER}'}'
 
-    PROMPT="${SET_TITLEBAR}$UL_CORNER $USER_HOST ${SEPERATOR} ${CHROOT_PRMPT}${VCS_TYPE}$CURRENT_WD ${VCS_REV} $FILLER$UR_CORNER\
+    PROMPT="${SET_TITLEBAR}$UL_CORNER $USER_HOST ${SEPERATOR} ${CHROOT_PRMPT}${VCS_TYPE}$CURRENT_WD $FILLER$UR_CORNER\
 
-$LL_CORNER$PR_NO_COLOUR "
+$LL_CORNER$PR_NO_COLOUR${VCS_STAGE} "
 
     RPROMPT=" $EXIT_CODE$LL_CORNER%\[${JOBS}${CURRENT_DATE} $CURRENT_TIME\${LINE_COLOR}%\]${LR_CORNER}${PR_NO_COLOUR}"
 
