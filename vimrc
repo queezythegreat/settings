@@ -9,6 +9,7 @@
     "set guifont=Lucida\ Console\ Semi-Condensed\ 12
     set guioptions=
     set sessionoptions=blank,buffers,curdir,folds,globals,localoptions,options,resize,tabpages,winsize,winpos
+    set clipboard=unnamed,unnamedplus,autoselect   " Yank/Paste globally
 
 
 " ------------------- "
@@ -50,7 +51,8 @@
     set showmode                            " Show current mode which VIM is in
 
     set wildmode=longest:full,list          " Tab completion command mode
-    set completeopt=longest,preview         " Tab completion insert mode
+    set completeopt=longest,menuone         " Tab completion insert mode
+    set infercase
 
     set nostartofline                       " Don't jump to begining of the line
 
@@ -72,6 +74,9 @@
     filetype on           " Enable file type detection
     filetype plugin on    " Loads plugins associated with file type 
 
+    au BufRead,BufNewFile *.pde set filetype=cpp
+    au BufRead,BufNewFile *.ino set filetype=cpp
+
 
 " ------------------------------ "
 "     Backup Files               "
@@ -88,6 +93,7 @@
     noremap <space> za
     
     "map <silent> <F2> <ESC>:make!<CR>
+    map <C-\> :vert belowright split<CR> :exec("tselect ".expand("<cword>"))<CR>
 
 " ------------------------------ "
 "     Window Navigation       "
@@ -142,6 +148,17 @@
             return a:tabNum . '  '
         endfunction
 
+        function! GetTabModified(tabNum)
+            let tab_buffers_modified = 0
+            for tab_buffer_id in tabpagebuflist(a:tabNum)
+                if getbufvar(tab_buffer_id, "&mod")
+                    let tab_buffers_modified = 1
+                    break
+                endif
+            endfor
+            return tab_buffers_modified
+        endfunction
+
         function! GetTabName(tabNum)
             " filename for current window in tab, without path
             let bufferName = fnamemodify( bufname(tabpagebuflist(a:tabNum )[tabpagewinnr(a:tabNum ) - 1]), ':t')
@@ -162,16 +179,26 @@
         endfunction
 
         function! GetTabPrefixHighlight(tabNum)
+            let modified = GetTabModified(a:tabNum)
             if a:tabNum == tabpagenr()
                 " Highlight active tab number with User2
-                return '%2*'
+                if modified
+                    return '%#TabLineSelModified#'
+                else
+                    return '%#TabLineSel#'
+                endif
             else
                 " Highlight inactive tab number with User1
-                return '%1*'
+                if modified
+                    return '%#TabLineModified#'
+                else
+                    return '%#TabLine#'
+                endif
             endif
         endfunction
 
         function! GetTabNameHighlight(tabNum)
+            return GetTabPrefixHighlight(a:tabNum)
             if a:tabNum == tabpagenr()
                 " Highlight active tab name with TabLineSel
                 return '%#TabLineSel#'
@@ -277,9 +304,17 @@
 "     Session Saving             "
 " ------------------------------ "
     "set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
-    "map <c-q> :mksession! ~/.vim/.session <cr>
-    "map <c-s> :source ~/.vim/.session <cr>
+    set viewoptions=folds,cursor    " Save only folds and cursor position
 
+    " Save/Restore buffer states
+    "au BufWinLeave         * if &buftype != "nofile" | silent! mkview   | endif
+    "au BufRead,BufWinEnter * if &buftype != "nofile" | silent! loadview | endif
+
+    " Don't screw up folds when inserting text that might affect them, until
+    " leaving insert mode. Foldmethod is local to the window.Protect against
+    " screwing up folding when switching between windows.
+    autocmd InsertEnter          * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
+    autocmd InsertLeave,WinLeave * if  exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif 
 
 " ------------------------------ "
 "     Screen Title               "
@@ -357,6 +392,7 @@
     " Execute make command as subprocess using Conque
     function! ConqueMake(...)
         let g:ConqueMakeOutput = ''
+        cgete ''
         "let g:ConqueCallbackCount = 0
         if a:0 > 0
             if a:1 != ''
@@ -428,6 +464,8 @@
     command! -nargs=? -complete=shellcmd MakeCMD call ConqueMakeCMD('<args>')  " Set a makeprg command
     command! -nargs=? -complete=shellcmd Make    call ConqueMake('<args>')     " ConqueMake command with completion
 
+    command! -nargs=? -complete=file LoadQuickfix call LoadQuickfix('<args>')     " Load quickfix from file
+
     set makeprg=make\ -e\ TERM=\ -C\ build
     compiler! cmake_gcc  " Set default compiler
 
@@ -442,6 +480,33 @@
 " ------------------------------ "
     command! VimrcEdit tabnew ~/.vimrc
     command! VimrcLoad source ~/.vimrc
+    map <F3> <ESC>:VimrcEdit<CR>
+    map <F4> <ESC>:VimrcLoad<CR>
+
+fun! ReadMan()
+    " Assign current word under cursor to a script variable:
+    let s:man_word = expand('<cword>')
+    " Open a new window:
+    :exe ":wincmd n"
+    " Read in the manpage for man_word (col -b is for formatting):
+    :exe ":r!man " . s:man_word . " | col -b"
+    " Goto first line...
+    :exe ":goto"
+    " and delete it:
+    :exe ":delete"
+    " finally set file type to 'man':
+    :exe ":set filetype=man"
+    :exe ":setlocal buftype=nofile"
+    :exe ":setlocal bufhidden=hide"
+    :exe ":setlocal noswapfile"
+endfun
+" Map the K key to the ReadMan function:
+map K :call ReadMan()<CR>
+
+
+command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_
+    \ | diffthis | wincmd p | diffthis
+
 
 " ================================================= "
 "            Plugin Settings                        "
@@ -472,6 +537,9 @@
 " ------------------------------ "
     let g:SuperTabDefaultCompletionType = "context"
     let g:SuperTabContextDefaultCompletionType = "<c-n>"
+    "let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
+    let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
+    "let g:SuperTabContextDiscoverDiscovery  = ["&omnifunc:<c-x><c-o>", "&completefunc:<c-x><c-u>"]
 
 
 " ------------------------------ "
@@ -499,7 +567,7 @@ hi clear SignColumn
     au! BufEnter *.cpp let b:fswitchdst = 'hpp,hxx,h' | let b:fswitchlocs = './'
     au! BufEnter *.hpp let b:fswitchdst = 'cpp,cxx,c' | let b:fswitchlocs = './'
     au! BufEnter *.c   let b:fswitchdst = 'h,hpp,hxx' | let b:fswitchlocs = './'
-    au! BufEnter *.h   let b:fswitchdst = 'c,cpp,cxx' | let b:fswitchlocs = './'
+    au! BufEnter *.h   let b:fswitchdst = 'cpp,c,cxx' | let b:fswitchlocs = './'
     " Switch to file inplace
     nmap <silent> <Leader>of :FSHere<cr>
     " Switch to the file and load it into the window on the right >
@@ -545,6 +613,7 @@ hi clear SignColumn
     let OmniCpp_NamespaceSearch  = 2    " search namespaces in this and included files
     let OmniCpp_ShowPrototypeInAbbr = 1 " show function prototype (i.e. parameters) in popup 
     let OmniCpp_DefaultNamespaces   = ["std", "_GLIBCXX_STD"]
+    let OmniCpp_DisplayMode = 1
 
     " Automatically close preview window on completion
     autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
@@ -571,7 +640,69 @@ hi clear SignColumn
     hi link ShowMarksHLm Comment
 
 " ------------------------------ "
+"     CCTree                     "
+" ------------------------------ "
+    let g:CCTreeDisplayMode = 1          " Values: 1 -- Ultra-compact
+                                         "         2 -- Compact
+                                         "         3 -- Wide
+    let g:CCTreeCscopeDb = "cscope.out"  " Cscope database file
+    let g:CCTreeRecursiveDepth = 3       " Maximum call levels
+    let g:CCTreeMinVisibleDepth = 3      " Maximum visible(unfolded) level
+    let g:CCTreeOrientation = "botright" " Orientation of window
+
+" ------------------------------ "
+"     EClim                      "
+" ------------------------------ "
+    let g:EclimDefaultFileOpenAction   = 'vert belowright split'
+    "let g:EclimCHierarchyDefaultAction = 'vert belowright split'
+    let g:EclimProjectTreeSharedInstance = 1
+
+    let g:TreeDirHighlight = 'WarningMsg'
+    "let g:TreeFileHighlight = ''
+    let g:TreeFileExecutableHighlight = 'SpecialKey'
+
+    map <leader>eg  <ESC>:CSearchContext<CR>
+    map <leader>et  <ESC>:ProjectTree<CR>
+    map <leader>eo  <ESC>:ProjectOpen 
+    map <leader>eO  <ESC>:ProjectClose<CR>
+    map <leader>eh  <ESC>:CCallHierarchy<CR>
+
+    autocmd! FileType cpp  nnoremap <silent>  <cr> :CSearchContext<cr>
+    autocmd! WinEnter \[Call\ Hierarchy\] wincmd L | vertical resize 40 " Automatically move quickfix to the right
+
+
+" ------------------------------ "
 "     PathoGen Loader            "
 " ------------------------------ "
     call pathogen#infect() 
+
+" ------------------------------ "
+"     AutoTag                    "
+" ------------------------------ "
+   "let g:autotagDisabled = 0
+   "let g:autotagVerbosityLevel = 0
+   "let g:autotagExcludeSuffixes = "tml.xml.text.txt"
+   "let g:autotagCtagsCmd = "ctags"
+
+   let g:autotagTagsFile = "tags.prom"
+
+
+" ------------------------------ "
+"     UltiSnips                  "
+" ------------------------------ "
+   let g:UltiSnipsUsePythonVersion = 2
+   let g:UltiSnipsExpandTrigger="<tab>"
+   let g:UltiSnipsJumpForwardTrigger="<tab>"
+   let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+   let g:UltiSnipsEditSplit = "vertical"
+   let g:UltiSnipsSnippetsDir = "~/.vim/snippets"
+   let g:UltiSnipsSnippetDirectories = ["snippets", "UltiSnips"]
+
+   map <leader>s <ESC>:UltiSnipsEdit<CR>
+
+" ------------------------------ "
+"     ProjectTags                "
+" ------------------------------ "
+    command! ProjectTags GenProTags
+    command! ProjectTagsBg GenProTagsBg
 

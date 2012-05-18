@@ -695,6 +695,9 @@ function! conque_term#set_mappings(action) "{{{
         inoremap <silent> <buffer>  <C-J> <Esc><C-W>j
         inoremap <silent> <buffer>  <C-K> <Esc><C-W>k
         inoremap <silent> <buffer>  <C-L> <Esc><C-W>l
+
+        inoremap <silent> <buffer>  <C-P> <Esc>:tabprevious<CR>
+        inoremap <silent> <buffer>  <C-N> <Esc>:tabnext<CR>
     endif
     " }}}
 
@@ -1381,7 +1384,10 @@ function! s:term_obj.read(...) dict " {{{
 
     " ftw!
     try
-        let pycode = "\nif conque_tmp:\n    conque_tmp = re.sub('\\\\\\\\', '\\\\\\\\\\\\\\\\', conque_tmp)\n    conque_tmp = re.sub('\"', '\\\\\\\\\"', conque_tmp)\n    vim.command('let output = \"' + conque_tmp + '\"')\n"
+        let pycode  = "\nif conque_tmp:\n"
+        let pycode .= "    conque_tmp = re.sub('\\\\\\\\', '\\\\\\\\\\\\\\\\', conque_tmp)\n"
+        let pycode .= "    conque_tmp = re.sub('\"', '\\\\\\\\\"', conque_tmp)\n"
+        let pycode .= "    vim.command('let output = \"' + conque_tmp + '\"')\n"
         sil exec s:py . pycode
     catch
         " d'oh

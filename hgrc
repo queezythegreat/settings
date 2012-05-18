@@ -1,0 +1,12 @@
+[ui]
+username = QueezyTheGreat <queezythegreat@gmail.com>
+verbose = true
+
+[extensions]
+rebase=
+hgext.bookmarks =
+hggit = 
+graphlog = 
+color =
+#hgsubversion=/home/queezy/hgsubversion/hgsubversion
+

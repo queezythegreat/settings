@@ -1,8 +1,9 @@
 [user]
-    name = QueezyTheGreat
-    email = queezythegreat@gmail.com
+	name = QueezyTheGreat
+	email = queezythegreat@gmail.com
 [merge]
     tool = meld
+#    ff = false      # Always create a merge commit
 
 
 [color]
@@ -27,3 +28,22 @@
     added = green bold
     changed = red bold
     untracked = white bold
+
+[giggle]
+	main-window-maximized = false
+	main-window-geometry = 1477x787+240+158
+	history-view-vpane-position = 443
+	main-window-view = FileView
+	file-view-vpane-position = 650
+
+[log]
+    decorate=short
+
+[push]
+    default = current    # push current branch to upstream matching branch
+
+[alias]
+    bmerge = merge --no-ff
+    incoming = !git l ..$(git branch -vvv | grep '^*' | sed -n -r 's/^.*\\[([^:]*):?.*\\].*$/\\1/p')
+    outgoing = !git l   $(git branch -vvv | grep '^*' | sed -n -r 's/^.*\\[([^:]*):?.*\\].*$/\\1/p')..
+    l = log --graph --stat
