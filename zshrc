@@ -1,159 +1,116 @@
-# The following lines were added by compinstall
-
-#zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
-#zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
-#zstyle :compinstall filename '/home/queezy/.zshrc'
-#
-#autoload -Uz compinit
-#compinit
-## End of lines added by compinstall
-## Lines configured by zsh-newuser-install
-#HISTFILE=~/.histfile
-#HISTSIZE=10000
-#SAVEHIST=10000
-#setopt appendhistory autocd extendedglob notify
-#unsetopt beep nomatch
+# =========================== #
+# QueezyTheGreat's ZSHRC file #
+# =========================== #
 bindkey -e
-# End of lines configured by zsh-newuser-install
-######################################################################
-#		      mako's zshrc file, v0.12
-#
-# 
-######################################################################
 
 fpath=(~/.zsh/functions/VCS_Info $fpath)
 
-# next lets set some enviromental/shell pref stuff up
-# setopt NOHUP
-#setopt NOTIFY
-#setopt NO_FLOW_CONTROL
-setopt APPEND_HISTORY
-setopt NO_AUTO_MENU
-# setopt AUTO_LIST		# these two should be turned off
-# setopt AUTO_REMOVE_SLASH
-# setopt AUTO_RESUME		# tries to resume command of same name
-unsetopt BG_NICE		# do NOT nice bg commands
-setopt CORRECT			# command CORRECTION
-setopt EXTENDED_HISTORY		# puts timestamps in the history
-setopt HASH_CMDS		# turns on hashing
-
-setopt ALL_EXPORT
-
-TZ="Europe/Rome"
-
-HISTFILE=$HOME/.zhistory
-HISTSIZE=10000
-SAVEHIST=10000
-
-HOSTNAME="`hostname`"
-NNTPSERVER=wonka.hampshire.edu
-#NNTPSERVER=netnews.attbi.com
-PAGER=less
-EDITOR='vim'
-#EMAIL='mako@bork.hampshire.edu'
-#DEBFULLNAME="Benjamin Hill (Mako)" 
-DEBEMAIL='mako@debian.org'
-CVS_RSH=ssh
-# CVSROOT=/var/cvs
-CVSROOT=:ext:mako@micha.hampshire.edu:/var/cvs
-# PROMPT="$HOST:%~%% " 
-PS1='%D{%m%d %H:%M} %U%m%u:%2c%# '
+#===============================#
+#     ZSH FeaturesVariables     #
+#===============================#
+    #setopt NOTIFY
+    #setopt NO_FLOW_CONTROL
+    setopt APPEND_HISTORY
+    setopt NO_AUTO_MENU
+    # setopt AUTO_LIST         # these two should be turned off
+    # setopt AUTO_REMOVE_SLASH
+    # setopt AUTO_RESUME       # tries to resume command of same name
+    unsetopt BG_NICE           # do NOT nice bg commands
+    setopt CORRECT             # command CORRECTION
+    setopt EXTENDED_HISTORY    # puts timestamps in the history
+    setopt HASH_CMDS           # turns on hashing
+    setopt extended_glob
 
 
-PYTHON_PATH="python-libs:$PYTHON_PATH"
-CPATH="$HOME/bin:/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/sbin:/usr/X11R6/bin:/usr/games:."
-echo ${PATH} | grep -q "${CPATH}" || export PATH="$CPATH:$PATH"
+#===============================#
+#     Environment Variables     #
+#===============================#
+    setopt ALL_EXPORT
+    HISTFILE=$HOME/.zhistory
+    HISTSIZE=10000
+    SAVEHIST=10000
+
+    TZ="Europe/Warsaw"
+
+    HOSTNAME="$(hostname)"
+    PAGER="less"
+    EDITOR="vim"
+
+    PYTHON_PATH="python-libs:$PYTHON_PATH"
+    CPATH="$HOME/bin:/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/sbin:/usr/X11R6/bin:/usr/games:."
+    echo ${PATH} | grep -q "${CPATH}" || export PATH="$CPATH:$PATH"
 
 
-#LANGUAGE=
-#LC_ALL=en_US.UTF-8
-#LANG=en_US.UTF-8
-#LC_CTYPE=C
+    LANG=en_US.utf8
+    LC_ALL=
+    LC_COLLATE="C"
+    unsetopt ALL_EXPORT
 
-export LANG=en_US.utf8
-export LC_ALL=
-export LC_COLLATE="C"
+#===============================#
+#     Plugins                   #
+#===============================#
+    source ~/.zsh/plugins/zsh-history-substring-search.plugin.zsh
+    source ~/.zsh/plugins/zsh-history-substring-search.zsh
 
+#===============================#
+#     Aliases                   #
+#===============================#
+    alias slrn="slrn -n"
+    alias f=finger
+    alias ll='ls -al'
+    alias ls='ls --color=auto '
+    alias rest2html-css='rest2html --embed-stylesheet --stylesheet-path=/usr/share/python-docutils/stylesheets/default.css'
 
-unsetopt ALL_EXPORT
+    alias c=clear
+    alias cl=clear
+    alias cls=clear
+    alias =clear
 
-#
-# Plugins
-#
-source ~/.zsh/plugins/zsh-history-substring-search.plugin.zsh
-source ~/.zsh/plugins/zsh-history-substring-search.zsh
+    alias tmux="tmux -2"
+    if type dircolors &> /dev/null; then
+        eval `dircolors`
+    fi
 
-# --------------------------------------------------------------------
-# aliases
-# --------------------------------------------------------------------
+#===============================#
+#     Completion                #
+#===============================#
+    zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
+    zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
+    zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
-#eval `dircolors $HOME/.dircolors`
-eval `dircolors`
-alias slrn="slrn -n"
-alias f=finger
-alias ll='ls -al'
-alias ls='ls --color=auto '
-alias offlineimap-tty='offlineimap -u TTY.TTYUI'
-alias rest2html-css='rest2html --embed-stylesheet --stylesheet-path=/usr/share/python-docutils/stylesheets/default.css'
-
-#alias clear="print -n "
-alias c=clear
-alias cl=clear
-alias cls=clear
-alias =clear
-
-alias tmux="tmux -2"
-
-#chpwd() {
-#     [[ -t 1 ]] || return
-#     case $TERM in
-#     sun-cmd) print -Pn "\e]l%~\e\\"
-#     ;;
-#    *xterm*|screen|rxvt|(dt|k|E)term) print -Pn "\e]2;%~\a"
-#    ;;
-#    esac
-#}
-
-#chpwd
-zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
-zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-#zstyle ':completion:*' list-prompt '%SAt %p: Hit TAB for more, or the character to insert%s'
-#zstyle ':completion:*' menu select=5
-#zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
-
-zstyle ':completion:*' menu select=2
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' ignore-parents pwd parent ..
-zstyle ':completion:*' remove-all-dups true
-zstyle ':completion:*' select-scroll 1
-zstyle ':completion:*' special-dirs '..'
-zstyle ':completion:*' use-cache yes
-#  zstyle ':completion:*' cache-path $ZDOTDIR/cache
-zstyle ':completion::complete:*' cache-path $ZSHDIR/cache/$HOST
-zstyle ':completion:*' insert-unambiguous true
-zstyle ':completion:*' range 200:20
-zstyle ':completion:*' select-prompt '%SSelect:  lines: %L  matches: %M  [%p]'
-zstyle ':completion:*' keep-prefix changed
+    zstyle ':completion:*' menu select=2
+    zstyle ':completion:*' group-name ''
+    zstyle ':completion:*' ignore-parents pwd parent ..
+    zstyle ':completion:*' remove-all-dups true
+    zstyle ':completion:*' select-scroll 1
+    zstyle ':completion:*' special-dirs '..'
+    zstyle ':completion:*' use-cache yes
+    #  zstyle ':completion:*' cache-path $ZDOTDIR/cache
+    zstyle ':completion::complete:*' cache-path $ZSHDIR/cache/$HOST
+    zstyle ':completion:*' insert-unambiguous true
+    zstyle ':completion:*' range 200:20
+    zstyle ':completion:*' select-prompt '%SSelect:  lines: %L  matches: %M  [%p]'
+    zstyle ':completion:*' keep-prefix changed
 
 autoload -U compinit
 autoload -U vcs_info
 autoload colors zsh/terminfo
 compinit
 
-zstyle ':vcs_info:*' stagedstr   '●'
-zstyle ':vcs_info:*' unstagedstr '●'
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%r'
-zstyle ':vcs_info:(svn|hg|hg-git)*' formats '%s[%b] -- '
-zstyle ':vcs_info:git*' formats "%s[%b] -- "
-zstyle ':vcs_info:*' enable git svn hg
-zstyle ':vcs_info:*+set-message:*' hooks vcsinfo
-zstyle ':vcs_info:*+no-vcs:*' hooks vcsinfo
-#zstyle ':vcs_info:git*' formats "%s  %r/%S %b %m%u%c% "
+#===============================#
+#     VCS Info                  #
+#===============================#
+    zstyle ':vcs_info:*' enable svn git hg
+    zstyle ':vcs_info:*' stagedstr   '●'
+    zstyle ':vcs_info:*' unstagedstr '●'
+    zstyle ':vcs_info:*' check-for-changes true
+    zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%r'
+    zstyle ':vcs_info:(svn|hg|hg-git)*' formats '%s[%b] -- '
+    zstyle ':vcs_info:git*' formats "%s[%b] -- "
+    zstyle ':vcs_info:*+set-message:*' hooks vcsinfo
+    zstyle ':vcs_info:*+no-vcs:*' hooks vcsinfo
 
 function +vi-vcsinfo() {
-    #hook_com[branch]=${hook_com[branch]/#%master/M}
     hook_com[vcs]=${hook_com[vcs]/#%git-svn/git}
     for KEY in action branch base base-name subdir staged unstaged revision misc vcs; do
         KEY_NAME="${KEY/-/_}"
@@ -182,18 +139,17 @@ function precmd {
     local vcs_info_size=$((${#vcs_info_msg_0_}))
     
     if [[ "$promptsize + $pwdsize" -gt $TERMWIDTH ]]; then
-	    ((PR_PWDLEN=$TERMWIDTH - $promptsize))
+        ((PR_PWDLEN=$TERMWIDTH - $promptsize))
     else
-	PR_FILLBAR="\${(l.(($TERMWIDTH - (1 + $promptsize + $pwdsize + $chrootsize + $vcs_info_size )))..${PR_HBAR}.)}"
+        PR_FILLBAR="\${(l.(($TERMWIDTH - (1 + $promptsize + $pwdsize + $chrootsize + $vcs_info_size )))..${PR_HBAR}.)}"
     fi
 }
 
 
-setopt extended_glob
-preexec () {
+function preexec () {
     if [[ "$TERM" == "screen" ]]; then
-	local CMD=${1[(wr)^(*=*|sudo|-*)]}
-	echo -n "\ek$CMD\e\\"
+    local CMD=${1[(wr)^(*=*|sudo|-*)]}
+    echo -n "\ek$CMD\e\\"
     fi
 }
 
@@ -213,21 +169,6 @@ function setup_colors {
         eval PR__BG_LIGHT_$color='%{$bg[${(L)color}]%}'
         (( count = $count + 1 ))
     done
-}
-setup_colors
-
-setprompt () {
-    ###
-    # Need this so the prompt will work.
-
-    setopt prompt_subst
-
-
-    ###
-    # See if we can use colors.
-
-    ###
-    # See if we can use extended characters to look nicer.
     
     typeset -A altchar
     set -A altchar ${(s..)terminfo[acsc]}
@@ -239,35 +180,39 @@ setprompt () {
     PR_LLCORNER=${altchar[m]:--}
     PR_LRCORNER=${altchar[j]:--}
     PR_URCORNER=${altchar[k]:--}
+}
+
+function setup_prompt() {
+    setopt prompt_subst
+
+    setup_colors
 
     
     ###
     # Decide if we need to set titlebar text.
-    
     case $TERM in
-	xterm*)
-	    PR_TITLEBAR=$'%{\e]0;%(!.-=*[ROOT]*=- | .)%n@%m:%~ | ${COLUMNS}x${LINES} | %y\a%}'
-	    ;;
-	screen)
-	    PR_TITLEBAR=$'%{\e_screen \005 (\005t) | %(!.-=[ROOT]=- | .)%n@%m:%~ | ${COLUMNS}x${LINES} | %y\e\\%}'
-	    ;;
-	*)
-	    PR_TITLEBAR=''
-	    ;;
+        xterm*)
+            PR_TITLEBAR=$'%{\e]0;%(!.-=*[ROOT]*=- | .)%n@%m:%~ | ${COLUMNS}x${LINES} | %y\a%}'
+            ;;
+        screen)
+            PR_TITLEBAR=$'%{\e_screen \005 (\005t) | %(!.-=[ROOT]=- | .)%n@%m:%~ | ${COLUMNS}x${LINES} | %y\e\\%}'
+            ;;
+        *)
+            PR_TITLEBAR=''
+            ;;
     esac
     
     
     ###
     # Decide whether to set a screen title
     if [[ "$TERM" == "screen" ]]; then
-	PR_STITLE=$'%{\ekzsh\e\\%}'
+        PR_STITLE=$'%{\ekzsh\e\\%}'
     else
-	PR_STITLE=''
+        PR_STITLE=''
     fi
     
     
-    
-	PR_APM=''
+    PR_APM=''
     
     ###
     # Finally, the prompt.
@@ -277,24 +222,26 @@ setprompt () {
     CWD_COLOR="${PR_GREEN}"
     EXIT_CODE_COLOR="$PR_LIGHT_RED"
 
-    UL_CORNER='${LINE_COLOR}${PR_SHIFT_IN}${PR_ULCORNER}${PR_HBAR}${PR_HBAR}${PR_SHIFT_OUT}'
-    UR_CORNER='${LINE_COLOR}${PR_SHIFT_IN}${PR_HBAR}${PR_URCORNER}${PR_SHIFT_OUT}'
-    LL_CORNER='${LINE_COLOR}${PR_SHIFT_IN}${PR_LLCORNER}${PR_SHIFT_OUT}'
-    LR_CORNER='${LINE_COLOR}${PR_SHIFT_IN}${PR_HBAR}${PR_LRCORNER}${PR_SHIFT_OUT}'
+    TL_CORNER='${LINE_COLOR}${PR_SHIFT_IN}${PR_ULCORNER}${PR_HBAR}${PR_HBAR}${PR_SHIFT_OUT}'
+    TR_CORNER='${LINE_COLOR}${PR_SHIFT_IN}${PR_HBAR}${PR_URCORNER}${PR_SHIFT_OUT}'
+    BL_CORNER='${LINE_COLOR}${PR_SHIFT_IN}${PR_LLCORNER}${PR_SHIFT_OUT}'
+    BR_CORNER='${LINE_COLOR}${PR_SHIFT_IN}${PR_HBAR}${PR_LRCORNER}${PR_SHIFT_OUT}'
     FILLER='${LINE_COLOR}${PR_SHIFT_IN}${(e)PR_FILLBAR}${PR_HBAR}${PR_SHIFT_OUT}'
 
     USER_HOST='${USER_COLOR}%(!.%SROOT%s.%n)${HOST_COLOR}@%m'
     CURRENT_WD='${CWD_COLOR}%${PR_PWDLEN}<...<%~%<<'
-    EXIT_CODE='%(?..${LINE_COLOR}[${EXIT_CODE_COLOR}%?${LINE_COLOR}] )'
     #CURRENT_TIME='${(e)PR_APM}$PR_YELLOW%D{%H:%M}$PR_LIGHT_BLUE:%(!.$PR_RED.$PR_WHITE)%#'
-    CURRENT_TIME='${(e)PR_APM}$PR_YELLOW%D{%H:%M}$PR_LIGHT_BLUE'
-    CURRENT_DATE='$PR_YELLOW%D{%a,%b%d}$PR_BLUE'
 
-    SEPERATOR='${LINE_COLOR}$PR_SHIFT_IN$PR_HBAR$PR_HBAR$PR_SHIFT_OUT'
+    CURRENT_TIME='${(e)PR_APM}$PR_YELLOW%D{%H:%M}$PR_LIGHT_BLUE'
+    CURRENT_DATE='${PR_YELLOW}%D{%a,%b%d}${PR_BLUE}'
+    CURRENT_JOBS='${PR_GREEN}$(job_name)${PR_RED}$(job_count)'
+
+    EXIT_CODE='%(?..${LINE_COLOR}[${EXIT_CODE_COLOR}%?${LINE_COLOR}] )'
+
+    SEPERATOR='${LINE_COLOR}${PR_SHIFT_IN}${PR_HBAR}${PR_HBAR}${PR_SHIFT_OUT}'
     CMD_CONTINUATION='$PR_LIGHT_GREEN%_'
 
     SET_TITLEBAR='$PR_SET_CHARSET$PR_STITLE${(e)PR_TITLEBAR}'
-    JOBS='$(job_name)$(job_count)'
     SPACER='${LINE_COLOR}${PR_SHIFT_IN}${PR_HBAR}${PR_SHIFT_OUT}'
 
     CHROOT=""
@@ -304,32 +251,40 @@ setprompt () {
     VCS_TYPE='${PR_RED}${VCS_VCS:+${VCS_VCS:u}${PR_YELLOW}${VCS_BRANCH:+[}${VCS_BRANCH}${VCS_BRANCH:+]} '${SEPERATOR}'}${VCS_VCS:+ }'
     VCS_STAGE='${PR_RED}${VCS_UNSTAGED:-'${SPACER}'}${PR_GREEN}${VCS_STAGED:-'${SPACER}'}'
 
-    PROMPT="${SET_TITLEBAR}$UL_CORNER $USER_HOST ${SEPERATOR} ${CHROOT_PRMPT}${VCS_TYPE}$CURRENT_WD $FILLER$UR_CORNER\
 
-$LL_CORNER$PR_NO_COLOUR${VCS_STAGE} "
+    PROMPT="${SET_TITLEBAR}$TL_CORNER ${USER_HOST} ${SEPERATOR} ${CHROOT_PRMPT}${VCS_TYPE}$CURRENT_WD ${FILLER}${TR_CORNER}
+"
+    PROMPT+="${BL_CORNER}${VCS_STAGE}${PR_NO_COLOUR} "
 
-    RPROMPT=" $EXIT_CODE$LL_CORNER%\[${JOBS}${CURRENT_DATE} $CURRENT_TIME\${LINE_COLOR}%\]${LR_CORNER}${PR_NO_COLOUR}"
+    RPROMPT="${EXIT_CODE}$BL_CORNER%\[${CURRENT_JOBS}${CURRENT_DATE} ${CURRENT_TIME}\${LINE_COLOR}%\]${BR_CORNER}${PR_NO_COLOUR}"
 
     PS2="${SEPERATOR}(${CMD_CONTINUATION}${PR_BLUE})${SEPERATOR}${PR_NO_COLOUR} "
 }
 
-job_name() {
-    JOB_LENGTH=$((${COLUMNS}-70))
-    if [ "${JOB_LENGTH}" -lt "0" ];then
-        JOB_LENGTH=0
+function job_name() {
+    JOB_NAME=""
+    JOB_LENGTH=0
+    if [ "${COLUMNS}" -gt 69 ]; then
+        JOB_LENGTH=$((${COLUMNS}-70))
+        [ "${JOB_LENGTH}" -lt "0" ] && JOB_LENGTH=0
     fi
-    JOB_NAME=$(jobs|grep +|tr -s " "|cut -d " " -f 4-|cut -b 1-${JOB_LENGTH}|sed "s/\(.*\)/\1:/")
-    echo "${PR_GREEN}${JOB_NAME}"
+
+    if [ "${JOB_LENGTH}" -gt 0 ]; then
+        JOB_NAME=$(jobs|grep +|tr -s " "|cut -d " " -f 4-|cut -b 1-${JOB_LENGTH}|sed "s/\(.*\)/\1:/")
+    fi
+
+    echo "${JOB_NAME}"
 }
-job_count() {
+
+function job_count() {
     local JOB_COUNT
-    JOB_COUNT=$(jobs|wc -l)
+    JOB_COUNT=$(jobs | wc -l)
     if [ "${JOB_COUNT}" -gt 0 ]; then
-        echo "${PR_RED}${JOB_COUNT}${PR_LIGHT_BLUE}|"
+        echo "${JOB_COUNT}${PR_LIGHT_BLUE}|"
     fi
 }
 
-setprompt
+setup_prompt
 
 # parse_path ARG_NUM ARGS
 #
@@ -472,6 +427,7 @@ function quickfix {
     ${*} 2>&1 | tee .quickfix
     vim --servername VIM --remote-expr "LoadQuickfix(\"$(pwd)/.quickfix\")"
 }
+
 if vim --version | grep -q '\+X11'; then
     alias vim='vim --servername VIM -p'
 else
