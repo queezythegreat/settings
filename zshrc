@@ -79,13 +79,18 @@ unsetopt ALL_EXPORT
 # --------------------------------------------------------------------
 
 #eval `dircolors $HOME/.dircolors`
-eval `dircolors`
+#eval `dircolors`
 alias slrn="slrn -n"
 alias f=finger
 alias ll='ls -al'
-alias ls='ls --color=auto '
 alias offlineimap-tty='offlineimap -u TTY.TTYUI'
 alias rest2html-css='rest2html --embed-stylesheet --stylesheet-path=/usr/share/python-docutils/stylesheets/default.css'
+
+if [ "$(uname)" = "Darwin" ]; then
+    alias ls='ls -G'
+else
+    alias ls='ls --color=auto '
+fi
 
 #alias clear="print -n "
 alias c=clear
@@ -411,3 +416,6 @@ function replace_sed {
 
 alias flash_vids="file /proc/\$(ps aux | grep conta | grep flash  | tr -s ' ' | cut -d ' ' -f 2)/fd/*  | grep deleted | cut -d ':' -f 1"
 alias flash_kill="kill \$(ps aux | grep conta | grep flash | tr -s ' ' | cut -d ' ' -f '2')"
+
+
+alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"
