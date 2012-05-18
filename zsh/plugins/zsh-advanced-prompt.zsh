@@ -1,4 +1,4 @@
-autoload -U vcs_info
+autoload -Uz vcs_info
 autoload colors zsh/terminfo
 
 #===============================#
