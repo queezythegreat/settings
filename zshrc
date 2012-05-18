@@ -21,6 +21,8 @@ bindkey -e
 # 
 ######################################################################
 
+fpath=(~/.zsh/functions/VCS_Info $fpath)
+
 # next lets set some enviromental/shell pref stuff up
 # setopt NOHUP
 #setopt NOTIFY
@@ -149,7 +151,7 @@ zstyle ':vcs_info:*+set-message:*' hooks vcsinfo
 zstyle ':vcs_info:*+no-vcs:*' hooks vcsinfo
 #zstyle ':vcs_info:git*' formats "%s  %r/%S %b %m%u%c% "
 
-function +vi-vcsinfo(){
+function +vi-vcsinfo() {
     #hook_com[branch]=${hook_com[branch]/#%master/M}
     hook_com[vcs]=${hook_com[vcs]/#%git-svn/git}
     for KEY in action branch base base-name subdir staged unstaged revision misc vcs; do
@@ -157,9 +159,6 @@ function +vi-vcsinfo(){
         KEY_NAME="${KEY_NAME:u}"
         export "VCS_${KEY_NAME}=${hook_com[$KEY]}"
     done
-}
-function +vi-novcsinfo() {
-    echo 'NNNNNO'
 }
 
 
@@ -307,9 +306,9 @@ setprompt () {
     [[ ! -z "${CHROOT}" ]] && CHROOT_PRMPT="${PR_RED}${CHROOT}"
 
     VCS_TYPE='${PR_RED}${VCS_VCS:+${VCS_VCS:u}:}${VCS_VCS:+ }'
-    VCS_BRANCH='${PR_GREEN}${VCS_STAGED}${PR_RED}${VCS_UNSTAGED}${PR_YELLOW}${VCS_BRANCH:+[}${VCS_BRANCH}${VCS_BRANCH:+]}'
+    VCS_REV='${PR_GREEN}${VCS_STAGED}${PR_RED}${VCS_UNSTAGED}${PR_YELLOW}${VCS_BRANCH:+[}${VCS_BRANCH}${VCS_BRANCH:+]}'
 
-    PROMPT="${SET_TITLEBAR}$UL_CORNER $USER_HOST ${SEPERATOR} ${CHROOT_PRMPT}${VCS_TYPE}$CURRENT_WD ${VCS_BRANCH} $FILLER$UR_CORNER\
+    PROMPT="${SET_TITLEBAR}$UL_CORNER $USER_HOST ${SEPERATOR} ${CHROOT_PRMPT}${VCS_TYPE}$CURRENT_WD ${VCS_REV} $FILLER$UR_CORNER\
 
 $LL_CORNER$PR_NO_COLOUR "
 
