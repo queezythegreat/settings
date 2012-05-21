@@ -1,4 +1,5 @@
 autoload -Uz vcs_info
+autoload -U add-zsh-hook
 autoload colors zsh/terminfo
 
 #===============================#
@@ -8,11 +9,13 @@ autoload colors zsh/terminfo
     zstyle ':vcs_info:*' stagedstr   '●'
     zstyle ':vcs_info:*' unstagedstr '●'
     zstyle ':vcs_info:*' check-for-changes true
+    zstyle ':vcs_info:*' get-revision true  # May be very slow
+    zstyle ':vcs_info:*' formats "%s[%b] -- "
+    zstyle ':vcs_info:*' actionformats '%s[%b] -- '
     zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%r'
-    zstyle ':vcs_info:(svn|hg|hg-git)*' formats '%s[%b] -- '
-    zstyle ':vcs_info:git*' formats "%s[%b] -- "
+    zstyle ':vcs_info:hg:*' branchformat '%b'
     zstyle ':vcs_info:*+set-message:*' hooks vcsinfo
-    zstyle ':vcs_info:*+no-vcs:*' hooks vcsinfo
+    zstyle ':vcs_info:*+no-vcs:*'      hooks vcsinfo
 
 function +vi-vcsinfo() {
     hook_com[vcs]=${hook_com[vcs]/#%git-svn/git}
@@ -68,6 +71,11 @@ function advanced_prompt_setup() {
     BL_CORNER='${LINE_COLOR}${PR_SHIFT_IN}${PR_LLCORNER}${PR_SHIFT_OUT}'
     BR_CORNER='${LINE_COLOR}${PR_SHIFT_IN}${PR_HBAR}${PR_LRCORNER}${PR_SHIFT_OUT}'
     FILLER='${LINE_COLOR}${PR_SHIFT_IN}${(e)PR_FILLBAR}${PR_HBAR}${PR_SHIFT_OUT}'
+    L_BRACKET='${LINE_COLOR}${PR_SHIFT_IN}u${PR_SHIFT_OUT}'
+    R_BRACKET='${LINE_COLOR}${PR_SHIFT_IN}t${PR_SHIFT_OUT}'
+    V_BAR='${LINE_COLOR}${PR_SHIFT_IN}x${PR_SHIFT_OUT}'
+    SEPERATOR='${LINE_COLOR}${PR_SHIFT_IN}${PR_HBAR}${PR_HBAR}${PR_SHIFT_OUT}'
+
 
     USER_HOST='${USER_COLOR}%(!.%SROOT%s.%n)${HOST_COLOR}@%m'
     CURRENT_WD='${CWD_COLOR}%${PR_PWDLEN}<...<%~%<<'
@@ -79,7 +87,6 @@ function advanced_prompt_setup() {
 
     EXIT_CODE='%(?..${LINE_COLOR}[${EXIT_CODE_COLOR}%?${LINE_COLOR}] )'
 
-    SEPERATOR='${LINE_COLOR}${PR_SHIFT_IN}${PR_HBAR}${PR_HBAR}${PR_SHIFT_OUT}'
     CMD_CONTINUATION='$PR_LIGHT_GREEN%_'
 
     SET_TITLEBAR='$PR_SET_CHARSET$PR_STITLE${(e)PR_TITLEBAR}'
@@ -91,13 +98,14 @@ function advanced_prompt_setup() {
 
     VCS_TYPE='${VCS_VCS:+'${SEPERATOR}' ${PR_RED}${VCS_VCS:u}${PR_YELLOW}${VCS_BRANCH:+[}${VCS_BRANCH}${VCS_BRANCH:+]}}${VCS_VCS:+ }'
     VCS_STAGE='${PR_RED}${VCS_UNSTAGED:-'${SPACER}'}${PR_GREEN}${VCS_STAGED:-'${SPACER}'}'
+    VCS_ACTIONS='${VCS_ACTION:+${LINE_COLOR}'${BL_CORNER}${SPACER}'%\[${PR_RED}${VCS_ACTION:u}${LINE_COLOR}%\]'${SPACER}}
 
 
     PROMPT="${SET_TITLEBAR}$TL_CORNER ${USER_HOST} ${SEPERATOR} ${CHROOT_PRMPT}$CURRENT_WD ${VCS_TYPE}${FILLER}${TR_CORNER}
 "
     PROMPT+="${BL_CORNER}${VCS_STAGE}${PR_NO_COLOUR} "
 
-    RPROMPT="${EXIT_CODE}$BL_CORNER%\[${CURRENT_JOBS}${CURRENT_DATE} ${CURRENT_TIME}\${LINE_COLOR}%\]${BR_CORNER}${PR_NO_COLOUR}"
+    RPROMPT="${EXIT_CODE}${VCS_ACTIONS}$BL_CORNER${SPACER}${L_BRACKET}${CURRENT_JOBS}${CURRENT_DATE} ${CURRENT_TIME}${R_BRACKET}${BR_CORNER}${PR_NO_COLOUR}"
 
     PS2="${SEPERATOR}(${CMD_CONTINUATION}${PR_BLUE})${SEPERATOR}${PR_NO_COLOUR} "
 }
@@ -179,3 +187,9 @@ function setup_colors {
     PR_LRCORNER=${altchar[j]:--}
     PR_URCORNER=${altchar[k]:--}
 }
+
+#add-zsh-hook chpwd chpwd_update_git_vars
+#add-zsh-hook preexec preexec_update_git_vars
+add-zsh-hook precmd advanced_prompt_precmd
+
+advanced_prompt_setup  # Setup prompt
