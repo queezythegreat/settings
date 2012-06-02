@@ -46,6 +46,6 @@
     bmerge = merge --no-ff
     incoming = !git l ..$(git branch -vvv | grep '^*' | sed -n -r 's/^.*\\[([^:]*):?.*\\].*$/\\1/p')
     outgoing = !git l   $(git branch -vvv | grep '^*' | sed -n -r 's/^.*\\[([^:]*):?.*\\].*$/\\1/p')..
-    l = log --graph --stat
+    l = log --graph --stat --color
 [mergetool "vimdiff3"]
 	cmd = vim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
