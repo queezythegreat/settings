@@ -489,12 +489,13 @@ fun! ReadMan()
     " Open a new window:
     :exe ":wincmd n"
     " Read in the manpage for man_word (col -b is for formatting):
-    :exe ":r!man " . s:man_word . " | col -b"
+    :exe ":r!man -s 2,3,7,9 " . s:man_word . " | col -b"
     " Goto first line...
     :exe ":goto"
     " and delete it:
     :exe ":delete"
     " finally set file type to 'man':
+    :exe ":setlocal nofoldenable"
     :exe ":set filetype=man"
     :exe ":setlocal buftype=nofile"
     :exe ":setlocal bufhidden=hide"
