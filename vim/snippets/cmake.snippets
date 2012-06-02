@@ -1,0 +1,21 @@
+snippet base "Basic CMake project" !b
+cmake_minimum_required(VERSION `cmake --version| sed -n 's/cmake version //p'`)
+
+project(${1:PROJECT_NAME} ${2:C CXX})
+${0}
+endsnippet
+
+
+snippet exe "Executable" !b
+set(EXE_NAME ${1:NAME})
+set(${EXE_NAME}_SRCS ${2:SRCS})
+set(${EXE_NAME}_HDRS ${3:HDRS})
+set(${EXE_NAME}_LIBS ${4:LIBS})
+
+add_executable(${EXE_NAME}
+               ${${EXE_NAME}_SRCS}
+               ${${EXE_NAME}_HDRS})
+target_link_libraries(${EXE_NAME}
+                      ${${EXE_NAME}_LIBS})
+${0}
+endsnippet
