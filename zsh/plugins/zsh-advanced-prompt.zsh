@@ -9,7 +9,7 @@ autoload colors zsh/terminfo
     zstyle ':vcs_info:*' stagedstr   '●'
     zstyle ':vcs_info:*' unstagedstr '●'
     zstyle ':vcs_info:*' check-for-changes true
-    zstyle ':vcs_info:*' get-revision true  # May be very slow
+    zstyle ':vcs_info:*' get-revision false  # May be very slow
     zstyle ':vcs_info:*' formats "%s[%b] -- "
     zstyle ':vcs_info:*' actionformats '%s[%b] -- '
     zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%r'
