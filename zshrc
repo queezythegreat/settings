@@ -187,3 +187,14 @@ function teamcity_wget {
         ${*} 2>&1 | tee .quickfix
         vim --servername VIM --remote-expr "LoadQuickfix(\"$(pwd)/.quickfix\")"
     }
+
+
+function infinity {
+    while true; do
+        $*
+    done
+}
+
+alias date_formated='date +%m%d%H%M%Y.%S'
+
+
