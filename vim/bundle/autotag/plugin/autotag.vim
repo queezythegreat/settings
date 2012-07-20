@@ -144,18 +144,38 @@ class AutoTag:
          except StandardError:
             pass
 
+   def stripCmd(self):
+      for p in vim.eval("&runtimepath").split(','):
+         full_path = os.path.join(p, 'autotag.py')
+         if os.path.exists(full_path):
+            return full_path
+      return ''
+
    def updateTagsFile(self, tagsFile, sources):
       tagsDir = os.path.dirname(tagsFile)
-      self.stripTags(tagsFile, sources)
+
       if self.tags_file:
-         cmd = "%s -f %s -a " % (self.ctags_cmd, self.tags_file)
+         ctags_cmd = "%s -f %s -a " % (self.ctags_cmd, self.tags_file)
       else:
-         cmd = "%s -a " % (self.ctags_cmd,)
-      for source in sources:
-         if os.path.isfile(os.path.join(tagsDir, source)):
-            cmd += " '%s'" % source
-      self.__diag("%s: %s", (tagsDir, cmd))
-      do_cmd(cmd, tagsDir)
+         ctags_cmd = "%s -a " % (self.ctags_cmd,)
+
+      sources_cmd = ''.join(" '%s'" % source for source in sources
+                                    if os.path.isfile(os.path.join(tagsDir, source)))
+      ctags_cmd += sources_cmd
+
+      strip_cmd = self.stripCmd()
+      if not strip_cmd:
+         full_cmd = ctags_cmd
+         self.stripTags(tagsFile, sources)   # takes tooo long, and blocks
+      else:
+         strip_cmd = 'python%s %s %s' % (sys.version[:3], strip_cmd, self.tags_file)
+         strip_cmd += sources_cmd
+         full_cmd = strip_cmd + ';' + ctags_cmd
+
+      self.__diag("%s: %s", (tagsDir, full_cmd))
+
+      do_cmd(full_cmd, tagsDir)
+      #print full_cmd
 
    def rebuildTagFiles(self):
       for (tagsFile, sources) in self.tags.items():
