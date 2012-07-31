@@ -51,7 +51,7 @@
     set showmode                            " Show current mode which VIM is in
 
     set wildmode=longest:full,list          " Tab completion command mode
-    set complete=t,.,w,b,u
+    set complete=.,w,b,u,t
     set completeopt=longest,menuone         " Tab completion insert mode
     set infercase
 
