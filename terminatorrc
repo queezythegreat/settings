@@ -13,8 +13,8 @@
   go_left = <Alt>h
 [profiles]
   [[default]]
+    scrollback_lines = 100000
     scroll_on_output = False
-    scrollback_infinite = True
     show_titlebar = False
 [layouts]
   [[default]]
