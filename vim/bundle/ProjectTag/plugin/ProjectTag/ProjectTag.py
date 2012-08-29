@@ -260,14 +260,10 @@ class ProjectConfig( ConfigParser.ConfigParser ):#{{{1
         ret = set()
 
         # the full path of sources
-        sources_full_path = [ self.project_dir + os.path.sep
-                + s for s in sources ]
+        sources_full_path = globs_to_paths(self.project_dir, sources, os.path.isfile)
 
-        all_sources = []
-        for path_glob in sources_full_path:
-            all_sources += glob2.glob(path_glob) or [path_glob]
-
-        sources_full_path = filter( os.path.isfile, all_sources )
+        # the full path of include directories
+        includes_full_path = globs_to_paths(self.project_dir, include_dirs, os.path.isdir)
 
         # first add the sources
         ret |= set( sources_full_path )
@@ -278,10 +274,23 @@ class ProjectConfig( ConfigParser.ConfigParser ):#{{{1
             if re.match( r'.*\.(c|C|cpp|cxx|cc|c\+\+)', src ) == None:
                 continue
 
-            ret |= get_included_files_reclusively( src, include_dirs )
+            ret |= get_included_files_reclusively( src, includes_full_path )
 
         return ret
 
+def globs_to_paths(project_dir, path_globs, path_check=None):
+    full_path_globs = [os.path.join(project_dir, path_glob)
+                       for path_glob in path_globs]
+
+    all_paths = []
+    for path_glob in full_path_globs:
+        #print path_glob, glob2.glob(path_glob)
+        all_paths += glob2.glob(path_glob) or [path_glob]
+
+    if callable(path_check):
+        all_paths = filter(os.path.normpath, filter(path_check, all_paths))
+
+    return all_paths
 
 # called by s:GenerateProjectTags( back_ground )
 def generate_pro_tags( back_ground ):#{{{1
