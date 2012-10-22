@@ -510,6 +510,30 @@ command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_
     \ | diffthis | wincmd p | diffthis
 
 
+" ------------------------------ "
+"     Online Documentation       "
+" ------------------------------ "
+function! OnlineDoc()
+  if &ft =~ "cpp"
+    let s:urlTemplate = "\"https://www.google.com/search?q=%&btnI\""
+  elseif &ft =~ "ruby"
+    let s:urlTemplate = "http://www.ruby-doc.org/core/classes/%.html"
+  elseif &ft =~ "perl"
+    let s:urlTemplate = "http://perldoc.perl.org/functions/%.html"
+  else
+    let s:urlTemplate = "\"https://www.google.com/search?q=%&btnI\""
+  endif
+  let s:browser = "firefox"
+  let s:wordUnderCursor = expand("<cword>")
+  let s:url = substitute(s:urlTemplate, "%", s:wordUnderCursor, "g")
+  let s:cmd = "silent !" . s:browser . " " . s:url
+  execute s:cmd
+  redraw!
+endfunction
+
+" Online doc search.
+map Q :call OnlineDoc()<CR>
+
 " ================================================= "
 "            Plugin Settings                        "
 " ================================================= "
