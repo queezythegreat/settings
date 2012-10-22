@@ -1,4 +1,5 @@
 [global_config]
+  title_hide_sizetext = True
   handle_size = 0
   tab_position = bottom
 [keybindings]
@@ -13,8 +14,8 @@
   go_left = <Alt>h
 [profiles]
   [[default]]
-    scrollback_lines = 100000
     scroll_on_output = False
+    scrollback_infinite = True
     show_titlebar = False
 [layouts]
   [[default]]
