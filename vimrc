@@ -51,6 +51,7 @@
     set showmode                            " Show current mode which VIM is in
 
     set wildmode=longest:full,list          " Tab completion command mode
+    set complete=.,w,b,u,t
     set completeopt=longest,menuone         " Tab completion insert mode
     set infercase
 
@@ -65,8 +66,12 @@
 " ------------------------------ "
     set foldenable        " Enables folding
     set foldmethod=indent " Sets the folding method
+    set foldlevelstart=99 " Disable automatic folding on start
 
     set bufhidden=hide    " Hide buffer when not in window
+
+    " Automatically fold on file open!
+    autocmd! BufRead * normal zM
 
 " ------------------------------ "
 "     File Type Dectection       "
@@ -508,6 +513,30 @@ map K :call ReadMan()<CR>
 command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_
     \ | diffthis | wincmd p | diffthis
 
+
+" ------------------------------ "
+"     Online Documentation       "
+" ------------------------------ "
+function! OnlineDoc()
+  if &ft =~ "cpp"
+    let s:urlTemplate = "\"https://www.google.com/search?q=%&btnI\""
+  elseif &ft =~ "ruby"
+    let s:urlTemplate = "http://www.ruby-doc.org/core/classes/%.html"
+  elseif &ft =~ "perl"
+    let s:urlTemplate = "http://perldoc.perl.org/functions/%.html"
+  else
+    let s:urlTemplate = "\"https://www.google.com/search?q=%&btnI\""
+  endif
+  let s:browser = "firefox"
+  let s:wordUnderCursor = expand("<cword>")
+  let s:url = substitute(s:urlTemplate, "%", s:wordUnderCursor, "g")
+  let s:cmd = "silent !" . s:browser . " " . s:url
+  execute s:cmd
+  redraw!
+endfunction
+
+" Online doc search.
+map Q :call OnlineDoc()<CR>
 
 " ================================================= "
 "            Plugin Settings                        "

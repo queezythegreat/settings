@@ -1,15 +1,14 @@
 [global_config]
-  tab_position = bottom
+  title_hide_sizetext = True
   handle_size = 0
-  borderless = True
+  tab_position = bottom
 [keybindings]
+  toggle_zoom = F12
   go_up = <Alt>k
-  split_horiz = <Alt>s
   next_tab = <Alt>n
-  new_terminator = <Alt>t
   prev_tab = <Alt>p
   go_down = <Alt>j
-  split_vert = <Alt>v
+  close_term = <Alt>q
   go_right = <Alt>l
   new_tab = <Alt>t
   go_left = <Alt>h
@@ -23,7 +22,38 @@
     [[[child1]]]
       type = Terminal
       parent = window0
+      profile = default
     [[[window0]]]
       type = Window
       parent = ""
+  [[vds-remotegui]]
+    [[[child0]]]
+      position = 329:229
+      type = Window
+      order = 0
+      parent = ""
+      size = 1392, 757
+    [[[child1]]]
+      labels = None, None, queezy@queezy:~ | 84x47 | pts/7, None, None, None
+      type = Notebook
+      order = 0
+      parent = child0
+    [[[terminal1]]]
+      profile = default
+      command = ssh root@10.2.2.66
+      type = Terminal
+      order = 2
+      parent = child1
+    [[[terminal2]]]
+      profile = default
+      command = ssh root@10.2.2.66
+      type = Terminal
+      order = 5
+      parent = child1
+    [[[terminal3]]]
+      profile = default
+      command = ssh 10.2.2.66 tail -f /var/log/syslog
+      type = Terminal
+      order = 4
+      parent = child1
 [plugins]

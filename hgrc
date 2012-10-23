@@ -9,4 +9,5 @@ hgext.bookmarks =
 graphlog = 
 color =
 #hgsubversion=/home/queezy/hgsubversion/hgsubversion
+info=/home/queezy/Download/info.py
 

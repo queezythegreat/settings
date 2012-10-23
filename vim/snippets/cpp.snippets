@@ -5,3 +5,38 @@ endsnippet
 snippet pcout "Print via cout." !b
 std::cout << "$1" << std::endl;$0
 endsnippet
+
+snippet typedef "typedef" !b
+typedef ${1:TYPE} ${2:NAME};$0
+endsnippet
+
+
+
+
+snippet if "if (...)" !b
+if ($1) {
+    $0
+}
+endsnippet
+
+snippet else "else ..." !
+else {
+    $0
+}
+endsnippet
+
+snippet elif "else if (...)" !
+else if($1) {
+    $0
+}
+endsnippet
+
+snippet switch "switch (...)" !b
+switch ($1) {$0
+}
+endsnippet
+
+snippet case "case XX:" !b
+case ${1:CASE}:${0}
+    break;
+endsnippet
