@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
+import vim
 from UltiSnips.geometry import Position
 import UltiSnips._vim as _vim
 
@@ -124,4 +125,5 @@ class _VimCursor(NoneditableTextObject):
     def to_vim(self):
         assert(self._start == self._end)
         _vim.buf.cursor = self._start
+        vim.command("normal zv")
 
