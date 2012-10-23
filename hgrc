@@ -5,7 +5,7 @@ verbose = true
 [extensions]
 rebase=
 hgext.bookmarks =
-hggit = 
+#hggit = 
 graphlog = 
 color =
 #hgsubversion=/home/queezy/hgsubversion/hgsubversion
