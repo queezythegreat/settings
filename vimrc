@@ -66,8 +66,12 @@
 " ------------------------------ "
     set foldenable        " Enables folding
     set foldmethod=indent " Sets the folding method
+    set foldlevelstart=99 " Disable automatic folding on start
 
     set bufhidden=hide    " Hide buffer when not in window
+
+    " Automatically fold on file open!
+    autocmd! BufRead * normal zM
 
 " ------------------------------ "
 "     File Type Dectection       "
