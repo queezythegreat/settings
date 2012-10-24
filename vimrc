@@ -479,6 +479,41 @@
     map <F2> <ESC>:<C-U>call ConqueMake()<CR>
     "map <F3> <ESC>:<C-U>call LoadQuickfix()<CR>
 
+" ------------------------------ "
+"     Background Terminal        "
+" ------------------------------ "
+    function! BuildTerminalCMD(...)
+        if !exists("g:build_terminal_obj") || (g:build_terminal_obj.active == 0)
+            let cmdargs = 'NO_ADVANCED_PROMPT=1 VIM_SERVER_NAME='. v:servername .' zsh'
+            let g:build_terminal_obj = conque_term#open('bash -c "'. cmdargs.'"', ['tabnew'])
+        endif
+
+        if a:0 > 0 && a:1 != ''
+            let cmd = a:1
+            if exists("g:build_terminal_obj") && (g:build_terminal_obj.active == 1)
+                "silent execute 'python ' . g:ConqueTerm_Var . '.write(''' . cmd . ''' + "\n")'
+                let g:build_terminal_cmd = cmd
+                call g:build_terminal_obj.write(g:build_terminal_cmd ."\n")
+                if a:0 > 1 && a:2 == ''
+                    call g:build_terminal_obj.focus()
+                endif
+            endif
+        endif
+    endfunction
+
+    function BuildTerminalLastCMD()
+        if exists("g:build_terminal_cmd")
+            call BuildTerminalCMD(g:build_terminal_cmd, 1)
+        else
+            call BuildTerminalCMD("", 1)
+        endif
+    endfunction
+
+    command! -nargs=? BuildTerminal     call BuildTerminalCMD(<q-args>)
+    command! -nargs=? BuildTerminalBg   call BuildTerminalCMD(<q-args>, 1)
+    command! -nargs=0 BuildTerminalLast call BuildTerminalLastCMD()
+
+    nnoremap <silent> <F5> <ESC>:call BuildTerminalLastCMD()<CR>
 
 " ------------------------------ "
 "     Custom Commands            "
@@ -550,10 +585,10 @@ map Q :call OnlineDoc()<CR>
     let g:ConqueTerm_Color = 1           " 0 - no terminal colors
                                          " 1 - limited terminal colors
                                          " 2 - full color
-    "let g:ConqueTerm_TERM =  'xterm'     " TERM setting
+    let g:ConqueTerm_TERM =  'xterm'     " TERM setting
     let g:ConqueTerm_ReadUnfocused = 1   " Read terminal even if unfocused
     let g:ConqueTerm_CWInsert = 1
-
+    let g:ConqueTerm_StartMessages = 0   " Disable warning messages
 
 " ----------------------------- "
 "     PyLint Options            "
@@ -697,7 +732,7 @@ hi clear SignColumn
     map <leader>eO  <ESC>:ProjectClose<CR>
     map <leader>eh  <ESC>:CCallHierarchy<CR>
 
-    autocmd! FileType cpp  nnoremap <silent>  <cr> :CSearchContext<cr>
+    "autocmd! FileType cpp  nnoremap <silent>  <cr> :CSearchContext<cr>
     autocmd! WinEnter \[Call\ Hierarchy\] wincmd L | vertical resize 40 " Automatically move quickfix to the right
 
 
