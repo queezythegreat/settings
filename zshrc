@@ -113,7 +113,13 @@
 #                                Plugins                                      #
 #=============================================================================#
     source ~/.zsh/plugins/zsh-history-substring-search.plugin.zsh
-    source ~/.zsh/plugins/zsh-advanced-prompt.zsh
+    if [ -z "${NO_ADVANCED_PROMPT}" ]; then
+        source ~/.zsh/plugins/zsh-advanced-prompt.zsh
+    else
+        autoload -U promptinit
+        promptinit
+        prompt redhat
+    fi
     source ~/.zsh/plugins/zsh-grep-sources.zsh
 
     autoload -U compinit
@@ -185,7 +191,8 @@ function teamcity_wget {
 
     function quickfix {
         ${*} 2>&1 | tee .quickfix
-        vim --servername VIM --remote-expr "LoadQuickfix(\"$(pwd)/.quickfix\")"
+        if [ -z "${VIM_SERVER_NAME}" ] && local VIM_SERVER_NAME="VIM"
+        vim --servername "${VIM_SERVER_NAME}" --remote-expr "LoadQuickfix(\"$(pwd)/.quickfix\")"
     }
 
 
