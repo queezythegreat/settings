@@ -15,10 +15,10 @@
 " Key mappings {{{
 
 " create a new ipython buffer below
-nnoremap <F6> :cd %:p:h<CR> :<C-U>call conque_term#open('ipython -pylab', ['belowright vsplit'])<CR>
+"nnoremap <F6> :cd %:p:h<CR> :<C-U>call conque_term#open('ipython -pylab', ['belowright vsplit'])<CR>
 
 " run the current buffer in ipython
-nnoremap <silent> <F5> :<C-U>call conque_term_pylab#ipython_run()<CR>
+"nnoremap <silent> <F5> :<C-U>call conque_term_pylab#ipython_run()<CR>
 
 " }}}
 
