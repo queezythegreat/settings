@@ -761,10 +761,12 @@ hi clear SignColumn
 " ------------------------------ "
 "     UltiSnips                  "
 " ------------------------------ "
-   let g:UltiSnipsUsePythonVersion = 2
+   let g:UltiSnipsUsePythonVersion = 2           " Force Python version 2
+
    let g:UltiSnipsExpandTrigger="<tab>"
-   let g:UltiSnipsJumpForwardTrigger="<tab>"
-   let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+   let g:UltiSnipsJumpForwardTrigger="<c-j>"
+   let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
    let g:UltiSnipsEditSplit = "vertical"
    let g:UltiSnipsSnippetsDir = "~/.vim/snippets"
    let g:UltiSnipsSnippetDirectories = ["snippets", "UltiSnips"]
