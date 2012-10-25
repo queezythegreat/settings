@@ -166,7 +166,12 @@
 
         function! GetTabName(tabNum)
             " filename for current window in tab, without path
-            let bufferName = fnamemodify( bufname(tabpagebuflist(a:tabNum )[tabpagewinnr(a:tabNum ) - 1]), ':t')
+            let bufferRaw = bufname(tabpagebuflist(a:tabNum )[tabpagewinnr(a:tabNum ) - 1])
+            if filereadable(bufferRaw)
+                let bufferName = fnamemodify(bufferRaw, ':t')
+            else
+                let bufferName = bufferRaw
+            endif
             " if empty, display [No Name]
             if bufferName == ''
                 let bufferName = '[No Name]'
@@ -483,8 +488,9 @@
 "     Background Terminal        "
 " ------------------------------ "
     function! BuildTerminalCMD(...)
+        " Convert to plugin
         if !exists("g:build_terminal_obj") || (g:build_terminal_obj.active == 0)
-            let cmdargs = 'NO_ADVANCED_PROMPT=1 VIM_SERVER_NAME='. v:servername .' zsh'
+            let cmdargs = 'NO_ADVANCED_PROMPT=1 SHORT_PROMPT_TITLE=1 VIM_SERVER_NAME='. v:servername .' zsh'
             let g:build_terminal_obj = conque_term#open('bash -c "'. cmdargs.'"', ['tabnew'])
         endif
 
