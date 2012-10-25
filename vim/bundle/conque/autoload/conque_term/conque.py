@@ -1026,7 +1026,8 @@ class Conque:
 
         if key == '0' or key == '2':
 
-            vim.command('setlocal statusline=' + re.escape(val))
+            #vim.command('setlocal statusline=' + re.escape(val))
+            vim.command('file ' + re.escape(val))
             try:
                 vim.command('set titlestring=' + re.escape(val))
             except:
