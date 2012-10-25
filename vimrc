@@ -373,7 +373,7 @@
                 echo a:output
             endif
             let g:ConqueMakeOutput .= substitute(a:output, '','', 'g')
-            cgete g:ConqueMakeOutput
+            silent cgete g:ConqueMakeOutput
 
             " Send out make autocmd event
             doautoall QuickFixCmdPost make
@@ -467,7 +467,7 @@
         else
             let build_output = g:QuickfixFile
         endif
-        execute 'cgetfile '. build_output
+        silent execute 'cgetfile '. build_output
         doautoall QuickFixCmdPost make
     endfunction
 
