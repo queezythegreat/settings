@@ -129,10 +129,22 @@
 #=============================================================================#
 #                               Prompt Setup                                  #
 #=============================================================================#
+    # Executed befor executing command
     function preexec () {
         if [[ "$TERM" == "screen" ]]; then
             local CMD=${1[(wr)^(*=*|sudo|-*)]}
             echo -n "\ek$CMD\e\\"
+        else
+            print -Pn "\e]0;${1}\a"
+        fi
+    }
+
+    # Executed before drawing of prompt
+    function precmd () {
+        if [ -z "${SHORT_PROMPT_TITLE}" ]; then
+            print -Pn "\e]0;ZSH %n@%m %~\a"
+        else
+            print -Pn "\e]0;ZSH %~\a"
         fi
     }
 
