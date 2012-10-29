@@ -166,6 +166,11 @@
 
         function! GetTabName(tabNum)
             " filename for current window in tab, without path
+            let bufferTitle = getbufvar(tabpagebuflist(a:tabNum )[tabpagewinnr(a:tabNum ) - 1], 'title')
+            if bufferTitle != ''
+                return bufferTitle
+            endif
+
             let bufferRaw = bufname(tabpagebuflist(a:tabNum )[tabpagewinnr(a:tabNum ) - 1])
             if filereadable(bufferRaw)
                 let bufferName = fnamemodify(bufferRaw, ':t')
