@@ -275,8 +275,14 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("TabLineModified",    "ffd700", "4d4d4d", "bold")
     call <SID>X("TabLineSelModified", "fa8072", "",       "bold")
 
-    call <SID>X("StatusLine", "ffd700", "4d4d4d", "None")
-    call <SID>X("StatusLineNC", "d2b48c", "4d4d4d", "None")
+    if $USER == "root"
+        call <SID>X("StatusLine", "ff4500", "eeee00", "")
+        call <SID>X("StatusLineNC", "ff4500", "eeee00", "")
+    else
+        call <SID>X("StatusLine", "ffd700", "4d4d4d", "None")
+        call <SID>X("StatusLineNC", "d2b48c", "4d4d4d", "None")
+    endif
+
     call <SID>X("VertSplit", "4d4d4d", "4d4d4d", "standout")
 
     call <SID>X("LineNr", "3a3a3a", "", "")
