@@ -504,9 +504,9 @@
             if exists("g:build_terminal_obj") && (g:build_terminal_obj.active == 1)
                 "silent execute 'python ' . g:ConqueTerm_Var . '.write(''' . cmd . ''' + "\n")'
                 let g:build_terminal_cmd = cmd
-                call g:build_terminal_obj.write(g:build_terminal_cmd ."\n")
+                silent call g:build_terminal_obj.write(g:build_terminal_cmd ."\n")
                 if a:0 > 1 && a:2 == ''
-                    call g:build_terminal_obj.focus()
+                    silent call g:build_terminal_obj.focus()
                 endif
             endif
         endif
@@ -514,9 +514,9 @@
 
     function! BuildTerminalLastCMD()
         if exists("g:build_terminal_cmd")
-            call BuildTerminalCMD(g:build_terminal_cmd, 1)
+            silent call BuildTerminalCMD(g:build_terminal_cmd, 1)
         else
-            call BuildTerminalCMD("", 1)
+            silent call BuildTerminalCMD("", 1)
         endif
     endfunction
 
