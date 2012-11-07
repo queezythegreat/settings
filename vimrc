@@ -473,7 +473,7 @@
             let build_output = g:QuickfixFile
         endif
         silent execute 'cgetfile '. build_output
-        doautoall QuickFixCmdPost make
+        silent doautoall QuickFixCmdPost make
     endfunction
 
     command! -nargs=? -complete=shellcmd MakeCMD call ConqueMakeCMD('<args>')  " Set a makeprg command
@@ -512,7 +512,7 @@
         endif
     endfunction
 
-    function BuildTerminalLastCMD()
+    function! BuildTerminalLastCMD()
         if exists("g:build_terminal_cmd")
             call BuildTerminalCMD(g:build_terminal_cmd, 1)
         else
