@@ -40,3 +40,27 @@ snippet case "case XX:" !b
 case ${1:CASE}:${0}
     break;
 endsnippet
+
+
+snippet class_def "Class Definition" !b
+#ifndef ${2:`!p snip.rv = t[1].upper() + "_H"`}
+#define $2
+
+class ${1:`!p snip.rv = snip.basename or "name"`} {
+public:
+	${1/(\w+).*/$1/}();
+	virtual ~${1/(\w+).*/$1/}();
+
+protected:
+	${0}
+};
+
+#endif // $2
+endsnippet
+
+
+snippet namespace "namespace .. (namespace)"
+namespace${1/.+/ /m}${1:`!p snip.rv = snip.basename or "name"`} {
+${0:${VISUAL}}
+}${1/.+/ \/* /m}namespace $1${1/.+/ *\/ /m}
+endsnippet
