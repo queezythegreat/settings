@@ -61,6 +61,13 @@ endsnippet
 
 snippet namespace "namespace .. (namespace)"
 namespace${1/.+/ /m}${1:`!p snip.rv = snip.basename or "name"`} {
-${0:${VISUAL}}
+${VISUAL}${0}
 }${1/.+/ \/* /m}namespace $1${1/.+/ *\/ /m}
+endsnippet
+
+snippet ns "namespace name::space" !
+// namespace ${1:`!p snip.rv = snip.basename or "name"`} 
+`!p snip.rv = ''.join("namespace %s {\n" % ns_name for ns_name in t[1].split("::"))`
+${VISUAL}${0}
+`!p snip.rv = '\n' + ''.join("} /* namespace %s */\n" % ns_name for ns_name in reversed(t[1].split("::")))`
 endsnippet
