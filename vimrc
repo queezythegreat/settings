@@ -184,6 +184,55 @@
             return bufferName
         endfunction
 
+        " Do we have any quickfix errors or warnins?
+        function! GetQuickfix()
+            let has_error = 0
+            let has_warning = 0
+			for qf_entry in getqflist()
+                if qf_entry.valid
+                    if qf_entry.type == 'e'
+                        let has_error = 1
+                    endif
+                    if qf_entry.type == 'w'
+                        let has_warning = 1
+                    endif
+                endif
+            endfor
+
+            if has_error
+                return 2
+            endif
+            if has_warning
+                return 1
+            endif
+            return 0
+        endfunction
+
+        function! GetTabQuickfix(tabNum)
+            let tab_buffers = tabpagebuflist(a:tabNum)
+            let has_error = 0
+            let has_warning = 0
+			for qf_entry in getqflist()
+                if index(tab_buffers, qf_entry.bufnr) >= 0
+                    if qf_entry.type == 'e'
+                        let has_error = 1
+                    endif
+                    if qf_entry.type == 'w'
+                        let has_warning = 1
+                    endif
+                endif
+			   "echo bufname(qf_entry.bufnr) ':' qf_entry.lnum '=' qf_entry.text
+			endfor
+
+            if has_error
+                return 2
+            endif
+            if has_warning
+                return 1
+            endif
+            return 0
+        endfunction
+
         function! RawTabName(tabNum)
             let tabName  = ' '
             let tabName .= GetTabPrefix(a:tabNum)
@@ -195,19 +244,36 @@
 
         function! GetTabPrefixHighlight(tabNum)
             let modified = GetTabModified(a:tabNum)
+            let quickfix = GetTabQuickfix(a:tabNum)
             if a:tabNum == tabpagenr()
                 " Highlight active tab number with User2
-                if modified
-                    return '%#TabLineSelModified#'
+                if !quickfix
+                    if modified
+                        return '%#TabLineSelModified#'
+                    else
+                        return '%#TabLineSel#'
+                    endif
                 else
-                    return '%#TabLineSel#'
+                    if quickfix == 2
+                        return '%#TabLineSelError#'
+                    else
+                        return '%#TabLineSelWarning#'
+                    endif
                 endif
             else
                 " Highlight inactive tab number with User1
-                if modified
-                    return '%#TabLineModified#'
+                if !quickfix
+                    if modified
+                        return '%#TabLineModified#'
+                    else
+                        return '%#TabLine#'
+                    endif
                 else
-                    return '%#TabLine#'
+                    if quickfix == 2
+                        return '%#TabLineError#'
+                    else
+                        return '%#TabLineWarning#'
+                    endif
                 endif
             endif
         endfunction
@@ -239,10 +305,22 @@
         endfunction
 
         function! MyTabLine()
-            let tabLinePrefix = ' '. tabpagenr('$')
-            while len(tabLinePrefix) < &numberwidth
-                let tabLinePrefix .= ' '
+            let tabLinePrefix = ''
+
+            let quickfix = GetQuickfix()
+            if quickfix
+                if quickfix == 2
+                    let tabLinePrefix .= '%#TabLineError#'
+                else
+                    let tabLinePrefix .= '%#TabLineWarning#'
+                endif
+            endif
+
+            let tabLineCount = ' '. tabpagenr('$')
+            while len(tabLineCount) < &numberwidth
+                let tabLineCount .= '  '
             endwhile
+            let tabLinePrefix .= tabLineCount
             
             let tabLine = tabLinePrefix
             let rawTabLine = tabLinePrefix
@@ -682,9 +760,9 @@ hi clear SignColumn
 " ------------------------------ "
 "     OmniCppComplete            "
 " ------------------------------ "
-    let OmniCpp_MayCompleteDot   = 1    " autocomplete with .
-    let OmniCpp_MayCompleteArrow = 1    " autocomplete with ->
-    let OmniCpp_MayCompleteScope = 1    " autocomplete with ::
+    let OmniCpp_MayCompleteDot   = 0    " autocomplete with .
+    let OmniCpp_MayCompleteArrow = 0    " autocomplete with ->
+    let OmniCpp_MayCompleteScope = 0    " autocomplete with ::
     let OmniCpp_SelectFirstItem  = 2    " select first item (but don't insert)
     let OmniCpp_NamespaceSearch  = 2    " search namespaces in this and included files
     let OmniCpp_ShowPrototypeInAbbr = 1 " show function prototype (i.e. parameters) in popup 

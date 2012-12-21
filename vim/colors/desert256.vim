@@ -391,6 +391,13 @@ hi ColorColumn  term=reverse cterm=bold ctermbg=1 guibg=DarkRed
     hi link TabLineSel WarningMsg
     hi link User2 WarningMsg
 
+
+    hi link TabLineWarning  ToDo
+    hi link TabLineError    ErrorMsg           
+
+    hi link TabLineSelWarning ModeMsg
+    hi TabLineSelError   cterm=bold ctermfg=1
+
 " ------------------------------ "
 "          Diff Settings         "
 " ------------------------------ "
