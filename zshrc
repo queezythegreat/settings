@@ -49,6 +49,7 @@
     PYTHON_PATH="python-libs:$PYTHON_PATH"
     CPATH="$HOME/bin:/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/sbin:/usr/X11R6/bin:/usr/games:."
     echo ${PATH} | grep -q "${CPATH}" || export PATH="$CPATH:$PATH"
+    export PATH="${HOME}/.scripts:${PATH}"
 
 
     LANG=en_US.utf8
