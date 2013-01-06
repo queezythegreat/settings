@@ -16,45 +16,50 @@
 #   Even "white 'for \/\(her\|him\).*$'" works :) Surprisingly ;)
 
 # For the colors see tput(1) and terminfo(5)
-red=$(tput bold;tput setaf 1)            # bright red text
-green=$(tput setaf 2)                    # dim green text
-yellow=$(tput bold;tput setaf 3)         # bright yellow text
-fawn=$(tput setaf 3)
-blue=$(tput bold;tput setaf 4)           # bright blue text
-magenta=$(tput setaf 5);
-cyan=$(tput bold;tput setaf 6)           # bright cyan text
-grey=$(tput setaf 7)                     # dim white text
-white=$(tput bold;tput setaf 7)          # bright white text
-normal=$(tput sgr0)                      # normal text
 
-red_bg=$(tput setab 1)            # bright red text
-green_bg=$(tput setab 2)                    # dim green text
-yellow_bg=$(tput setab 3)         # bright yellow text
-fawn_bg=$(tput setab 3)
-blue_bg=$(tput bold;tput setab 4)           # bright blue text
-magenta_bg=$(tput setab 5)
-cyan_bg=$(tput setab 6)           # bright cyan text
-grey_bg=$(tput setab 7)                     # dim white text
-white_bg=$(tput bold;tput setab 7)          # bright white text
-
+# Modifiers
 default=$(tput sgr0)
+normal=${default}
 bold=$(tput bold)
-dim=$(tput dim)
-blink=$(tput blink)
-reverse=$(tput rev)
+dim="[2m"
+underline="[4m"
+blink="[5m"
+reverse="[7m"
 hidden=$(tput invis)
 
+bell=$(tput bel)
+
+# ANSI Foreground Colors
+red=$(tput setaf 1)
+green=$(tput setaf 2)
+yellow=$(tput setaf 3)
+fawn=$(tput setaf 3)
+blue=$(tput setaf 4)
+magenta=$(tput setaf 5)
+cyan=$(tput setaf 6)
+grey=$(tput setaf 7)
+white=$(tput setaf 7)
+
+# ANSI Background Colors
+red_bg=$(tput setab 1)
+green_bg=$(tput setab 2)
+yellow_bg=$(tput setab 3)
+fawn_bg=$(tput setab 3)
+blue_bg=$(tput setab 4)
+magenta_bg=$(tput setab 5)
+cyan_bg=$(tput setab 6)
+grey_bg=$(tput setab 7)
+white_bg=$(tput bold;tput setab 7)
+
+# Generate 256 Colors
 for NUM in {16..253}; do
     eval c${NUM}="[38\;5\;${NUM}m"
     eval c${NUM}_bg="[48\;5\;${NUM}m"
 done
 
-bell=$(tput bel)                         # bell/beep
 
-# produce separator character ^A (for _sed_)
-A=$(echo | tr '\012' '\001')
-
-function lpad {
+# lpad STRING WIDTH PADDING
+lpad() {
     word="$1"
     while [ ${#word} -lt $2 ]; do
         word="$3$word";
@@ -64,18 +69,29 @@ function lpad {
 
 case "$1" in
     --help)
-       echo "$0 [--help|--colors] color_spec1 regex1 color_spec2 regex2 .. color_specN regexN" 
+       echo "$0 [--help|--colors|--decolorize] color_spec1 regex1 color_spec2 regex2 .. color_specN regexN" 
        echo
+       echo "Options:"
+       echo "   --help       - show this message"
+       echo "   --colors     - show table of colors"
+       echo "   --decolorize - remove colors from stream"
+       echo
+       echo "Color Specification:"
        echo "  color_spec := fg_color[:bg_color][@modifier_list]"
        echo
        echo "  modifier_list := modifier[,modifier]+"
-       echo "  modifier      := default|bold|dim|blink|reverse|hidden"
+       echo "  modifier      := default|bold|dim|underline|blink|reverse|hidden"
        echo
        echo "Exampe:"
        echo "   tail -f /var/log/messages | $0 red 'SEVERE' yellow 'INFO'"
         ;;
     --colors)
         EMPTY="     ${normal}"
+        echo -e "${white}Modifiers:${normal}" 
+        echo
+        echo "  default: ${default}XXXX${normal}    bold: ${bold}XXXX${normal}    dim: ${dim}XXXX${normal} unerline: ${underline}XXXX${normal}"
+        echo "    blink: ${blink}XXXX${normal} reverse: ${reverse}XXXX${normal} hidden: ${hidden}XXXX${normal}"
+        echo
         echo -e "${white}Standard Colors:${normal}" 
         echo
         echo "    red: ${red_bg}${EMPTY} green: ${green_bg}${EMPTY} blue: ${blue_bg}${EMPTY} yellow: ${yellow_bg}${EMPTY}"
@@ -94,7 +110,13 @@ case "$1" in
         done
         echo
         ;;
+    --decolorize)
+        sed -r "s/\x1B\[([0-9]{1,3}((;[0-9]{1,3})*)?)?[m|K]//g;s/\x1B\(B//g"
+        ;;
     *) 
+        # produce separator character ^A (for _sed_)
+        A=$(echo | tr '\012' '\001')
+
         # compile all rules given at command line to 1 set of rules for SED
         while [ "/$1/" != '//' ] ; do
             color_spec=${1}
@@ -131,11 +153,19 @@ case "$1" in
             fi
 
             # if the regular expression includes \/ we split the substitution
-            if [ "/${regex/*\\\/*/}/" = '//' ] ; then
-               regex="${regex/\\\//\)\(}"
-               sedrules="${sedrules};s$A\(${regex}\)$A\1${!fg_color}${!bg_color}${modifiers}\2${beep}${normal}${A}g"
+            if [ "/${regex/*\\(*/}/" = '//' ] ; then
+                ESCAPE="_PLACE_HOLDER_"
+                regex="${regex//\\)/${ESCAPE})${ESCAPE}(}"
+                regex="${regex//\\(/${ESCAPE})${ESCAPE}(}"
+                regex="${regex//_PLACE_HOLDER_/\\}"
+                sedrules="${sedrules};s$A\(${regex}\)$A\1${!fg_color}${!bg_color}${modifiers}\2${beep}${normal}\3${A}g"
             else
-               sedrules="${sedrules};s$A\(${regex}\)$A${!fg_color}${!bg_color}${modifiers}\1${beep}${normal}${A}g"
+                if [ "/${regex/*\\\/*/}/" = '//' ] ; then
+                   regex="${regex/\\\//\)\(}"
+                   sedrules="${sedrules};s$A\(${regex}\)$A\1${!fg_color}${!bg_color}${modifiers}\2${beep}${normal}${A}g"
+                else
+                   sedrules="${sedrules};s$A\(${regex}\)$A${!fg_color}${!bg_color}${modifiers}\1${beep}${normal}${A}g"
+                fi
             fi
         done
 
