@@ -661,6 +661,7 @@ endfunction
 
 " Online doc search.
 map Q :call OnlineDoc()<CR>
+map <leader>c <ESC>:tabclose<CR>
 
 " ================================================= "
 "            Plugin Settings                        "
