@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+
+if [ "$#" -gt "0" ]; then
+    ($@)&
+    PID=$!
+    function control_c() {
+        kill ${PID}
+        exit
+    }
+    trap control_c SIGINT
+fi
+
+
+LINES=$(($(tput lines)/2))
+
+while true; do
+    read -n 1 c
+    for x in $(seq 1 ${LINES}); do
+        echo
+    done
+    echo "================================================================================"
+done
