@@ -128,11 +128,20 @@ case "$1" in
             bg_color=""
             modfiers=""
             beep=""
+            except=""
 
             # if a beep is requested in the optional 3rd parameter set $beep
             if [ "/$1/" != '//' ] && [[ ( "$1" = 'bell' || "$1" = 'beep' ) ]]; then
               beep=${bell}
               shift
+            fi
+
+            if [ "/$1/" != '//' ] && [ "$1" == 'except' ]; then
+              shift
+              if [ "/$1/" != '//' ]; then
+                  except="/${1}/!"
+                  shift
+              fi
             fi
 
             # Get modifiers
@@ -158,13 +167,13 @@ case "$1" in
                 regex="${regex//\\)/${ESCAPE})${ESCAPE}(}"
                 regex="${regex//\\(/${ESCAPE})${ESCAPE}(}"
                 regex="${regex//_PLACE_HOLDER_/\\}"
-                sedrules="${sedrules};s$A\(${regex}\)$A\1${!fg_color}${!bg_color}${modifiers}\2${beep}${normal}\3${A}g"
+                sedrules="${sedrules};${except}s$A\(${regex}\)$A\1${!fg_color}${!bg_color}${modifiers}\2${beep}${normal}\3${A}g"
             else
                 if [ "/${regex/*\\\/*/}/" = '//' ] ; then
                    regex="${regex/\\\//\)\(}"
-                   sedrules="${sedrules};s$A\(${regex}\)$A\1${!fg_color}${!bg_color}${modifiers}\2${beep}${normal}${A}g"
+                   sedrules="${sedrules};${except}s$A\(${regex}\)$A\1${!fg_color}${!bg_color}${modifiers}\2${beep}${normal}${A}g"
                 else
-                   sedrules="${sedrules};s$A\(${regex}\)$A${!fg_color}${!bg_color}${modifiers}\1${beep}${normal}${A}g"
+                   sedrules="${sedrules};${except}s$A\(${regex}\)$A${!fg_color}${!bg_color}${modifiers}\1${beep}${normal}${A}g"
                 fi
             fi
         done
