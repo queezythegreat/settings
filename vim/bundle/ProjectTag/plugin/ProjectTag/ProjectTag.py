@@ -234,6 +234,10 @@ class ProjectConfig( ConfigParser.ConfigParser ):#{{{1
         vim.command( "setlocal tags+=" + 
                 vim.eval( r"escape('" + tag_path + r"', '\ |')" ) )
 
+        for include_path in self.get_include_dirs():
+            vim.command( "setlocal path+=" + 
+                    vim.eval( r"escape('" + include_path + r"', '\ |')" ) )
+
 
     def set_project_config_parser_default_value( self ):#{{{2
         self.__set_option_if_not_have( 'general','include_dirs','' )
@@ -244,6 +248,30 @@ class ProjectConfig( ConfigParser.ConfigParser ):#{{{1
         self.__set_option_if_not_have( 'general','tagoutput','tags.prom' )
         self.__set_option_if_not_have( 'general','auto_timeout','0' )
         
+    def get_include_dirs(self):
+        if not self.does_config_file_exist():
+            return []
+
+        include_dirs = [s.strip().replace( '\\/', os.path.sep ) for s in
+                self.get( 'general','include_dirs' ).split( ',' )]
+        includes_full_path = globs_to_paths(self.project_dir, include_dirs, os.path.isdir)
+
+        return includes_full_path
+
+    def get_sources(self):
+        if not self.does_config_file_exist():
+            return []
+
+        # Get the sources and include directories. Replace those slashes or
+        # backslashes to the os' path seperator.
+        sources = [s.strip().replace( '\\/', os.path.sep ) for s in self.get(
+            'general','sources' ).split( ',' )]
+
+        # the full path of sources
+        sources_full_path = globs_to_paths(self.project_dir, sources, os.path.isfile)
+
+        return sources_full_path
+
     def get_files_to_tag( self ):#{{{2
     # return a list of files to tag
 
@@ -251,22 +279,10 @@ class ProjectConfig( ConfigParser.ConfigParser ):#{{{1
         if not self.does_config_file_exist():
             return
 
-        # Get the sources and include directories. Replace those slashes or
-        # backslashes to the os' path seperator.
-        sources = [s.strip().replace( '\\/', os.path.sep ) for s in self.get(
-            'general','sources' ).split( ',' )]
-        include_dirs = [s.strip().replace( '\\/', os.path.sep ) for s in
-                self.get( 'general','include_dirs' ).split( ',' )]
-        ret = set()
+        includes_full_path = self.get_include_dirs()
+        sources_full_path = self.get_sources()
 
-        # the full path of sources
-        sources_full_path = globs_to_paths(self.project_dir, sources, os.path.isfile)
-
-        # the full path of include directories
-        includes_full_path = globs_to_paths(self.project_dir, include_dirs, os.path.isdir)
-
-        # first add the sources
-        ret |= set( sources_full_path )
+        ret = set(sources_full_path)
 
         # now it's time to get the path of all included headers
         for src in sources_full_path:
