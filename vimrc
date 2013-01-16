@@ -863,3 +863,14 @@ hi clear SignColumn
     command! ProjectTags GenProTags
     command! ProjectTagsBg GenProTagsBg
 
+" ------------------------------ "
+"     BufferGator                "
+" ------------------------------ "
+    let g:buffergator_viewport_split_policy = "L"
+    let g:buffergator_autodismiss_on_select = 1
+    let g:buffergator_split_size = 40
+    let g:buffergator_sort_regime = "bufnum" " (bufnum, basename, filepath, extension, mru)
+    let g:buffergator_display_regime = "basename" " (basename | filepath | bufname)
+    let g:buffergator_suppress_keymaps = 1
+
+    map <leader>b <ESC>:BuffergatorTabsToggle<CR>
