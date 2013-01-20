@@ -761,6 +761,7 @@ hi clear SignColumn
 " ------------------------------ "
 "     OmniCppComplete            "
 " ------------------------------ "
+    "let g:omnicppcomplete_disabled = 1
     let OmniCpp_MayCompleteDot   = 0    " autocomplete with .
     let OmniCpp_MayCompleteArrow = 0    " autocomplete with ->
     let OmniCpp_MayCompleteScope = 0    " autocomplete with ::
@@ -874,3 +875,28 @@ hi clear SignColumn
     let g:buffergator_suppress_keymaps = 1
 
     map <leader>b <ESC>:BuffergatorTabsToggle<CR>
+
+" ------------------------------ "
+"     FuzzyFinder                "
+" ------------------------------ "
+    let g:fuf_keyOpen = '<C-l>'
+    let g:fuf_keyOpenSplit = '<C-j>'
+    let g:fuf_keyOpenVsplit = '<C-k>'
+    let g:fuf_keyOpenTabpage = '<CR>'
+    let g:fuf_keyPreview = '<C-@>'
+    let g:fuf_keyNextMode = '<C-t>'
+    let g:fuf_keyPrevMode = '<C-y>'
+    let g:fuf_keyPrevPattern = '<C-s>'
+    let g:fuf_keyNextPattern = '<C-_>'
+    let g:fuf_keySwitchMatching = '<C-\><C-\>'
+
+    map <leader>n <ESC>:FufCoverageFile<CR>
+
+" ------------------------------ "
+"     clang_complete             "
+" ------------------------------ "
+    let g:clang_auto_select = 1
+    let g:clang_complete_auto  = 1
+    let g:clang_snippets = 1
+	let g:clang_snippets_engine = 'ultisnips'
+    let g:clang_use_library = 1
