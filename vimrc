@@ -900,3 +900,4 @@ hi clear SignColumn
     let g:clang_snippets = 1
 	let g:clang_snippets_engine = 'ultisnips'
     let g:clang_use_library = 1
+    let g:clang_debug = 0
