@@ -692,10 +692,9 @@ map <leader>c <ESC>:tabclose<CR>
 " ------------------------------ "
     let g:SuperTabDefaultCompletionType = "context"
     let g:SuperTabContextDefaultCompletionType = "<c-n>"
-    "let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
+    let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
     let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
-    "let g:SuperTabContextDiscoverDiscovery  = ["&omnifunc:<c-x><c-o>", "&completefunc:<c-x><c-u>"]
-
+    let g:SuperTabContextDiscoverDiscovery = ["&completefunc:<c-x><c-u>", "&omnifunc:<c-x><c-o>"]
 
 " ------------------------------ "
 "     NERDTree Settings          "
@@ -901,3 +900,9 @@ hi clear SignColumn
 	let g:clang_snippets_engine = 'ultisnips'
     let g:clang_use_library = 1
     let g:clang_debug = 0
+    let g:clang_complete_macros = 1
+
+" ------------------------------ "
+"     mark                       "
+" ------------------------------ "
+    let g:loaded_mark = 1 " Disable mark plugin
