@@ -1,0 +1,745 @@
+2013-01-22 20:21:21	--	irc: connected to irc.thegeekgroup.org/6667 (66.172.10.50)
+2013-01-22 20:21:21	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** Looking up your hostname...
+2013-01-22 20:21:21	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** Checking Ident
+2013-01-22 20:21:21	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** Found your hostname
+2013-01-22 20:21:31	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** No Ident response
+2013-01-22 20:21:31	--	Welcome to the TGG Internet Relay Chat Network queezy
+2013-01-22 20:21:31	--	Your host is irc.thegeekgroup.org[irc.thegeekgroup.org/6667], running version charybdis-3.3.0
+2013-01-22 20:21:31	--	This server was created Fri Jun 8 2012 at 07:20:42 UTC
+2013-01-22 20:21:31	--	irc.thegeekgroup.org charybdis-3.3.0 DQRSZagiloswxz CFILPQbcefgijklmnopqrstvz bkloveqjfI
+2013-01-22 20:21:31	--	CHANTYPES=&# EXCEPTS INVEX CHANMODES=eIbq,k,flj,CFPcgimnpstz CHANLIMIT=&#:15 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=TGG KNOCK STATUSMSG=@+ CALLERID=g :are supported by this server
+2013-01-22 20:21:31	--	SAFELIST ELIST=U CASEMAPPING=rfc1459 CHARSET=ascii NICKLEN=15 CHANNELLEN=50 TOPICLEN=390 ETRACE CPRIVMSG CNOTICE DEAF=D MONITOR=100 :are supported by this server
+2013-01-22 20:21:31	--	FNC TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: WHOX CLIENTVER=3.0 :are supported by this server
+2013-01-22 20:21:31	--	There are 0 users and 126 invisible on 2 servers
+2013-01-22 20:21:31	--	3 :IRC Operators online
+2013-01-22 20:21:31	--	6 :channels formed
+2013-01-22 20:21:31	--	I have 117 clients and 1 servers
+2013-01-22 20:21:31	--	117 126 :Current local users 117, max 126
+2013-01-22 20:21:31	--	126 135 :Current global users 126, max 135
+2013-01-22 20:21:31	--	Highest connection count: 127 (126 clients) (5833 connections received)
+2013-01-22 20:21:31	--	- irc.thegeekgroup.org Message of the Day -
+2013-01-22 20:21:31	--	-                                ?OOOZ
+2013-01-22 20:21:31	--	-                      ..        OOOOO.       ..
+2013-01-22 20:21:31	--	-                   .?OOOO     .8OOOOO8     .8OOOO
+2013-01-22 20:21:31	--	-                   ..OOOOOO.  .OOOOOOO.  ,$OOOOO,
+2013-01-22 20:21:31	--	-                     OOOOOOOOOOOOOOOOOOOOOOOOOOO.
+2013-01-22 20:21:31	--	-                     OOOOOOOOOOOOOOOOOOOOOOOOOOO.
+2013-01-22 20:21:31	--	-                     ZOOOOOOOO8.......OZOOOOOOO.
+2013-01-22 20:21:31	--	-             OOO?...8OOOOOO8O.       .8888OOOOOOO...8OOO.
+2013-01-22 20:21:31	--	-           .OOOOOOOOOOOOI8....ZO.  .8... ..Z7OOOOOOOOOOOO
+2013-01-22 20:21:31	--	-           .OOOOOOOOOOO.O     ..,O8 .      ...OOOOOOOOOO8
+2013-01-22 20:21:31	--	-             .ZOOOOOOZ  O       .O8?+.     .O .8OOOOOOO..
+2013-01-22 20:21:31	--	-              .OOOOOO.  ~.    .Z. .++.     .:   OOOOOZ..
+2013-01-22 20:21:31	--	-              ..OOOO.   .O.  .O.    .8..   O.   .OOOO.
+2013-01-22 20:21:31	--	-              .OOOO.. ..8OO?.Z00000000O..O8O...  :OOOO..
+2013-01-22 20:21:31	--	-         ..,OOOOOOO.~8.. .8.8.  .+++. .O...,..?O..OOOOOOOO...
+2013-01-22 20:21:31	--	-        .OOOOOOOOOOO.     .... ~O?+$$. .8.O..   .OOOOOOOOOOO.
+2013-01-22 20:21:31	--	-        .OOOOOOOOOO..    ..8.  OZZ$$$.  ~8.      OOOOOOOOOOO.
+2013-01-22 20:21:31	--	-        ..ZOOOOOOOO?8:+. .O.O.     ..   .O.    .DIOOOOOOOOZ..
+2013-01-22 20:21:31	--	-             ..OOOO..++O..8  O..      . 8.O..OO...OOOO..
+2013-01-22 20:21:31	--	-              .OOOOO.....I,OOO88OOOO8OOOO88...  .OOOOZ
+2013-01-22 20:21:31	--	-              .,8OOO..  .O    .O.  .++O. . O.   .OOOO8..
+2013-01-22 20:21:31	--	-             .OOOOOOO.  .O.     $7.=++=.   O. ..OOOOOO8.
+2013-01-22 20:21:31	--	-           ..OOOOOOOOO...O.      .OO..     O...OOOOOOOOO.
+2013-01-22 20:21:31	--	-           .OOOOOOOOOOOO.8.     .OO.Z     .8.OOOOOOOOOOOO
+2013-01-22 20:21:31	--	-            .OOOOO8.OOOOOZ8....8$    .OO.+8ZOOOOO..OOOOO.
+2013-01-22 20:21:31	--	-                     8OOOOOO8...........OOOOOOO8.
+2013-01-22 20:21:31	--	-                     8OOOOOOOOOOOOOOOOOOOOOOOOOO
+2013-01-22 20:21:31	--	-                     OOOOOOOOOOOOOOOOOOOOOOOOOOO.
+2013-01-22 20:21:31	--	-                     OOOOOO.. ,OOOOOOO,...OOOOOO.
+2013-01-22 20:21:31	--	-  _   _            .8OOOO$.   .OOOOOOO     .8OOOO
+2013-01-22 20:21:31	--	- | | | |__   ___     ..8        OOOOO.       O~.
+2013-01-22 20:21:31	--	- | __| '_ \ / _ \               OOOOO.
+2013-01-22 20:21:31	--	- | |_| | | |  __/  _             ....
+2013-01-22 20:21:31	--	-  \__|_| |_|\___| | |
+2013-01-22 20:21:31	--	-    __ _  ___  ___| | __    because
+2013-01-22 20:21:31	--	-   / _` |/ _ \/ _ \ |/ /   the  geek
+2013-01-22 20:21:31	--	-  | (_| |  __/  __/   <  shall  inherit
+2013-01-22 20:21:31	--	-   \__, |\___|\___|_|\_\   the  earth
+2013-01-22 20:21:31	--	-    __/ | __ _ _ __ ___  _   _ _ __
+2013-01-22 20:21:31	--	-   |___/ / _` | '__/ _ \| | | | '_ \
+2013-01-22 20:21:31	--	-        | (_| | | | (_) | |_| | |_) |
+2013-01-22 20:21:31	--	-         \__, |_|  \___/ \__,_| .__/
+2013-01-22 20:21:31	--	-          __/ |               | |
+2013-01-22 20:21:31	--	-         |___/   IRC SERVER   |_|
+2013-01-22 20:21:31	--	-
+2013-01-22 20:21:31	--	-
+2013-01-22 20:21:31	--	-    Benny Russell: Tell me, please - who am I?
+2013-01-22 20:21:31	--	-         Preacher: Don't you know?
+2013-01-22 20:21:31	--	-    Benny Russell: Tell me.
+2013-01-22 20:21:31	--	-         Preacher: You are the dreamer. And the dream.
+2013-01-22 20:21:31	--	-                    - Star Trek: Deep Space Nine, 6x13
+2013-01-22 20:21:31	--	-                                "Far Beyond the Stars"
+2013-01-22 20:21:31	--	End of /MOTD command.
+2013-01-22 20:21:31	--	User mode [+ix] by queezy
+2013-01-22 20:21:31	--	213-96-389-316.adsl.inetia.pl :is now your hidden host
+2013-01-22 20:21:31	--	NickServ (NickServ@services.thegeekgroup.org): Welcome to The Geek Group IRC, queezy! Here on The Geek Group IRC, we provide services to enable the registration of nicknames and channels! For details, type /msg NickServ help and /msg ChanServ help.
+2013-01-22 20:21:42	--	MSG(nickserv): help
+2013-01-22 20:21:42	--	NickServ (NickServ@services.thegeekgroup.org): ***** NickServ Help *****
+2013-01-22 20:21:42	--	NickServ (NickServ@services.thegeekgroup.org): NickServ allows users to 'register' a nickname, and stop
+2013-01-22 20:21:42	--	NickServ (NickServ@services.thegeekgroup.org): others from using that nick. NickServ allows the owner of a
+2013-01-22 20:21:42	--	NickServ (NickServ@services.thegeekgroup.org): nickname to disconnect a user from the network that is using
+2013-01-22 20:21:42	--	NickServ (NickServ@services.thegeekgroup.org): their nickname.
+2013-01-22 20:21:42	--	NickServ (NickServ@services.thegeekgroup.org): If a registered nick is not used by the owner for 30 days,
+2013-01-22 20:21:42	--	NickServ (NickServ@services.thegeekgroup.org): NickServ will drop the nickname, allowing it to be reregistered.
+2013-01-22 20:21:42	--	NickServ (NickServ@services.thegeekgroup.org):  
+2013-01-22 20:21:42	--	NickServ (NickServ@services.thegeekgroup.org): For more information on a command, type:
+2013-01-22 20:21:42	--	NickServ (NickServ@services.thegeekgroup.org): /msg NickServ help <command>
+2013-01-22 20:21:42	--	NickServ (NickServ@services.thegeekgroup.org): For a verbose listing of all commands, type:
+2013-01-22 20:21:42	--	NickServ (NickServ@services.thegeekgroup.org): /msg NickServ help commands
+2013-01-22 20:21:42	--	NickServ (NickServ@services.thegeekgroup.org):  
+2013-01-22 20:21:42	--	NickServ (NickServ@services.thegeekgroup.org): The following commands are available:
+2013-01-22 20:21:42	--	NickServ (NickServ@services.thegeekgroup.org): GHOST           Reclaims use of a nickname.
+2013-01-22 20:21:42	--	NickServ (NickServ@services.thegeekgroup.org): IDENTIFY        Identifies to services for a nickname.
+2013-01-22 20:21:42	--	NickServ (NickServ@services.thegeekgroup.org): INFO            Displays information on registrations.
+2013-01-22 20:21:42	--	NickServ (NickServ@services.thegeekgroup.org): LISTCHANS       Lists channels that you have access to.
+2013-01-22 20:21:42	--	NickServ (NickServ@services.thegeekgroup.org): REGISTER        Registers a nickname.
+2013-01-22 20:21:42	--	NickServ (NickServ@services.thegeekgroup.org): SENDPASS        Email registration passwords.
+2013-01-22 20:21:42	--	NickServ (NickServ@services.thegeekgroup.org):  
+2013-01-22 20:21:42	--	NickServ (NickServ@services.thegeekgroup.org): Other commands: ACC, DROP, HELP, LISTGROUPS, LOGOUT, SETPASS, 
+2013-01-22 20:21:42	--	NickServ (NickServ@services.thegeekgroup.org):                 STATUS, TAXONOMY, VERIFY
+2013-01-22 20:21:42	--	NickServ (NickServ@services.thegeekgroup.org): ***** End of Help *****
+2013-01-22 20:21:59	--	MSG(nickserv): help register
+2013-01-22 20:21:59	--	NickServ (NickServ@services.thegeekgroup.org): ***** NickServ Help *****
+2013-01-22 20:21:59	--	NickServ (NickServ@services.thegeekgroup.org): Help for REGISTER:
+2013-01-22 20:21:59	--	NickServ (NickServ@services.thegeekgroup.org):  
+2013-01-22 20:21:59	--	NickServ (NickServ@services.thegeekgroup.org): This will register your current nickname with NickServ.
+2013-01-22 20:21:59	--	NickServ (NickServ@services.thegeekgroup.org): This will allow you to assert some form of identity on
+2013-01-22 20:21:59	--	NickServ (NickServ@services.thegeekgroup.org): the network and to be added to access lists. Furthermore,
+2013-01-22 20:21:59	--	NickServ (NickServ@services.thegeekgroup.org): NickServ will warn users using your nick without
+2013-01-22 20:21:59	--	NickServ (NickServ@services.thegeekgroup.org): identifying and allow you to kill ghosts.
+2013-01-22 20:21:59	--	NickServ (NickServ@services.thegeekgroup.org): The password is a case-sensitive password that you make
+2013-01-22 20:21:59	--	NickServ (NickServ@services.thegeekgroup.org): up. Please write down or memorize your password! You
+2013-01-22 20:21:59	--	NickServ (NickServ@services.thegeekgroup.org): will need it later to change settings.
+2013-01-22 20:21:59	--	NickServ (NickServ@services.thegeekgroup.org):  
+2013-01-22 20:21:59	--	NickServ (NickServ@services.thegeekgroup.org): Syntax: REGISTER <password> <email-address>
+2013-01-22 20:21:59	--	NickServ (NickServ@services.thegeekgroup.org):  
+2013-01-22 20:21:59	--	NickServ (NickServ@services.thegeekgroup.org): Examples:
+2013-01-22 20:22:00	--	NickServ (NickServ@services.thegeekgroup.org):     /msg NickServ REGISTER bar foo@bar.com
+2013-01-22 20:22:00	--	NickServ (NickServ@services.thegeekgroup.org): ***** End of Help *****
+2013-01-22 20:22:49	--	MSG(nickserv): register *************************************
+2013-01-22 20:22:49	--	NickServ (NickServ@services.thegeekgroup.org): queezy is now registered to queezythegreat@gmail.com, with the password Uph4AaH9Ohr9.
+2013-01-22 20:24:32	--	irc: connected to irc.thegeekgroup.org/6667 (66.172.10.50)
+2013-01-22 20:24:32	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** Looking up your hostname...
+2013-01-22 20:24:32	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** Checking Ident
+2013-01-22 20:24:32	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** Found your hostname
+2013-01-22 20:24:41	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** No Ident response
+2013-01-22 20:24:41	--	Welcome to the TGG Internet Relay Chat Network queezy
+2013-01-22 20:24:41	--	MSG(nickserv): identify ************
+2013-01-22 20:24:41	--	Your host is irc.thegeekgroup.org[irc.thegeekgroup.org/6667], running version charybdis-3.3.0
+2013-01-22 20:24:41	--	This server was created Fri Jun 8 2012 at 07:20:42 UTC
+2013-01-22 20:24:41	--	irc.thegeekgroup.org charybdis-3.3.0 DQRSZagiloswxz CFILPQbcefgijklmnopqrstvz bkloveqjfI
+2013-01-22 20:24:41	--	CHANTYPES=&# EXCEPTS INVEX CHANMODES=eIbq,k,flj,CFPcgimnpstz CHANLIMIT=&#:15 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=TGG KNOCK STATUSMSG=@+ CALLERID=g :are supported by this server
+2013-01-22 20:24:41	--	SAFELIST ELIST=U CASEMAPPING=rfc1459 CHARSET=ascii NICKLEN=15 CHANNELLEN=50 TOPICLEN=390 ETRACE CPRIVMSG CNOTICE DEAF=D MONITOR=100 :are supported by this server
+2013-01-22 20:24:41	--	FNC TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: WHOX CLIENTVER=3.0 :are supported by this server
+2013-01-22 20:24:41	--	There are 0 users and 128 invisible on 2 servers
+2013-01-22 20:24:41	--	3 :IRC Operators online
+2013-01-22 20:24:41	--	6 :channels formed
+2013-01-22 20:24:41	--	I have 119 clients and 1 servers
+2013-01-22 20:24:41	--	119 126 :Current local users 119, max 126
+2013-01-22 20:24:41	--	128 135 :Current global users 128, max 135
+2013-01-22 20:24:41	--	Highest connection count: 127 (126 clients) (5836 connections received)
+2013-01-22 20:24:41	--	- irc.thegeekgroup.org Message of the Day -
+2013-01-22 20:24:41	--	-                                ?OOOZ
+2013-01-22 20:24:41	--	-                      ..        OOOOO.       ..
+2013-01-22 20:24:41	--	-                   .?OOOO     .8OOOOO8     .8OOOO
+2013-01-22 20:24:41	--	-                   ..OOOOOO.  .OOOOOOO.  ,$OOOOO,
+2013-01-22 20:24:41	--	-                     OOOOOOOOOOOOOOOOOOOOOOOOOOO.
+2013-01-22 20:24:41	--	-                     OOOOOOOOOOOOOOOOOOOOOOOOOOO.
+2013-01-22 20:24:41	--	-                     ZOOOOOOOO8.......OZOOOOOOO.
+2013-01-22 20:24:41	--	-             OOO?...8OOOOOO8O.       .8888OOOOOOO...8OOO.
+2013-01-22 20:24:41	--	-           .OOOOOOOOOOOOI8....ZO.  .8... ..Z7OOOOOOOOOOOO
+2013-01-22 20:24:41	--	-           .OOOOOOOOOOO.O     ..,O8 .      ...OOOOOOOOOO8
+2013-01-22 20:24:41	--	-             .ZOOOOOOZ  O       .O8?+.     .O .8OOOOOOO..
+2013-01-22 20:24:41	--	-              .OOOOOO.  ~.    .Z. .++.     .:   OOOOOZ..
+2013-01-22 20:24:41	--	-              ..OOOO.   .O.  .O.    .8..   O.   .OOOO.
+2013-01-22 20:24:41	--	-              .OOOO.. ..8OO?.Z00000000O..O8O...  :OOOO..
+2013-01-22 20:24:41	--	-         ..,OOOOOOO.~8.. .8.8.  .+++. .O...,..?O..OOOOOOOO...
+2013-01-22 20:24:41	--	-        .OOOOOOOOOOO.     .... ~O?+$$. .8.O..   .OOOOOOOOOOO.
+2013-01-22 20:24:41	--	-        .OOOOOOOOOO..    ..8.  OZZ$$$.  ~8.      OOOOOOOOOOO.
+2013-01-22 20:24:41	--	-        ..ZOOOOOOOO?8:+. .O.O.     ..   .O.    .DIOOOOOOOOZ..
+2013-01-22 20:24:41	--	-             ..OOOO..++O..8  O..      . 8.O..OO...OOOO..
+2013-01-22 20:24:41	--	-              .OOOOO.....I,OOO88OOOO8OOOO88...  .OOOOZ
+2013-01-22 20:24:41	--	-              .,8OOO..  .O    .O.  .++O. . O.   .OOOO8..
+2013-01-22 20:24:41	--	-             .OOOOOOO.  .O.     $7.=++=.   O. ..OOOOOO8.
+2013-01-22 20:24:41	--	-           ..OOOOOOOOO...O.      .OO..     O...OOOOOOOOO.
+2013-01-22 20:24:41	--	-           .OOOOOOOOOOOO.8.     .OO.Z     .8.OOOOOOOOOOOO
+2013-01-22 20:24:41	--	-            .OOOOO8.OOOOOZ8....8$    .OO.+8ZOOOOO..OOOOO.
+2013-01-22 20:24:41	--	-                     8OOOOOO8...........OOOOOOO8.
+2013-01-22 20:24:41	--	-                     8OOOOOOOOOOOOOOOOOOOOOOOOOO
+2013-01-22 20:24:41	--	-                     OOOOOOOOOOOOOOOOOOOOOOOOOOO.
+2013-01-22 20:24:41	--	-                     OOOOOO.. ,OOOOOOO,...OOOOOO.
+2013-01-22 20:24:41	--	-  _   _            .8OOOO$.   .OOOOOOO     .8OOOO
+2013-01-22 20:24:41	--	- | | | |__   ___     ..8        OOOOO.       O~.
+2013-01-22 20:24:41	--	- | __| '_ \ / _ \               OOOOO.
+2013-01-22 20:24:41	--	- | |_| | | |  __/  _             ....
+2013-01-22 20:24:41	--	-  \__|_| |_|\___| | |
+2013-01-22 20:24:41	--	-    __ _  ___  ___| | __    because
+2013-01-22 20:24:41	--	-   / _` |/ _ \/ _ \ |/ /   the  geek
+2013-01-22 20:24:41	--	-  | (_| |  __/  __/   <  shall  inherit
+2013-01-22 20:24:41	--	-   \__, |\___|\___|_|\_\   the  earth
+2013-01-22 20:24:41	--	-    __/ | __ _ _ __ ___  _   _ _ __
+2013-01-22 20:24:41	--	-   |___/ / _` | '__/ _ \| | | | '_ \
+2013-01-22 20:24:41	--	-        | (_| | | | (_) | |_| | |_) |
+2013-01-22 20:24:41	--	-         \__, |_|  \___/ \__,_| .__/
+2013-01-22 20:24:41	--	-          __/ |               | |
+2013-01-22 20:24:41	--	-         |___/   IRC SERVER   |_|
+2013-01-22 20:24:41	--	-
+2013-01-22 20:24:41	--	-
+2013-01-22 20:24:41	--	-    Benny Russell: Tell me, please - who am I?
+2013-01-22 20:24:41	--	-         Preacher: Don't you know?
+2013-01-22 20:24:41	--	-    Benny Russell: Tell me.
+2013-01-22 20:24:42	--	-         Preacher: You are the dreamer. And the dream.
+2013-01-22 20:24:42	--	-                    - Star Trek: Deep Space Nine, 6x13
+2013-01-22 20:24:42	--	-                                "Far Beyond the Stars"
+2013-01-22 20:24:42	--	End of /MOTD command.
+2013-01-22 20:24:42	--	User mode [+ix] by queezy
+2013-01-22 20:24:42	--	213-96-389-316.adsl.inetia.pl :is now your hidden host
+2013-01-22 20:24:42	--	NickServ (NickServ@services.thegeekgroup.org): This nickname is registered. Please choose a different nickname, or identify via /msg NickServ identify <password>.
+2013-01-22 20:24:42	--	NickServ (NickServ@services.thegeekgroup.org): You are now identified for queezy.
+2013-01-22 20:25:26	--	irc: connected to irc.thegeekgroup.org/6667 (66.172.10.50)
+2013-01-22 20:25:26	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** Looking up your hostname...
+2013-01-22 20:25:26	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** Checking Ident
+2013-01-22 20:25:26	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** Found your hostname
+2013-01-22 20:25:31	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** No Ident response
+2013-01-22 20:25:31	--	Welcome to the TGG Internet Relay Chat Network queezy
+2013-01-22 20:25:31	--	MSG(nickserv): identify ************
+2013-01-22 20:25:31	--	Your host is irc.thegeekgroup.org[irc.thegeekgroup.org/6667], running version charybdis-3.3.0
+2013-01-22 20:25:31	--	This server was created Fri Jun 8 2012 at 07:20:42 UTC
+2013-01-22 20:25:31	--	irc.thegeekgroup.org charybdis-3.3.0 DQRSZagiloswxz CFILPQbcefgijklmnopqrstvz bkloveqjfI
+2013-01-22 20:25:31	--	CHANTYPES=&# EXCEPTS INVEX CHANMODES=eIbq,k,flj,CFPcgimnpstz CHANLIMIT=&#:15 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=TGG KNOCK STATUSMSG=@+ CALLERID=g :are supported by this server
+2013-01-22 20:25:31	--	SAFELIST ELIST=U CASEMAPPING=rfc1459 CHARSET=ascii NICKLEN=15 CHANNELLEN=50 TOPICLEN=390 ETRACE CPRIVMSG CNOTICE DEAF=D MONITOR=100 :are supported by this server
+2013-01-22 20:25:31	--	FNC TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: WHOX CLIENTVER=3.0 :are supported by this server
+2013-01-22 20:25:31	--	There are 0 users and 127 invisible on 2 servers
+2013-01-22 20:25:31	--	3 :IRC Operators online
+2013-01-22 20:25:31	--	6 :channels formed
+2013-01-22 20:25:31	--	I have 118 clients and 1 servers
+2013-01-22 20:25:31	--	118 126 :Current local users 118, max 126
+2013-01-22 20:25:31	--	127 135 :Current global users 127, max 135
+2013-01-22 20:25:31	--	Highest connection count: 127 (126 clients) (5837 connections received)
+2013-01-22 20:25:31	--	- irc.thegeekgroup.org Message of the Day -
+2013-01-22 20:25:31	--	-                                ?OOOZ
+2013-01-22 20:25:31	--	-                      ..        OOOOO.       ..
+2013-01-22 20:25:31	--	-                   .?OOOO     .8OOOOO8     .8OOOO
+2013-01-22 20:25:31	--	-                   ..OOOOOO.  .OOOOOOO.  ,$OOOOO,
+2013-01-22 20:25:31	--	-                     OOOOOOOOOOOOOOOOOOOOOOOOOOO.
+2013-01-22 20:25:31	--	-                     OOOOOOOOOOOOOOOOOOOOOOOOOOO.
+2013-01-22 20:25:31	--	-                     ZOOOOOOOO8.......OZOOOOOOO.
+2013-01-22 20:25:31	--	-             OOO?...8OOOOOO8O.       .8888OOOOOOO...8OOO.
+2013-01-22 20:25:31	--	-           .OOOOOOOOOOOOI8....ZO.  .8... ..Z7OOOOOOOOOOOO
+2013-01-22 20:25:31	--	-           .OOOOOOOOOOO.O     ..,O8 .      ...OOOOOOOOOO8
+2013-01-22 20:25:31	--	-             .ZOOOOOOZ  O       .O8?+.     .O .8OOOOOOO..
+2013-01-22 20:25:31	--	-              .OOOOOO.  ~.    .Z. .++.     .:   OOOOOZ..
+2013-01-22 20:25:31	--	-              ..OOOO.   .O.  .O.    .8..   O.   .OOOO.
+2013-01-22 20:25:31	--	-              .OOOO.. ..8OO?.Z00000000O..O8O...  :OOOO..
+2013-01-22 20:25:31	--	-         ..,OOOOOOO.~8.. .8.8.  .+++. .O...,..?O..OOOOOOOO...
+2013-01-22 20:25:31	--	-        .OOOOOOOOOOO.     .... ~O?+$$. .8.O..   .OOOOOOOOOOO.
+2013-01-22 20:25:31	--	-        .OOOOOOOOOO..    ..8.  OZZ$$$.  ~8.      OOOOOOOOOOO.
+2013-01-22 20:25:31	--	-        ..ZOOOOOOOO?8:+. .O.O.     ..   .O.    .DIOOOOOOOOZ..
+2013-01-22 20:25:31	--	-             ..OOOO..++O..8  O..      . 8.O..OO...OOOO..
+2013-01-22 20:25:31	--	-              .OOOOO.....I,OOO88OOOO8OOOO88...  .OOOOZ
+2013-01-22 20:25:31	--	-              .,8OOO..  .O    .O.  .++O. . O.   .OOOO8..
+2013-01-22 20:25:31	--	-             .OOOOOOO.  .O.     $7.=++=.   O. ..OOOOOO8.
+2013-01-22 20:25:31	--	-           ..OOOOOOOOO...O.      .OO..     O...OOOOOOOOO.
+2013-01-22 20:25:31	--	-           .OOOOOOOOOOOO.8.     .OO.Z     .8.OOOOOOOOOOOO
+2013-01-22 20:25:31	--	-            .OOOOO8.OOOOOZ8....8$    .OO.+8ZOOOOO..OOOOO.
+2013-01-22 20:25:31	--	-                     8OOOOOO8...........OOOOOOO8.
+2013-01-22 20:25:31	--	-                     8OOOOOOOOOOOOOOOOOOOOOOOOOO
+2013-01-22 20:25:31	--	-                     OOOOOOOOOOOOOOOOOOOOOOOOOOO.
+2013-01-22 20:25:31	--	-                     OOOOOO.. ,OOOOOOO,...OOOOOO.
+2013-01-22 20:25:31	--	-  _   _            .8OOOO$.   .OOOOOOO     .8OOOO
+2013-01-22 20:25:31	--	- | | | |__   ___     ..8        OOOOO.       O~.
+2013-01-22 20:25:31	--	- | __| '_ \ / _ \               OOOOO.
+2013-01-22 20:25:31	--	- | |_| | | |  __/  _             ....
+2013-01-22 20:25:31	--	-  \__|_| |_|\___| | |
+2013-01-22 20:25:31	--	-    __ _  ___  ___| | __    because
+2013-01-22 20:25:31	--	-   / _` |/ _ \/ _ \ |/ /   the  geek
+2013-01-22 20:25:31	--	-  | (_| |  __/  __/   <  shall  inherit
+2013-01-22 20:25:31	--	-   \__, |\___|\___|_|\_\   the  earth
+2013-01-22 20:25:31	--	-    __/ | __ _ _ __ ___  _   _ _ __
+2013-01-22 20:25:31	--	-   |___/ / _` | '__/ _ \| | | | '_ \
+2013-01-22 20:25:31	--	-        | (_| | | | (_) | |_| | |_) |
+2013-01-22 20:25:31	--	-         \__, |_|  \___/ \__,_| .__/
+2013-01-22 20:25:31	--	-          __/ |               | |
+2013-01-22 20:25:31	--	-         |___/   IRC SERVER   |_|
+2013-01-22 20:25:31	--	-
+2013-01-22 20:25:31	--	-
+2013-01-22 20:25:31	--	-    Benny Russell: Tell me, please - who am I?
+2013-01-22 20:25:31	--	-         Preacher: Don't you know?
+2013-01-22 20:25:31	--	-    Benny Russell: Tell me.
+2013-01-22 20:25:31	--	-         Preacher: You are the dreamer. And the dream.
+2013-01-22 20:25:31	--	-                    - Star Trek: Deep Space Nine, 6x13
+2013-01-22 20:25:31	--	-                                "Far Beyond the Stars"
+2013-01-22 20:25:31	--	End of /MOTD command.
+2013-01-22 20:25:31	--	User mode [+ix] by queezy
+2013-01-22 20:25:31	--	213-96-389-316.adsl.inetia.pl :is now your hidden host
+2013-01-22 20:25:31	--	NickServ (NickServ@services.thegeekgroup.org): This nickname is registered. Please choose a different nickname, or identify via /msg NickServ identify <password>.
+2013-01-22 20:25:32	--	NickServ (NickServ@services.thegeekgroup.org): You are now identified for queezy.
+2013-01-22 20:52:30	--	irc: connected to irc.thegeekgroup.org/6667 (66.172.10.50)
+2013-01-22 20:52:30	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** Looking up your hostname...
+2013-01-22 20:52:30	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** Checking Ident
+2013-01-22 20:52:31	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** Found your hostname
+2013-01-22 20:52:37	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** No Ident response
+2013-01-22 20:52:37	--	Welcome to the TGG Internet Relay Chat Network queezy
+2013-01-22 20:52:37	--	MSG(nickserv): identify ************
+2013-01-22 20:52:37	--	Your host is irc.thegeekgroup.org[irc.thegeekgroup.org/6667], running version charybdis-3.3.0
+2013-01-22 20:52:37	--	This server was created Fri Jun 8 2012 at 07:20:42 UTC
+2013-01-22 20:52:37	--	irc.thegeekgroup.org charybdis-3.3.0 DQRSZagiloswxz CFILPQbcefgijklmnopqrstvz bkloveqjfI
+2013-01-22 20:52:37	--	CHANTYPES=&# EXCEPTS INVEX CHANMODES=eIbq,k,flj,CFPcgimnpstz CHANLIMIT=&#:15 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=TGG KNOCK STATUSMSG=@+ CALLERID=g :are supported by this server
+2013-01-22 20:52:37	--	SAFELIST ELIST=U CASEMAPPING=rfc1459 CHARSET=ascii NICKLEN=15 CHANNELLEN=50 TOPICLEN=390 ETRACE CPRIVMSG CNOTICE DEAF=D MONITOR=100 :are supported by this server
+2013-01-22 20:52:37	--	FNC TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: WHOX CLIENTVER=3.0 :are supported by this server
+2013-01-22 20:52:37	--	There are 0 users and 131 invisible on 2 servers
+2013-01-22 20:52:37	--	3 :IRC Operators online
+2013-01-22 20:52:37	--	6 :channels formed
+2013-01-22 20:52:37	--	I have 122 clients and 1 servers
+2013-01-22 20:52:37	--	122 126 :Current local users 122, max 126
+2013-01-22 20:52:37	--	131 135 :Current global users 131, max 135
+2013-01-22 20:52:37	--	Highest connection count: 127 (126 clients) (5847 connections received)
+2013-01-22 20:52:37	--	- irc.thegeekgroup.org Message of the Day -
+2013-01-22 20:52:37	--	-                                ?OOOZ
+2013-01-22 20:52:37	--	-                      ..        OOOOO.       ..
+2013-01-22 20:52:37	--	-                   .?OOOO     .8OOOOO8     .8OOOO
+2013-01-22 20:52:37	--	-                   ..OOOOOO.  .OOOOOOO.  ,$OOOOO,
+2013-01-22 20:52:37	--	-                     OOOOOOOOOOOOOOOOOOOOOOOOOOO.
+2013-01-22 20:52:37	--	-                     OOOOOOOOOOOOOOOOOOOOOOOOOOO.
+2013-01-22 20:52:37	--	-                     ZOOOOOOOO8.......OZOOOOOOO.
+2013-01-22 20:52:37	--	-             OOO?...8OOOOOO8O.       .8888OOOOOOO...8OOO.
+2013-01-22 20:52:37	--	-           .OOOOOOOOOOOOI8....ZO.  .8... ..Z7OOOOOOOOOOOO
+2013-01-22 20:52:37	--	-           .OOOOOOOOOOO.O     ..,O8 .      ...OOOOOOOOOO8
+2013-01-22 20:52:37	--	-             .ZOOOOOOZ  O       .O8?+.     .O .8OOOOOOO..
+2013-01-22 20:52:37	--	-              .OOOOOO.  ~.    .Z. .++.     .:   OOOOOZ..
+2013-01-22 20:52:37	--	-              ..OOOO.   .O.  .O.    .8..   O.   .OOOO.
+2013-01-22 20:52:37	--	-              .OOOO.. ..8OO?.Z00000000O..O8O...  :OOOO..
+2013-01-22 20:52:37	--	-         ..,OOOOOOO.~8.. .8.8.  .+++. .O...,..?O..OOOOOOOO...
+2013-01-22 20:52:37	--	-        .OOOOOOOOOOO.     .... ~O?+$$. .8.O..   .OOOOOOOOOOO.
+2013-01-22 20:52:37	--	-        .OOOOOOOOOO..    ..8.  OZZ$$$.  ~8.      OOOOOOOOOOO.
+2013-01-22 20:52:37	--	-        ..ZOOOOOOOO?8:+. .O.O.     ..   .O.    .DIOOOOOOOOZ..
+2013-01-22 20:52:37	--	-             ..OOOO..++O..8  O..      . 8.O..OO...OOOO..
+2013-01-22 20:52:37	--	-              .OOOOO.....I,OOO88OOOO8OOOO88...  .OOOOZ
+2013-01-22 20:52:37	--	-              .,8OOO..  .O    .O.  .++O. . O.   .OOOO8..
+2013-01-22 20:52:37	--	-             .OOOOOOO.  .O.     $7.=++=.   O. ..OOOOOO8.
+2013-01-22 20:52:37	--	-           ..OOOOOOOOO...O.      .OO..     O...OOOOOOOOO.
+2013-01-22 20:52:37	--	-           .OOOOOOOOOOOO.8.     .OO.Z     .8.OOOOOOOOOOOO
+2013-01-22 20:52:37	--	-            .OOOOO8.OOOOOZ8....8$    .OO.+8ZOOOOO..OOOOO.
+2013-01-22 20:52:37	--	-                     8OOOOOO8...........OOOOOOO8.
+2013-01-22 20:52:37	--	-                     8OOOOOOOOOOOOOOOOOOOOOOOOOO
+2013-01-22 20:52:37	--	-                     OOOOOOOOOOOOOOOOOOOOOOOOOOO.
+2013-01-22 20:52:37	--	-                     OOOOOO.. ,OOOOOOO,...OOOOOO.
+2013-01-22 20:52:37	--	-  _   _            .8OOOO$.   .OOOOOOO     .8OOOO
+2013-01-22 20:52:37	--	- | | | |__   ___     ..8        OOOOO.       O~.
+2013-01-22 20:52:37	--	- | __| '_ \ / _ \               OOOOO.
+2013-01-22 20:52:37	--	- | |_| | | |  __/  _             ....
+2013-01-22 20:52:37	--	-  \__|_| |_|\___| | |
+2013-01-22 20:52:37	--	-    __ _  ___  ___| | __    because
+2013-01-22 20:52:37	--	-   / _` |/ _ \/ _ \ |/ /   the  geek
+2013-01-22 20:52:37	--	-  | (_| |  __/  __/   <  shall  inherit
+2013-01-22 20:52:37	--	-   \__, |\___|\___|_|\_\   the  earth
+2013-01-22 20:52:37	--	-    __/ | __ _ _ __ ___  _   _ _ __
+2013-01-22 20:52:37	--	-   |___/ / _` | '__/ _ \| | | | '_ \
+2013-01-22 20:52:37	--	-        | (_| | | | (_) | |_| | |_) |
+2013-01-22 20:52:37	--	-         \__, |_|  \___/ \__,_| .__/
+2013-01-22 20:52:37	--	-          __/ |               | |
+2013-01-22 20:52:37	--	-         |___/   IRC SERVER   |_|
+2013-01-22 20:52:37	--	-
+2013-01-22 20:52:37	--	-
+2013-01-22 20:52:37	--	-    Benny Russell: Tell me, please - who am I?
+2013-01-22 20:52:37	--	-         Preacher: Don't you know?
+2013-01-22 20:52:37	--	-    Benny Russell: Tell me.
+2013-01-22 20:52:37	--	-         Preacher: You are the dreamer. And the dream.
+2013-01-22 20:52:37	--	-                    - Star Trek: Deep Space Nine, 6x13
+2013-01-22 20:52:37	--	-                                "Far Beyond the Stars"
+2013-01-22 20:52:37	--	End of /MOTD command.
+2013-01-22 20:52:37	--	User mode [+ix] by queezy
+2013-01-22 20:52:37	--	213-96-389-316.adsl.inetia.pl :is now your hidden host
+2013-01-22 20:52:37	--	NickServ (NickServ@services.thegeekgroup.org): This nickname is registered. Please choose a different nickname, or identify via /msg NickServ identify <password>.
+2013-01-22 20:52:37	--	NickServ (NickServ@services.thegeekgroup.org): You are now identified for queezy.
+2013-01-22 21:00:16	--	irc: connected to irc.thegeekgroup.org/6667 (66.172.10.50)
+2013-01-22 21:00:16	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** Looking up your hostname...
+2013-01-22 21:00:16	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** Checking Ident
+2013-01-22 21:00:16	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** Found your hostname
+2013-01-22 21:00:26	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** No Ident response
+2013-01-22 21:00:26	--	Welcome to the TGG Internet Relay Chat Network queezy
+2013-01-22 21:00:26	--	MSG(nickserv): identify ************
+2013-01-22 21:00:26	--	Your host is irc.thegeekgroup.org[irc.thegeekgroup.org/6667], running version charybdis-3.3.0
+2013-01-22 21:00:26	--	This server was created Fri Jun 8 2012 at 07:20:42 UTC
+2013-01-22 21:00:26	--	irc.thegeekgroup.org charybdis-3.3.0 DQRSZagiloswxz CFILPQbcefgijklmnopqrstvz bkloveqjfI
+2013-01-22 21:00:26	--	CHANTYPES=&# EXCEPTS INVEX CHANMODES=eIbq,k,flj,CFPcgimnpstz CHANLIMIT=&#:15 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=TGG KNOCK STATUSMSG=@+ CALLERID=g :are supported by this server
+2013-01-22 21:00:26	--	SAFELIST ELIST=U CASEMAPPING=rfc1459 CHARSET=ascii NICKLEN=15 CHANNELLEN=50 TOPICLEN=390 ETRACE CPRIVMSG CNOTICE DEAF=D MONITOR=100 :are supported by this server
+2013-01-22 21:00:26	--	FNC TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: WHOX CLIENTVER=3.0 :are supported by this server
+2013-01-22 21:00:26	--	There are 0 users and 131 invisible on 2 servers
+2013-01-22 21:00:26	--	3 :IRC Operators online
+2013-01-22 21:00:26	--	6 :channels formed
+2013-01-22 21:00:26	--	I have 122 clients and 1 servers
+2013-01-22 21:00:26	--	122 126 :Current local users 122, max 126
+2013-01-22 21:00:26	--	131 135 :Current global users 131, max 135
+2013-01-22 21:00:26	--	Highest connection count: 127 (126 clients) (5851 connections received)
+2013-01-22 21:00:26	--	- irc.thegeekgroup.org Message of the Day -
+2013-01-22 21:00:26	--	-                                ?OOOZ
+2013-01-22 21:00:26	--	-                      ..        OOOOO.       ..
+2013-01-22 21:00:26	--	-                   .?OOOO     .8OOOOO8     .8OOOO
+2013-01-22 21:00:26	--	-                   ..OOOOOO.  .OOOOOOO.  ,$OOOOO,
+2013-01-22 21:00:26	--	-                     OOOOOOOOOOOOOOOOOOOOOOOOOOO.
+2013-01-22 21:00:26	--	-                     OOOOOOOOOOOOOOOOOOOOOOOOOOO.
+2013-01-22 21:00:26	--	-                     ZOOOOOOOO8.......OZOOOOOOO.
+2013-01-22 21:00:26	--	-             OOO?...8OOOOOO8O.       .8888OOOOOOO...8OOO.
+2013-01-22 21:00:26	--	-           .OOOOOOOOOOOOI8....ZO.  .8... ..Z7OOOOOOOOOOOO
+2013-01-22 21:00:26	--	-           .OOOOOOOOOOO.O     ..,O8 .      ...OOOOOOOOOO8
+2013-01-22 21:00:26	--	-             .ZOOOOOOZ  O       .O8?+.     .O .8OOOOOOO..
+2013-01-22 21:00:26	--	-              .OOOOOO.  ~.    .Z. .++.     .:   OOOOOZ..
+2013-01-22 21:00:26	--	-              ..OOOO.   .O.  .O.    .8..   O.   .OOOO.
+2013-01-22 21:00:26	--	-              .OOOO.. ..8OO?.Z00000000O..O8O...  :OOOO..
+2013-01-22 21:00:26	--	-         ..,OOOOOOO.~8.. .8.8.  .+++. .O...,..?O..OOOOOOOO...
+2013-01-22 21:00:26	--	-        .OOOOOOOOOOO.     .... ~O?+$$. .8.O..   .OOOOOOOOOOO.
+2013-01-22 21:00:26	--	-        .OOOOOOOOOO..    ..8.  OZZ$$$.  ~8.      OOOOOOOOOOO.
+2013-01-22 21:00:26	--	-        ..ZOOOOOOOO?8:+. .O.O.     ..   .O.    .DIOOOOOOOOZ..
+2013-01-22 21:00:26	--	-             ..OOOO..++O..8  O..      . 8.O..OO...OOOO..
+2013-01-22 21:00:26	--	-              .OOOOO.....I,OOO88OOOO8OOOO88...  .OOOOZ
+2013-01-22 21:00:26	--	-              .,8OOO..  .O    .O.  .++O. . O.   .OOOO8..
+2013-01-22 21:00:26	--	-             .OOOOOOO.  .O.     $7.=++=.   O. ..OOOOOO8.
+2013-01-22 21:00:26	--	-           ..OOOOOOOOO...O.      .OO..     O...OOOOOOOOO.
+2013-01-22 21:00:26	--	-           .OOOOOOOOOOOO.8.     .OO.Z     .8.OOOOOOOOOOOO
+2013-01-22 21:00:26	--	-            .OOOOO8.OOOOOZ8....8$    .OO.+8ZOOOOO..OOOOO.
+2013-01-22 21:00:26	--	-                     8OOOOOO8...........OOOOOOO8.
+2013-01-22 21:00:26	--	-                     8OOOOOOOOOOOOOOOOOOOOOOOOOO
+2013-01-22 21:00:26	--	-                     OOOOOOOOOOOOOOOOOOOOOOOOOOO.
+2013-01-22 21:00:26	--	-                     OOOOOO.. ,OOOOOOO,...OOOOOO.
+2013-01-22 21:00:26	--	-  _   _            .8OOOO$.   .OOOOOOO     .8OOOO
+2013-01-22 21:00:26	--	- | | | |__   ___     ..8        OOOOO.       O~.
+2013-01-22 21:00:26	--	- | __| '_ \ / _ \               OOOOO.
+2013-01-22 21:00:26	--	- | |_| | | |  __/  _             ....
+2013-01-22 21:00:26	--	-  \__|_| |_|\___| | |
+2013-01-22 21:00:26	--	-    __ _  ___  ___| | __    because
+2013-01-22 21:00:26	--	-   / _` |/ _ \/ _ \ |/ /   the  geek
+2013-01-22 21:00:26	--	-  | (_| |  __/  __/   <  shall  inherit
+2013-01-22 21:00:26	--	-   \__, |\___|\___|_|\_\   the  earth
+2013-01-22 21:00:26	--	-    __/ | __ _ _ __ ___  _   _ _ __
+2013-01-22 21:00:26	--	-   |___/ / _` | '__/ _ \| | | | '_ \
+2013-01-22 21:00:26	--	-        | (_| | | | (_) | |_| | |_) |
+2013-01-22 21:00:26	--	-         \__, |_|  \___/ \__,_| .__/
+2013-01-22 21:00:26	--	-          __/ |               | |
+2013-01-22 21:00:26	--	-         |___/   IRC SERVER   |_|
+2013-01-22 21:00:26	--	-
+2013-01-22 21:00:26	--	-
+2013-01-22 21:00:26	--	-    Benny Russell: Tell me, please - who am I?
+2013-01-22 21:00:26	--	-         Preacher: Don't you know?
+2013-01-22 21:00:26	--	-    Benny Russell: Tell me.
+2013-01-22 21:00:26	--	-         Preacher: You are the dreamer. And the dream.
+2013-01-22 21:00:26	--	-                    - Star Trek: Deep Space Nine, 6x13
+2013-01-22 21:00:26	--	-                                "Far Beyond the Stars"
+2013-01-22 21:00:26	--	End of /MOTD command.
+2013-01-22 21:00:26	--	User mode [+ix] by queezy
+2013-01-22 21:00:26	--	213-96-389-316.adsl.inetia.pl :is now your hidden host
+2013-01-22 21:00:26	--	NickServ (NickServ@services.thegeekgroup.org): This nickname is registered. Please choose a different nickname, or identify via /msg NickServ identify <password>.
+2013-01-22 21:00:26	--	NickServ (NickServ@services.thegeekgroup.org): You are now identified for queezy.
+2013-01-22 21:10:24	--	irc: connected to irc.thegeekgroup.org/6667 (66.172.10.50)
+2013-01-22 21:10:24	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** Looking up your hostname...
+2013-01-22 21:10:24	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** Checking Ident
+2013-01-22 21:10:24	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** Found your hostname
+2013-01-22 21:10:34	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** No Ident response
+2013-01-22 21:10:34	--	Welcome to the TGG Internet Relay Chat Network queezy
+2013-01-22 21:10:34	--	MSG(nickserv): identify ************
+2013-01-22 21:10:34	--	Your host is irc.thegeekgroup.org[irc.thegeekgroup.org/6667], running version charybdis-3.3.0
+2013-01-22 21:10:34	--	This server was created Fri Jun 8 2012 at 07:20:42 UTC
+2013-01-22 21:10:34	--	irc.thegeekgroup.org charybdis-3.3.0 DQRSZagiloswxz CFILPQbcefgijklmnopqrstvz bkloveqjfI
+2013-01-22 21:10:34	--	CHANTYPES=&# EXCEPTS INVEX CHANMODES=eIbq,k,flj,CFPcgimnpstz CHANLIMIT=&#:15 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=TGG KNOCK STATUSMSG=@+ CALLERID=g :are supported by this server
+2013-01-22 21:10:34	--	SAFELIST ELIST=U CASEMAPPING=rfc1459 CHARSET=ascii NICKLEN=15 CHANNELLEN=50 TOPICLEN=390 ETRACE CPRIVMSG CNOTICE DEAF=D MONITOR=100 :are supported by this server
+2013-01-22 21:10:34	--	FNC TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: WHOX CLIENTVER=3.0 :are supported by this server
+2013-01-22 21:10:34	--	There are 0 users and 129 invisible on 2 servers
+2013-01-22 21:10:34	--	3 :IRC Operators online
+2013-01-22 21:10:34	--	6 :channels formed
+2013-01-22 21:10:34	--	I have 120 clients and 1 servers
+2013-01-22 21:10:34	--	120 126 :Current local users 120, max 126
+2013-01-22 21:10:34	--	129 135 :Current global users 129, max 135
+2013-01-22 21:10:34	--	Highest connection count: 127 (126 clients) (5858 connections received)
+2013-01-22 21:10:34	--	- irc.thegeekgroup.org Message of the Day -
+2013-01-22 21:10:34	--	-                                ?OOOZ
+2013-01-22 21:10:34	--	-                      ..        OOOOO.       ..
+2013-01-22 21:10:34	--	-                   .?OOOO     .8OOOOO8     .8OOOO
+2013-01-22 21:10:34	--	-                   ..OOOOOO.  .OOOOOOO.  ,$OOOOO,
+2013-01-22 21:10:34	--	-                     OOOOOOOOOOOOOOOOOOOOOOOOOOO.
+2013-01-22 21:10:34	--	-                     OOOOOOOOOOOOOOOOOOOOOOOOOOO.
+2013-01-22 21:10:34	--	-                     ZOOOOOOOO8.......OZOOOOOOO.
+2013-01-22 21:10:34	--	-             OOO?...8OOOOOO8O.       .8888OOOOOOO...8OOO.
+2013-01-22 21:10:34	--	-           .OOOOOOOOOOOOI8....ZO.  .8... ..Z7OOOOOOOOOOOO
+2013-01-22 21:10:34	--	-           .OOOOOOOOOOO.O     ..,O8 .      ...OOOOOOOOOO8
+2013-01-22 21:10:34	--	-             .ZOOOOOOZ  O       .O8?+.     .O .8OOOOOOO..
+2013-01-22 21:10:34	--	-              .OOOOOO.  ~.    .Z. .++.     .:   OOOOOZ..
+2013-01-22 21:10:34	--	-              ..OOOO.   .O.  .O.    .8..   O.   .OOOO.
+2013-01-22 21:10:34	--	-              .OOOO.. ..8OO?.Z00000000O..O8O...  :OOOO..
+2013-01-22 21:10:34	--	-         ..,OOOOOOO.~8.. .8.8.  .+++. .O...,..?O..OOOOOOOO...
+2013-01-22 21:10:34	--	-        .OOOOOOOOOOO.     .... ~O?+$$. .8.O..   .OOOOOOOOOOO.
+2013-01-22 21:10:34	--	-        .OOOOOOOOOO..    ..8.  OZZ$$$.  ~8.      OOOOOOOOOOO.
+2013-01-22 21:10:34	--	-        ..ZOOOOOOOO?8:+. .O.O.     ..   .O.    .DIOOOOOOOOZ..
+2013-01-22 21:10:34	--	-             ..OOOO..++O..8  O..      . 8.O..OO...OOOO..
+2013-01-22 21:10:34	--	-              .OOOOO.....I,OOO88OOOO8OOOO88...  .OOOOZ
+2013-01-22 21:10:34	--	-              .,8OOO..  .O    .O.  .++O. . O.   .OOOO8..
+2013-01-22 21:10:34	--	-             .OOOOOOO.  .O.     $7.=++=.   O. ..OOOOOO8.
+2013-01-22 21:10:34	--	-           ..OOOOOOOOO...O.      .OO..     O...OOOOOOOOO.
+2013-01-22 21:10:34	--	-           .OOOOOOOOOOOO.8.     .OO.Z     .8.OOOOOOOOOOOO
+2013-01-22 21:10:34	--	-            .OOOOO8.OOOOOZ8....8$    .OO.+8ZOOOOO..OOOOO.
+2013-01-22 21:10:34	--	-                     8OOOOOO8...........OOOOOOO8.
+2013-01-22 21:10:34	--	-                     8OOOOOOOOOOOOOOOOOOOOOOOOOO
+2013-01-22 21:10:34	--	-                     OOOOOOOOOOOOOOOOOOOOOOOOOOO.
+2013-01-22 21:10:34	--	-                     OOOOOO.. ,OOOOOOO,...OOOOOO.
+2013-01-22 21:10:34	--	-  _   _            .8OOOO$.   .OOOOOOO     .8OOOO
+2013-01-22 21:10:34	--	- | | | |__   ___     ..8        OOOOO.       O~.
+2013-01-22 21:10:34	--	- | __| '_ \ / _ \               OOOOO.
+2013-01-22 21:10:34	--	- | |_| | | |  __/  _             ....
+2013-01-22 21:10:34	--	-  \__|_| |_|\___| | |
+2013-01-22 21:10:34	--	-    __ _  ___  ___| | __    because
+2013-01-22 21:10:34	--	-   / _` |/ _ \/ _ \ |/ /   the  geek
+2013-01-22 21:10:34	--	-  | (_| |  __/  __/   <  shall  inherit
+2013-01-22 21:10:34	--	-   \__, |\___|\___|_|\_\   the  earth
+2013-01-22 21:10:34	--	-    __/ | __ _ _ __ ___  _   _ _ __
+2013-01-22 21:10:34	--	-   |___/ / _` | '__/ _ \| | | | '_ \
+2013-01-22 21:10:34	--	-        | (_| | | | (_) | |_| | |_) |
+2013-01-22 21:10:34	--	-         \__, |_|  \___/ \__,_| .__/
+2013-01-22 21:10:34	--	-          __/ |               | |
+2013-01-22 21:10:34	--	-         |___/   IRC SERVER   |_|
+2013-01-22 21:10:34	--	-
+2013-01-22 21:10:34	--	-
+2013-01-22 21:10:34	--	-    Benny Russell: Tell me, please - who am I?
+2013-01-22 21:10:34	--	-         Preacher: Don't you know?
+2013-01-22 21:10:34	--	-    Benny Russell: Tell me.
+2013-01-22 21:10:34	--	-         Preacher: You are the dreamer. And the dream.
+2013-01-22 21:10:34	--	-                    - Star Trek: Deep Space Nine, 6x13
+2013-01-22 21:10:34	--	-                                "Far Beyond the Stars"
+2013-01-22 21:10:34	--	End of /MOTD command.
+2013-01-22 21:10:34	--	User mode [+ix] by queezy
+2013-01-22 21:10:34	--	213-96-389-316.adsl.inetia.pl :is now your hidden host
+2013-01-22 21:10:34	--	NickServ (NickServ@services.thegeekgroup.org): This nickname is registered. Please choose a different nickname, or identify via /msg NickServ identify <password>.
+2013-01-22 21:10:34	--	NickServ (NickServ@services.thegeekgroup.org): You are now identified for queezy.
+2013-01-22 21:14:59	--	irc: connected to irc.thegeekgroup.org/6667 (66.172.10.50)
+2013-01-22 21:14:59	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** Looking up your hostname...
+2013-01-22 21:14:59	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** Checking Ident
+2013-01-22 21:14:59	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** Found your hostname
+2013-01-22 21:15:09	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** No Ident response
+2013-01-22 21:15:09	--	Welcome to the TGG Internet Relay Chat Network queezy
+2013-01-22 21:15:09	--	MSG(nickserv): identify ************
+2013-01-22 21:15:09	--	Your host is irc.thegeekgroup.org[irc.thegeekgroup.org/6667], running version charybdis-3.3.0
+2013-01-22 21:15:09	--	This server was created Fri Jun 8 2012 at 07:20:42 UTC
+2013-01-22 21:15:09	--	irc.thegeekgroup.org charybdis-3.3.0 DQRSZagiloswxz CFILPQbcefgijklmnopqrstvz bkloveqjfI
+2013-01-22 21:15:09	--	CHANTYPES=&# EXCEPTS INVEX CHANMODES=eIbq,k,flj,CFPcgimnpstz CHANLIMIT=&#:15 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=TGG KNOCK STATUSMSG=@+ CALLERID=g :are supported by this server
+2013-01-22 21:15:09	--	SAFELIST ELIST=U CASEMAPPING=rfc1459 CHARSET=ascii NICKLEN=15 CHANNELLEN=50 TOPICLEN=390 ETRACE CPRIVMSG CNOTICE DEAF=D MONITOR=100 :are supported by this server
+2013-01-22 21:15:09	--	FNC TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: WHOX CLIENTVER=3.0 :are supported by this server
+2013-01-22 21:15:09	--	There are 0 users and 129 invisible on 2 servers
+2013-01-22 21:15:09	--	3 :IRC Operators online
+2013-01-22 21:15:09	--	6 :channels formed
+2013-01-22 21:15:09	--	I have 120 clients and 1 servers
+2013-01-22 21:15:09	--	120 126 :Current local users 120, max 126
+2013-01-22 21:15:09	--	129 135 :Current global users 129, max 135
+2013-01-22 21:15:09	--	Highest connection count: 127 (126 clients) (5861 connections received)
+2013-01-22 21:15:09	--	- irc.thegeekgroup.org Message of the Day -
+2013-01-22 21:15:09	--	-                                ?OOOZ
+2013-01-22 21:15:09	--	-                      ..        OOOOO.       ..
+2013-01-22 21:15:09	--	-                   .?OOOO     .8OOOOO8     .8OOOO
+2013-01-22 21:15:09	--	-                   ..OOOOOO.  .OOOOOOO.  ,$OOOOO,
+2013-01-22 21:15:09	--	-                     OOOOOOOOOOOOOOOOOOOOOOOOOOO.
+2013-01-22 21:15:09	--	-                     OOOOOOOOOOOOOOOOOOOOOOOOOOO.
+2013-01-22 21:15:09	--	-                     ZOOOOOOOO8.......OZOOOOOOO.
+2013-01-22 21:15:09	--	-             OOO?...8OOOOOO8O.       .8888OOOOOOO...8OOO.
+2013-01-22 21:15:09	--	-           .OOOOOOOOOOOOI8....ZO.  .8... ..Z7OOOOOOOOOOOO
+2013-01-22 21:15:09	--	-           .OOOOOOOOOOO.O     ..,O8 .      ...OOOOOOOOOO8
+2013-01-22 21:15:09	--	-             .ZOOOOOOZ  O       .O8?+.     .O .8OOOOOOO..
+2013-01-22 21:15:09	--	-              .OOOOOO.  ~.    .Z. .++.     .:   OOOOOZ..
+2013-01-22 21:15:09	--	-              ..OOOO.   .O.  .O.    .8..   O.   .OOOO.
+2013-01-22 21:15:09	--	-              .OOOO.. ..8OO?.Z00000000O..O8O...  :OOOO..
+2013-01-22 21:15:09	--	-         ..,OOOOOOO.~8.. .8.8.  .+++. .O...,..?O..OOOOOOOO...
+2013-01-22 21:15:09	--	-        .OOOOOOOOOOO.     .... ~O?+$$. .8.O..   .OOOOOOOOOOO.
+2013-01-22 21:15:09	--	-        .OOOOOOOOOO..    ..8.  OZZ$$$.  ~8.      OOOOOOOOOOO.
+2013-01-22 21:15:09	--	-        ..ZOOOOOOOO?8:+. .O.O.     ..   .O.    .DIOOOOOOOOZ..
+2013-01-22 21:15:09	--	-             ..OOOO..++O..8  O..      . 8.O..OO...OOOO..
+2013-01-22 21:15:09	--	-              .OOOOO.....I,OOO88OOOO8OOOO88...  .OOOOZ
+2013-01-22 21:15:09	--	-              .,8OOO..  .O    .O.  .++O. . O.   .OOOO8..
+2013-01-22 21:15:09	--	-             .OOOOOOO.  .O.     $7.=++=.   O. ..OOOOOO8.
+2013-01-22 21:15:09	--	-           ..OOOOOOOOO...O.      .OO..     O...OOOOOOOOO.
+2013-01-22 21:15:09	--	-           .OOOOOOOOOOOO.8.     .OO.Z     .8.OOOOOOOOOOOO
+2013-01-22 21:15:09	--	-            .OOOOO8.OOOOOZ8....8$    .OO.+8ZOOOOO..OOOOO.
+2013-01-22 21:15:09	--	-                     8OOOOOO8...........OOOOOOO8.
+2013-01-22 21:15:09	--	-                     8OOOOOOOOOOOOOOOOOOOOOOOOOO
+2013-01-22 21:15:09	--	-                     OOOOOOOOOOOOOOOOOOOOOOOOOOO.
+2013-01-22 21:15:09	--	-                     OOOOOO.. ,OOOOOOO,...OOOOOO.
+2013-01-22 21:15:09	--	-  _   _            .8OOOO$.   .OOOOOOO     .8OOOO
+2013-01-22 21:15:09	--	- | | | |__   ___     ..8        OOOOO.       O~.
+2013-01-22 21:15:09	--	- | __| '_ \ / _ \               OOOOO.
+2013-01-22 21:15:09	--	- | |_| | | |  __/  _             ....
+2013-01-22 21:15:09	--	-  \__|_| |_|\___| | |
+2013-01-22 21:15:09	--	-    __ _  ___  ___| | __    because
+2013-01-22 21:15:09	--	-   / _` |/ _ \/ _ \ |/ /   the  geek
+2013-01-22 21:15:09	--	-  | (_| |  __/  __/   <  shall  inherit
+2013-01-22 21:15:09	--	-   \__, |\___|\___|_|\_\   the  earth
+2013-01-22 21:15:09	--	-    __/ | __ _ _ __ ___  _   _ _ __
+2013-01-22 21:15:09	--	-   |___/ / _` | '__/ _ \| | | | '_ \
+2013-01-22 21:15:09	--	-        | (_| | | | (_) | |_| | |_) |
+2013-01-22 21:15:09	--	-         \__, |_|  \___/ \__,_| .__/
+2013-01-22 21:15:09	--	-          __/ |               | |
+2013-01-22 21:15:09	--	-         |___/   IRC SERVER   |_|
+2013-01-22 21:15:09	--	-
+2013-01-22 21:15:09	--	-
+2013-01-22 21:15:09	--	-    Benny Russell: Tell me, please - who am I?
+2013-01-22 21:15:09	--	-         Preacher: Don't you know?
+2013-01-22 21:15:09	--	-    Benny Russell: Tell me.
+2013-01-22 21:15:09	--	-         Preacher: You are the dreamer. And the dream.
+2013-01-22 21:15:09	--	-                    - Star Trek: Deep Space Nine, 6x13
+2013-01-22 21:15:09	--	-                                "Far Beyond the Stars"
+2013-01-22 21:15:09	--	End of /MOTD command.
+2013-01-22 21:15:09	--	User mode [+ix] by queezy
+2013-01-22 21:15:09	--	213-96-389-316.adsl.inetia.pl :is now your hidden host
+2013-01-22 21:15:09	--	NickServ (NickServ@services.thegeekgroup.org): This nickname is registered. Please choose a different nickname, or identify via /msg NickServ identify <password>.
+2013-01-22 21:15:09	--	NickServ (NickServ@services.thegeekgroup.org): You are now identified for queezy.
+2013-01-22 21:22:23	--	irc: connected to irc.thegeekgroup.org/6667 (66.172.10.50)
+2013-01-22 21:22:23	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** Looking up your hostname...
+2013-01-22 21:22:23	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** Checking Ident
+2013-01-22 21:22:23	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** Found your hostname
+2013-01-22 21:22:32	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** No Ident response
+2013-01-22 21:22:32	--	Welcome to the TGG Internet Relay Chat Network queezy
+2013-01-22 21:22:32	--	MSG(nickserv): identify ************
+2013-01-22 21:22:32	--	Your host is irc.thegeekgroup.org[irc.thegeekgroup.org/6667], running version charybdis-3.3.0
+2013-01-22 21:22:32	--	This server was created Fri Jun 8 2012 at 07:20:42 UTC
+2013-01-22 21:22:32	--	irc.thegeekgroup.org charybdis-3.3.0 DQRSZagiloswxz CFILPQbcefgijklmnopqrstvz bkloveqjfI
+2013-01-22 21:22:32	--	CHANTYPES=&# EXCEPTS INVEX CHANMODES=eIbq,k,flj,CFPcgimnpstz CHANLIMIT=&#:15 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=TGG KNOCK STATUSMSG=@+ CALLERID=g :are supported by this server
+2013-01-22 21:22:32	--	SAFELIST ELIST=U CASEMAPPING=rfc1459 CHARSET=ascii NICKLEN=15 CHANNELLEN=50 TOPICLEN=390 ETRACE CPRIVMSG CNOTICE DEAF=D MONITOR=100 :are supported by this server
+2013-01-22 21:22:32	--	FNC TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: WHOX CLIENTVER=3.0 :are supported by this server
+2013-01-22 21:22:32	--	There are 0 users and 129 invisible on 2 servers
+2013-01-22 21:22:32	--	3 :IRC Operators online
+2013-01-22 21:22:32	--	6 :channels formed
+2013-01-22 21:22:32	--	I have 120 clients and 1 servers
+2013-01-22 21:22:32	--	120 126 :Current local users 120, max 126
+2013-01-22 21:22:32	--	129 135 :Current global users 129, max 135
+2013-01-22 21:22:32	--	Highest connection count: 127 (126 clients) (5865 connections received)
+2013-01-22 21:22:32	--	- irc.thegeekgroup.org Message of the Day -
+2013-01-22 21:22:32	--	-                                ?OOOZ
+2013-01-22 21:22:32	--	-                      ..        OOOOO.       ..
+2013-01-22 21:22:32	--	-                   .?OOOO     .8OOOOO8     .8OOOO
+2013-01-22 21:22:32	--	-                   ..OOOOOO.  .OOOOOOO.  ,$OOOOO,
+2013-01-22 21:22:32	--	-                     OOOOOOOOOOOOOOOOOOOOOOOOOOO.
+2013-01-22 21:22:32	--	-                     OOOOOOOOOOOOOOOOOOOOOOOOOOO.
+2013-01-22 21:22:32	--	-                     ZOOOOOOOO8.......OZOOOOOOO.
+2013-01-22 21:22:32	--	-             OOO?...8OOOOOO8O.       .8888OOOOOOO...8OOO.
+2013-01-22 21:22:32	--	-           .OOOOOOOOOOOOI8....ZO.  .8... ..Z7OOOOOOOOOOOO
+2013-01-22 21:22:32	--	-           .OOOOOOOOOOO.O     ..,O8 .      ...OOOOOOOOOO8
+2013-01-22 21:22:32	--	-             .ZOOOOOOZ  O       .O8?+.     .O .8OOOOOOO..
+2013-01-22 21:22:32	--	-              .OOOOOO.  ~.    .Z. .++.     .:   OOOOOZ..
+2013-01-22 21:22:32	--	-              ..OOOO.   .O.  .O.    .8..   O.   .OOOO.
+2013-01-22 21:22:32	--	-              .OOOO.. ..8OO?.Z00000000O..O8O...  :OOOO..
+2013-01-22 21:22:32	--	-         ..,OOOOOOO.~8.. .8.8.  .+++. .O...,..?O..OOOOOOOO...
+2013-01-22 21:22:32	--	-        .OOOOOOOOOOO.     .... ~O?+$$. .8.O..   .OOOOOOOOOOO.
+2013-01-22 21:22:32	--	-        .OOOOOOOOOO..    ..8.  OZZ$$$.  ~8.      OOOOOOOOOOO.
+2013-01-22 21:22:32	--	-        ..ZOOOOOOOO?8:+. .O.O.     ..   .O.    .DIOOOOOOOOZ..
+2013-01-22 21:22:32	--	-             ..OOOO..++O..8  O..      . 8.O..OO...OOOO..
+2013-01-22 21:22:32	--	-              .OOOOO.....I,OOO88OOOO8OOOO88...  .OOOOZ
+2013-01-22 21:22:32	--	-              .,8OOO..  .O    .O.  .++O. . O.   .OOOO8..
+2013-01-22 21:22:32	--	-             .OOOOOOO.  .O.     $7.=++=.   O. ..OOOOOO8.
+2013-01-22 21:22:32	--	-           ..OOOOOOOOO...O.      .OO..     O...OOOOOOOOO.
+2013-01-22 21:22:32	--	-           .OOOOOOOOOOOO.8.     .OO.Z     .8.OOOOOOOOOOOO
+2013-01-22 21:22:32	--	-            .OOOOO8.OOOOOZ8....8$    .OO.+8ZOOOOO..OOOOO.
+2013-01-22 21:22:32	--	-                     8OOOOOO8...........OOOOOOO8.
+2013-01-22 21:22:32	--	-                     8OOOOOOOOOOOOOOOOOOOOOOOOOO
+2013-01-22 21:22:32	--	-                     OOOOOOOOOOOOOOOOOOOOOOOOOOO.
+2013-01-22 21:22:32	--	-                     OOOOOO.. ,OOOOOOO,...OOOOOO.
+2013-01-22 21:22:32	--	-  _   _            .8OOOO$.   .OOOOOOO     .8OOOO
+2013-01-22 21:22:32	--	- | | | |__   ___     ..8        OOOOO.       O~.
+2013-01-22 21:22:32	--	- | __| '_ \ / _ \               OOOOO.
+2013-01-22 21:22:32	--	- | |_| | | |  __/  _             ....
+2013-01-22 21:22:32	--	-  \__|_| |_|\___| | |
+2013-01-22 21:22:32	--	-    __ _  ___  ___| | __    because
+2013-01-22 21:22:32	--	-   / _` |/ _ \/ _ \ |/ /   the  geek
+2013-01-22 21:22:32	--	-  | (_| |  __/  __/   <  shall  inherit
+2013-01-22 21:22:32	--	-   \__, |\___|\___|_|\_\   the  earth
+2013-01-22 21:22:32	--	-    __/ | __ _ _ __ ___  _   _ _ __
+2013-01-22 21:22:32	--	-   |___/ / _` | '__/ _ \| | | | '_ \
+2013-01-22 21:22:32	--	-        | (_| | | | (_) | |_| | |_) |
+2013-01-22 21:22:32	--	-         \__, |_|  \___/ \__,_| .__/
+2013-01-22 21:22:32	--	-          __/ |               | |
+2013-01-22 21:22:32	--	-         |___/   IRC SERVER   |_|
+2013-01-22 21:22:32	--	-
+2013-01-22 21:22:32	--	-
+2013-01-22 21:22:32	--	-    Benny Russell: Tell me, please - who am I?
+2013-01-22 21:22:32	--	-         Preacher: Don't you know?
+2013-01-22 21:22:32	--	-    Benny Russell: Tell me.
+2013-01-22 21:22:32	--	-         Preacher: You are the dreamer. And the dream.
+2013-01-22 21:22:32	--	-                    - Star Trek: Deep Space Nine, 6x13
+2013-01-22 21:22:32	--	-                                "Far Beyond the Stars"
+2013-01-22 21:22:32	--	End of /MOTD command.
+2013-01-22 21:22:32	--	User mode [+ix] by queezy
+2013-01-22 21:22:32	--	213-96-389-316.adsl.inetia.pl :is now your hidden host
+2013-01-22 21:22:32	--	NickServ (NickServ@services.thegeekgroup.org): This nickname is registered. Please choose a different nickname, or identify via /msg NickServ identify <password>.
+2013-01-22 21:22:32	--	NickServ (NickServ@services.thegeekgroup.org): You are now identified for queezy.
+2013-01-24 03:40:16	--	irc: connected to irc.thegeekgroup.org/6667 (66.172.10.50)
+2013-01-24 03:40:16	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** Looking up your hostname...
+2013-01-24 03:40:17	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** Checking Ident
+2013-01-24 03:40:17	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** Found your hostname
+2013-01-24 03:40:27	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** No Ident response
+2013-01-24 03:40:27	--	Welcome to the TGG Internet Relay Chat Network queezy
+2013-01-24 03:40:27	--	MSG(nickserv): identify ************
+2013-01-24 03:40:27	--	Your host is irc.thegeekgroup.org[irc.thegeekgroup.org/6667], running version charybdis-3.3.0
+2013-01-24 03:40:27	--	This server was created Fri Jun 8 2012 at 07:20:42 UTC
+2013-01-24 03:40:27	--	irc.thegeekgroup.org charybdis-3.3.0 DQRSZagiloswxz CFILPQbcefgijklmnopqrstvz bkloveqjfI
+2013-01-24 03:40:27	--	CHANTYPES=&# EXCEPTS INVEX CHANMODES=eIbq,k,flj,CFPcgimnpstz CHANLIMIT=&#:15 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=TGG KNOCK STATUSMSG=@+ CALLERID=g :are supported by this server
+2013-01-24 03:40:27	--	SAFELIST ELIST=U CASEMAPPING=rfc1459 CHARSET=ascii NICKLEN=15 CHANNELLEN=50 TOPICLEN=390 ETRACE CPRIVMSG CNOTICE DEAF=D MONITOR=100 :are supported by this server
+2013-01-24 03:40:27	--	FNC TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: WHOX CLIENTVER=3.0 :are supported by this server
+2013-01-24 03:40:27	--	There are 0 users and 122 invisible on 2 servers
+2013-01-24 03:40:27	--	3 :IRC Operators online
+2013-01-24 03:40:27	--	8 :channels formed
+2013-01-24 03:40:27	--	I have 113 clients and 1 servers
+2013-01-24 03:40:27	--	113 126 :Current local users 113, max 126
+2013-01-24 03:40:27	--	122 135 :Current global users 122, max 135
+2013-01-24 03:40:27	--	Highest connection count: 127 (126 clients) (6392 connections received)
+2013-01-24 03:40:27	--	- irc.thegeekgroup.org Message of the Day -
+2013-01-24 03:40:27	--	-                                ?OOOZ
+2013-01-24 03:40:27	--	-                      ..        OOOOO.       ..
+2013-01-24 03:40:27	--	-                   .?OOOO     .8OOOOO8     .8OOOO
+2013-01-24 03:40:27	--	-                   ..OOOOOO.  .OOOOOOO.  ,$OOOOO,
+2013-01-24 03:40:27	--	-                     OOOOOOOOOOOOOOOOOOOOOOOOOOO.
+2013-01-24 03:40:27	--	-                     OOOOOOOOOOOOOOOOOOOOOOOOOOO.
+2013-01-24 03:40:27	--	-                     ZOOOOOOOO8.......OZOOOOOOO.
+2013-01-24 03:40:27	--	-             OOO?...8OOOOOO8O.       .8888OOOOOOO...8OOO.
+2013-01-24 03:40:27	--	-           .OOOOOOOOOOOOI8....ZO.  .8... ..Z7OOOOOOOOOOOO
+2013-01-24 03:40:27	--	-           .OOOOOOOOOOO.O     ..,O8 .      ...OOOOOOOOOO8
+2013-01-24 03:40:27	--	-             .ZOOOOOOZ  O       .O8?+.     .O .8OOOOOOO..
+2013-01-24 03:40:27	--	-              .OOOOOO.  ~.    .Z. .++.     .:   OOOOOZ..
+2013-01-24 03:40:27	--	-              ..OOOO.   .O.  .O.    .8..   O.   .OOOO.
+2013-01-24 03:40:27	--	-              .OOOO.. ..8OO?.Z00000000O..O8O...  :OOOO..
+2013-01-24 03:40:27	--	-         ..,OOOOOOO.~8.. .8.8.  .+++. .O...,..?O..OOOOOOOO...
+2013-01-24 03:40:27	--	-        .OOOOOOOOOOO.     .... ~O?+$$. .8.O..   .OOOOOOOOOOO.
+2013-01-24 03:40:27	--	-        .OOOOOOOOOO..    ..8.  OZZ$$$.  ~8.      OOOOOOOOOOO.
+2013-01-24 03:40:27	--	-        ..ZOOOOOOOO?8:+. .O.O.     ..   .O.    .DIOOOOOOOOZ..
+2013-01-24 03:40:27	--	-             ..OOOO..++O..8  O..      . 8.O..OO...OOOO..
+2013-01-24 03:40:27	--	-              .OOOOO.....I,OOO88OOOO8OOOO88...  .OOOOZ
+2013-01-24 03:40:27	--	-              .,8OOO..  .O    .O.  .++O. . O.   .OOOO8..
+2013-01-24 03:40:27	--	-             .OOOOOOO.  .O.     $7.=++=.   O. ..OOOOOO8.
+2013-01-24 03:40:27	--	-           ..OOOOOOOOO...O.      .OO..     O...OOOOOOOOO.
+2013-01-24 03:40:27	--	-           .OOOOOOOOOOOO.8.     .OO.Z     .8.OOOOOOOOOOOO
+2013-01-24 03:40:27	--	-            .OOOOO8.OOOOOZ8....8$    .OO.+8ZOOOOO..OOOOO.
+2013-01-24 03:40:27	--	-                     8OOOOOO8...........OOOOOOO8.
+2013-01-24 03:40:27	--	-                     8OOOOOOOOOOOOOOOOOOOOOOOOOO
+2013-01-24 03:40:27	--	-                     OOOOOOOOOOOOOOOOOOOOOOOOOOO.
+2013-01-24 03:40:27	--	-                     OOOOOO.. ,OOOOOOO,...OOOOOO.
+2013-01-24 03:40:27	--	-  _   _            .8OOOO$.   .OOOOOOO     .8OOOO
+2013-01-24 03:40:27	--	- | | | |__   ___     ..8        OOOOO.       O~.
+2013-01-24 03:40:27	--	- | __| '_ \ / _ \               OOOOO.
+2013-01-24 03:40:27	--	- | |_| | | |  __/  _             ....
+2013-01-24 03:40:27	--	-  \__|_| |_|\___| | |
+2013-01-24 03:40:27	--	-    __ _  ___  ___| | __    because
+2013-01-24 03:40:27	--	-   / _` |/ _ \/ _ \ |/ /   the  geek
+2013-01-24 03:40:27	--	-  | (_| |  __/  __/   <  shall  inherit
+2013-01-24 03:40:27	--	-   \__, |\___|\___|_|\_\   the  earth
+2013-01-24 03:40:27	--	-    __/ | __ _ _ __ ___  _   _ _ __
+2013-01-24 03:40:27	--	-   |___/ / _` | '__/ _ \| | | | '_ \
+2013-01-24 03:40:27	--	-        | (_| | | | (_) | |_| | |_) |
+2013-01-24 03:40:27	--	-         \__, |_|  \___/ \__,_| .__/
+2013-01-24 03:40:27	--	-          __/ |               | |
+2013-01-24 03:40:27	--	-         |___/   IRC SERVER   |_|
+2013-01-24 03:40:27	--	-
+2013-01-24 03:40:27	--	-
+2013-01-24 03:40:27	--	-    Benny Russell: Tell me, please - who am I?
+2013-01-24 03:40:27	--	-         Preacher: Don't you know?
+2013-01-24 03:40:27	--	-    Benny Russell: Tell me.
+2013-01-24 03:40:28	--	-         Preacher: You are the dreamer. And the dream.
+2013-01-24 03:40:28	--	-                    - Star Trek: Deep Space Nine, 6x13
+2013-01-24 03:40:28	--	-                                "Far Beyond the Stars"
+2013-01-24 03:40:28	--	End of /MOTD command.
+2013-01-24 03:40:28	--	User mode [+ix] by queezy
+2013-01-24 03:40:28	--	213-96-389-316.adsl.inetia.pl :is now your hidden host
+2013-01-24 03:40:28	--	NickServ (NickServ@services.thegeekgroup.org): This nickname is registered. Please choose a different nickname, or identify via /msg NickServ identify <password>.
+2013-01-24 03:40:28	--	NickServ (NickServ@services.thegeekgroup.org): You are now identified for queezy.

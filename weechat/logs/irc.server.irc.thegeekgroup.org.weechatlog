@@ -1,0 +1,102 @@
+2013-01-22 20:14:21	--	irc: connecting to server irc.thegeekgroup.org/6667...
+2013-01-22 20:14:22	--	irc: connected to irc.thegeekgroup.org/6667 (66.172.10.50)
+2013-01-22 20:14:22	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** Looking up your hostname...
+2013-01-22 20:14:22	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** Checking Ident
+2013-01-22 20:14:23	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** Found your hostname
+2013-01-22 20:14:32	--	irc.thegeekgroup.org (irc.thegeekgroup.org): *** No Ident response
+2013-01-22 20:14:32	--	Welcome to the TGG Internet Relay Chat Network queezy
+2013-01-22 20:14:32	--	Your host is irc.thegeekgroup.org[irc.thegeekgroup.org/6667], running version charybdis-3.3.0
+2013-01-22 20:14:32	--	This server was created Fri Jun 8 2012 at 07:20:42 UTC
+2013-01-22 20:14:32	--	irc.thegeekgroup.org charybdis-3.3.0 DQRSZagiloswxz CFILPQbcefgijklmnopqrstvz bkloveqjfI
+2013-01-22 20:14:32	--	CHANTYPES=&# EXCEPTS INVEX CHANMODES=eIbq,k,flj,CFPcgimnpstz CHANLIMIT=&#:15 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=TGG KNOCK STATUSMSG=@+ CALLERID=g :are supported by this server
+2013-01-22 20:14:32	--	SAFELIST ELIST=U CASEMAPPING=rfc1459 CHARSET=ascii NICKLEN=15 CHANNELLEN=50 TOPICLEN=390 ETRACE CPRIVMSG CNOTICE DEAF=D MONITOR=100 :are supported by this server
+2013-01-22 20:14:32	--	FNC TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: WHOX CLIENTVER=3.0 :are supported by this server
+2013-01-22 20:14:32	--	There are 0 users and 124 invisible on 2 servers
+2013-01-22 20:14:32	--	3 :IRC Operators online
+2013-01-22 20:14:32	--	6 :channels formed
+2013-01-22 20:14:32	--	I have 115 clients and 1 servers
+2013-01-22 20:14:32	--	115 126 :Current local users 115, max 126
+2013-01-22 20:14:32	--	124 135 :Current global users 124, max 135
+2013-01-22 20:14:32	--	Highest connection count: 127 (126 clients) (5830 connections received)
+2013-01-22 20:14:32	--	- irc.thegeekgroup.org Message of the Day -
+2013-01-22 20:14:32	--	-                                ?OOOZ
+2013-01-22 20:14:32	--	-                      ..        OOOOO.       ..
+2013-01-22 20:14:32	--	-                   .?OOOO     .8OOOOO8     .8OOOO
+2013-01-22 20:14:32	--	-                   ..OOOOOO.  .OOOOOOO.  ,$OOOOO,
+2013-01-22 20:14:32	--	-                     OOOOOOOOOOOOOOOOOOOOOOOOOOO.
+2013-01-22 20:14:32	--	-                     OOOOOOOOOOOOOOOOOOOOOOOOOOO.
+2013-01-22 20:14:32	--	-                     ZOOOOOOOO8.......OZOOOOOOO.
+2013-01-22 20:14:32	--	-             OOO?...8OOOOOO8O.       .8888OOOOOOO...8OOO.
+2013-01-22 20:14:32	--	-           .OOOOOOOOOOOOI8....ZO.  .8... ..Z7OOOOOOOOOOOO
+2013-01-22 20:14:32	--	-           .OOOOOOOOOOO.O     ..,O8 .      ...OOOOOOOOOO8
+2013-01-22 20:14:32	--	-             .ZOOOOOOZ  O       .O8?+.     .O .8OOOOOOO..
+2013-01-22 20:14:32	--	-              .OOOOOO.  ~.    .Z. .++.     .:   OOOOOZ..
+2013-01-22 20:14:32	--	-              ..OOOO.   .O.  .O.    .8..   O.   .OOOO.
+2013-01-22 20:14:32	--	-              .OOOO.. ..8OO?.Z00000000O..O8O...  :OOOO..
+2013-01-22 20:14:32	--	-         ..,OOOOOOO.~8.. .8.8.  .+++. .O...,..?O..OOOOOOOO...
+2013-01-22 20:14:32	--	-        .OOOOOOOOOOO.     .... ~O?+$$. .8.O..   .OOOOOOOOOOO.
+2013-01-22 20:14:32	--	-        .OOOOOOOOOO..    ..8.  OZZ$$$.  ~8.      OOOOOOOOOOO.
+2013-01-22 20:14:32	--	-        ..ZOOOOOOOO?8:+. .O.O.     ..   .O.    .DIOOOOOOOOZ..
+2013-01-22 20:14:32	--	-             ..OOOO..++O..8  O..      . 8.O..OO...OOOO..
+2013-01-22 20:14:32	--	-              .OOOOO.....I,OOO88OOOO8OOOO88...  .OOOOZ
+2013-01-22 20:14:32	--	-              .,8OOO..  .O    .O.  .++O. . O.   .OOOO8..
+2013-01-22 20:14:32	--	-             .OOOOOOO.  .O.     $7.=++=.   O. ..OOOOOO8.
+2013-01-22 20:14:32	--	-           ..OOOOOOOOO...O.      .OO..     O...OOOOOOOOO.
+2013-01-22 20:14:32	--	-           .OOOOOOOOOOOO.8.     .OO.Z     .8.OOOOOOOOOOOO
+2013-01-22 20:14:32	--	-            .OOOOO8.OOOOOZ8....8$    .OO.+8ZOOOOO..OOOOO.
+2013-01-22 20:14:32	--	-                     8OOOOOO8...........OOOOOOO8.
+2013-01-22 20:14:32	--	-                     8OOOOOOOOOOOOOOOOOOOOOOOOOO
+2013-01-22 20:14:32	--	-                     OOOOOOOOOOOOOOOOOOOOOOOOOOO.
+2013-01-22 20:14:32	--	-                     OOOOOO.. ,OOOOOOO,...OOOOOO.
+2013-01-22 20:14:32	--	-  _   _            .8OOOO$.   .OOOOOOO     .8OOOO
+2013-01-22 20:14:32	--	- | | | |__   ___     ..8        OOOOO.       O~.
+2013-01-22 20:14:32	--	- | __| '_ \ / _ \               OOOOO.
+2013-01-22 20:14:32	--	- | |_| | | |  __/  _             ....
+2013-01-22 20:14:32	--	-  \__|_| |_|\___| | |
+2013-01-22 20:14:32	--	-    __ _  ___  ___| | __    because
+2013-01-22 20:14:32	--	-   / _` |/ _ \/ _ \ |/ /   the  geek
+2013-01-22 20:14:32	--	-  | (_| |  __/  __/   <  shall  inherit
+2013-01-22 20:14:32	--	-   \__, |\___|\___|_|\_\   the  earth
+2013-01-22 20:14:32	--	-    __/ | __ _ _ __ ___  _   _ _ __
+2013-01-22 20:14:32	--	-   |___/ / _` | '__/ _ \| | | | '_ \
+2013-01-22 20:14:32	--	-        | (_| | | | (_) | |_| | |_) |
+2013-01-22 20:14:32	--	-         \__, |_|  \___/ \__,_| .__/
+2013-01-22 20:14:32	--	-          __/ |               | |
+2013-01-22 20:14:32	--	-         |___/   IRC SERVER   |_|
+2013-01-22 20:14:32	--	-
+2013-01-22 20:14:32	--	-
+2013-01-22 20:14:32	--	-    Benny Russell: Tell me, please - who am I?
+2013-01-22 20:14:32	--	-         Preacher: Don't you know?
+2013-01-22 20:14:32	--	-    Benny Russell: Tell me.
+2013-01-22 20:14:32	--	-         Preacher: You are the dreamer. And the dream.
+2013-01-22 20:14:32	--	-                    - Star Trek: Deep Space Nine, 6x13
+2013-01-22 20:14:32	--	-                                "Far Beyond the Stars"
+2013-01-22 20:14:32	--	End of /MOTD command.
+2013-01-22 20:14:32	--	User mode [+ix] by queezy
+2013-01-22 20:14:32	--	213-96-389-316.adsl.inetia.pl :is now your hidden host
+2013-01-22 20:14:32	--	NickServ (NickServ@services.thegeekgroup.org): Welcome to The Geek Group IRC, queezy! Here on The Geek Group IRC, we provide services to enable the registration of nicknames and channels! For details, type /msg NickServ help and /msg ChanServ help.
+2013-01-22 20:14:59	--	MSG(NickServ): help
+2013-01-22 20:14:59	--	NickServ (NickServ@services.thegeekgroup.org): ***** NickServ Help *****
+2013-01-22 20:14:59	--	NickServ (NickServ@services.thegeekgroup.org): NickServ allows users to 'register' a nickname, and stop
+2013-01-22 20:14:59	--	NickServ (NickServ@services.thegeekgroup.org): others from using that nick. NickServ allows the owner of a
+2013-01-22 20:14:59	--	NickServ (NickServ@services.thegeekgroup.org): nickname to disconnect a user from the network that is using
+2013-01-22 20:14:59	--	NickServ (NickServ@services.thegeekgroup.org): their nickname.
+2013-01-22 20:14:59	--	NickServ (NickServ@services.thegeekgroup.org): If a registered nick is not used by the owner for 30 days,
+2013-01-22 20:14:59	--	NickServ (NickServ@services.thegeekgroup.org): NickServ will drop the nickname, allowing it to be reregistered.
+2013-01-22 20:14:59	--	NickServ (NickServ@services.thegeekgroup.org):  
+2013-01-22 20:14:59	--	NickServ (NickServ@services.thegeekgroup.org): For more information on a command, type:
+2013-01-22 20:14:59	--	NickServ (NickServ@services.thegeekgroup.org): /msg NickServ help <command>
+2013-01-22 20:14:59	--	NickServ (NickServ@services.thegeekgroup.org): For a verbose listing of all commands, type:
+2013-01-22 20:14:59	--	NickServ (NickServ@services.thegeekgroup.org): /msg NickServ help commands
+2013-01-22 20:14:59	--	NickServ (NickServ@services.thegeekgroup.org):  
+2013-01-22 20:14:59	--	NickServ (NickServ@services.thegeekgroup.org): The following commands are available:
+2013-01-22 20:14:59	--	NickServ (NickServ@services.thegeekgroup.org): GHOST           Reclaims use of a nickname.
+2013-01-22 20:14:59	--	NickServ (NickServ@services.thegeekgroup.org): IDENTIFY        Identifies to services for a nickname.
+2013-01-22 20:14:59	--	NickServ (NickServ@services.thegeekgroup.org): INFO            Displays information on registrations.
+2013-01-22 20:14:59	--	NickServ (NickServ@services.thegeekgroup.org): LISTCHANS       Lists channels that you have access to.
+2013-01-22 20:14:59	--	NickServ (NickServ@services.thegeekgroup.org): REGISTER        Registers a nickname.
+2013-01-22 20:14:59	--	NickServ (NickServ@services.thegeekgroup.org): SENDPASS        Email registration passwords.
+2013-01-22 20:14:59	--	NickServ (NickServ@services.thegeekgroup.org):  
+2013-01-22 20:14:59	--	NickServ (NickServ@services.thegeekgroup.org): Other commands: ACC, DROP, HELP, LISTGROUPS, LOGOUT, SETPASS, 
+2013-01-22 20:14:59	--	NickServ (NickServ@services.thegeekgroup.org):                 STATUS, TAXONOMY, VERIFY
+2013-01-22 20:14:59	--	NickServ (NickServ@services.thegeekgroup.org): ***** End of Help *****

@@ -1,0 +1,28 @@
+[2013-01-24 03:40:16] WeeChat 0.4.0 (compiled on Jan 20 2013 12:34:26)
+[2013-01-24 03:40:16] Reading configuration file weechat.conf
+[2013-01-24 03:40:16] Reading configuration file plugins.conf
+[2013-01-24 03:40:16] Reading configuration file alias.conf
+[2013-01-24 03:40:16] Reading configuration file aspell.conf
+[2013-01-24 03:40:16] Reading configuration file charset.conf
+[2013-01-24 03:40:16] Reading configuration file irc.conf
+[2013-01-24 03:40:16] irc: connecting to server irc.thegeekgroup.org/6667...
+[2013-01-24 03:40:16] Reading configuration file logger.conf
+[2013-01-24 03:40:16] Reading configuration file relay.conf
+[2013-01-24 03:40:16] Reading configuration file rmodifier.conf
+[2013-01-24 03:40:16] Reading configuration file script.conf
+[2013-01-24 03:40:16] Reading configuration file xfer.conf
+[2013-01-24 03:40:16] Reading configuration file menu.conf
+[2013-01-24 03:40:16] Reading configuration file theme.conf
+[2013-01-24 08:09:58] Writing configuration file plugins.conf 
+[2013-01-24 08:09:58] Writing configuration file theme.conf 
+[2013-01-24 08:09:58] Writing configuration file menu.conf 
+[2013-01-24 08:09:58] Writing configuration file xfer.conf 
+[2013-01-24 08:09:58] Writing configuration file script.conf 
+[2013-01-24 08:09:58] Writing configuration file rmodifier.conf 
+[2013-01-24 08:09:58] Writing configuration file relay.conf 
+[2013-01-24 08:09:58] Writing configuration file logger.conf 
+[2013-01-24 08:09:58] Writing configuration file irc.conf 
+[2013-01-24 08:09:58] Writing configuration file charset.conf 
+[2013-01-24 08:09:58] Writing configuration file aspell.conf 
+[2013-01-24 08:09:58] Writing configuration file alias.conf 
+[2013-01-24 08:09:58] Writing configuration file weechat.conf 

@@ -1,0 +1,501 @@
+2013-01-22 18:04:43	=!=	Error: unable to load plugin "/usr/lib/weechat/plugins/guile.so": libguile.so.17: cannot open shared object file: No such file or directory
+2013-01-22 18:04:43	=!=	If you're trying to load a script and not a C plugin, try command to load scripts (/perl, /python, ...)
+2013-01-22 18:04:43		Plugins loaded: alias, aspell, charset, fifo, irc, logger, lua, perl, python, relay, rmodifier, ruby, script, tcl, xfer
+2013-01-22 18:08:48		python scripts loaded:
+2013-01-22 18:08:48		  (none)
+2013-01-22 18:09:19	=!=	irc: too few arguments for "query" command
+2013-01-22 18:10:11		Plugins loaded: alias, aspell, charset, fifo, guile, irc, logger, lua, perl, python, relay, rmodifier, ruby, script, tcl, xfer
+2013-01-22 18:14:55	=!=	Error: option "weechat.bar.buffers.position" not found
+2013-01-22 18:18:53		Theme saved to "/home/queezy/.weechat/themes/_backup.theme"
+2013-01-22 18:18:53		python scripts loaded: theme
+2013-01-22 18:18:53		Plugins loaded: alias, aspell, charset, fifo, guile, irc, logger, lua, perl, python, relay, rmodifier, ruby, script, tcl, xfer
+2013-01-22 18:26:27		Buffers list:
+2013-01-22 18:26:27		  [1] (core) weechat (notify: all)
+2013-01-22 18:27:25	=!=	Error: unknown option for "buffer" command
+2013-01-22 18:27:41		228 key bindings for context "default":
+2013-01-22 18:27:41		  ctrl-? => /input delete_previous_char
+2013-01-22 18:27:41		  ctrl-A => /input move_beginning_of_line
+2013-01-22 18:27:41		  ctrl-B => /input move_previous_char
+2013-01-22 18:27:41		  ctrl-Cb => /input insert \x02
+2013-01-22 18:27:41		  ctrl-Cc => /input insert \x03
+2013-01-22 18:27:41		  ctrl-Ci => /input insert \x1D
+2013-01-22 18:27:41		  ctrl-Co => /input insert \x0F
+2013-01-22 18:27:41		  ctrl-Cr => /input insert \x12
+2013-01-22 18:27:41		  ctrl-Cu => /input insert \x15
+2013-01-22 18:27:41		  ctrl-D => /input delete_next_char
+2013-01-22 18:27:41		  ctrl-E => /input move_end_of_line
+2013-01-22 18:27:41		  ctrl-F => /input move_next_char
+2013-01-22 18:27:41		  ctrl-H => /input delete_previous_char
+2013-01-22 18:27:41		  ctrl-I => /input complete_next
+2013-01-22 18:27:41		  ctrl-J => /input return
+2013-01-22 18:27:41		  ctrl-K => /input delete_end_of_line
+2013-01-22 18:27:41		  ctrl-L => /window refresh
+2013-01-22 18:27:41		  ctrl-M => /input return
+2013-01-22 18:27:41		  ctrl-N => /buffer +1
+2013-01-22 18:27:41		  ctrl-P => /buffer -1
+2013-01-22 18:27:41		  ctrl-R => /input search_text
+2013-01-22 18:27:41		  ctrl-Sctrl-U => /input set_unread
+2013-01-22 18:27:41		  ctrl-T => /input transpose_chars
+2013-01-22 18:27:41		  ctrl-U => /input delete_beginning_of_line
+2013-01-22 18:27:41		  ctrl-W => /input delete_previous_word
+2013-01-22 18:27:41		  ctrl-X => /input switch_active_buffer
+2013-01-22 18:27:41		  ctrl-Y => /input clipboard_paste
+2013-01-22 18:27:41		  meta-meta2-1~ => /window scroll_top
+2013-01-22 18:27:41		  meta-meta2-23~ => /bar scroll nicklist * b
+2013-01-22 18:27:41		  meta-meta2-24~ => /bar scroll nicklist * e
+2013-01-22 18:27:41		  meta-meta2-4~ => /window scroll_bottom
+2013-01-22 18:27:41		  meta-meta2-5~ => /window scroll_up
+2013-01-22 18:27:41		  meta-meta2-6~ => /window scroll_down
+2013-01-22 18:27:41		  meta-meta2-7~ => /window scroll_top
+2013-01-22 18:27:41		  meta-meta2-8~ => /window scroll_bottom
+2013-01-22 18:27:41		  meta-meta2-A => /buffer -1
+2013-01-22 18:27:41		  meta-meta2-B => /buffer +1
+2013-01-22 18:27:41		  meta-meta2-C => /buffer +1
+2013-01-22 18:27:41		  meta-meta2-D => /buffer -1
+2013-01-22 18:27:41		  meta-/ => /input jump_last_buffer_displayed
+2013-01-22 18:27:41		  meta-0 => /buffer *10
+2013-01-22 18:27:41		  meta-1 => /buffer *1
+2013-01-22 18:27:41		  meta-2 => /buffer *2
+2013-01-22 18:27:41		  meta-3 => /buffer *3
+2013-01-22 18:27:41		  meta-4 => /buffer *4
+2013-01-22 18:27:41		  meta-5 => /buffer *5
+2013-01-22 18:27:41		  meta-6 => /buffer *6
+2013-01-22 18:27:41		  meta-7 => /buffer *7
+2013-01-22 18:27:41		  meta-8 => /buffer *8
+2013-01-22 18:27:41		  meta-9 => /buffer *9
+2013-01-22 18:27:41		  meta-< => /input jump_previously_visited_buffer
+2013-01-22 18:27:41		  meta-= => /filter toggle
+2013-01-22 18:27:41		  meta-> => /input jump_next_visited_buffer
+2013-01-22 18:27:41		  meta-OA => /input history_global_previous
+2013-01-22 18:27:41		  meta-OB => /input history_global_next
+2013-01-22 18:27:41		  meta-OC => /input move_next_word
+2013-01-22 18:27:41		  meta-OD => /input move_previous_word
+2013-01-22 18:27:41		  meta-OF => /input move_end_of_line
+2013-01-22 18:27:41		  meta-OH => /input move_beginning_of_line
+2013-01-22 18:27:41		  meta-Oa => /input history_global_previous
+2013-01-22 18:27:41		  meta-Ob => /input history_global_next
+2013-01-22 18:27:41		  meta-Oc => /input move_next_word
+2013-01-22 18:27:41		  meta-Od => /input move_previous_word
+2013-01-22 18:27:41		  meta2-15~ => /buffer -1
+2013-01-22 18:27:41		  meta2-17~ => /buffer +1
+2013-01-22 18:27:41		  meta2-18~ => /window -1
+2013-01-22 18:27:41		  meta2-19~ => /window +1
+2013-01-22 18:27:41		  meta2-1;3A => /buffer -1
+2013-01-22 18:27:41		  meta2-1;3B => /buffer +1
+2013-01-22 18:27:41		  meta2-1;3C => /buffer +1
+2013-01-22 18:27:41		  meta2-1;3D => /buffer -1
+2013-01-22 18:27:41		  meta2-1;5A => /input history_global_previous
+2013-01-22 18:27:41		  meta2-1;5B => /input history_global_next
+2013-01-22 18:27:41		  meta2-1;5C => /input move_next_word
+2013-01-22 18:27:41		  meta2-1;5D => /input move_previous_word
+2013-01-22 18:27:41		  meta2-1~ => /input move_beginning_of_line
+2013-01-22 18:27:41		  meta2-200~ => /input paste_start
+2013-01-22 18:27:41		  meta2-201~ => /input paste_stop
+2013-01-22 18:27:41		  meta2-20~ => /bar scroll title * -30%
+2013-01-22 18:27:41		  meta2-21~ => /bar scroll title * +30%
+2013-01-22 18:27:41		  meta2-23~ => /bar scroll nicklist * -100%
+2013-01-22 18:27:41		  meta2-24~ => /bar scroll nicklist * +100%
+2013-01-22 18:27:41		  meta2-3~ => /input delete_next_char
+2013-01-22 18:27:41		  meta2-4~ => /input move_end_of_line
+2013-01-22 18:27:41		  meta2-5;3~ => /window scroll_up
+2013-01-22 18:27:41		  meta2-5~ => /window page_up
+2013-01-22 18:27:41		  meta2-6;3~ => /window scroll_down
+2013-01-22 18:27:41		  meta2-6~ => /window page_down
+2013-01-22 18:27:41		  meta2-7~ => /input move_beginning_of_line
+2013-01-22 18:27:41		  meta2-8~ => /input move_end_of_line
+2013-01-22 18:27:41		  meta2-A => /input history_previous
+2013-01-22 18:27:41		  meta2-B => /input history_next
+2013-01-22 18:27:41		  meta2-C => /input move_next_char
+2013-01-22 18:27:41		  meta2-D => /input move_previous_char
+2013-01-22 18:27:41		  meta2-F => /input move_end_of_line
+2013-01-22 18:27:41		  meta2-G => /window page_down
+2013-01-22 18:27:41		  meta2-H => /input move_beginning_of_line
+2013-01-22 18:27:41		  meta2-I => /window page_up
+2013-01-22 18:27:41		  meta2-Z => /input complete_previous
+2013-01-22 18:27:41		  meta2-[E => /buffer -1
+2013-01-22 18:27:41		  meta-_ => /input redo
+2013-01-22 18:27:41		  meta-a => /input jump_smart
+2013-01-22 18:27:41		  meta-b => /input move_previous_word
+2013-01-22 18:27:41		  meta-d => /input delete_next_word
+2013-01-22 18:27:41		  meta-f => /input move_next_word
+2013-01-22 18:27:41		  meta-h => /input hotlist_clear
+2013-01-22 18:27:41		  meta-jmeta-l => /input jump_last_buffer
+2013-01-22 18:27:41		  meta-jmeta-r => /server raw
+2013-01-22 18:27:41		  meta-jmeta-s => /server jump
+2013-01-22 18:27:41		  meta-j01 => /buffer 1
+2013-01-22 18:27:41		  meta-j02 => /buffer 2
+2013-01-22 18:27:41		  meta-j03 => /buffer 3
+2013-01-22 18:27:41		  meta-j04 => /buffer 4
+2013-01-22 18:27:41		  meta-j05 => /buffer 5
+2013-01-22 18:27:41		  meta-j06 => /buffer 6
+2013-01-22 18:27:41		  meta-j07 => /buffer 7
+2013-01-22 18:27:41		  meta-j08 => /buffer 8
+2013-01-22 18:27:41		  meta-j09 => /buffer 9
+2013-01-22 18:27:41		  meta-j10 => /buffer 10
+2013-01-22 18:27:41		  meta-j11 => /buffer 11
+2013-01-22 18:27:41		  meta-j12 => /buffer 12
+2013-01-22 18:27:41		  meta-j13 => /buffer 13
+2013-01-22 18:27:41		  meta-j14 => /buffer 14
+2013-01-22 18:27:41		  meta-j15 => /buffer 15
+2013-01-22 18:27:41		  meta-j16 => /buffer 16
+2013-01-22 18:27:41		  meta-j17 => /buffer 17
+2013-01-22 18:27:41		  meta-j18 => /buffer 18
+2013-01-22 18:27:41		  meta-j19 => /buffer 19
+2013-01-22 18:27:41		  meta-j20 => /buffer 20
+2013-01-22 18:27:41		  meta-j21 => /buffer 21
+2013-01-22 18:27:41		  meta-j22 => /buffer 22
+2013-01-22 18:27:41		  meta-j23 => /buffer 23
+2013-01-22 18:27:41		  meta-j24 => /buffer 24
+2013-01-22 18:27:41		  meta-j25 => /buffer 25
+2013-01-22 18:27:41		  meta-j26 => /buffer 26
+2013-01-22 18:27:41		  meta-j27 => /buffer 27
+2013-01-22 18:27:41		  meta-j28 => /buffer 28
+2013-01-22 18:27:41		  meta-j29 => /buffer 29
+2013-01-22 18:27:41		  meta-j30 => /buffer 30
+2013-01-22 18:27:41		  meta-j31 => /buffer 31
+2013-01-22 18:27:41		  meta-j32 => /buffer 32
+2013-01-22 18:27:41		  meta-j33 => /buffer 33
+2013-01-22 18:27:41		  meta-j34 => /buffer 34
+2013-01-22 18:27:41		  meta-j35 => /buffer 35
+2013-01-22 18:27:41		  meta-j36 => /buffer 36
+2013-01-22 18:27:41		  meta-j37 => /buffer 37
+2013-01-22 18:27:41		  meta-j38 => /buffer 38
+2013-01-22 18:27:41		  meta-j39 => /buffer 39
+2013-01-22 18:27:41		  meta-j40 => /buffer 40
+2013-01-22 18:27:41		  meta-j41 => /buffer 41
+2013-01-22 18:27:41		  meta-j42 => /buffer 42
+2013-01-22 18:27:41		  meta-j43 => /buffer 43
+2013-01-22 18:27:41		  meta-j44 => /buffer 44
+2013-01-22 18:27:41		  meta-j45 => /buffer 45
+2013-01-22 18:27:41		  meta-j46 => /buffer 46
+2013-01-22 18:27:41		  meta-j47 => /buffer 47
+2013-01-22 18:27:41		  meta-j48 => /buffer 48
+2013-01-22 18:27:41		  meta-j49 => /buffer 49
+2013-01-22 18:27:41		  meta-j50 => /buffer 50
+2013-01-22 18:27:41		  meta-j51 => /buffer 51
+2013-01-22 18:27:41		  meta-j52 => /buffer 52
+2013-01-22 18:27:41		  meta-j53 => /buffer 53
+2013-01-22 18:27:41		  meta-j54 => /buffer 54
+2013-01-22 18:27:41		  meta-j55 => /buffer 55
+2013-01-22 18:27:41		  meta-j56 => /buffer 56
+2013-01-22 18:27:41		  meta-j57 => /buffer 57
+2013-01-22 18:27:41		  meta-j58 => /buffer 58
+2013-01-22 18:27:41		  meta-j59 => /buffer 59
+2013-01-22 18:27:41		  meta-j60 => /buffer 60
+2013-01-22 18:27:41		  meta-j61 => /buffer 61
+2013-01-22 18:27:41		  meta-j62 => /buffer 62
+2013-01-22 18:27:41		  meta-j63 => /buffer 63
+2013-01-22 18:27:41		  meta-j64 => /buffer 64
+2013-01-22 18:27:41		  meta-j65 => /buffer 65
+2013-01-22 18:27:41		  meta-j66 => /buffer 66
+2013-01-22 18:27:41		  meta-j67 => /buffer 67
+2013-01-22 18:27:41		  meta-j68 => /buffer 68
+2013-01-22 18:27:41		  meta-j69 => /buffer 69
+2013-01-22 18:27:41		  meta-j70 => /buffer 70
+2013-01-22 18:27:41		  meta-j71 => /buffer 71
+2013-01-22 18:27:41		  meta-j72 => /buffer 72
+2013-01-22 18:27:41		  meta-j73 => /buffer 73
+2013-01-22 18:27:41		  meta-j74 => /buffer 74
+2013-01-22 18:27:41		  meta-j75 => /buffer 75
+2013-01-22 18:27:41		  meta-j76 => /buffer 76
+2013-01-22 18:27:41		  meta-j77 => /buffer 77
+2013-01-22 18:27:41		  meta-j78 => /buffer 78
+2013-01-22 18:27:41		  meta-j79 => /buffer 79
+2013-01-22 18:27:41		  meta-j80 => /buffer 80
+2013-01-22 18:27:41		  meta-j81 => /buffer 81
+2013-01-22 18:27:41		  meta-j82 => /buffer 82
+2013-01-22 18:27:41		  meta-j83 => /buffer 83
+2013-01-22 18:27:41		  meta-j84 => /buffer 84
+2013-01-22 18:27:41		  meta-j85 => /buffer 85
+2013-01-22 18:27:41		  meta-j86 => /buffer 86
+2013-01-22 18:27:41		  meta-j87 => /buffer 87
+2013-01-22 18:27:41		  meta-j88 => /buffer 88
+2013-01-22 18:27:41		  meta-j89 => /buffer 89
+2013-01-22 18:27:41		  meta-j90 => /buffer 90
+2013-01-22 18:27:41		  meta-j91 => /buffer 91
+2013-01-22 18:27:41		  meta-j92 => /buffer 92
+2013-01-22 18:27:41		  meta-j93 => /buffer 93
+2013-01-22 18:27:41		  meta-j94 => /buffer 94
+2013-01-22 18:27:41		  meta-j95 => /buffer 95
+2013-01-22 18:27:41		  meta-j96 => /buffer 96
+2013-01-22 18:27:41		  meta-j97 => /buffer 97
+2013-01-22 18:27:41		  meta-j98 => /buffer 98
+2013-01-22 18:27:41		  meta-j99 => /buffer 99
+2013-01-22 18:27:41		  meta-k => /input grab_key_command
+2013-01-22 18:27:41		  meta-m => /mute mouse toggle
+2013-01-22 18:27:41		  meta-n => /window scroll_next_highlight
+2013-01-22 18:27:41		  meta-p => /window scroll_previous_highlight
+2013-01-22 18:27:41		  meta-r => /input delete_line
+2013-01-22 18:27:41		  meta-s => /mute aspell toggle
+2013-01-22 18:27:41		  meta-u => /window scroll_unread
+2013-01-22 18:27:41		  meta-wmeta-meta2-A => /window up
+2013-01-22 18:27:41		  meta-wmeta-meta2-B => /window down
+2013-01-22 18:27:41		  meta-wmeta-meta2-C => /window right
+2013-01-22 18:27:41		  meta-wmeta-meta2-D => /window left
+2013-01-22 18:27:41		  meta-wmeta2-1;3A => /window up
+2013-01-22 18:27:41		  meta-wmeta2-1;3B => /window down
+2013-01-22 18:27:41		  meta-wmeta2-1;3C => /window right
+2013-01-22 18:27:41		  meta-wmeta2-1;3D => /window left
+2013-01-22 18:27:41		  meta-wmeta-b => /window balance
+2013-01-22 18:27:41		  meta-wmeta-s => /window swap
+2013-01-22 18:27:41		  meta-x => /input zoom_merged_buffer
+2013-01-22 18:27:41		  meta-z => /window zoom
+2013-01-22 18:27:41		  ctrl-_ => /input undo
+2013-01-22 18:27:41		5 key bindings for context "search":
+2013-01-22 18:27:41		  ctrl-J => /input search_stop
+2013-01-22 18:27:41		  ctrl-M => /input search_stop
+2013-01-22 18:27:41		  ctrl-R => /input search_switch_case
+2013-01-22 18:27:41		  meta2-A => /input search_previous
+2013-01-22 18:27:41		  meta2-B => /input search_next
+2013-01-22 18:27:41		22 key bindings for context "cursor":
+2013-01-22 18:27:41		  ctrl-J => /cursor stop
+2013-01-22 18:27:41		  ctrl-M => /cursor stop
+2013-01-22 18:27:41		  meta-meta2-A => /cursor move area_up
+2013-01-22 18:27:41		  meta-meta2-B => /cursor move area_down
+2013-01-22 18:27:41		  meta-meta2-C => /cursor move area_right
+2013-01-22 18:27:41		  meta-meta2-D => /cursor move area_left
+2013-01-22 18:27:41		  meta2-1;3A => /cursor move area_up
+2013-01-22 18:27:41		  meta2-1;3B => /cursor move area_down
+2013-01-22 18:27:41		  meta2-1;3C => /cursor move area_right
+2013-01-22 18:27:41		  meta2-1;3D => /cursor move area_left
+2013-01-22 18:27:41		  meta2-A => /cursor move up
+2013-01-22 18:27:41		  meta2-B => /cursor move down
+2013-01-22 18:27:41		  meta2-C => /cursor move right
+2013-01-22 18:27:41		  meta2-D => /cursor move left
+2013-01-22 18:27:41		  @item(buffer_nicklist):K => /window ${_window_number};/kickban ${nick}
+2013-01-22 18:27:41		  @item(buffer_nicklist):b => /window ${_window_number};/ban ${nick}
+2013-01-22 18:27:41		  @item(buffer_nicklist):k => /window ${_window_number};/kick ${nick}
+2013-01-22 18:27:41		  @item(buffer_nicklist):q => /window ${_window_number};/query ${nick};/cursor stop
+2013-01-22 18:27:41		  @item(buffer_nicklist):w => /window ${_window_number};/whois ${nick}
+2013-01-22 18:27:41		  @chat:Q => hsignal:chat_quote_time_prefix_message;/cursor stop
+2013-01-22 18:27:41		  @chat:m => hsignal:chat_quote_message;/cursor stop
+2013-01-22 18:27:41		  @chat:q => hsignal:chat_quote_prefix_message;/cursor stop
+2013-01-22 18:27:41		26 key bindings for context "mouse":
+2013-01-22 18:27:41		  @bar(input):button2 => /input grab_mouse_area
+2013-01-22 18:27:41		  @bar(nicklist):button1-gesture-down => /bar scroll nicklist ${_window_number} +100%
+2013-01-22 18:27:41		  @bar(nicklist):button1-gesture-down-long => /bar scroll nicklist ${_window_number} e
+2013-01-22 18:27:41		  @bar(nicklist):button1-gesture-up => /bar scroll nicklist ${_window_number} -100%
+2013-01-22 18:27:41		  @bar(nicklist):button1-gesture-up-long => /bar scroll nicklist ${_window_number} b
+2013-01-22 18:27:41		  @chat(script.scripts):button1 => /window ${_window_number};/script go ${_chat_line_y}
+2013-01-22 18:27:41		  @chat(script.scripts):button2 => /window ${_window_number};/script go ${_chat_line_y};/script installremove -q ${script_name_with_extension}
+2013-01-22 18:27:41		  @chat(script.scripts):wheeldown => /script down 5
+2013-01-22 18:27:41		  @chat(script.scripts):wheelup => /script up 5
+2013-01-22 18:27:41		  @item(buffer_nicklist):button1 => /window ${_window_number};/query ${nick}
+2013-01-22 18:27:41		  @item(buffer_nicklist):button1-gesture-left => /window ${_window_number};/kick ${nick}
+2013-01-22 18:27:41		  @item(buffer_nicklist):button1-gesture-left-long => /window ${_window_number};/kickban ${nick}
+2013-01-22 18:27:41		  @item(buffer_nicklist):button2 => /window ${_window_number};/whois ${nick}
+2013-01-22 18:27:41		  @item(buffer_nicklist):button2-gesture-left => /window ${_window_number};/ban ${nick}
+2013-01-22 18:27:41		  @bar:wheeldown => /bar scroll ${_bar_name} ${_window_number} +20%
+2013-01-22 18:27:41		  @bar:wheelup => /bar scroll ${_bar_name} ${_window_number} -20%
+2013-01-22 18:27:41		  @chat:button1 => /window ${_window_number}
+2013-01-22 18:27:41		  @chat:button1-gesture-left => /window ${_window_number};/buffer -1
+2013-01-22 18:27:41		  @chat:button1-gesture-left-long => /window ${_window_number};/buffer 1
+2013-01-22 18:27:41		  @chat:button1-gesture-right => /window ${_window_number};/buffer +1
+2013-01-22 18:27:41		  @chat:button1-gesture-right-long => /window ${_window_number};/input jump_last_buffer
+2013-01-22 18:27:41		  @chat:ctrl-wheeldown => /window scroll_horiz -window ${_window_number} +10%
+2013-01-22 18:27:41		  @chat:ctrl-wheelup => /window scroll_horiz -window ${_window_number} -10%
+2013-01-22 18:27:41		  @chat:wheeldown => /window scroll_down -window ${_window_number}
+2013-01-22 18:27:41		  @chat:wheelup => /window scroll_up -window ${_window_number}
+2013-01-22 18:27:41		  @*:button3 => /cursor go ${_x},${_y}
+2013-01-22 18:29:57		[core]  /key  list|listdefault|listdiff [<context>]
+2013-01-22 18:29:57		              bind <key> [<command> [<args>]]
+2013-01-22 18:29:57		              bindctxt <context> <key> [<command> [<args>]]
+2013-01-22 18:29:57		              unbind <key>
+2013-01-22 18:29:57		              unbindctxt <context> <key>
+2013-01-22 18:29:57		              reset <key>
+2013-01-22 18:29:57		              resetctxt <context> <key>
+2013-01-22 18:29:57		              resetall -yes [<context>]
+2013-01-22 18:29:57		              missing [<context>]
+2013-01-22 18:29:57		bind/unbind keys
+2013-01-22 18:29:57		       list: list all current keys (without argument, this list is displayed)
+2013-01-22 18:29:57		listdefault: list default keys
+2013-01-22 18:29:57		   listdiff: list differences between current and default keys (keys added, redefined or deleted)
+2013-01-22 18:29:57		    context: name of context ("default" or "search")
+2013-01-22 18:29:57		       bind: bind a command to a key or display command bound to key (for context "default")
+2013-01-22 18:29:57		   bindctxt: bind a command to a key or display command bound to key, for given context
+2013-01-22 18:29:57		    command: command (many commands can be separated by semicolons)
+2013-01-22 18:29:57		     unbind: remove a key binding (for context "default")
+2013-01-22 18:29:57		 unbindctxt: remove a key binding for given context
+2013-01-22 18:29:57		      reset: reset a key to default binding (for context "default")
+2013-01-22 18:29:57		  resetctxt: reset a key to default binding, for given context
+2013-01-22 18:29:57		   resetall: restore bindings to the default values and delete ALL personal bindings (use carefully!)
+2013-01-22 18:29:57		    missing: add missing keys (using default bindings), useful after installing new WeeChat version
+2013-01-22 18:29:57		When binding a command to a key, it is recommended to use key alt+k (or Esc then k), and then press the key to bind: this will insert key code in command line.
+2013-01-22 18:29:57		For context "mouse" (possible in context "cursor" too), key has format: "@area:key" or "@area1>area2:key" where area can be:
+2013-01-22 18:29:57		          *: any area on screen
+2013-01-22 18:29:57		       chat: chat area (any buffer)
+2013-01-22 18:29:57		  chat(xxx): char area for buffer with name "xxx" (full name including plugin)
+2013-01-22 18:29:57		     bar(*): any bar
+2013-01-22 18:29:57		   bar(xxx): bar "xxx"
+2013-01-22 18:29:57		    item(*): any bar item
+2013-01-22 18:29:57		  item(xxx): bar item "xxx"
+2013-01-22 18:29:57		The key can start or end with '*' to match many mouse events.
+2013-01-22 18:29:57		A special value for command with format "hsignal:name" can be used for context mouse, this will send the hsignal "name" with the focus hashtable as argument.
+2013-01-22 18:29:57		Another special value "-" can be used to disable key (it will be ignored when looking for keys).
+2013-01-22 18:29:57		Examples:
+2013-01-22 18:29:57		  key alt-x to toggle nicklist bar:
+2013-01-22 18:29:57		    /key bind meta-x /bar toggle nicklist
+2013-01-22 18:29:57		  key alt-r to jump to #weechat IRC channel:
+2013-01-22 18:29:57		    /key bind meta-r /buffer #weechat
+2013-01-22 18:29:57		  restore default binding for key alt-r:
+2013-01-22 18:29:57		    /key reset meta-r
+2013-01-22 18:29:57		  key "tab" to stop search in buffer:
+2013-01-22 18:29:57		    /key bindctxt search ctrl-I /input search_stop
+2013-01-22 18:29:57		  middle button of mouse on a nick to retrieve info on nick:
+2013-01-22 18:29:57		    /key bindctxt mouse @item(buffer_nicklist):button3 /msg nickserv info ${nick}
+2013-01-22 20:13:40		python: scripts unloaded
+2013-01-22 20:14:07		python scripts loaded: theme
+2013-01-22 20:14:07		Plugins loaded: alias, aspell, charset, fifo, guile, irc, logger, lua, perl, python, relay, rmodifier, ruby, script, tcl, xfer
+2013-01-22 20:14:09	=!=	irc: command "nick" must be executed on irc buffer (server or channel)
+2013-01-22 20:14:21		irc: server irc.thegeekgroup.org created (temporary server, NOT SAVED!)
+2013-01-22 20:16:29		python: scripts unloaded
+2013-01-22 20:17:28		python scripts loaded: theme
+2013-01-22 20:17:28		Plugins loaded: alias, aspell, charset, fifo, guile, irc, logger, lua, perl, python, relay, rmodifier, ruby, script, tcl, xfer
+2013-01-22 20:18:20		irc: server geekgroup created
+2013-01-22 20:18:54		Option changed: irc.server.geekgroup.nicks = "queezy,queezythegreat,vladsmail"  (default: (undefined))
+2013-01-22 20:19:08		Option changed: irc.server.geekgroup.username = "queezythegreat"  (default: (undefined))
+2013-01-22 20:19:24		Option changed: irc.server.geekgroup.realname = "QueezyTheGreat"  (default: (undefined))
+2013-01-22 20:19:36		Option changed: irc.server.geekgroup.username = "queezy"  (default: (undefined))
+2013-01-22 20:19:55		Option changed: irc.server.geekgroup.autoconnect = on  (default: (undefined))
+2013-01-22 20:21:19		python: scripts unloaded
+2013-01-22 20:21:21		python scripts loaded: theme
+2013-01-22 20:21:21		Plugins loaded: alias, aspell, charset, fifo, guile, irc, logger, lua, perl, python, relay, rmodifier, ruby, script, tcl, xfer
+2013-01-22 20:23:30		Option changed: irc.server.geekgroup.command = "/msg nickserv identify Uph4AaH9Ohr9"  (default: (undefined))
+2013-01-22 20:24:30		python: scripts unloaded
+2013-01-22 20:24:32		python scripts loaded: theme
+2013-01-22 20:24:32		Plugins loaded: alias, aspell, charset, fifo, guile, irc, logger, lua, perl, python, relay, rmodifier, ruby, script, tcl, xfer
+2013-01-22 20:25:23		Option changed: irc.server.geekgroup.autojoin = "#thegeekgroup"  (default: (undefined))
+2013-01-22 20:25:25		python: scripts unloaded
+2013-01-22 20:25:26		python scripts loaded: theme
+2013-01-22 20:25:26		Plugins loaded: alias, aspell, charset, fifo, guile, irc, logger, lua, perl, python, relay, rmodifier, ruby, script, tcl, xfer
+2013-01-22 20:26:39		[core]  /color  alias <color> <name>
+2013-01-22 20:26:39		                unalias <color>
+2013-01-22 20:26:39		                reset
+2013-01-22 20:26:39		define color aliases and display palette of colors
+2013-01-22 20:26:39		  alias: add an alias for a color
+2013-01-22 20:26:39		unalias: delete an alias
+2013-01-22 20:26:39		  color: color number (greater than or equal to 0, max depends on terminal, commonly 63 or 255)
+2013-01-22 20:26:39		   name: alias name for color (for example: "orange")
+2013-01-22 20:26:39		  reset: reset all color pairs (required when no more color pairs are available if automatic reset is disabled, see option weechat.look.color_pairs_auto_reset)
+2013-01-22 20:26:39		Without argument, this command displays colors in a new buffer.
+2013-01-22 20:26:39		Examples:
+2013-01-22 20:26:39		  add alias "orange" for color 214:
+2013-01-22 20:26:39		    /color alias 214 orange
+2013-01-22 20:26:39		  delete color 214:
+2013-01-22 20:26:39		    /color unalias 214
+2013-01-22 20:32:32		Buffers list:
+2013-01-22 20:32:32		  [1] (core) weechat (notify: all)
+2013-01-22 20:32:32		  [1] (irc) server.geekgroup (notify: all)
+2013-01-22 20:32:32		  [2] (irc) geekgroup.#thegeekgroup (notify: all)
+2013-01-22 20:36:28		Windows list:
+2013-01-22 20:36:28		[1] (0:0;168x46) 
+2013-01-22 20:37:50		Option changed: weechat.look.mouse = on  (default: off)
+2013-01-22 20:38:14		Option changed: weechat.look.mouse = on  (default: off)
+2013-01-22 20:51:09		Option changed: weechat.completion.partial_completion_command = on  (default: off)
+2013-01-22 20:51:18		Option changed: weechat.completion.partial_completion_command_arg = on  (default: off)
+2013-01-22 20:52:27		python: scripts unloaded
+2013-01-22 20:52:29		perl scripts loaded: spell_menu
+2013-01-22 20:52:30		python scripts loaded: theme
+2013-01-22 20:52:30		Plugins loaded: alias, aspell, charset, fifo, guile, irc, logger, lua, perl, python, relay, rmodifier, ruby, script, tcl, xfer
+2013-01-22 20:55:04		Option changed: aspell.check.enabled = on  (default: off)
+2013-01-22 20:55:13	=!=	Error: failed to set option "aspell.check.suggestions"
+2013-01-22 20:55:40		Option changed: aspell.check.suggestions = 20  (default: -1)
+2013-01-22 20:56:18	=!=	aspell: error: No word lists can be found for the language "en".
+2013-01-22 20:56:18		Option changed: aspell.check.default_dict = "en"  (default: "")
+2013-01-22 20:58:28		Option changed: plugins.var.perl.spell_menu.complete_near = "on"
+2013-01-22 20:59:48		script: downloading list of scripts...
+2013-01-22 20:59:49		script: 231 scripts for WeeChat 0.4.0
+2013-01-22 20:59:49		perl: loading script "/home/queezy/.weechat/perl/menu.pl"
+2013-01-22 20:59:49		perl error: Can't locate Text/CharWidth.pm in @INC (@INC contains: /usr/lib/perl5/site_perl /usr/share/perl5/site_perl /usr/lib/perl5/vendor_perl /usr/share/perl5/vendor_perl /usr/lib/perl5/core_perl /usr/share/perl5/core_perl .) at /home/queezy/.weechat/perl/menu.pl line 432.
+2013-01-22 20:59:49		perl error: Can't locate Text/CharWidth.pm in @INC (@INC contains: /usr/lib/perl5/site_perl /usr/share/perl5/site_perl /usr/lib/perl5/vendor_perl /usr/share/perl5/vendor_perl /usr/lib/perl5/core_perl /usr/share/perl5/core_perl .) at /home/queezy/.weechat/perl/menu.pl line 432.
+2013-01-22 20:59:49		BEGIN failed--compilation aborted at /home/queezy/.weechat/perl/menu.pl line 432.
+2013-01-22 20:59:49	=!=	perl: unable to parse file "/home/queezy/.weechat/perl/menu.pl"
+2013-01-22 20:59:49	=!=	perl: error: Can't locate Text/CharWidth.pm in @INC (@INC contains: /usr/lib/perl5/site_perl /usr/share/perl5/site_perl /usr/lib/perl5/vendor_perl /usr/share/perl5/vendor_perl /usr/lib/perl5/core_perl /usr/share/perl5/core_perl .) at /home/queezy/.weechat/perl/menu.pl line 432.
+2013-01-22 20:59:49		BEGIN failed--compilation aborted at /home/queezy/.weechat/perl/menu.pl line 432.
+2013-01-22 20:59:52	=!=	aspell: error: No word lists can be found for the language "en".
+2013-01-22 20:59:54	=!=	aspell: error: No word lists can be found for the language "en".
+2013-01-22 21:00:06		script: script "menu.pl" is already installed and up-to-date
+2013-01-22 21:00:14		python: scripts unloaded
+2013-01-22 21:00:14		perl: scripts unloaded
+2013-01-22 21:00:15		script: 231 scripts for WeeChat 0.4.0
+2013-01-22 21:00:16		perl error: Can't locate Text/CharWidth.pm in @INC (@INC contains: /usr/lib/perl5/site_perl /usr/share/perl5/site_perl /usr/lib/perl5/vendor_perl /usr/share/perl5/vendor_perl /usr/lib/perl5/core_perl /usr/share/perl5/core_perl .) at /home/queezy/.weechat/perl/autoload/menu.pl line 432.
+2013-01-22 21:00:16		perl error: Can't locate Text/CharWidth.pm in @INC (@INC contains: /usr/lib/perl5/site_perl /usr/share/perl5/site_perl /usr/lib/perl5/vendor_perl /usr/share/perl5/vendor_perl /usr/lib/perl5/core_perl /usr/share/perl5/core_perl .) at /home/queezy/.weechat/perl/autoload/menu.pl line 432.
+2013-01-22 21:00:16		BEGIN failed--compilation aborted at /home/queezy/.weechat/perl/autoload/menu.pl line 432.
+2013-01-22 21:00:16	=!=	perl: unable to parse file "/home/queezy/.weechat/perl/autoload/menu.pl"
+2013-01-22 21:00:16	=!=	perl: error: Can't locate Text/CharWidth.pm in @INC (@INC contains: /usr/lib/perl5/site_perl /usr/share/perl5/site_perl /usr/lib/perl5/vendor_perl /usr/share/perl5/vendor_perl /usr/lib/perl5/core_perl /usr/share/perl5/core_perl .) at /home/queezy/.weechat/perl/autoload/menu.pl line 432.
+2013-01-22 21:00:16		BEGIN failed--compilation aborted at /home/queezy/.weechat/perl/autoload/menu.pl line 432.
+2013-01-22 21:00:16		perl scripts loaded: spell_menu
+2013-01-22 21:00:16		python scripts loaded: theme
+2013-01-22 21:00:16		Plugins loaded: alias, aspell, charset, fifo, guile, irc, logger, lua, perl, python, relay, rmodifier, ruby, script, tcl, xfer
+2013-01-22 21:00:29	=!=	aspell: error: No word lists can be found for the language "en".
+2013-01-22 21:01:27	=!=	Error: unknown command "menu" (type /help for help)
+2013-01-22 21:01:36	=!=	Error: unknown command "menu" (type /help for help)
+2013-01-22 21:02:06		New key binding (context "default"): ctrl-m => /menu
+2013-01-22 21:02:14	=!=	Option "irc." not found (tip: you can use "*" at beginning and/or end of option to see a sublist)
+2013-01-22 21:02:18	=!=	aspell: error: No word lists can be found for the language "en".
+2013-01-22 21:02:18	=!=	aspell: error: No word lists can be found for the language "en".
+2013-01-22 21:02:19	=!=	aspell: error: No word lists can be found for the language "en".
+2013-01-22 21:02:20	=!=	aspell: error: No word lists can be found for the language "en".
+2013-01-22 21:02:21	=!=	aspell: error: No word lists can be found for the language "en".
+2013-01-22 21:02:25	=!=	Error: unknown command "menu" (type /help for help)
+2013-01-22 21:02:41		perl: loading script "/home/queezy/.weechat/perl/autoload/menu.pl"
+2013-01-22 21:02:41		perl error: Can't locate Text/CharWidth.pm in @INC (@INC contains: /usr/lib/perl5/site_perl /usr/share/perl5/site_perl /usr/lib/perl5/vendor_perl /usr/share/perl5/vendor_perl /usr/lib/perl5/core_perl /usr/share/perl5/core_perl .) at /home/queezy/.weechat/perl/autoload/menu.pl line 432.
+2013-01-22 21:02:41		perl error: Can't locate Text/CharWidth.pm in @INC (@INC contains: /usr/lib/perl5/site_perl /usr/share/perl5/site_perl /usr/lib/perl5/vendor_perl /usr/share/perl5/vendor_perl /usr/lib/perl5/core_perl /usr/share/perl5/core_perl .) at /home/queezy/.weechat/perl/autoload/menu.pl line 432.
+2013-01-22 21:02:41		BEGIN failed--compilation aborted at /home/queezy/.weechat/perl/autoload/menu.pl line 432.
+2013-01-22 21:02:41	=!=	perl: unable to parse file "/home/queezy/.weechat/perl/autoload/menu.pl"
+2013-01-22 21:02:41	=!=	perl: error: Can't locate Text/CharWidth.pm in @INC (@INC contains: /usr/lib/perl5/site_perl /usr/share/perl5/site_perl /usr/lib/perl5/vendor_perl /usr/share/perl5/vendor_perl /usr/lib/perl5/core_perl /usr/share/perl5/core_perl .) at /home/queezy/.weechat/perl/autoload/menu.pl line 432.
+2013-01-22 21:02:41		BEGIN failed--compilation aborted at /home/queezy/.weechat/perl/autoload/menu.pl line 432.
+2013-01-22 21:04:30	=!=	aspell: error: No word lists can be found for the language "en".
+2013-01-22 21:04:33	=!=	aspell: error: No word lists can be found for the language "en".
+2013-01-22 21:04:35	=!=	aspell: error: No word lists can be found for the language "en".
+2013-01-22 21:04:36	=!=	aspell: error: No word lists can be found for the language "en".
+2013-01-22 21:10:15		perl: loading script "/home/queezy/.weechat/perl/autoload/menu.pl"
+2013-01-22 21:10:15		perl: registered script "menu", version 0.7 (menu system)
+2013-01-22 21:10:15		New key binding (context "mouse"): @bar(*_menu):button1 => hsignal:menu
+2013-01-22 21:10:22		python: scripts unloaded
+2013-01-22 21:10:22		perl: scripts unloaded
+2013-01-22 21:10:23		script: 231 scripts for WeeChat 0.4.0
+2013-01-22 21:10:24		perl scripts loaded: menu, spell_menu
+2013-01-22 21:10:24		python scripts loaded: theme
+2013-01-22 21:10:24		Plugins loaded: alias, aspell, charset, fifo, guile, irc, logger, lua, perl, python, relay, rmodifier, ruby, script, tcl, xfer
+2013-01-22 21:10:37	=!=	aspell: error: No word lists can be found for the language "en".
+2013-01-22 21:10:39	=!=	aspell: error: No word lists can be found for the language "en".
+2013-01-22 21:11:05		perl: loading script "/home/queezy/.weechat/perl/autoload/menu.pl"
+2013-01-22 21:11:05	=!=	perl: unable to register script "menu" (another script already exists with this name)
+2013-01-22 21:11:05	=!=	perl: function "register" not found (or failed) in file "/home/queezy/.weechat/perl/autoload/menu.pl"
+2013-01-22 21:11:25	=!=	perl: script "menu.pl" not loaded
+2013-01-22 21:14:29	=!=	aspell: error: No word lists can be found for the language "en".
+2013-01-22 21:14:39	=!=	You can not write text in this buffer
+2013-01-22 21:14:57		python: scripts unloaded
+2013-01-22 21:14:58		perl: scripts unloaded
+2013-01-22 21:14:59		script: 231 scripts for WeeChat 0.4.0
+2013-01-22 21:14:59		perl scripts loaded: menu, spell_menu
+2013-01-22 21:14:59		python scripts loaded: theme
+2013-01-22 21:14:59		Plugins loaded: alias, aspell, charset, fifo, guile, irc, logger, lua, perl, python, relay, rmodifier, ruby, script, tcl, xfer
+2013-01-22 21:15:11	=!=	aspell: error: No word lists can be found for the language "en".
+2013-01-22 21:16:14		Key "@item(buffer_nicklist):button1" unbound (context: "mouse")
+2013-01-22 21:16:14		New key binding (context "mouse"): @item(buffer_nicklist):button1 => hsignal:menu
+2013-01-22 21:16:26	=!=	aspell: error: No word lists can be found for the language "en".
+2013-01-22 21:19:10	=!=	aspell: error: No word lists can be found for the language "en_US".
+2013-01-22 21:19:10		Option changed: aspell.check.default_dict = "en_US"  (default: "")
+2013-01-22 21:22:22		python: scripts unloaded
+2013-01-22 21:22:22		perl: scripts unloaded
+2013-01-22 21:22:23		script: 231 scripts for WeeChat 0.4.0
+2013-01-22 21:22:23		perl scripts loaded: menu, spell_menu
+2013-01-22 21:22:23		python scripts loaded: theme
+2013-01-22 21:22:23		Plugins loaded: alias, aspell, charset, fifo, guile, irc, logger, lua, perl, python, relay, rmodifier, ruby, script, tcl, xfer
+2013-01-22 21:22:34	=!=	aspell: error: No word lists can be found for the language "en_US".
+2013-01-23 19:00:01	=!=	aspell: error: No word lists can be found for the language "en_US".
+2013-01-23 19:00:07	=!=	aspell: error: No word lists can be found for the language "en_US".
+2013-01-23 20:09:23		python: scripts unloaded
+2013-01-23 20:09:23		perl: scripts unloaded
+2013-01-24 03:40:16		script: downloading list of scripts...
+2013-01-24 03:40:16		perl scripts loaded: menu, spell_menu
+2013-01-24 03:40:16		python scripts loaded: theme
+2013-01-24 03:40:16		Plugins loaded: alias, aspell, charset, fifo, guile, irc, logger, lua, perl, python, relay, rmodifier, ruby, script, tcl, xfer
+2013-01-24 03:40:17		script: 231 scripts for WeeChat 0.4.0
+2013-01-24 03:40:29	=!=	aspell: error: No word lists can be found for the language "en_US".
+2013-01-24 07:06:50	=!=	aspell: error: No word lists can be found for the language "en_US".
+2013-01-24 07:07:11	=!=	aspell: error: No word lists can be found for the language "en_US".
+2013-01-24 08:09:58		python: scripts unloaded
+2013-01-24 08:09:58		perl: scripts unloaded
