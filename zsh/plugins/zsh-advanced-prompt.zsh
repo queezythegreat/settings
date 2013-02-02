@@ -28,6 +28,7 @@ function +vi-vcsinfo() {
 
 function advanced_prompt_setup() {
     setopt prompt_subst
+    setopt promptpercent
 
     setup_colors
 
@@ -54,7 +55,6 @@ function advanced_prompt_setup() {
     else
         PR_STITLE=''
     fi
-    
     
     PR_APM=''
     
@@ -178,15 +178,15 @@ function setup_colors {
     done
     
     typeset -A altchar
-    set -A altchar ${(s..)terminfo[acsc]}
+    set -A altchar "${(s..)terminfo[acsc]}"
     PR_SET_CHARSET="%{$terminfo[enacs]%}"
     PR_SHIFT_IN="%{$terminfo[smacs]%}"
     PR_SHIFT_OUT="%{$terminfo[rmacs]%}"
-    PR_HBAR=${altchar[q]:--}
-    PR_ULCORNER=${altchar[l]:--}
-    PR_LLCORNER=${altchar[m]:--}
-    PR_LRCORNER=${altchar[j]:--}
-    PR_URCORNER=${altchar[k]:--}
+    PR_HBAR="q"
+    PR_ULCORNER="l"
+    PR_LLCORNER="m"
+    PR_LRCORNER="j"
+    PR_URCORNER="k"
 }
 
 #add-zsh-hook chpwd chpwd_update_git_vars

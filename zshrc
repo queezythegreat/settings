@@ -142,6 +142,8 @@
 
     # Executed before drawing of prompt
     function precmd () {
+        setopt prompt_subst
+        setopt promptpercent
         if [ -z "${SHORT_PROMPT_TITLE}" ]; then
             print -Pn "\e]0;ZSH %n@%m %~\a"
         else
@@ -196,6 +198,7 @@ function teamcity_wget {
 #=============================================================================#
 #                                    VIM                                      #
 #=============================================================================#
+if [ -z "${WINDIR}" ]; then
     if vim --version | grep -q '\+X11'; then
         alias vim='vim --servername VIM -p'
     else
@@ -207,6 +210,7 @@ function teamcity_wget {
         if [ -z "${VIM_SERVER_NAME}" ] && local VIM_SERVER_NAME="VIM"
         vim --servername "${VIM_SERVER_NAME}" --remote-expr "LoadQuickfix(\"$(pwd)/.quickfix\")"
     }
+fi
 
 
 function infinity {
