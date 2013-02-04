@@ -19,4 +19,5 @@ vim/.netrwhist
 vim/sessions/
 vim/view/
 
-        
+weechat/logs/
+weechat/weechat.log
