@@ -178,7 +178,7 @@ function setup_colors {
     done
     
     typeset -A altchar
-    set -A altchar "${(s..)terminfo[acsc]}"
+    set -A altchar ${(s..)terminfo[acsc]}
     PR_SET_CHARSET="%{$terminfo[enacs]%}"
     PR_SHIFT_IN="%{$terminfo[smacs]%}"
     PR_SHIFT_OUT="%{$terminfo[rmacs]%}"
