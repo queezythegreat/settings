@@ -9,7 +9,7 @@
     "set guifont=Lucida\ Console\ Semi-Condensed\ 12
     set guioptions=
     set sessionoptions=blank,buffers,curdir,folds,globals,localoptions,options,resize,tabpages,winsize,winpos
-    set clipboard=unnamed,unnamedplus,autoselect   " Yank/Paste globally
+    set clipboard=unnamed,autoselect   " Yank/Paste globally
 
 
 " ------------------- "
