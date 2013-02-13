@@ -11,11 +11,9 @@ if exists('did_UltiSnips_vim') || &cp || version < 700
     finish
 endif
 
-if !has("python3")
-    if !has("python")
-        echo  "UltiSnips requires py >= 2.6 or any py3"
-        finish
-    endif
+if !has("python") &&  !has("python3")
+    echo  "UltiSnips requires py >= 2.6 or any py3"
+    finish
 endif
 
 " Define dummy version of function called by autocommand setup in
@@ -26,22 +24,22 @@ function! UltiSnips_FileTypeChanged()
 endfunction
 
 if !exists("g:UltiSnipsUsePythonVersion")
-    let g:_uspy=":py3 "
-    if !has("python3")
-        if !has("python")
+    let g:_uspy=":python "
+    if !has("python")
+        if !has("python3")
             if !exists("g:UltiSnipsNoPythonWarning")
                 echo  "UltiSnips requires py >= 2.6 or any py3"
             endif
             finish
         endif
-        let g:_uspy=":py "
+        let g:_uspy=":python3 "
     endif
     let g:UltiSnipsUsePythonVersion = "<tab>"
 else
     if g:UltiSnipsUsePythonVersion == 2
-        let g:_uspy=":py "
+        let g:_uspy=":python "
     else
-        let g:_uspy=":py3 "
+        let g:_uspy=":python3 "
     endif
 endif
 
