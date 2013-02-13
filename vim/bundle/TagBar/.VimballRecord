@@ -1,1 +1,0 @@
-tagbar.vba: call delete('/home/queezy/.vim/bundle/TagBar//plugin/tagbar.vim')|call delete('/home/queezy/.vim/bundle/TagBar//syntax/tagbar.vim')|call delete('/home/queezy/.vim/bundle/TagBar//doc/tagbar.txt')
