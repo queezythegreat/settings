@@ -367,6 +367,11 @@ hi ColorColumn  term=reverse cterm=bold ctermbg=1 guibg=DarkRed
 
 
 " ------------------------------ "
+"     Sign Column                "
+" ------------------------------ "
+hi clear SignColumn
+
+" ------------------------------ "
 "     MiniBufferExplorer         "
 " ------------------------------ "
     " Custom colors
