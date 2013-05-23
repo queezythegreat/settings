@@ -145,7 +145,7 @@
         setopt prompt_subst
         setopt promptpercent
         if [ -z "${SHORT_PROMPT_TITLE}" ]; then
-            print -Pn "\e]0;ZSH %n@%m %~\a"
+            print -Pn "\e]0;%~\a"
         else
             print -Pn "\e]0;ZSH %~\a"
         fi
