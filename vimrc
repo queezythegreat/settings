@@ -699,7 +699,7 @@ map <leader>c <ESC>:tabclose<CR>
 " ------------------------------ "
 "     NERDTree Settings          "
 " ------------------------------ "
-    map <leader>b :NERDTreeToggle<CR>
+    map <leader>B :NERDTreeToggle<CR>
     " See colorscheme desert256 for colors
     
 
