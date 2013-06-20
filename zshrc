@@ -67,6 +67,7 @@
     alias ll='ls -al'
     alias ls='ls --color=auto '
     alias rest2html-css='rest2html --embed-stylesheet --stylesheet-path=/usr/share/python-docutils/stylesheets/default.css'
+    alias apt-get='sudo apt-get'
 
     alias c=clear
     alias cl=clear
