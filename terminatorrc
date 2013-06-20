@@ -1,4 +1,5 @@
 [global_config]
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
   title_hide_sizetext = True
   handle_size = 0
   tab_position = bottom
@@ -14,6 +15,7 @@
   go_left = <Alt>h
 [profiles]
   [[default]]
+    background_darkness = 1.36
     scrollback_lines = 9000
     scroll_on_output = False
     show_titlebar = False

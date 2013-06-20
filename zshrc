@@ -225,3 +225,11 @@ alias date_formated='date +%m%d%H%M%Y.%S'
 
 alias qtest_color="colorize green 'PASS.*' white@bold '^\*\*\*.*' white '^Totals:' white '^Config:.*' red '[0-9]\+ failed' green '[0-9]\+ passed' yellow '[0-9]\+ skipped' c236 '^QDEBUG :.*' c240 '=\+ ENTER.*' c240 '=\+ EXIT.*' c236 '.*' except '^[^:]\+:.*' red 'FAIL!  : .*' red '   Loc: .*'"
 
+#=============================================================================#
+#                               Local Settings                                #
+#=============================================================================#
+ZSHRC_LOCAL="${HOME}/.zshrc_local"
+
+if [ -f "${ZSHRC_LOCAL}" ]; then
+    source ${ZSHRC_LOCAL}
+fi
