@@ -70,6 +70,7 @@
     alias apt-get='sudo apt-get'
     alias apt-install='apt-get install'
     alias apt-search='apt-cache search'
+    alias apt-info='apt-cache show'
 
     alias c=clear
     alias cl=clear
