@@ -120,6 +120,11 @@
     source ~/.zsh/plugins/zsh-history-substring-search.plugin.zsh
     if [ -z "${NO_ADVANCED_PROMPT}" ]; then
         source ~/.zsh/plugins/zsh-advanced-prompt.zsh
+        for keycode in '[' 'O'; do
+          bindkey "^[${keycode}A" history-substring-search-up
+          bindkey "^[${keycode}B" history-substring-search-down
+        done
+        unset keycode
     else
         autoload -U promptinit
         promptinit
