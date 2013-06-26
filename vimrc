@@ -683,7 +683,7 @@ map <leader>c <ESC>:tabclose<CR>
 " ----------------------------- "
 "     PyLint Options            "
 " ----------------------------- "
-    let g:pylint_onwrite = 1                " Disable autorun on save
+    let g:pylint_onwrite = 0                " Disable autorun on save
     let g:pylint_inline_highlight = 0       " Disable inline highlight
     autocmd! FileType python compiler pylint
 
