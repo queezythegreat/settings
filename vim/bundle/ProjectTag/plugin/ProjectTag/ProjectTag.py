@@ -12,11 +12,19 @@ import tempfile
 import threading
 import vim
 import glob2
+import logging
 
 # varibles {{{1
 default_project_name = ''
 tag_thread = None
 
+logger = logging.getLogger('projtect_tag')
+
+#handler  = logging.FileHandler('/tmp/vim-project_tag.log')
+#formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+#handler.setFormatter(formatter)
+#logger.addHandler(handler) 
+#logger.setLevel(logging.WARNING)
 
 def search_for_file_upper( cur_dir, file_name ): #{{{1
 # search for the file from current directory to upper dir until meet the root
@@ -70,6 +78,7 @@ def __get_included_files_reclusively( src, include_dirs, checked_files ):#{{{1
 # get the included file of a c/c++ source file and it's included file(internal
 # use)
 
+    src = os.path.normpath(src)
     # if current file has been checked, return an empty set
     if src in checked_files:
         return set()
@@ -88,6 +97,7 @@ def __get_included_files_reclusively( src, include_dirs, checked_files ):#{{{1
     # get the included file paths
     header_files = get_included_files( f.readlines() )
 
+    #logger.warning(src)
     # add the directory where the source file locates to include directory
     # list
     include_dirs2 = include_dirs[:]
@@ -96,7 +106,8 @@ def __get_included_files_reclusively( src, include_dirs, checked_files ):#{{{1
         for header_file in header_files:
 
             # the path of new file
-            file_path = include_dir + os.path.sep + header_file 
+            file_path = os.path.normpath(include_dir + os.path.sep +
+                    header_file )
 
             # make the file path seperator be consitent with the os'
             if os.path.sep == '/':
