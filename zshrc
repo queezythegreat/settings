@@ -24,11 +24,15 @@
     setopt EXTENDED_HISTORY    # puts timestamps in the history
     setopt HASH_CMDS           # turns on hashing
     setopt extended_glob
+    setopt auto_cd
 
     fpath=(~/.zsh/functions/VCS_Info
            ~/.zsh/functions/VCS_Info/Backends
            ~/.zsh/functions
            $fpath)
+
+    cdpath=(~/
+            ~/storage/)
 
 
 
@@ -153,8 +157,11 @@
     function precmd () {
         setopt prompt_subst
         setopt promptpercent
+        local JOB_COUNT=$(jobs | wc -l)
+        local PROMPT_TITLE_PREFIX=""
+        [ ${JOB_COUNT} -lt 1 ] && PROMPT_TITLE_PREFIX="● "
         if [ -z "${SHORT_PROMPT_TITLE}" ]; then
-            print -Pn "\e]0;%~\a"
+            print -Pn "\e]0;${PROMPT_TITLE_PREFIX}%~\a"
         else
             print -Pn "\e]0;ZSH %~\a"
         fi
