@@ -247,13 +247,13 @@ class ProjectConfig( ConfigParser.ConfigParser ):#{{{1
 
         for include_path in self.get_include_dirs():
             vim.command( "setlocal path+=" + 
-                    vim.eval( r"escape('" + include_path + r"', '\ |')" ) )
+                    vim.eval( r"escape('" + os.path.normpath(include_path) + r"', '\ |')" ) )
 
         #if vim.eval("exists('g:clang_user_options')") == '0':
         vim.command("let g:clang_user_options=''")
         for include_path in self.get_include_dirs():
             vim.command("let g:clang_user_options.=' -I" +
-                    vim.eval(r"escape('" + include_path + r"', '\ |')") + "'")
+                    vim.eval(r"escape('" + os.path.normpath(include_path) + r"', '\ |')") + "'")
 
 
     def set_project_config_parser_default_value( self ):#{{{2
