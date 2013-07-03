@@ -99,6 +99,10 @@
     
     "map <silent> <F2> <ESC>:make!<CR>
     map <C-\> :vert belowright split<CR> :exec("tselect ".expand("<cword>"))<CR>
+    " Open file under cursor in new tab
+    map <leader>g <c-w>gf
+    " Open file under cursor in new tab
+    map <leader>G gf
 
 " ------------------------------ "
 "     Window Navigation       "
