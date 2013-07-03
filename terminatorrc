@@ -18,6 +18,7 @@
     background_darkness = 1.36
     scrollback_lines = 9000
     scroll_on_output = False
+    scrollbar_position = hidden
     show_titlebar = False
 [layouts]
   [[default]]
