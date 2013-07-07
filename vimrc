@@ -689,13 +689,15 @@ map <leader>c <ESC>:tabclose<CR>
 " ----------------------------- "
     let g:pylint_onwrite = 0                " Disable autorun on save
     let g:pylint_inline_highlight = 0       " Disable inline highlight
+    let g:pylint_cwindow = 0
     autocmd! FileType python compiler pylint
 
 
 " ------------------------------ "
 "     SuperTab Plugin            "
 " ------------------------------ "
-    let g:SuperTabDefaultCompletionType = "context"
+    let g:SuperTabDefaultCompletionType = '<C-Tab>' " YCM Completion
+    "let g:SuperTabDefaultCompletionType = "context"
     let g:SuperTabContextDefaultCompletionType = "<c-n>"
     let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
     let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
@@ -911,3 +913,33 @@ hi clear SignColumn
 "     mark                       "
 " ------------------------------ "
     let g:loaded_mark = 1 " Disable mark plugin
+
+" ------------------------------ "
+"    YouCompleteMe               "
+" ------------------------------ "
+  "let g:ycm_key_invoke_completion = '<tab>'      " Default completion key
+  let g:ycm_key_list_select_completion = ['<C-TAB>', '<Down>']   " Changed caused conflict with UltiSnips
+  let g:ycm_key_list_previous_completion = ['<C-S-TAB>', '<Up>'] " Changed caused conflict with UltiSnips
+  let g:ycm_complete_in_comments = 0
+  let g:ycm_complete_in_strings = 1
+  let g:ycm_confirm_extra_conf = 1               " Ask before loading .ycm_extra_conf.py
+  let g:ycm_min_num_of_chars_for_completion = 1 
+  let g:ycm_ycm_extra_conf_name = 'ycm_project.py'
+  let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/python/ycm_conf.py'
+  let g:ycm_semantic_triggers =  {
+    \   'c' : ['.', '->'],
+    \   'objc' : ['->', '.'],
+    \   'ocaml' : ['.', '#'],
+    \   'cpp,objcpp' : ['.', '->', '::'],
+    \   'perl' : ['->'],
+    \   'php' : ['->', '::'],
+    \   'cs,java,javascript,d,vim,ruby,python,perl6,scala,vb,elixir,go' : ['.'],
+    \   'lua' : ['.', ':'],
+    \   'erlang' : [':'],
+    \ }
+  let g:ycm_filetype_blacklist = {
+        \ 'notes' : 1,
+        \ 'markdown' : 1,
+        \ 'text' : 1,
+        \ 'conque_term': 1,
+        \}

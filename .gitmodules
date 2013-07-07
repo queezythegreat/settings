@@ -1,0 +1,3 @@
+[submodule "vim/bundle/YouCompleteMe"]
+	path = vim/bundle/YouCompleteMe
+	url = https://github.com/queezythegreat/vim-YouCompleteMe.git
