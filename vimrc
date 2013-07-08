@@ -252,7 +252,7 @@
                         let has_warning = 1
                     endif
                 endif
-			   echo bufname(qf_entry.bufnr) ':' qf_entry.lnum '=' qf_entry.text
+			   "echo bufname(qf_entry.bufnr) ':' qf_entry.lnum '=' qf_entry.text
             endfor
 
             if has_error
@@ -987,7 +987,7 @@ hi clear SignColumn
 " ------------------------------ "
    let g:syntastic_error_symbol='✗'
    let g:syntastic_warning_symbol='⚠'
-   let g:syntastic_always_populate_loc_list=1
+   "let g:syntastic_always_populate_loc_list=1
 
 " ------------------------------ "
 "     Syntastic                  "
@@ -996,3 +996,4 @@ hi clear SignColumn
    let g:jedi#popup_on_dot = 0
    let g:jedi#popup_select_first = 0
    "let g:jedi#auto_vim_configuration = 0
+   hi link SyntasticWarning SyntasticWarningSign
