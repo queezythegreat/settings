@@ -192,7 +192,21 @@
         function! GetQuickfix()
             let has_error = 0
             let has_warning = 0
+
+            " Look in quickfix list
 			for qf_entry in getqflist()
+                if qf_entry.valid
+                    if qf_entry.type == 'e'
+                        let has_error = 1
+                    endif
+                    if qf_entry.type == 'w'
+                        let has_warning = 1
+                    endif
+                endif
+            endfor
+
+            " Look in location list
+			for qf_entry in getloclist(0)
                 if qf_entry.valid
                     if qf_entry.type == 'e'
                         let has_error = 1
@@ -227,6 +241,19 @@
                 endif
 			   "echo bufname(qf_entry.bufnr) ':' qf_entry.lnum '=' qf_entry.text
 			endfor
+
+            " Look in location list
+			for qf_entry in getloclist(tabpagewinnr(a:tabNum))
+                if index(tab_buffers, qf_entry.bufnr) >= 0
+                    if qf_entry.type == 'e'
+                        let has_error = 1
+                    endif
+                    if qf_entry.type == 'w'
+                        let has_warning = 1
+                    endif
+                endif
+			   "echo bufname(qf_entry.bufnr) ':' qf_entry.lnum '=' qf_entry.text
+            endfor
 
             if has_error
                 return 2
@@ -854,7 +881,11 @@ hi clear SignColumn
 " ------------------------------ "
    let g:UltiSnipsUsePythonVersion = 2           " Force Python version 2
 
-   let g:UltiSnipsExpandTrigger="<tab>"
+   if has("gui_running")
+       let g:UltiSnipsExpandTrigger="<c-space>"
+   else
+       let g:UltiSnipsExpandTrigger="<Nul>"
+   endif
    let g:UltiSnipsJumpForwardTrigger="<c-j>"
    let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
@@ -917,30 +948,53 @@ hi clear SignColumn
 " ------------------------------ "
 "    YouCompleteMe               "
 " ------------------------------ "
-  "let g:ycm_key_invoke_completion = '<tab>'      " Default completion key
-  let g:ycm_key_list_select_completion = ['<C-TAB>', '<Down>']   " Changed caused conflict with UltiSnips
-  let g:ycm_key_list_previous_completion = ['<C-S-TAB>', '<Up>'] " Changed caused conflict with UltiSnips
-  let g:ycm_complete_in_comments = 0
-  let g:ycm_complete_in_strings = 1
-  let g:ycm_confirm_extra_conf = 1               " Ask before loading .ycm_extra_conf.py
-  let g:ycm_min_num_of_chars_for_completion = 1 
-  let g:ycm_ycm_extra_conf_name = 'ycm_project.py'
-  let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/python/ycm_conf.py'
-  let g:ycm_semantic_triggers =  {
-    \   'c' : ['.', '->'],
-    \   'objc' : ['->', '.'],
-    \   'ocaml' : ['.', '#'],
-    \   'cpp,objcpp' : ['.', '->', '::'],
-    \   'perl' : ['->'],
-    \   'php' : ['->', '::'],
-    \   'cs,java,javascript,d,vim,ruby,python,perl6,scala,vb,elixir,go' : ['.'],
-    \   'lua' : ['.', ':'],
-    \   'erlang' : [':'],
-    \ }
-  let g:ycm_filetype_blacklist = {
+    let g:ycm_key_invoke_completion = ''                           " Default completion key
+    let g:ycm_key_list_select_completion = ['<C-TAB>', '<Down>']   " Changed caused conflict with UltiSnips
+    let g:ycm_key_list_previous_completion = ['<C-S-TAB>', '<Up>'] " Changed caused conflict with UltiSnips
+    let g:ycm_complete_in_comments = 0
+    let g:ycm_complete_in_strings = 1
+    let g:ycm_confirm_extra_conf = 1                               " Ask before loading .ycm_extra_conf.py
+    let g:ycm_min_num_of_chars_for_completion = 1 
+    let g:ycm_add_preview_to_completeopt = 0
+    let g:ycm_autoclose_preview_window_after_completion = 0
+    let g:ycm_ycm_extra_conf_name = 'ycm_project.py'
+    let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/python/ycm_conf.py'
+    let g:ycm_semantic_triggers =  {
+        \   'c' : ['.', '->'],
+        \   'objc' : ['->', '.'],
+        \   'ocaml' : ['.', '#'],
+        \   'cpp,objcpp' : ['.', '->', '::'],
+        \   'perl' : ['->'],
+        \   'php' : ['->', '::'],
+        \   'cs,java,javascript,d,vim,ruby,python,perl6,scala,vb,elixir,go' : ['.'],
+        \   'lua' : ['.', ':'],
+        \   'erlang' : [':'],
+        \ }
+    let g:ycm_filetype_blacklist = {
         \ 'notes' : 1,
         \ 'markdown' : 1,
         \ 'text' : 1,
         \ 'conque_term': 1,
         \}
   map <leader>d :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" ------------------------------ "
+"     mark                       "
+" ------------------------------ "
+   let g:loaded_quickfixstatus = 1
+
+" ------------------------------ "
+"     Syntastic                  "
+" ------------------------------ "
+   let g:syntastic_error_symbol='✗'
+   let g:syntastic_warning_symbol='⚠'
+   "let g:syntastic_always_populate_loc_list=1
+
+" ------------------------------ "
+"     Syntastic                  "
+" ------------------------------ "
+   let g:jedi#show_function_definition = 0
+   let g:jedi#popup_on_dot = 0
+   let g:jedi#popup_select_first = 0
+   "let g:jedi#auto_vim_configuration = 0
+   hi link SyntasticWarning SyntasticWarningSign
