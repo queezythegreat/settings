@@ -955,6 +955,8 @@ hi clear SignColumn
     let g:ycm_complete_in_strings = 1
     let g:ycm_confirm_extra_conf = 1                               " Ask before loading .ycm_extra_conf.py
     let g:ycm_min_num_of_chars_for_completion = 1 
+    let g:ycm_add_preview_to_completeopt = 0
+    let g:ycm_autoclose_preview_window_after_completion = 0
     let g:ycm_ycm_extra_conf_name = 'ycm_project.py'
     let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/python/ycm_conf.py'
     let g:ycm_semantic_triggers =  {
@@ -986,3 +988,11 @@ hi clear SignColumn
    let g:syntastic_error_symbol='✗'
    let g:syntastic_warning_symbol='⚠'
    let g:syntastic_always_populate_loc_list=1
+
+" ------------------------------ "
+"     Syntastic                  "
+" ------------------------------ "
+   let g:jedi#show_function_definition = 0
+   let g:jedi#popup_on_dot = 0
+   let g:jedi#popup_select_first = 0
+   "let g:jedi#auto_vim_configuration = 0
