@@ -2,8 +2,20 @@ snippet ios "Include IOStrema header" !b
 #include <iostream>
 endsnippet
 
-snippet pcout "Print via cout." !b
-std::cout << "$1" << std::endl;$0
+snippet include "#include <header.h>" !i
+include <${1:header.h}>${0}
+endsnippet
+
+snippet include2 "#include 'header.h'" !i
+include "${1:header.h}"${0}
+endsnippet
+
+snippet cout "Print via cout." !b
+std::cout << $1 << std::endl;$0
+endsnippet
+
+snippet << "<< XX" !b
+<< ${0}
 endsnippet
 
 snippet typedef "typedef" !b
@@ -32,7 +44,8 @@ else if($1) {
 endsnippet
 
 snippet switch "switch (...)" !b
-switch ($1) {$0
+switch ($1) {
+    $0
 }
 endsnippet
 
@@ -41,6 +54,30 @@ case ${1:CASE}:${0}
     break;
 endsnippet
 
+snippet enum "enumeration" !b
+enum ${1:ENUM_NAME} {
+    ${0}
+};
+endsnippet
+
+snippet struct "struct" !b
+struct ${1:STRUCT_NAME} {
+    ${0}
+};
+endsnippet
+
+snippet try "try..catch()" !b
+try {
+    ${0}
+} catch(${1:EXCEPTION e}) {
+}
+endsnippet
+
+snippet catch "catch() {..}" !
+catch(${1:EXCEPTION e}) {
+    ${0}
+}
+endsnippet
 
 snippet class_def "Class Definition" !b
 #ifndef ${2:`!p snip.rv = t[1].upper() + "_H"`}
