@@ -15,11 +15,13 @@
   go_left = <Alt>h
 [profiles]
   [[default]]
+    use_system_font = False
     background_darkness = 1.36
     scrollback_lines = 9000
-    scroll_on_output = False
     scrollbar_position = hidden
+    scroll_on_output = False
     show_titlebar = False
+    font = Monospace 9
 [layouts]
   [[default]]
     [[[child1]]]
