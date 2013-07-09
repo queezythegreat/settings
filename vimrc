@@ -45,6 +45,7 @@
     set noerrorbells                        " Disables beeps
     set ruler                               " Displays cursor position in status line
     set number                              " Displays line numbers
+    set numberwidth=5                       " Number gutter width
 
     set scrolloff=5                         " 3 lines of offset when scrolling
     set showcmd                             " Show parcial commands in the status line
