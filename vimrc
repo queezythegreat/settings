@@ -977,6 +977,7 @@ hi clear SignColumn
         \ 'text' : 1,
         \ 'conque_term': 1,
         \}
+  map <leader>d :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " ------------------------------ "
 "     mark                       "
