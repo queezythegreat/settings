@@ -289,9 +289,14 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     "call <SID>X("Folded", "767676", "1c1c1c", "")
     call <SID>X("Folded", "767676", "000000", "")
     call <SID>X("FoldColum", "585858", "1c1c1c", "")
-    call <SID>X("Pmenu", "d2b48c", "4d4d4d", "standout")
-    call <SID>X("PmenuSel", "ffd700", "262626", "standout")
-    call <SID>X("PmenuSbar", "ffd700", "1c1c1c", "standout")
+
+    " Popup Menu
+    call <SID>X("Pmenu",      "585858", "1c1c1c", "")
+    call <SID>X("PmenuSel",   "fa8072", "",       "")
+    call <SID>X("PmenuThumb", "fa8072", "fa8072", "")
+    call <SID>X("PmenuSbar",  "1c1c1c", "1c1c1c", "")
+    
+
     "VisualNOS
     call <SID>X("WarningMsg", "fa8072", "", "")
     "WildMenu
@@ -478,5 +483,22 @@ hi clear SignColumn
     " Custom DocString highlight color
     hi link pythonDocString Comment
 
+" ------------------------------ "
+"  Syntastic Settings            "
+" ------------------------------ "
+    hi link SyntasticError            ColorColumn
+    hi link SyntasticErrorLine        ColorColumn
+    hi link SyntasticErrorSign        ColorColumn
+    hi link SyntasticStyleErrorLine   ColorColumn
+    hi link SyntasticStyleErrorSign   ColorColumn
+
+    hi clear SpellCap
+    hi link SpellCap                  Todo
+
+    hi link SyntasticStyleWarningLine Todo
+    hi link SyntasticStyleWarningSign Todo
+    hi link SyntasticWarning          ColorColumn
+    hi link SyntasticWarningLine      ModeMsg
+    hi link SyntasticWarningSign      Todo
 
 " vim: set fdl=0 fdm=marker:
