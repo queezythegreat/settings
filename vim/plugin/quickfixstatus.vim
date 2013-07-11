@@ -15,7 +15,9 @@ set cpo&vim
 function! s:Cache_Quickfix()
     let b:qfstatus_list = {}
     if exists("b:syntastic_loclist")
-        let sy = b:syntastic_loclist
+        "let sy = b:syntastic_loclist
+        " causing problems when syntastic enabled...
+        let sy = []
     else
         let sy = []
     endif
