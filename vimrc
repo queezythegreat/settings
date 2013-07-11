@@ -62,6 +62,10 @@
 
     set whichwrap=<,>,h,l,b                 " Allow navigation with line wrapping
 
+    " Alwasy show sign's gutter
+    autocmd BufEnter * sign define dummy
+    autocmd BufEnter * execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
+
 " ------------------------------ "
 "     Indent Folding Options     "
 " ------------------------------ "
@@ -195,7 +199,7 @@
             let has_warning = 0
 
             " Look in quickfix list
-			for qf_entry in getqflist()
+            for qf_entry in getqflist()
                 if qf_entry.valid
                     if qf_entry.type == 'e'
                         let has_error = 1
@@ -207,16 +211,20 @@
             endfor
 
             " Look in location list
-			for qf_entry in getloclist(0)
-                if qf_entry.valid
-                    if qf_entry.type == 'e'
-                        let has_error = 1
+            let index = 0
+            while index <= tabpagenr('$')
+                for qf_entry in getloclist(tabpagewinnr(index))
+                    if qf_entry.valid
+                        if qf_entry.type == 'e'
+                            let has_error = 1
+                        endif
+                        if qf_entry.type == 'w'
+                            let has_warning = 1
+                        endif
                     endif
-                    if qf_entry.type == 'w'
-                        let has_warning = 1
-                    endif
-                endif
-            endfor
+                endfor
+                let index += 1
+            endwhile
 
             if has_error
                 return 2
@@ -231,7 +239,8 @@
             let tab_buffers = tabpagebuflist(a:tabNum)
             let has_error = 0
             let has_warning = 0
-			for qf_entry in getqflist()
+
+            for qf_entry in getqflist()
                 if index(tab_buffers, qf_entry.bufnr) >= 0
                     if qf_entry.type == 'e'
                         let has_error = 1
@@ -240,11 +249,10 @@
                         let has_warning = 1
                     endif
                 endif
-			   "echo bufname(qf_entry.bufnr) ':' qf_entry.lnum '=' qf_entry.text
-			endfor
+            endfor
 
             " Look in location list
-			for qf_entry in getloclist(tabpagewinnr(a:tabNum))
+            for qf_entry in getloclist(tabpagewinnr(a:tabNum))
                 if index(tab_buffers, qf_entry.bufnr) >= 0
                     if qf_entry.type == 'e'
                         let has_error = 1
@@ -253,7 +261,6 @@
                         let has_warning = 1
                     endif
                 endif
-			   "echo bufname(qf_entry.bufnr) ':' qf_entry.lnum '=' qf_entry.text
             endfor
 
             if has_error
@@ -644,56 +651,56 @@
     map <F3> <ESC>:VimrcEdit<CR>
     map <F4> <ESC>:VimrcLoad<CR>
 
-fun! ReadMan()
-    " Assign current word under cursor to a script variable:
-    let s:man_word = expand('<cword>')
-    " Open a new window:
-    :exe ":wincmd n"
-    " Read in the manpage for man_word (col -b is for formatting):
-    :exe ":r!man -s 2,3,7,9 " . s:man_word . " | col -b"
-    " Goto first line...
-    :exe ":goto"
-    " and delete it:
-    :exe ":delete"
-    " finally set file type to 'man':
-    :exe ":setlocal nofoldenable"
-    :exe ":set filetype=man"
-    :exe ":setlocal buftype=nofile"
-    :exe ":setlocal bufhidden=hide"
-    :exe ":setlocal noswapfile"
-endfun
-" Map the K key to the ReadMan function:
-map K :call ReadMan()<CR>
+    fun! ReadMan()
+        " Assign current word under cursor to a script variable:
+        let s:man_word = expand('<cword>')
+        " Open a new window:
+        :exe ":wincmd n"
+        " Read in the manpage for man_word (col -b is for formatting):
+        :exe ":r!man -s 2,3,7,9 " . s:man_word . " | col -b"
+        " Goto first line...
+        :exe ":goto"
+        " and delete it:
+        :exe ":delete"
+        " finally set file type to 'man':
+        :exe ":setlocal nofoldenable"
+        :exe ":set filetype=man"
+        :exe ":setlocal buftype=nofile"
+        :exe ":setlocal bufhidden=hide"
+        :exe ":setlocal noswapfile"
+    endfun
+    " Map the K key to the ReadMan function:
+    map K :call ReadMan()<CR>
 
 
-command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_
-    \ | diffthis | wincmd p | diffthis
+    command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_
+        \ | diffthis | wincmd p | diffthis
 
 
 " ------------------------------ "
 "     Online Documentation       "
 " ------------------------------ "
-function! OnlineDoc()
-  if &ft =~ "cpp"
-    let s:urlTemplate = "\"https://www.google.com/search?q=%&btnI\""
-  elseif &ft =~ "ruby"
-    let s:urlTemplate = "http://www.ruby-doc.org/core/classes/%.html"
-  elseif &ft =~ "perl"
-    let s:urlTemplate = "http://perldoc.perl.org/functions/%.html"
-  else
-    let s:urlTemplate = "\"https://www.google.com/search?q=%&btnI\""
-  endif
-  let s:browser = "firefox"
-  let s:wordUnderCursor = expand("<cword>")
-  let s:url = substitute(s:urlTemplate, "%", s:wordUnderCursor, "g")
-  let s:cmd = "silent !" . s:browser . " " . s:url
-  execute s:cmd
-  redraw!
-endfunction
+    function! OnlineDoc()
+        if &ft =~ "cpp"
+            let s:urlTemplate = "\"https://www.google.com/search?q=%&btnI\""
+        elseif &ft =~ "ruby"
+            let s:urlTemplate = "http://www.ruby-doc.org/core/classes/%.html"
+        elseif &ft =~ "perl"
+            let s:urlTemplate = "http://perldoc.perl.org/functions/%.html"
+        else
+            let s:urlTemplate = "\"https://www.google.com/search?q=%&btnI\""
+        endif
+        let s:browser = "firefox"
+        let s:wordUnderCursor = expand("<cword>")
+        let s:url = substitute(s:urlTemplate, "%", s:wordUnderCursor, "g")
+        let s:cmd = "silent !" . s:browser . " " . s:url
+        execute s:cmd
+        redraw!
+    endfunction
 
-" Online doc search.
-map Q :call OnlineDoc()<CR>
-map <leader>c <ESC>:tabclose<CR>
+    " Online doc search.
+    map Q :call OnlineDoc()<CR>
+    map <leader>c <ESC>:tabclose<CR>
 
 " ================================================= "
 "            Plugin Settings                        "
@@ -936,7 +943,7 @@ hi clear SignColumn
     let g:clang_auto_select = 1
     let g:clang_complete_auto  = 0
     let g:clang_snippets = 1
-	let g:clang_snippets_engine = 'ultisnips'
+    let g:clang_snippets_engine = 'ultisnips'
     let g:clang_use_library = 1
     let g:clang_debug = 0
     let g:clang_complete_macros = 1
@@ -977,21 +984,23 @@ hi clear SignColumn
         \ 'text' : 1,
         \ 'conque_term': 1,
         \}
-  map <leader>d :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+    map <leader>d :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " ------------------------------ "
 "     mark                       "
 " ------------------------------ "
-   "let g:loaded_quickfixstatus = 0
+   let g:loaded_quickfixstatus = 1  " Disable quickfixstatus plugin
 
 " ------------------------------ "
 "     Syntastic                  "
 " ------------------------------ "
    let g:syntastic_error_symbol='✗'
    let g:syntastic_warning_symbol='⚠'
-   let g:syntastic_echo_current_error=0
-   let g:syntastic_enable_signs=0
-   "let g:syntastic_always_populate_loc_list=1
+   let g:syntastic_echo_current_error=1
+   let g:syntastic_enable_signs=1
+   let g:syntastic_always_populate_loc_list = 0
+   let g:syntastic_always_populate_qf_list = 1
 
 " ------------------------------ "
 "     Syntastic                  "
