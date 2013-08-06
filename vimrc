@@ -676,6 +676,7 @@
     command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_
         \ | diffthis | wincmd p | diffthis
 
+    command! QuickfixClear call setqflist([])
 
 " ------------------------------ "
 "     Online Documentation       "
@@ -731,7 +732,7 @@
 " ------------------------------ "
 "     SuperTab Plugin            "
 " ------------------------------ "
-    let g:SuperTabDefaultCompletionType = '<C-Tab>' " YCM Completion
+    let g:SuperTabDefaultCompletionType = '<c-tab>' " YCM Completion
     "let g:SuperTabDefaultCompletionType = "context"
     let g:SuperTabContextDefaultCompletionType = "<c-n>"
     let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
@@ -956,6 +957,7 @@ hi clear SignColumn
 " ------------------------------ "
 "    YouCompleteMe               "
 " ------------------------------ "
+    "let g:loaded_youcompleteme = 1
     let g:ycm_key_invoke_completion = ''                           " Default completion key
     let g:ycm_key_list_select_completion = ['<C-TAB>', '<Down>']   " Changed caused conflict with UltiSnips
     let g:ycm_key_list_previous_completion = ['<C-S-TAB>', '<Up>'] " Changed caused conflict with UltiSnips
