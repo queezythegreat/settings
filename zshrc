@@ -86,6 +86,10 @@
         eval `dircolors`
     fi
 
+    if type ack-grep &> /dev/null; then
+        alias ack='ack-grep'
+    fi
+
 
     if [ "$(uname)" = "Darwin" ]; then
         alias ls='ls -G'
