@@ -136,16 +136,46 @@
         map <C-N> :tabnext<CR>
         map <C-P> :tabprev<CR>
 
-        map <leader>1 :tabnext 1<CR>
-        map <leader>2 :tabnext 2<CR>
-        map <leader>3 :tabnext 3<CR>
-        map <leader>4 :tabnext 4<CR>
-        map <leader>5 :tabnext 5<CR>
-        map <leader>6 :tabnext 6<CR>
-        map <leader>7 :tabnext 7<CR>
-        map <leader>8 :tabnext 8<CR>
-        map <leader>9 :tabnext 9<CR>
-        map <leader>0 :tabnext 10<CR>
+        map <leader>1  :tabnext  1<CR>
+        map <leader>2  :tabnext  2<CR>
+        map <leader>3  :tabnext  3<CR>
+        map <leader>4  :tabnext  4<CR>
+        map <leader>5  :tabnext  5<CR>
+        map <leader>6  :tabnext  6<CR>
+        map <leader>7  :tabnext  7<CR>
+        map <leader>8  :tabnext  8<CR>
+        map <leader>9  :tabnext  9<CR>
+        map <leader>10 :tabnext 10<CR>
+        map <leader>11 :tabnext 11<CR>
+        map <leader>12 :tabnext 12<CR>
+        map <leader>13 :tabnext 13<CR>
+        map <leader>14 :tabnext 14<CR>
+        map <leader>15 :tabnext 15<CR>
+        map <leader>16 :tabnext 16<CR>
+        map <leader>17 :tabnext 17<CR>
+        map <leader>18 :tabnext 18<CR>
+        map <leader>19 :tabnext 19<CR>
+        map <leader>20 :tabnext 20<CR>
+        map <leader>21 :tabnext 21<CR>
+        map <leader>22 :tabnext 22<CR>
+        map <leader>23 :tabnext 23<CR>
+        map <leader>24 :tabnext 24<CR>
+        map <leader>25 :tabnext 25<CR>
+        map <leader>26 :tabnext 26<CR>
+        map <leader>27 :tabnext 27<CR>
+        map <leader>28 :tabnext 28<CR>
+        map <leader>29 :tabnext 29<CR>
+        map <leader>30 :tabnext 30<CR>
+        map <leader>31 :tabnext 31<CR>
+        map <leader>32 :tabnext 32<CR>
+        map <leader>33 :tabnext 33<CR>
+        map <leader>34 :tabnext 34<CR>
+        map <leader>35 :tabnext 35<CR>
+
+        " Remember last active tab
+        let g:lasttab = 1
+        nmap <Leader><tab> :exe "tabnext ".g:lasttab<CR>
+        au TabLeave * let g:lasttab = tabpagenr()
 
         " See colorscheme desert256 for colors
 
