@@ -733,6 +733,24 @@
     map Q :call OnlineDoc()<CR>
     map <leader>c <ESC>:tabclose<CR>
 
+" ------------------------------ "
+"     mkdir on Save              "
+" ------------------------------ "
+function! s:CreateDirStructureOnSave(file, buf)
+    if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+        let dir=fnamemodify(a:file, ':h')
+        if !isdirectory(dir)
+            call mkdir(dir, 'p')
+        endif
+    endif
+endfunction
+
+augroup CreateDirOnSave
+    autocmd!
+    autocmd BufWritePre * :call s:CreateDirStructureOnSave(expand('<afile>'), +expand('<abuf>'))
+augroup END
+
+
 " ================================================= "
 "            Plugin Settings                        "
 " ================================================= "
@@ -762,7 +780,7 @@
 " ------------------------------ "
 "     SuperTab Plugin            "
 " ------------------------------ "
-    let g:SuperTabDefaultCompletionType = '<c-tab>' " YCM Completion
+    let g:SuperTabDefaultCompletionType = '<C-TAB>' " YCM Completion
     "let g:SuperTabDefaultCompletionType = "context"
     let g:SuperTabContextDefaultCompletionType = "<c-n>"
     let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
@@ -902,6 +920,7 @@ hi clear SignColumn
 " ------------------------------ "
 "     PathoGen Loader            "
 " ------------------------------ "
+    let g:pathogen_disabled = ['jedi-vim']
     call pathogen#infect() 
 
 " ------------------------------ "
@@ -988,7 +1007,7 @@ hi clear SignColumn
 "    YouCompleteMe               "
 " ------------------------------ "
     "let g:loaded_youcompleteme = 1
-    let g:ycm_key_invoke_completion = ''                           " Default completion key
+    let g:ycm_key_invoke_completion = '<F6>'                       " Default completion key
     let g:ycm_key_list_select_completion = ['<C-TAB>', '<Down>']   " Changed caused conflict with UltiSnips
     let g:ycm_key_list_previous_completion = ['<C-S-TAB>', '<Up>'] " Changed caused conflict with UltiSnips
     let g:ycm_complete_in_comments = 0
@@ -1038,7 +1057,7 @@ hi clear SignColumn
 "     Syntastic                  "
 " ------------------------------ "
    let g:jedi#show_function_definition = 0
-   let g:jedi#popup_on_dot = 0
+   let g:jedi#popup_on_dot = 1
    let g:jedi#popup_select_first = 0
    "let g:jedi#auto_vim_configuration = 0
    hi link SyntasticWarning SyntasticWarningSign
