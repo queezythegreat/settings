@@ -251,6 +251,12 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     "DiffDelete
     "DiffText
     "ErrorMsg
+    
+    call <SID>X("DiffAdd",    "",       "005f00", "bold")
+    call <SID>X("DiffChange", "",       "000000", "")
+    call <SID>X("DiffDelete", "590000", "590000", "")
+    call <SID>X("DiffText",   "",       "444444", "")
+
     "call <SID>X("VertSplit", "c2bfa5", "7f7f7f", "reverse")
     call <SID>X("Folded", "ffd700", "4d4d4d", "")
     call <SID>X("FoldColumn", "d2b48c", "4d4d4d", "")
@@ -412,16 +418,21 @@ hi clear SignColumn
 "          Diff Settings         "
 " ------------------------------ "
 
-    hi clear DiffAdd
-    hi clear DiffChange
-    hi clear DiffDelete
-    hi clear DiffText
+    "hi clear DiffAdd
+    "hi clear DiffChange
+    "hi clear DiffDelete
+    "hi clear DiffText
 
-    hi link DiffAdd Visual
-    hi link DiffChange Search
-    hi DiffDelete  cterm=NONE ctermfg=1 ctermbg=1
-    "hi link DiffDelete ErrorMsg
-    hi link DiffText ErrorMsg
+    "hi DiffChange cterm=bold
+    "hi DiffChange cterm=bold
+    "hi DiffDelete cterm=bold
+    "hi DiffText   cterm=bold
+
+    "hi link DiffAdd Visual
+    "hi link DiffChange Search
+    "hi DiffDelete  cterm=NONE ctermfg=1 ctermbg=1
+    ""hi link DiffDelete ErrorMsg
+    "hi link DiffText ErrorMsg
 
 " ------------------------------ "
 "       NERDTree Settings        "
