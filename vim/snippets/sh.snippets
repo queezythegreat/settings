@@ -1,4 +1,5 @@
 snippet current_path "Current Script Path" !b
-SCRIPT_PATH=$(cd "$(dirname "$0")"; pwd)
+SCRIPT_PATH=$(cd "$(dirname "\$0")"; pwd)
 SCRIPT_PWD=$(pwd)
+$0
 endsnippet
