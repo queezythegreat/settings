@@ -2,7 +2,7 @@
 	name = QueezyTheGreat
 	email = queezythegreat@gmail.com
 [merge]
-    tool = vimdiff
+    tool = vimdiff3
 #    ff = false      # Always create a merge commit
 
 
