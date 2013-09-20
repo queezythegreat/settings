@@ -512,4 +512,11 @@ hi clear SignColumn
     hi link SyntasticWarningLine      ModeMsg
     hi link SyntasticWarningSign      Todo
 
+
+" ------------------------------ "
+"  NON ASCII Highlight           "
+" ------------------------------ "
+syntax match nonascii "[^\x00-\x7F]"
+highlight nonascii guibg=Red ctermbg=2 ctermbg=2
+
 " vim: set fdl=0 fdm=marker:
