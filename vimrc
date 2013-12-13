@@ -58,7 +58,7 @@
 
     set nostartofline                       " Don't jump to begining of the line
 
-    set iskeyword=@,48-57,_,192-255,-,.,@-@
+    set iskeyword=@,48-57,_,192-255,-,@-@
 
     set whichwrap=<,>,h,l,b                 " Allow navigation with line wrapping
 
@@ -780,12 +780,17 @@ augroup END
 " ------------------------------ "
 "     SuperTab Plugin            "
 " ------------------------------ "
-    let g:SuperTabDefaultCompletionType = '<C-TAB>' " YCM Completion
+    "let g:SuperTabDefaultCompletionType = '<C-TAB>' " YCM Completion
     "let g:SuperTabDefaultCompletionType = "context"
-    let g:SuperTabContextDefaultCompletionType = "<c-n>"
-    let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
-    let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
-    let g:SuperTabContextDiscoverDiscovery = ["&completefunc:<c-x><c-u>", "&omnifunc:<c-x><c-o>"]
+    "let g:SuperTabContextDefaultCompletionType = "<c-n>"
+    "let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
+    "let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
+    "let g:SuperTabContextDiscoverDiscovery = ["&completefunc:<c-x><c-u>", "&omnifunc:<c-x><c-o>"]
+
+   let g:SuperTabDefaultCompletionType = 'context'
+   let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
+   let g:SuperTabLongestHighlight=1
+   let g:SuperTabLongestEnhanced=1
 
 " ------------------------------ "
 "     NERDTree Settings          "
@@ -939,11 +944,11 @@ hi clear SignColumn
 " ------------------------------ "
    let g:UltiSnipsUsePythonVersion = 2           " Force Python version 2
 
-   if has("gui_running")
-       let g:UltiSnipsExpandTrigger="<c-space>"
-   else
-       let g:UltiSnipsExpandTrigger="<Nul>"
-   endif
+  " if has("gui_running")
+  "     let g:UltiSnipsExpandTrigger="<c-space>"
+  " else
+  "     let g:UltiSnipsExpandTrigger="<Nul>"
+  " endif
    let g:UltiSnipsJumpForwardTrigger="<c-j>"
    let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
@@ -1008,8 +1013,8 @@ hi clear SignColumn
 " ------------------------------ "
     "let g:loaded_youcompleteme = 1
     let g:ycm_key_invoke_completion = '<F6>'                       " Default completion key
-    let g:ycm_key_list_select_completion = ['<C-TAB>', '<Down>']   " Changed caused conflict with UltiSnips
-    let g:ycm_key_list_previous_completion = ['<C-S-TAB>', '<Up>'] " Changed caused conflict with UltiSnips
+  "  let g:ycm_key_list_select_completion = ['<C-TAB>', '<Down>']   " Changed caused conflict with UltiSnips
+  "  let g:ycm_key_list_previous_completion = ['<C-S-TAB>', '<Up>'] " Changed caused conflict with UltiSnips
     let g:ycm_complete_in_comments = 0
     let g:ycm_complete_in_strings = 1
     let g:ycm_confirm_extra_conf = 1                               " Ask before loading .ycm_extra_conf.py
