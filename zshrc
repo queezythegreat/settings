@@ -207,36 +207,12 @@ function teamcity_wget {
 #=============================================================================#
 #                                  chroots                                    #
 #=============================================================================#
-
-    # chroot_environment ENV_NAME
-    function chroot_environment {
-        local CHROOT_NAME="${1}"
-        local CHROOT_SCRIPT="${2}"
-        local CHROOT_PATH="/srv/chroot/${CHROOT_NAME}"
-        MOUNTED=$(df -a | grep "${CHROOT_PATH}$")
-
-        # Mount chroot environment if not mounted
-        [ -z "${MOUNTED}" ] && ${CHROOT_SCRIPT}
-
-        # Enter chroot environment
-        chroot ${CHROOT_PATH} /bin/bash -c "cd;export BUILD_ENVIRONMENT=${CHROOT_NAME};${SHELL}"
-    }
-
-    for ENV_SCRIPT in ${HOME}/storage/chroots/chroot-*; do
-        local ENV_NAME=$(basename ${ENV_SCRIPT} | sed 's|chroot-\(.*\)|\1|' )
-        local ALIAS_NAME="env_$(echo ${ENV_NAME}| tr -d '.-')"
-        eval alias ${ALIAS_NAME}=\"chroot_environment ${ENV_NAME} ${ENV_SCRIPT}\"
-    done &> /dev/null
+    source ~/.zsh/scripts/chroot_environments.sh
 
     alias u1004='chroot /srv/chroot/ubuntu-10.04 /bin/bash -c "cd;export BUILD_ENVIRONMENT=ubuntu-10.04;${SHELL}"'
     alias u1104='chroot /srv/chroot/ubuntu-11.04 /bin/bash -c "cd;export BUILD_ENVIRONMENT=ubuntu-11.04;${SHELL}"'
     alias u1204='chroot /srv/chroot/ubuntu-12.04 /bin/bash -c "cd;export BUILD_ENVIRONMENT=ubuntu-12.04;${SHELL}"'
     alias c64='chroot /srv/chroot/centos-6.4 /bin/bash -c "cd;export BUILD_ENVIRONMENT=centos-6.4;${SHELL}"'
-
-    if [ ! -x "${BUILD_ENVIRONMENT}" -a -f "${BUILD_ENVIRONMENT}.sh" ]; then
-        . "${BUILD_ENVIRONMENT}.sh"
-    fi
-
 
 #=============================================================================#
 #                                    VIM                                      #

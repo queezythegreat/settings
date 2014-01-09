@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+# Place this script next to your directories with chroots.
+# For every chroot you have, create a symlink to this script
+# with the follwoing name:
+#
+#     chroot-NAME_OF_CHROOT_DIR
+#
+# For example, if we have a chroot directory named centos_6.4
+# located next to chroot_mount, we would create a symlink like
+# this:
+#
+#     ln -s chroot_mount chroot-centos_6.4
+#
+# When a the symlink is executed, it will create the chroot
+# environment in /srv/chroots/NAME_OF_CHROOT_DIR
+
+SCRIPT_NAME=$(basename ${0})
+SCRIPT_PATH=$(cd $(dirname ${0}); pwd)
+
+CHROOT_NAME=$(echo ${SCRIPT_NAME} | sed 's/chroot-\(.*\)/\1/')
+
+
+CHROOT_SRC="${SCRIPT_PATH}/${CHROOT_NAME}"
+CHROOT_DST="/srv/chroot/${CHROOT_NAME}"
+
+echo "Mounting ${CHROOT_NAME} rootfs"
+
+if [ ! -d "${CHROOT_SRC}" ]; then
+    echo "chroot source does not exists: ${CHROOT_SRC}"
+    exit 1
+fi
+
+if [ ! -d "${CHROOT_DST}" ]; then
+    echo "chroot destination does not exists: ${CHROOT_DST}"
+    echo "Creating chroot destination..."
+    sudo mkdir ${CHROOT_DST}
+fi
+
+
+sudo mount -o bind ${CHROOT_SRC} ${CHROOT_DST}
+
+echo "Mounting system mounts"
+sudo mount -o bind /dev     ${CHROOT_DST}/dev
+sudo mount -o bind /dev/pts ${CHROOT_DST}/dev/pts
+sudo mount -o bind /sys     ${CHROOT_DST}/sys
+sudo mount -o bind /proc    ${CHROOT_DST}/proc
+sudo mount -o bind /home    ${CHROOT_DST}/home
+sudo mount -o bind /opt     ${CHROOT_DST}/opt
+
+echo "done..."
