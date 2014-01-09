@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-# Place this script next to your directories with chroots.
 # For every chroot you have, create a symlink to this script
 # with the follwoing name:
 #
