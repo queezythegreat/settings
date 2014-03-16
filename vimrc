@@ -814,10 +814,12 @@ hi clear SignColumn
 " ------------------------------ "
 "     FSwitch                    "
 " ------------------------------ "
-    au! BufEnter *.cpp let b:fswitchdst = 'hpp,hxx,h' | let b:fswitchlocs = './'
-    au! BufEnter *.hpp let b:fswitchdst = 'cpp,cxx,c' | let b:fswitchlocs = './'
-    au! BufEnter *.c   let b:fswitchdst = 'h,hpp,hxx' | let b:fswitchlocs = './'
-    au! BufEnter *.h   let b:fswitchdst = 'cpp,c,cxx' | let b:fswitchlocs = './'
+    au! BufEnter *.cpp     let b:fswitchdst = 'hpp,hxx,h' | let b:fswitchlocs = './'
+    au! BufEnter *.hpp     let b:fswitchdst = 'cpp,cxx,c' | let b:fswitchlocs = './'
+    au! BufEnter *.c       let b:fswitchdst = 'h,hpp,hxx' | let b:fswitchlocs = './'
+    au! BufEnter *.h       let b:fswitchdst = 'cpp,c,cxx' | let b:fswitchlocs = './'
+    au! BufEnter *.aspx    let b:fswitchdst = 'aspx.cs'   | let b:fswitchlocs = './'
+    au! BufEnter *.aspx.cx let b:fswitchdst = 'aspx'      | let b:fswitchlocs = './'
     " Switch to file inplace
     nmap <silent> <Leader>of :FSHere<cr>
     " Switch to the file and load it into the window on the right >
