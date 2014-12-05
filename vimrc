@@ -10,6 +10,8 @@
     set guioptions=
     set sessionoptions=blank,buffers,curdir,folds,globals,localoptions,options,resize,tabpages,winsize,winpos
     set clipboard=unnamed,autoselect   " Yank/Paste globally
+    set encoding=utf-8  " The encoding displayed.
+    set fileencoding=utf-8  " The encoding written to file.
 
 
 " ------------------- "
@@ -1013,7 +1015,7 @@ hi clear SignColumn
 " ------------------------------ "
 "    YouCompleteMe               "
 " ------------------------------ "
-    "let g:loaded_youcompleteme = 1
+    let g:loaded_youcompleteme = 1
     let g:ycm_key_invoke_completion = '<F6>'                       " Default completion key
   "  let g:ycm_key_list_select_completion = ['<C-TAB>', '<Down>']   " Changed caused conflict with UltiSnips
   "  let g:ycm_key_list_previous_completion = ['<C-S-TAB>', '<Up>'] " Changed caused conflict with UltiSnips
@@ -1068,3 +1070,14 @@ hi clear SignColumn
    let g:jedi#popup_select_first = 0
    "let g:jedi#auto_vim_configuration = 0
    hi link SyntasticWarning SyntasticWarningSign
+
+" ------------------------------ "
+"     Emmet                      "
+" ------------------------------ "
+    let g:user_emmet_expandabbr_key = "<c-y>y,"
+    imap <C-e> <c-o>:call <SID>CallEmmet("EmmetExpandAbbr")<CR>
+    nmap <C-e> :call emmet#expandAbbr(3,"")<cr>
+    vmap <C-e> :call emmet#expandAbbr(2,"")<cr>
+    function! s:CallEmmet(plug)
+      call feedkeys("\<plug>(".a:plug.")")
+    endfunction
