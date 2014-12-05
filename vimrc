@@ -425,7 +425,7 @@
 " ------------------------------ "
 "     Status Line Settings       "
 " ------------------------------ "
-    let &statusline="   %f  %<%=%(|  %M  %)%(|  %R  %)%0*|  %{&ff}  %(|  %W  %)%(|  %Y  %)| %4l %3v    %3p%% "
+    let &statusline="   %f  %<%=| %{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\" BOMB\":\"\")} %(|  %M  %)%(|  %R  %)%0*|  %{&ff}  %(|  %W  %)%(|  %Y  %)| %4l %3v    %3p%% "
 
 
 " ------------------------------ "
@@ -1015,7 +1015,9 @@ hi clear SignColumn
 " ------------------------------ "
 "    YouCompleteMe               "
 " ------------------------------ "
-    let g:loaded_youcompleteme = 1
+    if has("win32")
+       let g:loaded_youcompleteme = 1
+    endif
     let g:ycm_key_invoke_completion = '<F6>'                       " Default completion key
   "  let g:ycm_key_list_select_completion = ['<C-TAB>', '<Down>']   " Changed caused conflict with UltiSnips
   "  let g:ycm_key_list_previous_completion = ['<C-S-TAB>', '<Up>'] " Changed caused conflict with UltiSnips
@@ -1055,8 +1057,10 @@ hi clear SignColumn
 " ------------------------------ "
 "     Syntastic                  "
 " ------------------------------ "
-   let g:syntastic_error_symbol='✗'
-   let g:syntastic_warning_symbol='⚠'
+   if !has("win32")
+       let g:syntastic_error_symbol='✗'
+       let g:syntastic_warning_symbol='⚠'
+   endif
    let g:syntastic_echo_current_error=1
    let g:syntastic_enable_signs=1
    let g:syntastic_always_populate_loc_list = 0
