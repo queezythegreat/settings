@@ -12,6 +12,7 @@
     set clipboard=unnamed,autoselect   " Yank/Paste globally
     set encoding=utf-8  " The encoding displayed.
     set fileencoding=utf-8  " The encoding written to file.
+    set mouse=nicr
 
 
 " ------------------- "

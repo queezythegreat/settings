@@ -51,7 +51,7 @@
     EDITOR="vim"
 
     PYTHON_PATH="python-libs:$PYTHON_PATH"
-    CPATH="$HOME/bin:/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/sbin:/usr/X11R6/bin:/usr/games:."
+    CPATH="/usr/local/bin:$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/sbin:/usr/X11R6/bin:/usr/games:."
     echo ${PATH} | grep -q "${CPATH}" || export PATH="$CPATH:$PATH"
     export PATH="${HOME}/.scripts:${PATH}"
 
@@ -163,7 +163,7 @@
         setopt promptpercent
         local JOB_COUNT=$(jobs | wc -l)
         local PROMPT_TITLE_PREFIX=""
-        [ ${JOB_COUNT} -lt 1 ] && PROMPT_TITLE_PREFIX="● "
+        [ "${JOB_COUNT}" -lt 1 ] && PROMPT_TITLE_PREFIX="● "
         if [ -z "${SHORT_PROMPT_TITLE}" ]; then
             print -Pn "\e]0;${PROMPT_TITLE_PREFIX}%~\a"
         else
