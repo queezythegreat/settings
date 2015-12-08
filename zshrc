@@ -29,6 +29,7 @@
     fpath=(~/.zsh/functions/VCS_Info
            ~/.zsh/functions/VCS_Info/Backends
            ~/.zsh/functions
+           /usr/local/share/zsh-completions
            $fpath)
 
     cdpath=(~/
@@ -56,9 +57,9 @@
     export PATH="${HOME}/.scripts:${PATH}"
 
 
-    LANG=en_US.utf8
-    LC_ALL=
-    LC_COLLATE="C"
+    export LANG=en_US.UTF-8
+    export LC_ALL=en_US.UTF-8
+    export LC_COLLATE="C"
     unsetopt ALL_EXPORT
 
 
@@ -161,7 +162,7 @@
     function precmd () {
         setopt prompt_subst
         setopt promptpercent
-        local JOB_COUNT=$(jobs | wc -l)
+        local JOB_COUNT="$(jobs | wc -l)"
         local PROMPT_TITLE_PREFIX=""
         [ "${JOB_COUNT}" -lt 1 ] && PROMPT_TITLE_PREFIX="● "
         if [ -z "${SHORT_PROMPT_TITLE}" ]; then
