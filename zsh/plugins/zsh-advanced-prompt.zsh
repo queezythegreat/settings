@@ -77,7 +77,7 @@ function advanced_prompt_setup() {
     SEPERATOR='${LINE_COLOR}${PR_SHIFT_IN}${PR_HBAR}${PR_HBAR}${PR_SHIFT_OUT}'
 
 
-    USER_HOST='${USER_COLOR}%(!.%SROOT%s.%n)${HOST_COLOR}@%m'
+    USER_HOST='${USER_COLOR}%(!.%SROOT%s.%n)${HOST_COLOR}@%M'
     CURRENT_WD='${CWD_COLOR}%${PR_PWDLEN}<...<%~%<<'
     #CURRENT_TIME='${(e)PR_APM}$PR_YELLOW%D{%H:%M}$PR_LIGHT_BLUE:%(!.$PR_RED.$PR_WHITE)%#'
 
@@ -124,7 +124,7 @@ function advanced_prompt_precmd() {
     PR_FILLBAR=""
     PR_PWDLEN=""
     
-    local promptsize=${#${(%):---(%n@%m)---()--}}
+    local promptsize=${#${(%):---(%n@%M)---()--}}
     local pwdsize=${#${(%):-%~}}
     local chrootsize=${#CHROOT}
     local vcs_info_size=$((${#vcs_info_msg_0_}))
