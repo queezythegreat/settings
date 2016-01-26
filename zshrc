@@ -52,8 +52,8 @@
     EDITOR="vim"
 
     PYTHON_PATH="python-libs:$PYTHON_PATH"
-    CPATH="/usr/local/bin:$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/sbin:/usr/X11R6/bin:/usr/games:."
-    echo ${PATH} | grep -q "${CPATH}" || export PATH="$CPATH:$PATH"
+    TEMPATH="/usr/local/bin:$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/sbin:/usr/X11R6/bin:/usr/games:."
+    echo ${PATH} | grep -q "${TEMPATH}" || export PATH="$TEMPATH:$PATH"
     export PATH="${HOME}/.scripts:${PATH}"
 
 
