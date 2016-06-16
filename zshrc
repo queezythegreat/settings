@@ -56,6 +56,22 @@
     echo ${PATH} | grep -q "${TEMPATH}" || export PATH="$TEMPATH:$PATH"
     export PATH="${HOME}/.scripts:${PATH}"
 
+    if [ -d "/usr/local/Cellar" ]; then
+        CPATH="${CPATH}"
+        for include_path in /usr/local/Cellar/*/*/include; do
+            CPATH="${include_path}:${CPATH}"
+        done
+
+        LIBRARY_PATH="${LIBRARY_PATH}"
+        for library_path in /usr/local/Cellar/*/*/lib; do
+            LIBRARY_PATH="${library_path}:${LIBRARY_PATH}"
+        done
+    fi
+
+    # Disable virtualenv prompt modification
+    #
+    export VIRTUAL_ENV_DISABLE_PROMPT="x"
+    [ ! -z "${VIRTUAL_ENV}" ] && export BUILD_ENVIRONMENT="VIRTENV"
 
     export LANG=en_US.UTF-8
     export LC_ALL=en_US.UTF-8
