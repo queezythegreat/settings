@@ -724,7 +724,8 @@
         else
             let s:urlTemplate = "\"https://www.google.com/search?q=%&btnI\""
         endif
-        let s:browser = "firefox"
+        "let s:browser = "firefox"
+        let s:browser = "open"
         let s:wordUnderCursor = expand("<cword>")
         let s:url = substitute(s:urlTemplate, "%", s:wordUnderCursor, "g")
         let s:cmd = "silent !" . s:browser . " " . s:url
