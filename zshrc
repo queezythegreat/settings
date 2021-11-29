@@ -5,6 +5,7 @@
 #=============================================================================#
 
 
+if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 
 
 
@@ -25,6 +26,7 @@
     setopt HASH_CMDS           # turns on hashing
     setopt extended_glob
     setopt auto_cd
+    setopt histignorespace
 
     fpath=(~/.zsh/functions/VCS_Info
            ~/.zsh/functions/VCS_Info/Backends
@@ -115,6 +117,15 @@
         alias ls='ls --color=auto '
     fi
 
+    IGNORE_COLOR='c235'
+    FILE_COLOR='c237'
+    ERROR_COLOR='c196'
+    WARN_COLOR='c220'
+    SOURCE_COLOR='c244'
+    INFO_COLOR='c34'
+    DEBUG_COLOR='c252'
+
+    alias k="kubectl"
 
 #=============================================================================#
 #                                  Completion                                 #
@@ -260,6 +271,18 @@ alias date_formated='date +%m%d%H%M%Y.%S'
 alias qtest_color="colorize green 'PASS.*' white@bold '^\*\*\*.*' white '^Totals:' white '^Config:.*' red '[0-9]\+ failed' green '[0-9]\+ passed' yellow '[0-9]\+ skipped' c236 '^QDEBUG :.*' c240 '=\+ ENTER.*' c240 '=\+ EXIT.*' c236 '.*' except '^[^:]\+:.*' red 'FAIL!  : .*' red '   Loc: .*'"
 
 #=============================================================================#
+#                               MiniKube                                      #
+#=============================================================================#
+if [ $commands[minikube] ]; then
+  source <(minikube completion zsh)
+fi
+if [ $commands[kubectl] ]; then
+  source <(kubectl completion zsh)
+fi
+if [ $commands[kompose] ]; then
+    source <(kompose completion zsh)
+fi
+#=============================================================================#
 #                               Local Settings                                #
 #=============================================================================#
 ZSHRC_LOCAL="${HOME}/.zshrc_local"
@@ -267,3 +290,7 @@ ZSHRC_LOCAL="${HOME}/.zshrc_local"
 if [ -f "${ZSHRC_LOCAL}" ]; then
     source ${ZSHRC_LOCAL}
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
