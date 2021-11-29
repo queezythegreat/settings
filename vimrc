@@ -948,7 +948,7 @@ hi clear SignColumn
 " ------------------------------ "
 "     UltiSnips                  "
 " ------------------------------ "
-   let g:UltiSnipsUsePythonVersion = 2           " Force Python version 2
+   "let g:UltiSnipsUsePythonVersion = 2           " Force Python version 2
 
   " if has("gui_running")
   "     let g:UltiSnipsExpandTrigger="<c-space>"
