@@ -95,7 +95,8 @@ function advanced_prompt_setup() {
 
     CHROOT=""
     [[ ! -z "${BUILD_ENVIRONMENT}" ]] && CHROOT="[${BUILD_ENVIRONMENT}] "
-    [[ ! -z "${CHROOT}" ]] && CHROOT_PRMPT="${PR_RED}${CHROOT}"
+    #[[ ! -z "${CHROOT}" ]] && CHROOT_PRMPT='${PR_RED}${CHROOT}'
+    CHROOT_PRMPT='${PR_RED}${CHROOT}'
 
     VCS_TYPE='${VCS_VCS:+'${SEPERATOR}' ${PR_RED}${VCS_VCS:u}${PR_YELLOW}${VCS_BRANCH:+[}${VCS_BRANCH}${VCS_BRANCH:+]}}${VCS_VCS:+ }'
     VCS_STAGE='${PR_RED}${VCS_UNSTAGED:-'${SPACER}'}${PR_GREEN}${VCS_STAGED:-'${SPACER}'}'
