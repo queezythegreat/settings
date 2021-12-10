@@ -55,19 +55,19 @@ def cleanup_symlinks(logfile):
                         os.remove(symlink)
                         removed.append(symlink)
                         if verbose :
-                            print 'Removing symlink %s' % symlink
-                    except OSError, err:
-                        print 'An error occured removing %s symlink.' % symlink
+                            print('Removing symlink %s' % symlink)
+                    except OSError as err:
+                        print('An error occured removing %s symlink.' % symlink)
                 elif verbose:
-                    print 'Not removing %s' % symlink
+                    print('Not removing %s' % symlink)
             log.close()
             log = open(logfile,'w')
             for symlink in symlinks:
                 if symlink not in removed and lexists(symlink):
                     log.write(symlink+'\n')
-        except OSError, err:
-            print 'An error occured while trying to read %s log file' % logfile
-            print err
+        except OSError as err:
+            print('An error occured while trying to read %s log file' % logfile)
+            print(err)
         else:
             log.close()
 
@@ -83,7 +83,7 @@ def log_symlinks(logfile, symlinks):
         for symlink in symlinks:
             log.write(symlink+'\n')
     except:
-        print 'An error occured while writing log file(%s)' % logfile
+        print('An error occured while writing log file(%s)' % logfile)
     else:
         log.close()
 
@@ -101,12 +101,12 @@ def create_symlinks(src_dir, configs, dest_dir, prefix):
                 os.symlink(sym_src, sym_dst)
                 symlinks.append(sym_dst)
                 if verbose:
-                    print 'Created symlink %s to %s' % (sym_dst, sym_src)
-            except OSError, err:
+                    print('Created symlink %s to %s' % (sym_dst, sym_src))
+            except OSError as err:
                 if err.errno == 17:
-                    print '\nFailed to create symlink %s to %s\n' % (sym_dst, sym_src)
+                    print('\nFailed to create symlink %s to %s\n' % (sym_dst, sym_src))
             except:
-                    print '\nAn unknown error occured during the creation of symlinks. Exiting...'
+                    print('\nAn unknown error occured during the creation of symlinks. Exiting...')
     return symlinks
 
 if __name__ == '__main__':
@@ -117,7 +117,7 @@ if __name__ == '__main__':
         if sys.argv[-1] == '-v':
             verbose = True
         elif sys.argv[-1] == '-h':
-            print __doc__
+            print(__doc__)
             sys.exit(0)
 
     fdir = abspath(dirname(__file__))
