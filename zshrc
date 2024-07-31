@@ -127,6 +127,18 @@ if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 
     alias k="kubectl"
 
+    alias dd="docker-develop"
+
+    if type bat &> /dev/null; then
+        alias cat='bat'       # Replace with better cat
+    fi
+    if type lsd &> /dev/null; then
+        alias ls='lsd'        # Replace with better ls
+    fi
+
+    alias yabai-windows="yabai -m query --windows | jq '.[] | .app + \": \" + .title'"
+    alias lg='lazygit'
+
 #=============================================================================#
 #                                  Completion                                 #
 #=============================================================================#
