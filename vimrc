@@ -518,128 +518,6 @@
 
 
 " ------------------------------ "
-"     Build in Background        "
-" ------------------------------ "
-    let g:ConqueQuickfixOutput_showOutput = 0
-
-    function! ConqueQuickfixOutput(output)
-        if len(a:output) > 0
-            if g:ConqueQuickfixOutput_showOutput
-                echo a:output
-            endif
-            let g:ConqueMakeOutput .= substitute(a:output, '','', 'g')
-            silent cgete g:ConqueMakeOutput
-
-            " Send out make autocmd event
-            doautoall QuickFixCmdPost make
-        endif
-
-        if len(getqflist()) > 0
-            echo 'Compiler errors and warnings: 'len(getqflist())
-        else
-            echo 'Build successfull.'
-        endif
-        "echo 'Is active count: ' . g:ConqueCallbackCount
-        "let g:ConqueCallbackCount += 1
-    endfunction
-
-    " Set/display current make command (makeprg)
-    function! ConqueMakeCMD(...)
-        if a:0 > 0 && a:1 != ''
-            let cmd = a:1
-            let cmd = substitute(cmd, ' ','\\ ', 'g') " Escape space
-            let cmd = substitute(cmd, '"','\\"', 'g') " Escape quotes
-            execute 'set makeprg='. cmd
-        endif
-        echo 'Make CMD: '. &makeprg
-    endfunction
-
-    " Execute make command as subprocess using Conque
-    function! ConqueMake(...)
-        let g:ConqueMakeOutput = ''
-        cgete ''
-        "let g:ConqueCallbackCount = 0
-        if a:0 > 0
-            if a:1 != ''
-                let build_command = a:1
-            else
-                let build_command = &makeprg
-            endif
-        else
-            let build_command = &makeprg
-        endif
-
-        call CursorPosition("save")
-        let sp = conque_term#subprocess(build_command)
-        call sp.set_callback('ConqueQuickfixOutput')
-        call CursorPosition("restore")
-        echo 'Executed: ' . build_command
-    endfunction
-
-    " Save cursor and screen position
-    function! CursorPosition(action)
-        if a:action == "save"
-            let b:saveve = &virtualedit
-            let b:savesiso = &sidescrolloff
-            set virtualedit=all
-            set sidescrolloff=0
-            let b:curline = line(".")
-            let b:curvcol = virtcol(".")
-            let b:curwcol = wincol()
-            normal! g0
-            let b:algvcol = virtcol(".")
-            normal! M
-            let b:midline = line(".")
-            execute "normal! ".b:curline."G".b:curvcol."|"
-            let &virtualedit = b:saveve
-            let &sidescrolloff = b:savesiso
-        elseif a:action == "restore"
-            normal gg0
-            let b:saveve = &virtualedit
-            let b:savesiso = &sidescrolloff
-            set virtualedit=all
-            set sidescrolloff=0
-            execute "normal! ".b:midline."Gzz".b:curline."G0"
-            let nw = wincol() - 1
-            if b:curvcol != b:curwcol - nw
-                execute "normal! ".b:algvcol."|zs"
-                let s = wincol() - nw - 1
-                if s != 0
-                    execute "normal! ".s."zl"
-                endif
-            endif
-            execute "normal! ".b:curvcol."|"
-            let &virtualedit = b:saveve
-            let &sidescrolloff = b:savesiso
-            unlet b:saveve b:savesiso b:curline b:curvcol b:curwcol b:algvcol b:midline
-        endif
-        return ""
-    endfunction
-
-    function! LoadQuickfix(...)
-        if a:0 > 0
-            let build_output = a:1
-        else
-            let build_output = g:QuickfixFile
-        endif
-        silent execute 'cgetfile '. build_output
-        silent doautoall QuickFixCmdPost make
-    endfunction
-
-    command! -nargs=? -complete=shellcmd MakeCMD call ConqueMakeCMD('<args>')  " Set a makeprg command
-    command! -nargs=? -complete=shellcmd Make    call ConqueMake('<args>')     " ConqueMake command with completion
-
-    command! -nargs=? -complete=file LoadQuickfix call LoadQuickfix('<args>')     " Load quickfix from file
-
-    set makeprg=make\ -e\ TERM=\ -C\ build
-    compiler! cmake_gcc  " Set default compiler
-
-    let g:QuickfixFile = 'build_out' " Quifix Error file to load
-
-    map <F2> <ESC>:<C-U>call ConqueMake()<CR>
-    "map <F3> <ESC>:<C-U>call LoadQuickfix()<CR>
-
-" ------------------------------ "
 "     Background Terminal        "
 " ------------------------------ "
     function! BuildTerminalCMD(...)
@@ -759,18 +637,6 @@ augroup END
 "            Plugin Settings                        "
 " ================================================= "
 
-" ------------------------------ "
-"     Conque Terminal            "
-" ------------------------------ "
-    let g:ConqueTerm_CloseOnEnd = 1      " Close terminal on exit
-    let g:ConqueTerm_InsertOnEnter = 1   " Enter terminal automatically
-    let g:ConqueTerm_Color = 1           " 0 - no terminal colors
-                                         " 1 - limited terminal colors
-                                         " 2 - full color
-    let g:ConqueTerm_TERM =  'xterm'     " TERM setting
-    let g:ConqueTerm_ReadUnfocused = 1   " Read terminal even if unfocused
-    let g:ConqueTerm_CWInsert = 1
-    let g:ConqueTerm_StartMessages = 0   " Disable warning messages
 
 " ----------------------------- "
 "     PyLint Options            "
@@ -965,12 +831,6 @@ hi clear SignColumn
    map <leader>s <ESC>:UltiSnipsEdit<CR>
 
 " ------------------------------ "
-"     ProjectTags                "
-" ------------------------------ "
-    command! ProjectTags GenProTags
-    command! ProjectTagsBg GenProTagsBg
-
-" ------------------------------ "
 "     BufferGator                "
 " ------------------------------ "
     let g:buffergator_viewport_split_policy = "L"
@@ -1087,3 +947,14 @@ hi clear SignColumn
     function! s:CallEmmet(plug)
       call feedkeys("\<plug>(".a:plug.")")
     endfunction
+
+
+
+
+" ------------------------------ "
+"     Transparent Backround      "
+" ------------------------------ "
+"hi Normal guibg=NONE ctermbg=NONE
+"set background=light
+"colorscheme rosepine_dawn
+
