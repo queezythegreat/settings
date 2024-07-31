@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>dalle_model</key>
+	<string>dall-e-3</string>
+	<key>dalle_quality</key>
+	<string>hd</string>
+	<key>dalle_style</key>
+	<string>natural</string>
+	<key>gpt_model</key>
+	<string>gpt-4o</string>
+	<key>openai_api_key</key>
+	<string>sk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</string>
+	<key>openai_org_id</key>
+	<string>org-XXXXXXXXXXXXXXXXXXXXXXXX</string>
+</dict>
+</plist>

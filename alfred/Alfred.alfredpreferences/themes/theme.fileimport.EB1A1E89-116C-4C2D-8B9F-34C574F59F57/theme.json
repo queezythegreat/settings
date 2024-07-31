@@ -22,7 +22,7 @@
         "color" : "#4F5254E5"
       },
       "iconPaddingHorizontal" : 10,
-      "roundness" : 0,
+      "roundness" : 6,
       "paddingVertical" : 10,
       "iconSize" : 40
     },
@@ -47,7 +47,7 @@
       "borderPadding" : 0,
       "borderColor" : "#0000007F",
       "blur" : 36,
-      "roundness" : 1,
+      "roundness" : 12,
       "paddingVertical" : 10
     },
     "credit" : "Thanasis",
